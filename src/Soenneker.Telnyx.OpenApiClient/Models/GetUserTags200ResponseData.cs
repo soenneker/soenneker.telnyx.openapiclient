@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("number_tags") is { } nullNodeNumberTags && nullNodeNumberTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberTags = null;
-            if (parseNode.GetChildNode("outbound_profile_tags") is { } nullNodeOutboundProfileTags && nullNodeOutboundProfileTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundProfileTags = null;
+            if (parseNode.GetChildNode("number_tags") is null) { _explicitNullValueNumberTags = default!; _explicitNullProperties?.Remove("number_tags"); }
+            else if (parseNode.GetChildNode("number_tags") is { } nullNodeNumberTags && nullNodeNumberTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberTags = null;
+            if (parseNode.GetChildNode("outbound_profile_tags") is null) { _explicitNullValueOutboundProfileTags = default!; _explicitNullProperties?.Remove("outbound_profile_tags"); }
+            else if (parseNode.GetChildNode("outbound_profile_tags") is { } nullNodeOutboundProfileTags && nullNodeOutboundProfileTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundProfileTags = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A list of your tags on the given resource type. NOTE: The casing of the tags returned will not necessarily match the casing of the tags when they were added to a resource. This is because the tags will have the casing of the first time they were used within the Telnyx system regardless of source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NumberTags { get => _explicitNullValueNumberTags; set { _explicitNullValueNumberTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_tags"); else _explicitNullProperties?.Remove("number_tags"); } }
+        public List<string>? NumberTags { get => _explicitNullValueNumberTags; set { _explicitNullValueNumberTags = value; AdditionalData?.Remove("number_tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_tags"); else _explicitNullProperties?.Remove("number_tags"); } }
         private List<string>? _explicitNullValueNumberTags = default!;
 #nullable restore
 #else
-        public List<string> NumberTags { get => _explicitNullValueNumberTags; set { _explicitNullValueNumberTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_tags"); else _explicitNullProperties?.Remove("number_tags"); } }
+        public List<string> NumberTags { get => _explicitNullValueNumberTags; set { _explicitNullValueNumberTags = value; AdditionalData?.Remove("number_tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_tags"); else _explicitNullProperties?.Remove("number_tags"); } }
         private List<string> _explicitNullValueNumberTags = default!;
 #endif
         /// <summary>A list of your tags on the given resource type. NOTE: The casing of the tags returned will not necessarily match the casing of the tags when they were added to a resource. This is because the tags will have the casing of the first time they were used within the Telnyx system regardless of source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? OutboundProfileTags { get => _explicitNullValueOutboundProfileTags; set { _explicitNullValueOutboundProfileTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_profile_tags"); else _explicitNullProperties?.Remove("outbound_profile_tags"); } }
+        public List<string>? OutboundProfileTags { get => _explicitNullValueOutboundProfileTags; set { _explicitNullValueOutboundProfileTags = value; AdditionalData?.Remove("outbound_profile_tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_profile_tags"); else _explicitNullProperties?.Remove("outbound_profile_tags"); } }
         private List<string>? _explicitNullValueOutboundProfileTags = default!;
 #nullable restore
 #else
-        public List<string> OutboundProfileTags { get => _explicitNullValueOutboundProfileTags; set { _explicitNullValueOutboundProfileTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_profile_tags"); else _explicitNullProperties?.Remove("outbound_profile_tags"); } }
+        public List<string> OutboundProfileTags { get => _explicitNullValueOutboundProfileTags; set { _explicitNullValueOutboundProfileTags = value; AdditionalData?.Remove("outbound_profile_tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_profile_tags"); else _explicitNullProperties?.Remove("outbound_profile_tags"); } }
         private List<string> _explicitNullValueOutboundProfileTags = default!;
 #endif
         /// <summary>

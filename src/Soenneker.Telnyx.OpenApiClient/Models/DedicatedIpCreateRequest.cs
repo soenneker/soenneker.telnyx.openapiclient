@@ -18,17 +18,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ip_version") is { } nullNodeIpVersion && nullNodeIpVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpVersion = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("ip_version") is null) { _explicitNullValueIpVersion = default!; _explicitNullProperties?.Remove("ip_version"); }
+            else if (parseNode.GetChildNode("ip_version") is { } nullNodeIpVersion && nullNodeIpVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpVersion = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Allocate an IP of this address family. Supported value: `ipv4`. Any other value, including `ipv6` or `null`, returns `422`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4IpVersion? IpVersion { get => _explicitNullValueIpVersion; set { _explicitNullValueIpVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_version"); else _explicitNullProperties?.Remove("ip_version"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4IpVersion? IpVersion { get => _explicitNullValueIpVersion; set { _explicitNullValueIpVersion = value; AdditionalData?.Remove("ip_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_version"); else _explicitNullProperties?.Remove("ip_version"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4IpVersion? _explicitNullValueIpVersion = default!;
         /// <summary>Allocate an IP in this region. Supported value: `ewr-nj1`. Any other value, including an empty string or `null`, returns `422`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EwrNj1Region? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EwrNj1Region? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EwrNj1Region? _explicitNullValueRegion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpCreateRequest"/> and sets the default values.
@@ -55,8 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ip_version", n => { IpVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4IpVersion>(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EwrNj1Region>(); } },
+                { "ip_version", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Ipv4IpVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIpVersion = default; _explicitNullProperties?.Remove("ip_version"); AdditionalData["ip_version"] = unknown; } else { IpVersion = parsed; AdditionalData.Remove("ip_version"); } } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EwrNj1Region>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
             };
         }
         /// <summary>

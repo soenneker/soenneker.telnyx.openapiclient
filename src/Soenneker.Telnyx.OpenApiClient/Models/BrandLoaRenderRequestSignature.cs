@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("image_base64") is { } nullNodeImageBase64 && nullNodeImageBase64.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageBase64 = null;
-            if (parseNode.GetChildNode("signer_name") is { } nullNodeSignerName && nullNodeSignerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignerName = null;
+            if (parseNode.GetChildNode("image_base64") is null) { _explicitNullValueImageBase64 = default!; _explicitNullProperties?.Remove("image_base64"); }
+            else if (parseNode.GetChildNode("image_base64") is { } nullNodeImageBase64 && nullNodeImageBase64.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageBase64 = null;
+            if (parseNode.GetChildNode("signer_name") is null) { _explicitNullValueSignerName = default!; _explicitNullProperties?.Remove("signer_name"); }
+            else if (parseNode.GetChildNode("signer_name") is { } nullNodeSignerName && nullNodeSignerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignerName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>PNG image, base64-encoded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImageBase64 { get => _explicitNullValueImageBase64; set { _explicitNullValueImageBase64 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_base64"); else _explicitNullProperties?.Remove("image_base64"); } }
+        public string? ImageBase64 { get => _explicitNullValueImageBase64; set { _explicitNullValueImageBase64 = value; AdditionalData?.Remove("image_base64"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_base64"); else _explicitNullProperties?.Remove("image_base64"); } }
         private string? _explicitNullValueImageBase64 = default!;
 #nullable restore
 #else
-        public string ImageBase64 { get => _explicitNullValueImageBase64; set { _explicitNullValueImageBase64 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_base64"); else _explicitNullProperties?.Remove("image_base64"); } }
+        public string ImageBase64 { get => _explicitNullValueImageBase64; set { _explicitNullValueImageBase64 = value; AdditionalData?.Remove("image_base64"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_base64"); else _explicitNullProperties?.Remove("image_base64"); } }
         private string _explicitNullValueImageBase64 = default!;
 #endif
         /// <summary>Optional. When absent the rendered PDF falls back to the enterprise contact&apos;s legal name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SignerName { get => _explicitNullValueSignerName; set { _explicitNullValueSignerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signer_name"); else _explicitNullProperties?.Remove("signer_name"); } }
+        public string? SignerName { get => _explicitNullValueSignerName; set { _explicitNullValueSignerName = value; AdditionalData?.Remove("signer_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signer_name"); else _explicitNullProperties?.Remove("signer_name"); } }
         private string? _explicitNullValueSignerName = default!;
 #nullable restore
 #else
-        public string SignerName { get => _explicitNullValueSignerName; set { _explicitNullValueSignerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signer_name"); else _explicitNullProperties?.Remove("signer_name"); } }
+        public string SignerName { get => _explicitNullValueSignerName; set { _explicitNullValueSignerName = value; AdditionalData?.Remove("signer_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signer_name"); else _explicitNullProperties?.Remove("signer_name"); } }
         private string _explicitNullValueSignerName = default!;
 #endif
         /// <summary>

@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("contains") is { } nullNodeContains && nullNodeContains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contains = null;
-            if (parseNode.GetChildNode("ends_with") is { } nullNodeEndsWith && nullNodeEndsWith.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndsWith = null;
-            if (parseNode.GetChildNode("starts_with") is { } nullNodeStartsWith && nullNodeStartsWith.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartsWith = null;
+            if (parseNode.GetChildNode("contains") is null) { _explicitNullValueContains = default!; _explicitNullProperties?.Remove("contains"); }
+            else if (parseNode.GetChildNode("contains") is { } nullNodeContains && nullNodeContains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contains = null;
+            if (parseNode.GetChildNode("ends_with") is null) { _explicitNullValueEndsWith = default!; _explicitNullProperties?.Remove("ends_with"); }
+            else if (parseNode.GetChildNode("ends_with") is { } nullNodeEndsWith && nullNodeEndsWith.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndsWith = null;
+            if (parseNode.GetChildNode("starts_with") is null) { _explicitNullValueStartsWith = default!; _explicitNullProperties?.Remove("starts_with"); }
+            else if (parseNode.GetChildNode("starts_with") is { } nullNodeStartsWith && nullNodeStartsWith.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartsWith = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Filter for phone numbers that contain the digits specified</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contains { get => _explicitNullValueContains; set { _explicitNullValueContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contains"); else _explicitNullProperties?.Remove("contains"); } }
+        public string? Contains { get => _explicitNullValueContains; set { _explicitNullValueContains = value; AdditionalData?.Remove("contains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contains"); else _explicitNullProperties?.Remove("contains"); } }
         private string? _explicitNullValueContains = default!;
 #nullable restore
 #else
-        public string Contains { get => _explicitNullValueContains; set { _explicitNullValueContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contains"); else _explicitNullProperties?.Remove("contains"); } }
+        public string Contains { get => _explicitNullValueContains; set { _explicitNullValueContains = value; AdditionalData?.Remove("contains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contains"); else _explicitNullProperties?.Remove("contains"); } }
         private string _explicitNullValueContains = default!;
 #endif
         /// <summary>Filter by the ending digits of the phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndsWith { get => _explicitNullValueEndsWith; set { _explicitNullValueEndsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_with"); else _explicitNullProperties?.Remove("ends_with"); } }
+        public string? EndsWith { get => _explicitNullValueEndsWith; set { _explicitNullValueEndsWith = value; AdditionalData?.Remove("ends_with"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_with"); else _explicitNullProperties?.Remove("ends_with"); } }
         private string? _explicitNullValueEndsWith = default!;
 #nullable restore
 #else
-        public string EndsWith { get => _explicitNullValueEndsWith; set { _explicitNullValueEndsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_with"); else _explicitNullProperties?.Remove("ends_with"); } }
+        public string EndsWith { get => _explicitNullValueEndsWith; set { _explicitNullValueEndsWith = value; AdditionalData?.Remove("ends_with"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_with"); else _explicitNullProperties?.Remove("ends_with"); } }
         private string _explicitNullValueEndsWith = default!;
 #endif
         /// <summary>Filter by the starting digits of the phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartsWith { get => _explicitNullValueStartsWith; set { _explicitNullValueStartsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starts_with"); else _explicitNullProperties?.Remove("starts_with"); } }
+        public string? StartsWith { get => _explicitNullValueStartsWith; set { _explicitNullValueStartsWith = value; AdditionalData?.Remove("starts_with"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starts_with"); else _explicitNullProperties?.Remove("starts_with"); } }
         private string? _explicitNullValueStartsWith = default!;
 #nullable restore
 #else
-        public string StartsWith { get => _explicitNullValueStartsWith; set { _explicitNullValueStartsWith = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starts_with"); else _explicitNullProperties?.Remove("starts_with"); } }
+        public string StartsWith { get => _explicitNullValueStartsWith; set { _explicitNullValueStartsWith = value; AdditionalData?.Remove("starts_with"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starts_with"); else _explicitNullProperties?.Remove("starts_with"); } }
         private string _explicitNullValueStartsWith = default!;
 #endif
         /// <summary>

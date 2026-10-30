@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("card_contents") is { } nullNodeCardContents && nullNodeCardContents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardContents = null;
-            if (parseNode.GetChildNode("card_width") is { } nullNodeCardWidth && nullNodeCardWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardWidth = null;
+            if (parseNode.GetChildNode("card_contents") is null) { _explicitNullValueCardContents = default!; _explicitNullProperties?.Remove("card_contents"); }
+            else if (parseNode.GetChildNode("card_contents") is { } nullNodeCardContents && nullNodeCardContents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardContents = null;
+            if (parseNode.GetChildNode("card_width") is null) { _explicitNullValueCardWidth = default!; _explicitNullProperties?.Remove("card_width"); }
+            else if (parseNode.GetChildNode("card_width") is { } nullNodeCardWidth && nullNodeCardWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardWidth = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The list of contents for each card in the carousel. A carousel can have a minimum of 2 cards and a maximum 10 cards.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent>? CardContents { get => _explicitNullValueCardContents; set { _explicitNullValueCardContents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_contents"); else _explicitNullProperties?.Remove("card_contents"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent>? CardContents { get => _explicitNullValueCardContents; set { _explicitNullValueCardContents = value; AdditionalData?.Remove("card_contents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_contents"); else _explicitNullProperties?.Remove("card_contents"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent>? _explicitNullValueCardContents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent> CardContents { get => _explicitNullValueCardContents; set { _explicitNullValueCardContents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_contents"); else _explicitNullProperties?.Remove("card_contents"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent> CardContents { get => _explicitNullValueCardContents; set { _explicitNullValueCardContents = value; AdditionalData?.Remove("card_contents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_contents"); else _explicitNullProperties?.Remove("card_contents"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent> _explicitNullValueCardContents = default!;
 #endif
         /// <summary>The width of the cards in the carousel.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCardCardWidth? CardWidth { get => _explicitNullValueCardWidth; set { _explicitNullValueCardWidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_width"); else _explicitNullProperties?.Remove("card_width"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCardCardWidth? CardWidth { get => _explicitNullValueCardWidth; set { _explicitNullValueCardWidth = value; AdditionalData?.Remove("card_width"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_width"); else _explicitNullProperties?.Remove("card_width"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCardCardWidth? _explicitNullValueCardWidth = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "card_contents", n => { CardContents = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsCardContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "card_width", n => { CardWidth = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCardCardWidth>(); } },
+                { "card_width", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCardCardWidth>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCardWidth = default; _explicitNullProperties?.Remove("card_width"); AdditionalData["card_width"] = unknown; } else { CardWidth = parsed; AdditionalData.Remove("card_width"); } } },
             };
         }
         /// <summary>

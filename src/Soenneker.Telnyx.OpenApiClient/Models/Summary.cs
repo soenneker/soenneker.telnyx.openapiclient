@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("adjustments") is { } nullNodeAdjustments && nullNodeAdjustments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Adjustments = null;
-            if (parseNode.GetChildNode("lines") is { } nullNodeLines && nullNodeLines.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lines = null;
+            if (parseNode.GetChildNode("adjustments") is null) { _explicitNullValueAdjustments = default!; _explicitNullProperties?.Remove("adjustments"); }
+            else if (parseNode.GetChildNode("adjustments") is { } nullNodeAdjustments && nullNodeAdjustments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Adjustments = null;
+            if (parseNode.GetChildNode("lines") is null) { _explicitNullValueLines = default!; _explicitNullProperties?.Remove("lines"); }
+            else if (parseNode.GetChildNode("lines") is { } nullNodeLines && nullNodeLines.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lines = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of billing adjustments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdjustmentLine>? Adjustments { get => _explicitNullValueAdjustments; set { _explicitNullValueAdjustments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adjustments"); else _explicitNullProperties?.Remove("adjustments"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdjustmentLine>? Adjustments { get => _explicitNullValueAdjustments; set { _explicitNullValueAdjustments = value; AdditionalData?.Remove("adjustments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adjustments"); else _explicitNullProperties?.Remove("adjustments"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.AdjustmentLine>? _explicitNullValueAdjustments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdjustmentLine> Adjustments { get => _explicitNullValueAdjustments; set { _explicitNullValueAdjustments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adjustments"); else _explicitNullProperties?.Remove("adjustments"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdjustmentLine> Adjustments { get => _explicitNullValueAdjustments; set { _explicitNullValueAdjustments = value; AdditionalData?.Remove("adjustments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adjustments"); else _explicitNullProperties?.Remove("adjustments"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.AdjustmentLine> _explicitNullValueAdjustments = default!;
 #endif
         /// <summary>List of charge summary lines</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryLine>? Lines { get => _explicitNullValueLines; set { _explicitNullValueLines = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lines"); else _explicitNullProperties?.Remove("lines"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryLine>? Lines { get => _explicitNullValueLines; set { _explicitNullValueLines = value; AdditionalData?.Remove("lines"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lines"); else _explicitNullProperties?.Remove("lines"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryLine>? _explicitNullValueLines = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryLine> Lines { get => _explicitNullValueLines; set { _explicitNullValueLines = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lines"); else _explicitNullProperties?.Remove("lines"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryLine> Lines { get => _explicitNullValueLines; set { _explicitNullValueLines = value; AdditionalData?.Remove("lines"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lines"); else _explicitNullProperties?.Remove("lines"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryLine> _explicitNullValueLines = default!;
 #endif
         /// <summary>

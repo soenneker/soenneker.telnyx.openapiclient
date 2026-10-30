@@ -18,21 +18,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eager_eot_threshold") is { } nullNodeEagerEotThreshold && nullNodeEagerEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EagerEotThreshold = null;
-            if (parseNode.GetChildNode("eot_threshold") is { } nullNodeEotThreshold && nullNodeEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EotThreshold = null;
-            if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
+            if (parseNode.GetChildNode("eager_eot_threshold") is null) { _explicitNullValueEagerEotThreshold = default!; _explicitNullProperties?.Remove("eager_eot_threshold"); }
+            else if (parseNode.GetChildNode("eager_eot_threshold") is { } nullNodeEagerEotThreshold && nullNodeEagerEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EagerEotThreshold = null;
+            if (parseNode.GetChildNode("eot_threshold") is null) { _explicitNullValueEotThreshold = default!; _explicitNullProperties?.Remove("eot_threshold"); }
+            else if (parseNode.GetChildNode("eot_threshold") is { } nullNodeEotThreshold && nullNodeEotThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EotThreshold = null;
+            if (parseNode.GetChildNode("interim_results") is null) { _explicitNullValueInterimResults = default!; _explicitNullProperties?.Remove("interim_results"); }
+            else if (parseNode.GetChildNode("interim_results") is { } nullNodeInterimResults && nullNodeInterimResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterimResults = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Deepgram Flux: confidence at which an `eagerEndOfTurn` frame is sent before the final prompt, followed by `turnResumed` if the caller keeps talking. When omitted, these frames are not sent.</summary>
-        public double? EagerEotThreshold { get => _explicitNullValueEagerEotThreshold; set { _explicitNullValueEagerEotThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eager_eot_threshold"); else _explicitNullProperties?.Remove("eager_eot_threshold"); } }
+        public double? EagerEotThreshold { get => _explicitNullValueEagerEotThreshold; set { _explicitNullValueEagerEotThreshold = value; AdditionalData?.Remove("eager_eot_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eager_eot_threshold"); else _explicitNullProperties?.Remove("eager_eot_threshold"); } }
         private double? _explicitNullValueEagerEotThreshold = default!;
         /// <summary>Deepgram Flux: confidence required to end the caller&apos;s turn.</summary>
-        public double? EotThreshold { get => _explicitNullValueEotThreshold; set { _explicitNullValueEotThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eot_threshold"); else _explicitNullProperties?.Remove("eot_threshold"); } }
+        public double? EotThreshold { get => _explicitNullValueEotThreshold; set { _explicitNullValueEotThreshold = value; AdditionalData?.Remove("eot_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eot_threshold"); else _explicitNullProperties?.Remove("eot_threshold"); } }
         private double? _explicitNullValueEotThreshold = default!;
         /// <summary>Deepgram Flux: send interim transcripts as `prompt` frames with `last: false`.</summary>
-        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
+        public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; AdditionalData?.Remove("interim_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
         private bool? _explicitNullValueInterimResults = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionEngineConfig"/> and sets the default values.

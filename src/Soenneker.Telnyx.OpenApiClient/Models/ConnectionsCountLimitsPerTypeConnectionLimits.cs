@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("standard_limit") is { } nullNodeStandardLimit && nullNodeStandardLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandardLimit = null;
-            if (parseNode.GetChildNode("texml_limit") is { } nullNodeTexmlLimit && nullNodeTexmlLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TexmlLimit = null;
-            if (parseNode.GetChildNode("uac_limit") is { } nullNodeUacLimit && nullNodeUacLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UacLimit = null;
+            if (parseNode.GetChildNode("standard_limit") is null) { _explicitNullValueStandardLimit = default!; _explicitNullProperties?.Remove("standard_limit"); }
+            else if (parseNode.GetChildNode("standard_limit") is { } nullNodeStandardLimit && nullNodeStandardLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandardLimit = null;
+            if (parseNode.GetChildNode("texml_limit") is null) { _explicitNullValueTexmlLimit = default!; _explicitNullProperties?.Remove("texml_limit"); }
+            else if (parseNode.GetChildNode("texml_limit") is { } nullNodeTexmlLimit && nullNodeTexmlLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TexmlLimit = null;
+            if (parseNode.GetChildNode("uac_limit") is null) { _explicitNullValueUacLimit = default!; _explicitNullProperties?.Remove("uac_limit"); }
+            else if (parseNode.GetChildNode("uac_limit") is { } nullNodeUacLimit && nullNodeUacLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UacLimit = null;
         }
 
         /// <summary>Maximum number of standard connections allowed, when per-type limits apply.</summary>

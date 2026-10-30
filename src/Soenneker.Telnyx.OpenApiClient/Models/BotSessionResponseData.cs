@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_v2_token") is { } nullNodeApiV2Token && nullNodeApiV2Token.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiV2Token = null;
+            if (parseNode.GetChildNode("api_v2_token") is null) { _explicitNullValueApiV2Token = default!; _explicitNullProperties?.Remove("api_v2_token"); }
+            else if (parseNode.GetChildNode("api_v2_token") is { } nullNodeApiV2Token && nullNodeApiV2Token.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiV2Token = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>API v2 session token for the signed-in user. Use it as a bearer token on authenticated endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiV2Token { get => _explicitNullValueApiV2Token; set { _explicitNullValueApiV2Token = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_v2_token"); else _explicitNullProperties?.Remove("api_v2_token"); } }
+        public string? ApiV2Token { get => _explicitNullValueApiV2Token; set { _explicitNullValueApiV2Token = value; AdditionalData?.Remove("api_v2_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_v2_token"); else _explicitNullProperties?.Remove("api_v2_token"); } }
         private string? _explicitNullValueApiV2Token = default!;
 #nullable restore
 #else
-        public string ApiV2Token { get => _explicitNullValueApiV2Token; set { _explicitNullValueApiV2Token = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_v2_token"); else _explicitNullProperties?.Remove("api_v2_token"); } }
+        public string ApiV2Token { get => _explicitNullValueApiV2Token; set { _explicitNullValueApiV2Token = value; AdditionalData?.Remove("api_v2_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_v2_token"); else _explicitNullProperties?.Remove("api_v2_token"); } }
         private string _explicitNullValueApiV2Token = default!;
 #endif
         /// <summary>

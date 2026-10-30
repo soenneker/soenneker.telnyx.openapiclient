@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mm7_failover_webhook_url") is { } nullNodeMm7FailoverWebhookUrl && nullNodeMm7FailoverWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mm7FailoverWebhookUrl = null;
-            if (parseNode.GetChildNode("mm7_webhook_url") is { } nullNodeMm7WebhookUrl && nullNodeMm7WebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mm7WebhookUrl = null;
+            if (parseNode.GetChildNode("mm7_failover_webhook_url") is null) { _explicitNullValueMm7FailoverWebhookUrl = default!; _explicitNullProperties?.Remove("mm7_failover_webhook_url"); }
+            else if (parseNode.GetChildNode("mm7_failover_webhook_url") is { } nullNodeMm7FailoverWebhookUrl && nullNodeMm7FailoverWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mm7FailoverWebhookUrl = null;
+            if (parseNode.GetChildNode("mm7_webhook_url") is null) { _explicitNullValueMm7WebhookUrl = default!; _explicitNullProperties?.Remove("mm7_webhook_url"); }
+            else if (parseNode.GetChildNode("mm7_webhook_url") is { } nullNodeMm7WebhookUrl && nullNodeMm7WebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mm7WebhookUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Failover webhook URL to receive inbound MM7 traffic</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mm7FailoverWebhookUrl { get => _explicitNullValueMm7FailoverWebhookUrl; set { _explicitNullValueMm7FailoverWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_failover_webhook_url"); else _explicitNullProperties?.Remove("mm7_failover_webhook_url"); } }
+        public string? Mm7FailoverWebhookUrl { get => _explicitNullValueMm7FailoverWebhookUrl; set { _explicitNullValueMm7FailoverWebhookUrl = value; AdditionalData?.Remove("mm7_failover_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_failover_webhook_url"); else _explicitNullProperties?.Remove("mm7_failover_webhook_url"); } }
         private string? _explicitNullValueMm7FailoverWebhookUrl = default!;
 #nullable restore
 #else
-        public string Mm7FailoverWebhookUrl { get => _explicitNullValueMm7FailoverWebhookUrl; set { _explicitNullValueMm7FailoverWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_failover_webhook_url"); else _explicitNullProperties?.Remove("mm7_failover_webhook_url"); } }
+        public string Mm7FailoverWebhookUrl { get => _explicitNullValueMm7FailoverWebhookUrl; set { _explicitNullValueMm7FailoverWebhookUrl = value; AdditionalData?.Remove("mm7_failover_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_failover_webhook_url"); else _explicitNullProperties?.Remove("mm7_failover_webhook_url"); } }
         private string _explicitNullValueMm7FailoverWebhookUrl = default!;
 #endif
         /// <summary>Webhook URL to receive inbound MM7 traffic</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mm7WebhookUrl { get => _explicitNullValueMm7WebhookUrl; set { _explicitNullValueMm7WebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_webhook_url"); else _explicitNullProperties?.Remove("mm7_webhook_url"); } }
+        public string? Mm7WebhookUrl { get => _explicitNullValueMm7WebhookUrl; set { _explicitNullValueMm7WebhookUrl = value; AdditionalData?.Remove("mm7_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_webhook_url"); else _explicitNullProperties?.Remove("mm7_webhook_url"); } }
         private string? _explicitNullValueMm7WebhookUrl = default!;
 #nullable restore
 #else
-        public string Mm7WebhookUrl { get => _explicitNullValueMm7WebhookUrl; set { _explicitNullValueMm7WebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_webhook_url"); else _explicitNullProperties?.Remove("mm7_webhook_url"); } }
+        public string Mm7WebhookUrl { get => _explicitNullValueMm7WebhookUrl; set { _explicitNullValueMm7WebhookUrl = value; AdditionalData?.Remove("mm7_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_webhook_url"); else _explicitNullProperties?.Remove("mm7_webhook_url"); } }
         private string _explicitNullValueMm7WebhookUrl = default!;
 #endif
         /// <summary>

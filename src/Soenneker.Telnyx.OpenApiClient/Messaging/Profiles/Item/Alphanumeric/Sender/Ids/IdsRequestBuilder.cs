@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Profiles.Item.Alphanumeric.Se
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging.Profiles.Item.Alphanumeric.Sender.Ids.IdsRequestBuilder.IdsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.telnyx.com/v2", "/messaging/profiles/{id}/alphanumeric/sender/ids", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

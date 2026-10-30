@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("send_message") is { } nullNodeSendMessage && nullNodeSendMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendMessage = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("send_message") is null) { _explicitNullValueSendMessage = default!; _explicitNullProperties?.Remove("send_message"); }
+            else if (parseNode.GetChildNode("send_message") is { } nullNodeSendMessage && nullNodeSendMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendMessage = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,17 +29,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The send_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage? SendMessage { get => _explicitNullValueSendMessage; set { _explicitNullValueSendMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_message"); else _explicitNullProperties?.Remove("send_message"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage? SendMessage { get => _explicitNullValueSendMessage; set { _explicitNullValueSendMessage = value; AdditionalData?.Remove("send_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_message"); else _explicitNullProperties?.Remove("send_message"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage? _explicitNullValueSendMessage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage SendMessage { get => _explicitNullValueSendMessage; set { _explicitNullValueSendMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_message"); else _explicitNullProperties?.Remove("send_message"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage SendMessage { get => _explicitNullValueSendMessage; set { _explicitNullValueSendMessage = value; AdditionalData?.Remove("send_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_message"); else _explicitNullProperties?.Remove("send_message"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage _explicitNullValueSendMessage = default!;
 #endif
         /// <summary>Whether this tool comes from the shared Tools Library. Responses merge shared tools into `tools` with `shared: true`; inline tools carry `shared: false`. Read-only: set by the server, not accepted in requests. When updating an assistant, omit `shared: true` tools from the request `tools` array and manage them through `tool_ids` instead — re-sending their definitions creates an inline duplicate (rejected with error code 10015 when the type allows only one instance per assistant).</summary>
         public bool? Shared { get; private set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/> and sets the default values.
@@ -66,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "send_message", n => { SendMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageToolSendMessage.CreateFromDiscriminatorValue); } },
                 { "shared", n => { Shared = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

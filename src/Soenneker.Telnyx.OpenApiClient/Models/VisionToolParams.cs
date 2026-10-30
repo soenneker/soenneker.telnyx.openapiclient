@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_frame_age_secs") is { } nullNodeMaxFrameAgeSecs && nullNodeMaxFrameAgeSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFrameAgeSecs = null;
+            if (parseNode.GetChildNode("max_frame_age_secs") is null) { _explicitNullValueMaxFrameAgeSecs = default!; _explicitNullProperties?.Remove("max_frame_age_secs"); }
+            else if (parseNode.GetChildNode("max_frame_age_secs") is { } nullNodeMaxFrameAgeSecs && nullNodeMaxFrameAgeSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFrameAgeSecs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Frames received longer ago than this many seconds are not shown to the assistant, so it never describes a frozen or disconnected camera as live.</summary>
-        public int? MaxFrameAgeSecs { get => _explicitNullValueMaxFrameAgeSecs; set { _explicitNullValueMaxFrameAgeSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_frame_age_secs"); else _explicitNullProperties?.Remove("max_frame_age_secs"); } }
+        public int? MaxFrameAgeSecs { get => _explicitNullValueMaxFrameAgeSecs; set { _explicitNullValueMaxFrameAgeSecs = value; AdditionalData?.Remove("max_frame_age_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_frame_age_secs"); else _explicitNullProperties?.Remove("max_frame_age_secs"); } }
         private int? _explicitNullValueMaxFrameAgeSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams"/> and sets the default values.

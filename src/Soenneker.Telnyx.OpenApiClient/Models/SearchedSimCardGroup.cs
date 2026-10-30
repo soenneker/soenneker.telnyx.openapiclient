@@ -17,12 +17,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("consumed_data") is { } nullNodeConsumedData && nullNodeConsumedData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumedData = null;
-            if (parseNode.GetChildNode("data_limit") is { } nullNodeDataLimit && nullNodeDataLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataLimit = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("private_wireless_gateway_id") is { } nullNodePrivateWirelessGatewayId && nullNodePrivateWirelessGatewayId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateWirelessGatewayId = null;
-            if (parseNode.GetChildNode("sim_card_count") is { } nullNodeSimCardCount && nullNodeSimCardCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardCount = null;
-            if (parseNode.GetChildNode("wireless_blocklist_id") is { } nullNodeWirelessBlocklistId && nullNodeWirelessBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WirelessBlocklistId = null;
+            if (parseNode.GetChildNode("consumed_data") is null) { _explicitNullValueConsumedData = default!; _explicitNullProperties?.Remove("consumed_data"); }
+            else if (parseNode.GetChildNode("consumed_data") is { } nullNodeConsumedData && nullNodeConsumedData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumedData = null;
+            if (parseNode.GetChildNode("data_limit") is null) { _explicitNullValueDataLimit = default!; _explicitNullProperties?.Remove("data_limit"); }
+            else if (parseNode.GetChildNode("data_limit") is { } nullNodeDataLimit && nullNodeDataLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataLimit = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("private_wireless_gateway_id") is null) { _explicitNullValuePrivateWirelessGatewayId = default!; _explicitNullProperties?.Remove("private_wireless_gateway_id"); }
+            else if (parseNode.GetChildNode("private_wireless_gateway_id") is { } nullNodePrivateWirelessGatewayId && nullNodePrivateWirelessGatewayId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateWirelessGatewayId = null;
+            if (parseNode.GetChildNode("sim_card_count") is null) { _explicitNullValueSimCardCount = default!; _explicitNullProperties?.Remove("sim_card_count"); }
+            else if (parseNode.GetChildNode("sim_card_count") is { } nullNodeSimCardCount && nullNodeSimCardCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardCount = null;
+            if (parseNode.GetChildNode("wireless_blocklist_id") is null) { _explicitNullValueWirelessBlocklistId = default!; _explicitNullProperties?.Remove("wireless_blocklist_id"); }
+            else if (parseNode.GetChildNode("wireless_blocklist_id") is { } nullNodeWirelessBlocklistId && nullNodeWirelessBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WirelessBlocklistId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,11 +36,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Represents the amount of data consumed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData? ConsumedData { get => _explicitNullValueConsumedData; set { _explicitNullValueConsumedData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumed_data"); else _explicitNullProperties?.Remove("consumed_data"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData? ConsumedData { get => _explicitNullValueConsumedData; set { _explicitNullValueConsumedData = value; AdditionalData?.Remove("consumed_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumed_data"); else _explicitNullProperties?.Remove("consumed_data"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData? _explicitNullValueConsumedData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData ConsumedData { get => _explicitNullValueConsumedData; set { _explicitNullValueConsumedData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumed_data"); else _explicitNullProperties?.Remove("consumed_data"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData ConsumedData { get => _explicitNullValueConsumedData; set { _explicitNullValueConsumedData = value; AdditionalData?.Remove("consumed_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumed_data"); else _explicitNullProperties?.Remove("consumed_data"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData _explicitNullValueConsumedData = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
@@ -48,11 +54,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Upper limit on the amount of data the SIM cards, within the group, can use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroupDataLimit? DataLimit { get => _explicitNullValueDataLimit; set { _explicitNullValueDataLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_limit"); else _explicitNullProperties?.Remove("data_limit"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroupDataLimit? DataLimit { get => _explicitNullValueDataLimit; set { _explicitNullValueDataLimit = value; AdditionalData?.Remove("data_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_limit"); else _explicitNullProperties?.Remove("data_limit"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroupDataLimit? _explicitNullValueDataLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroupDataLimit DataLimit { get => _explicitNullValueDataLimit; set { _explicitNullValueDataLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_limit"); else _explicitNullProperties?.Remove("data_limit"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroupDataLimit DataLimit { get => _explicitNullValueDataLimit; set { _explicitNullValueDataLimit = value; AdditionalData?.Remove("data_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_limit"); else _explicitNullProperties?.Remove("data_limit"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroupDataLimit _explicitNullValueDataLimit = default!;
 #endif
         /// <summary>Indicates whether the SIM card group is the users default group.&lt;br/&gt;The default group is created for the user and can not be removed.</summary>
@@ -62,15 +68,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A user friendly name for the SIM card group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The identification of the related Private Wireless Gateway resource.</summary>
-        public Guid? PrivateWirelessGatewayId { get => _explicitNullValuePrivateWirelessGatewayId; set { _explicitNullValuePrivateWirelessGatewayId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_wireless_gateway_id"); else _explicitNullProperties?.Remove("private_wireless_gateway_id"); } }
+        public Guid? PrivateWirelessGatewayId { get => _explicitNullValuePrivateWirelessGatewayId; set { _explicitNullValuePrivateWirelessGatewayId = value; AdditionalData?.Remove("private_wireless_gateway_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_wireless_gateway_id"); else _explicitNullProperties?.Remove("private_wireless_gateway_id"); } }
         private Guid? _explicitNullValuePrivateWirelessGatewayId = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>The number of SIM cards associated with the group.</summary>
-        public int? SimCardCount { get => _explicitNullValueSimCardCount; set { _explicitNullValueSimCardCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_count"); else _explicitNullProperties?.Remove("sim_card_count"); } }
+        public int? SimCardCount { get => _explicitNullValueSimCardCount; set { _explicitNullValueSimCardCount = value; AdditionalData?.Remove("sim_card_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_count"); else _explicitNullProperties?.Remove("sim_card_count"); } }
         private int? _explicitNullValueSimCardCount = default!;
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>The identification of the related Wireless Blocklist resource.</summary>
-        public Guid? WirelessBlocklistId { get => _explicitNullValueWirelessBlocklistId; set { _explicitNullValueWirelessBlocklistId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireless_blocklist_id"); else _explicitNullProperties?.Remove("wireless_blocklist_id"); } }
+        public Guid? WirelessBlocklistId { get => _explicitNullValueWirelessBlocklistId; set { _explicitNullValueWirelessBlocklistId = value; AdditionalData?.Remove("wireless_blocklist_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireless_blocklist_id"); else _explicitNullProperties?.Remove("wireless_blocklist_id"); } }
         private Guid? _explicitNullValueWirelessBlocklistId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSimCardGroup"/> and sets the default values.

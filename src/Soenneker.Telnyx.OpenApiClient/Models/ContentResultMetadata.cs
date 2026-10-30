@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("favicon_url") is { } nullNodeFaviconUrl && nullNodeFaviconUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FaviconUrl = null;
-            if (parseNode.GetChildNode("site_name") is { } nullNodeSiteName && nullNodeSiteName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiteName = null;
+            if (parseNode.GetChildNode("favicon_url") is null) { _explicitNullValueFaviconUrl = default!; _explicitNullProperties?.Remove("favicon_url"); }
+            else if (parseNode.GetChildNode("favicon_url") is { } nullNodeFaviconUrl && nullNodeFaviconUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FaviconUrl = null;
+            if (parseNode.GetChildNode("site_name") is null) { _explicitNullValueSiteName = default!; _explicitNullProperties?.Remove("site_name"); }
+            else if (parseNode.GetChildNode("site_name") is { } nullNodeSiteName && nullNodeSiteName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiteName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Favicon URL (if available).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FaviconUrl { get => _explicitNullValueFaviconUrl; set { _explicitNullValueFaviconUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favicon_url"); else _explicitNullProperties?.Remove("favicon_url"); } }
+        public string? FaviconUrl { get => _explicitNullValueFaviconUrl; set { _explicitNullValueFaviconUrl = value; AdditionalData?.Remove("favicon_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favicon_url"); else _explicitNullProperties?.Remove("favicon_url"); } }
         private string? _explicitNullValueFaviconUrl = default!;
 #nullable restore
 #else
-        public string FaviconUrl { get => _explicitNullValueFaviconUrl; set { _explicitNullValueFaviconUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favicon_url"); else _explicitNullProperties?.Remove("favicon_url"); } }
+        public string FaviconUrl { get => _explicitNullValueFaviconUrl; set { _explicitNullValueFaviconUrl = value; AdditionalData?.Remove("favicon_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favicon_url"); else _explicitNullProperties?.Remove("favicon_url"); } }
         private string _explicitNullValueFaviconUrl = default!;
 #endif
         /// <summary>Site name. Often empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SiteName { get => _explicitNullValueSiteName; set { _explicitNullValueSiteName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site_name"); else _explicitNullProperties?.Remove("site_name"); } }
+        public string? SiteName { get => _explicitNullValueSiteName; set { _explicitNullValueSiteName = value; AdditionalData?.Remove("site_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site_name"); else _explicitNullProperties?.Remove("site_name"); } }
         private string? _explicitNullValueSiteName = default!;
 #nullable restore
 #else
-        public string SiteName { get => _explicitNullValueSiteName; set { _explicitNullValueSiteName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site_name"); else _explicitNullProperties?.Remove("site_name"); } }
+        public string SiteName { get => _explicitNullValueSiteName; set { _explicitNullValueSiteName = value; AdditionalData?.Remove("site_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site_name"); else _explicitNullProperties?.Remove("site_name"); } }
         private string _explicitNullValueSiteName = default!;
 #endif
         /// <summary>

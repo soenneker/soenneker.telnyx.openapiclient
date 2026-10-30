@@ -17,12 +17,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error_code") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
-            if (parseNode.GetChildNode("mobile_country_code") is { } nullNodeMobileCountryCode && nullNodeMobileCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileCountryCode = null;
-            if (parseNode.GetChildNode("mobile_network_code") is { } nullNodeMobileNetworkCode && nullNodeMobileNetworkCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileNetworkCode = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("normalized_carrier") is { } nullNodeNormalizedCarrier && nullNodeNormalizedCarrier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NormalizedCarrier = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("error_code") is null) { _explicitNullValueErrorCode = default!; _explicitNullProperties?.Remove("error_code"); }
+            else if (parseNode.GetChildNode("error_code") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
+            if (parseNode.GetChildNode("mobile_country_code") is null) { _explicitNullValueMobileCountryCode = default!; _explicitNullProperties?.Remove("mobile_country_code"); }
+            else if (parseNode.GetChildNode("mobile_country_code") is { } nullNodeMobileCountryCode && nullNodeMobileCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileCountryCode = null;
+            if (parseNode.GetChildNode("mobile_network_code") is null) { _explicitNullValueMobileNetworkCode = default!; _explicitNullProperties?.Remove("mobile_network_code"); }
+            else if (parseNode.GetChildNode("mobile_network_code") is { } nullNodeMobileNetworkCode && nullNodeMobileNetworkCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileNetworkCode = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("normalized_carrier") is null) { _explicitNullValueNormalizedCarrier = default!; _explicitNullProperties?.Remove("normalized_carrier"); }
+            else if (parseNode.GetChildNode("normalized_carrier") is { } nullNodeNormalizedCarrier && nullNodeNormalizedCarrier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NormalizedCarrier = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,55 +36,55 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Unused</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
+        public string? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
         private string? _explicitNullValueErrorCode = default!;
 #nullable restore
 #else
-        public string ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
+        public string ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
         private string _explicitNullValueErrorCode = default!;
 #endif
         /// <summary>Region code that matches the specific country calling code if the requested phone number type is mobile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MobileCountryCode { get => _explicitNullValueMobileCountryCode; set { _explicitNullValueMobileCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_country_code"); else _explicitNullProperties?.Remove("mobile_country_code"); } }
+        public string? MobileCountryCode { get => _explicitNullValueMobileCountryCode; set { _explicitNullValueMobileCountryCode = value; AdditionalData?.Remove("mobile_country_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_country_code"); else _explicitNullProperties?.Remove("mobile_country_code"); } }
         private string? _explicitNullValueMobileCountryCode = default!;
 #nullable restore
 #else
-        public string MobileCountryCode { get => _explicitNullValueMobileCountryCode; set { _explicitNullValueMobileCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_country_code"); else _explicitNullProperties?.Remove("mobile_country_code"); } }
+        public string MobileCountryCode { get => _explicitNullValueMobileCountryCode; set { _explicitNullValueMobileCountryCode = value; AdditionalData?.Remove("mobile_country_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_country_code"); else _explicitNullProperties?.Remove("mobile_country_code"); } }
         private string _explicitNullValueMobileCountryCode = default!;
 #endif
         /// <summary>National destination code (NDC), with a 0 prefix, if an NDC is found and the requested phone number type is mobile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MobileNetworkCode { get => _explicitNullValueMobileNetworkCode; set { _explicitNullValueMobileNetworkCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_code"); else _explicitNullProperties?.Remove("mobile_network_code"); } }
+        public string? MobileNetworkCode { get => _explicitNullValueMobileNetworkCode; set { _explicitNullValueMobileNetworkCode = value; AdditionalData?.Remove("mobile_network_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_code"); else _explicitNullProperties?.Remove("mobile_network_code"); } }
         private string? _explicitNullValueMobileNetworkCode = default!;
 #nullable restore
 #else
-        public string MobileNetworkCode { get => _explicitNullValueMobileNetworkCode; set { _explicitNullValueMobileNetworkCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_code"); else _explicitNullProperties?.Remove("mobile_network_code"); } }
+        public string MobileNetworkCode { get => _explicitNullValueMobileNetworkCode; set { _explicitNullValueMobileNetworkCode = value; AdditionalData?.Remove("mobile_network_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_code"); else _explicitNullProperties?.Remove("mobile_network_code"); } }
         private string _explicitNullValueMobileNetworkCode = default!;
 #endif
         /// <summary>SPID (Service Provider ID) name, if the requested phone number has been ported; otherwise, the name of carrier who owns the phone number block</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>If known to Telnyx and applicable, the primary network carrier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NormalizedCarrier { get => _explicitNullValueNormalizedCarrier; set { _explicitNullValueNormalizedCarrier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("normalized_carrier"); else _explicitNullProperties?.Remove("normalized_carrier"); } }
+        public string? NormalizedCarrier { get => _explicitNullValueNormalizedCarrier; set { _explicitNullValueNormalizedCarrier = value; AdditionalData?.Remove("normalized_carrier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("normalized_carrier"); else _explicitNullProperties?.Remove("normalized_carrier"); } }
         private string? _explicitNullValueNormalizedCarrier = default!;
 #nullable restore
 #else
-        public string NormalizedCarrier { get => _explicitNullValueNormalizedCarrier; set { _explicitNullValueNormalizedCarrier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("normalized_carrier"); else _explicitNullProperties?.Remove("normalized_carrier"); } }
+        public string NormalizedCarrier { get => _explicitNullValueNormalizedCarrier; set { _explicitNullValueNormalizedCarrier = value; AdditionalData?.Remove("normalized_carrier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("normalized_carrier"); else _explicitNullProperties?.Remove("normalized_carrier"); } }
         private string _explicitNullValueNormalizedCarrier = default!;
 #endif
         /// <summary>A phone number type that identifies the type of service associated with the requested phone number</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Carrier"/> and sets the default values.
@@ -110,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mobile_network_code", n => { MobileNetworkCode = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "normalized_carrier", n => { NormalizedCarrier = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CarrierType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

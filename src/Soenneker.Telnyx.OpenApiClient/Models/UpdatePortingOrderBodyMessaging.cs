@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enable_messaging") is { } nullNodeEnableMessaging && nullNodeEnableMessaging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableMessaging = null;
+            if (parseNode.GetChildNode("enable_messaging") is null) { _explicitNullValueEnableMessaging = default!; _explicitNullProperties?.Remove("enable_messaging"); }
+            else if (parseNode.GetChildNode("enable_messaging") is { } nullNodeEnableMessaging && nullNodeEnableMessaging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableMessaging = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates whether Telnyx will port messaging capabilities from the losing carrier. If false, any messaging capabilities will stay with their current provider.</summary>
-        public bool? EnableMessaging { get => _explicitNullValueEnableMessaging; set { _explicitNullValueEnableMessaging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_messaging"); else _explicitNullProperties?.Remove("enable_messaging"); } }
+        public bool? EnableMessaging { get => _explicitNullValueEnableMessaging; set { _explicitNullValueEnableMessaging = value; AdditionalData?.Remove("enable_messaging"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_messaging"); else _explicitNullProperties?.Remove("enable_messaging"); } }
         private bool? _explicitNullValueEnableMessaging = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrderBodyMessaging"/> and sets the default values.

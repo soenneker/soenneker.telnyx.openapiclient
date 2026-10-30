@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blocked_events") is { } nullNodeBlockedEvents && nullNodeBlockedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedEvents = null;
-            if (parseNode.GetChildNode("flagged_events") is { } nullNodeFlaggedEvents && nullNodeFlaggedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlaggedEvents = null;
-            if (parseNode.GetChildNode("recent_events") is { } nullNodeRecentEvents && nullNodeRecentEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecentEvents = null;
+            if (parseNode.GetChildNode("blocked_events") is null) { _explicitNullValueBlockedEvents = default!; _explicitNullProperties?.Remove("blocked_events"); }
+            else if (parseNode.GetChildNode("blocked_events") is { } nullNodeBlockedEvents && nullNodeBlockedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedEvents = null;
+            if (parseNode.GetChildNode("flagged_events") is null) { _explicitNullValueFlaggedEvents = default!; _explicitNullProperties?.Remove("flagged_events"); }
+            else if (parseNode.GetChildNode("flagged_events") is { } nullNodeFlaggedEvents && nullNodeFlaggedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlaggedEvents = null;
+            if (parseNode.GetChildNode("recent_events") is null) { _explicitNullValueRecentEvents = default!; _explicitNullProperties?.Remove("recent_events"); }
+            else if (parseNode.GetChildNode("recent_events") is { } nullNodeRecentEvents && nullNodeRecentEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecentEvents = null;
         }
 
         /// <summary>The blocked_events property</summary>

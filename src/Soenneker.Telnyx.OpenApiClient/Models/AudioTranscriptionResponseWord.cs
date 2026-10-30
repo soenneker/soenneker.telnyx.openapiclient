@@ -18,50 +18,57 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
-            if (parseNode.GetChildNode("end") is { } nullNodeEnd && nullNodeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) End = null;
-            if (parseNode.GetChildNode("punctuated_word") is { } nullNodePunctuatedWord && nullNodePunctuatedWord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PunctuatedWord = null;
-            if (parseNode.GetChildNode("speaker") is { } nullNodeSpeaker && nullNodeSpeaker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Speaker = null;
-            if (parseNode.GetChildNode("speaker_confidence") is { } nullNodeSpeakerConfidence && nullNodeSpeakerConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakerConfidence = null;
-            if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
-            if (parseNode.GetChildNode("word") is { } nullNodeWord && nullNodeWord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Word = null;
+            if (parseNode.GetChildNode("confidence") is null) { _explicitNullValueConfidence = default!; _explicitNullProperties?.Remove("confidence"); }
+            else if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("end") is null) { _explicitNullValueEnd = default!; _explicitNullProperties?.Remove("end"); }
+            else if (parseNode.GetChildNode("end") is { } nullNodeEnd && nullNodeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) End = null;
+            if (parseNode.GetChildNode("punctuated_word") is null) { _explicitNullValuePunctuatedWord = default!; _explicitNullProperties?.Remove("punctuated_word"); }
+            else if (parseNode.GetChildNode("punctuated_word") is { } nullNodePunctuatedWord && nullNodePunctuatedWord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PunctuatedWord = null;
+            if (parseNode.GetChildNode("speaker") is null) { _explicitNullValueSpeaker = default!; _explicitNullProperties?.Remove("speaker"); }
+            else if (parseNode.GetChildNode("speaker") is { } nullNodeSpeaker && nullNodeSpeaker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Speaker = null;
+            if (parseNode.GetChildNode("speaker_confidence") is null) { _explicitNullValueSpeakerConfidence = default!; _explicitNullProperties?.Remove("speaker_confidence"); }
+            else if (parseNode.GetChildNode("speaker_confidence") is { } nullNodeSpeakerConfidence && nullNodeSpeakerConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakerConfidence = null;
+            if (parseNode.GetChildNode("start") is null) { _explicitNullValueStart = default!; _explicitNullProperties?.Remove("start"); }
+            else if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
+            if (parseNode.GetChildNode("word") is null) { _explicitNullValueWord = default!; _explicitNullProperties?.Remove("word"); }
+            else if (parseNode.GetChildNode("word") is { } nullNodeWord && nullNodeWord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Word = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Confidence score for the word (0.0 to 1.0).</summary>
-        public double? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        public double? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; AdditionalData?.Remove("confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
         private double? _explicitNullValueConfidence = default!;
         /// <summary>End time of the word in seconds.</summary>
-        public double? End { get => _explicitNullValueEnd; set { _explicitNullValueEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end"); else _explicitNullProperties?.Remove("end"); } }
+        public double? End { get => _explicitNullValueEnd; set { _explicitNullValueEnd = value; AdditionalData?.Remove("end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end"); else _explicitNullProperties?.Remove("end"); } }
         private double? _explicitNullValueEnd = default!;
         /// <summary>The transcribed word with punctuation and capitalisation applied. Only present when `punctuate` or `smart_format` is enabled via `model_config`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PunctuatedWord { get => _explicitNullValuePunctuatedWord; set { _explicitNullValuePunctuatedWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("punctuated_word"); else _explicitNullProperties?.Remove("punctuated_word"); } }
+        public string? PunctuatedWord { get => _explicitNullValuePunctuatedWord; set { _explicitNullValuePunctuatedWord = value; AdditionalData?.Remove("punctuated_word"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("punctuated_word"); else _explicitNullProperties?.Remove("punctuated_word"); } }
         private string? _explicitNullValuePunctuatedWord = default!;
 #nullable restore
 #else
-        public string PunctuatedWord { get => _explicitNullValuePunctuatedWord; set { _explicitNullValuePunctuatedWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("punctuated_word"); else _explicitNullProperties?.Remove("punctuated_word"); } }
+        public string PunctuatedWord { get => _explicitNullValuePunctuatedWord; set { _explicitNullValuePunctuatedWord = value; AdditionalData?.Remove("punctuated_word"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("punctuated_word"); else _explicitNullProperties?.Remove("punctuated_word"); } }
         private string _explicitNullValuePunctuatedWord = default!;
 #endif
         /// <summary>Speaker index. Only present when diarization is enabled via `model_config`.</summary>
-        public int? Speaker { get => _explicitNullValueSpeaker; set { _explicitNullValueSpeaker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speaker"); else _explicitNullProperties?.Remove("speaker"); } }
+        public int? Speaker { get => _explicitNullValueSpeaker; set { _explicitNullValueSpeaker = value; AdditionalData?.Remove("speaker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speaker"); else _explicitNullProperties?.Remove("speaker"); } }
         private int? _explicitNullValueSpeaker = default!;
         /// <summary>Confidence score for the speaker assignment (0.0 to 1.0). Only present when diarization is enabled via `model_config`.</summary>
-        public double? SpeakerConfidence { get => _explicitNullValueSpeakerConfidence; set { _explicitNullValueSpeakerConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speaker_confidence"); else _explicitNullProperties?.Remove("speaker_confidence"); } }
+        public double? SpeakerConfidence { get => _explicitNullValueSpeakerConfidence; set { _explicitNullValueSpeakerConfidence = value; AdditionalData?.Remove("speaker_confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speaker_confidence"); else _explicitNullProperties?.Remove("speaker_confidence"); } }
         private double? _explicitNullValueSpeakerConfidence = default!;
         /// <summary>Start time of the word in seconds.</summary>
-        public double? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        public double? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; AdditionalData?.Remove("start"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
         private double? _explicitNullValueStart = default!;
         /// <summary>The transcribed word.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Word { get => _explicitNullValueWord; set { _explicitNullValueWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("word"); else _explicitNullProperties?.Remove("word"); } }
+        public string? Word { get => _explicitNullValueWord; set { _explicitNullValueWord = value; AdditionalData?.Remove("word"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("word"); else _explicitNullProperties?.Remove("word"); } }
         private string? _explicitNullValueWord = default!;
 #nullable restore
 #else
-        public string Word { get => _explicitNullValueWord; set { _explicitNullValueWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("word"); else _explicitNullProperties?.Remove("word"); } }
+        public string Word { get => _explicitNullValueWord; set { _explicitNullValueWord = value; AdditionalData?.Remove("word"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("word"); else _explicitNullProperties?.Remove("word"); } }
         private string _explicitNullValueWord = default!;
 #endif
         /// <summary>

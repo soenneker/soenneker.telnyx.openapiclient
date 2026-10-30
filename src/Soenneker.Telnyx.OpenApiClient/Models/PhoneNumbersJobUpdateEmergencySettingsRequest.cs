@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("emergency_address_id") is { } nullNodeEmergencyAddressId && nullNodeEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyAddressId = null;
-            if (parseNode.GetChildNode("emergency_enabled") is { } nullNodeEmergencyEnabled && nullNodeEmergencyEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyEnabled = null;
-            if (parseNode.GetChildNode("phone_numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
+            if (parseNode.GetChildNode("emergency_address_id") is null) { _explicitNullValueEmergencyAddressId = default!; _explicitNullProperties?.Remove("emergency_address_id"); }
+            else if (parseNode.GetChildNode("emergency_address_id") is { } nullNodeEmergencyAddressId && nullNodeEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyAddressId = null;
+            if (parseNode.GetChildNode("emergency_enabled") is null) { _explicitNullValueEmergencyEnabled = default!; _explicitNullProperties?.Remove("emergency_enabled"); }
+            else if (parseNode.GetChildNode("emergency_enabled") is { } nullNodeEmergencyEnabled && nullNodeEmergencyEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyEnabled = null;
+            if (parseNode.GetChildNode("phone_numbers") is null) { _explicitNullValuePhoneNumbers = default!; _explicitNullProperties?.Remove("phone_numbers"); }
+            else if (parseNode.GetChildNode("phone_numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the address to be used with emergency services. Required if emergency_enabled is true, must be null or omitted if emergency_enabled is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        public string? EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; AdditionalData?.Remove("emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
         private string? _explicitNullValueEmergencyAddressId = default!;
 #nullable restore
 #else
-        public string EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        public string EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; AdditionalData?.Remove("emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
         private string _explicitNullValueEmergencyAddressId = default!;
 #endif
         /// <summary>Indicates whether to enable or disable emergency services on the numbers.</summary>
-        public bool? EmergencyEnabled { get => _explicitNullValueEmergencyEnabled; set { _explicitNullValueEmergencyEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_enabled"); else _explicitNullProperties?.Remove("emergency_enabled"); } }
+        public bool? EmergencyEnabled { get => _explicitNullValueEmergencyEnabled; set { _explicitNullValueEmergencyEnabled = value; AdditionalData?.Remove("emergency_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_enabled"); else _explicitNullProperties?.Remove("emergency_enabled"); } }
         private bool? _explicitNullValueEmergencyEnabled = default!;
         /// <summary>The phone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
+        public List<string>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; AdditionalData?.Remove("phone_numbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
         private List<string>? _explicitNullValuePhoneNumbers = default!;
 #nullable restore
 #else
-        public List<string> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
+        public List<string> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; AdditionalData?.Remove("phone_numbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers"); else _explicitNullProperties?.Remove("phone_numbers"); } }
         private List<string> _explicitNullValuePhoneNumbers = default!;
 #endif
         /// <summary>

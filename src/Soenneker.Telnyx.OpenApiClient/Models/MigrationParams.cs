@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("refresh") is { } nullNodeRefresh && nullNodeRefresh.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refresh = null;
-            if (parseNode.GetChildNode("source_id") is { } nullNodeSourceId && nullNodeSourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceId = null;
-            if (parseNode.GetChildNode("target_bucket_name") is { } nullNodeTargetBucketName && nullNodeTargetBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetBucketName = null;
-            if (parseNode.GetChildNode("target_region") is { } nullNodeTargetRegion && nullNodeTargetRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetRegion = null;
+            if (parseNode.GetChildNode("refresh") is null) { _explicitNullValueRefresh = default!; _explicitNullProperties?.Remove("refresh"); }
+            else if (parseNode.GetChildNode("refresh") is { } nullNodeRefresh && nullNodeRefresh.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refresh = null;
+            if (parseNode.GetChildNode("source_id") is null) { _explicitNullValueSourceId = default!; _explicitNullProperties?.Remove("source_id"); }
+            else if (parseNode.GetChildNode("source_id") is { } nullNodeSourceId && nullNodeSourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceId = null;
+            if (parseNode.GetChildNode("target_bucket_name") is null) { _explicitNullValueTargetBucketName = default!; _explicitNullProperties?.Remove("target_bucket_name"); }
+            else if (parseNode.GetChildNode("target_bucket_name") is { } nullNodeTargetBucketName && nullNodeTargetBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetBucketName = null;
+            if (parseNode.GetChildNode("target_region") is null) { _explicitNullValueTargetRegion = default!; _explicitNullProperties?.Remove("target_region"); }
+            else if (parseNode.GetChildNode("target_region") is { } nullNodeTargetRegion && nullNodeTargetRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetRegion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,16 +48,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Time when data migration was last copied from the source.</summary>
         public DateTimeOffset? LastCopy { get; private set; }
         /// <summary>If true, will continue to poll the source bucket to ensure new data is continually migrated over.</summary>
-        public bool? Refresh { get => _explicitNullValueRefresh; set { _explicitNullValueRefresh = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh"); else _explicitNullProperties?.Remove("refresh"); } }
+        public bool? Refresh { get => _explicitNullValueRefresh; set { _explicitNullValueRefresh = value; AdditionalData?.Remove("refresh"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh"); else _explicitNullProperties?.Remove("refresh"); } }
         private bool? _explicitNullValueRefresh = default!;
         /// <summary>ID of the Migration Source from which to migrate data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceId { get => _explicitNullValueSourceId; set { _explicitNullValueSourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_id"); else _explicitNullProperties?.Remove("source_id"); } }
+        public string? SourceId { get => _explicitNullValueSourceId; set { _explicitNullValueSourceId = value; AdditionalData?.Remove("source_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_id"); else _explicitNullProperties?.Remove("source_id"); } }
         private string? _explicitNullValueSourceId = default!;
 #nullable restore
 #else
-        public string SourceId { get => _explicitNullValueSourceId; set { _explicitNullValueSourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_id"); else _explicitNullProperties?.Remove("source_id"); } }
+        public string SourceId { get => _explicitNullValueSourceId; set { _explicitNullValueSourceId = value; AdditionalData?.Remove("source_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_id"); else _explicitNullProperties?.Remove("source_id"); } }
         private string _explicitNullValueSourceId = default!;
 #endif
         /// <summary>Current speed of the migration.</summary>
@@ -63,21 +67,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Bucket name to migrate the data into. Will default to the same name as the `source_bucket_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetBucketName { get => _explicitNullValueTargetBucketName; set { _explicitNullValueTargetBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_bucket_name"); else _explicitNullProperties?.Remove("target_bucket_name"); } }
+        public string? TargetBucketName { get => _explicitNullValueTargetBucketName; set { _explicitNullValueTargetBucketName = value; AdditionalData?.Remove("target_bucket_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_bucket_name"); else _explicitNullProperties?.Remove("target_bucket_name"); } }
         private string? _explicitNullValueTargetBucketName = default!;
 #nullable restore
 #else
-        public string TargetBucketName { get => _explicitNullValueTargetBucketName; set { _explicitNullValueTargetBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_bucket_name"); else _explicitNullProperties?.Remove("target_bucket_name"); } }
+        public string TargetBucketName { get => _explicitNullValueTargetBucketName; set { _explicitNullValueTargetBucketName = value; AdditionalData?.Remove("target_bucket_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_bucket_name"); else _explicitNullProperties?.Remove("target_bucket_name"); } }
         private string _explicitNullValueTargetBucketName = default!;
 #endif
         /// <summary>Telnyx Cloud Storage region to migrate the data to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetRegion { get => _explicitNullValueTargetRegion; set { _explicitNullValueTargetRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_region"); else _explicitNullProperties?.Remove("target_region"); } }
+        public string? TargetRegion { get => _explicitNullValueTargetRegion; set { _explicitNullValueTargetRegion = value; AdditionalData?.Remove("target_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_region"); else _explicitNullProperties?.Remove("target_region"); } }
         private string? _explicitNullValueTargetRegion = default!;
 #nullable restore
 #else
-        public string TargetRegion { get => _explicitNullValueTargetRegion; set { _explicitNullValueTargetRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_region"); else _explicitNullProperties?.Remove("target_region"); } }
+        public string TargetRegion { get => _explicitNullValueTargetRegion; set { _explicitNullValueTargetRegion = value; AdditionalData?.Remove("target_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_region"); else _explicitNullProperties?.Remove("target_region"); } }
         private string _explicitNullValueTargetRegion = default!;
 #endif
         /// <summary>

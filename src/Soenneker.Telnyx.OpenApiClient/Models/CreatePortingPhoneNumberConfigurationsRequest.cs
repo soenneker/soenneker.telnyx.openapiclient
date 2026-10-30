@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("phone_number_configurations") is { } nullNodePhoneNumberConfigurations && nullNodePhoneNumberConfigurations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberConfigurations = null;
+            if (parseNode.GetChildNode("phone_number_configurations") is null) { _explicitNullValuePhoneNumberConfigurations = default!; _explicitNullProperties?.Remove("phone_number_configurations"); }
+            else if (parseNode.GetChildNode("phone_number_configurations") is { } nullNodePhoneNumberConfigurations && nullNodePhoneNumberConfigurations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberConfigurations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_number_configurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem>? PhoneNumberConfigurations { get => _explicitNullValuePhoneNumberConfigurations; set { _explicitNullValuePhoneNumberConfigurations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_configurations"); else _explicitNullProperties?.Remove("phone_number_configurations"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem>? PhoneNumberConfigurations { get => _explicitNullValuePhoneNumberConfigurations; set { _explicitNullValuePhoneNumberConfigurations = value; AdditionalData?.Remove("phone_number_configurations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_configurations"); else _explicitNullProperties?.Remove("phone_number_configurations"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem>? _explicitNullValuePhoneNumberConfigurations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem> PhoneNumberConfigurations { get => _explicitNullValuePhoneNumberConfigurations; set { _explicitNullValuePhoneNumberConfigurations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_configurations"); else _explicitNullProperties?.Remove("phone_number_configurations"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem> PhoneNumberConfigurations { get => _explicitNullValuePhoneNumberConfigurations; set { _explicitNullValuePhoneNumberConfigurations = value; AdditionalData?.Remove("phone_number_configurations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_configurations"); else _explicitNullProperties?.Remove("phone_number_configurations"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberConfigurationsRequestPhoneNumberConfigurationsItem> _explicitNullValuePhoneNumberConfigurations = default!;
 #endif
         /// <summary>

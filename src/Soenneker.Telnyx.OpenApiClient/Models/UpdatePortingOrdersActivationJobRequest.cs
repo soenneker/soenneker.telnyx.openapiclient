@@ -17,11 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activate_at") is { } nullNodeActivateAt && nullNodeActivateAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivateAt = null;
+            if (parseNode.GetChildNode("activate_at") is null) { _explicitNullValueActivateAt = default!; _explicitNullProperties?.Remove("activate_at"); }
+            else if (parseNode.GetChildNode("activate_at") is { } nullNodeActivateAt && nullNodeActivateAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivateAt = null;
         }
 
         /// <summary>The desired activation time. The activation time should be between any of the activation windows.</summary>
-        public DateTimeOffset? ActivateAt { get => _explicitNullValueActivateAt; set { _explicitNullValueActivateAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activate_at"); else _explicitNullProperties?.Remove("activate_at"); } }
+        public DateTimeOffset? ActivateAt { get => _explicitNullValueActivateAt; set { _explicitNullValueActivateAt = value; AdditionalData?.Remove("activate_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activate_at"); else _explicitNullProperties?.Remove("activate_at"); } }
         private DateTimeOffset? _explicitNullValueActivateAt = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

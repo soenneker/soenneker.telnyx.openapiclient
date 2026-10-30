@@ -43752,7 +43752,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateEmailMessage422Response"
+                  "$ref": "#/components/schemas/CreateEmailMessage422ResponseError"
                 },
                 "example": {
                   "errors": [
@@ -55455,10 +55455,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -55664,10 +55664,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -55789,10 +55789,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -55930,10 +55930,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56077,10 +56077,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56167,10 +56167,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56341,10 +56341,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56522,10 +56522,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56649,10 +56649,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56726,10 +56726,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56873,10 +56873,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -56963,10 +56963,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -57118,10 +57118,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -57306,10 +57306,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -57465,10 +57465,10 @@
               "Cache-Control": {
                 "description": "All API responses; application cache is server-side only.",
                 "schema": {
-                  "const": null,
                   "enum": [
                     "no-store"
                   ],
+                  "x-client-original-const": "no-store",
                   "x-ms-enum": {
                     "name": "CacheControl",
                     "modelAsString": false,
@@ -101988,7 +101988,7 @@
           "message_history": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AiAssistantStartRequestMessageHistoryItem"
+              "$ref": "#/components/schemas/AiAssistantAddMessagesRequestMessagesItem"
             },
             "description": "A list of messages to seed the conversation history before the assistant starts. Follows the same message format as the \u0060ai_assistant_add_messages\u0060 command.",
             "default": []
@@ -102386,7 +102386,7 @@
             "$ref": "#/components/schemas/AccountEmailEventSender"
           },
           "to": {
-            "$ref": "#/components/schemas/AccountEmailEventPayloadTo"
+            "$ref": "#/components/schemas/AccountEmailEventPayloadCc"
           },
           "cc": {
             "$ref": "#/components/schemas/AccountEmailEventPayloadCc"
@@ -103403,10 +103403,10 @@
               ],
               "properties": {
                 "double_opt_in": {
-                  "const": null,
                   "enum": [
                     "True"
                   ],
+                  "x-client-original-const": "True",
                   "x-ms-enum": {
                     "name": "DoubleOptIn",
                     "modelAsString": false,
@@ -104030,10 +104030,10 @@
             "$ref": "#/components/schemas/AgentResponseBasicsStatus"
           },
           "campaign_status": {
-            "$ref": "#/components/schemas/AgentResponseCampaignStatus"
+            "$ref": "#/components/schemas/AgentResponseBasicsStatus"
           },
           "testing_status": {
-            "$ref": "#/components/schemas/AgentResponseTestingStatus"
+            "$ref": "#/components/schemas/AgentResponseBasicsStatus"
           },
           "billing_category": {
             "$ref": "#/components/schemas/AgentResponseBillingCategory"
@@ -106756,11 +106756,11 @@
             "$ref": "#/components/schemas/AvatarType"
           },
           "hosted": {
-            "const": null,
             "type": "boolean",
             "description": "Indicates that avatar rendering runs on Telnyx-operated infrastructure.",
             "default": true,
-            "example": true
+            "example": true,
+            "x-client-original-const": true
           },
           "image_url": {
             "pattern": "^https://",
@@ -110409,7 +110409,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CallAssistantRequestToolsItem"
+              "$ref": "#/components/schemas/AssistantToolsItem"
             },
             "description": "Inline tool definitions available to the assistant (webhook, retrieval, transfer, hangup, etc.). Overrides the assistant\u0027s stored tools if provided."
           },
@@ -118822,7 +118822,7 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
-            "$ref": "#/components/schemas/ConversationRelayEmbeddedConfigVoiceSettings"
+            "$ref": "#/components/schemas/ConferenceSpeakRequestVoiceSettings"
           },
           "tts_provider": {
             "type": "string",
@@ -118981,7 +118981,7 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
-            "$ref": "#/components/schemas/ConversationRelayLanguageVoiceSettings"
+            "$ref": "#/components/schemas/ConferenceSpeakRequestVoiceSettings"
           },
           "transcription_engine": {
             "$ref": "#/components/schemas/ConversationRelayLanguageTranscriptionEngine"
@@ -119136,7 +119136,7 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
-            "$ref": "#/components/schemas/ConversationRelayStartRequestVoiceSettings"
+            "$ref": "#/components/schemas/ConferenceSpeakRequestVoiceSettings"
           },
           "greeting": {
             "type": "string",
@@ -135496,10 +135496,10 @@
             "description": "Empty string."
           },
           "isFinal": {
-            "const": null,
             "type": "boolean",
             "description": "Always \u0060true\u0060.",
-            "default": true
+            "default": true,
+            "x-client-original-const": true
           },
           "timeToFirstAudioFrameMs": {
             "type": "integer",
@@ -137012,7 +137012,7 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
-            "$ref": "#/components/schemas/GatherUsingSpeakRequestVoiceSettings"
+            "$ref": "#/components/schemas/ConferenceSpeakRequestVoiceSettings"
           },
           "language": {
             "$ref": "#/components/schemas/GatherUsingSpeakRequestLanguage"
@@ -141192,7 +141192,7 @@
             "default": ""
           },
           "json_schema": {
-            "$ref": "#/components/schemas/InsightTemplateRespJsonSchema"
+            "$ref": "#/components/schemas/InsightTemplateCreateReqJsonSchema"
           }
         }
       },
@@ -144784,7 +144784,7 @@
             "$ref": "#/components/schemas/MeetingSessionConfig"
           },
           "avatar": {
-            "$ref": "#/components/schemas/MeetingSessionCreatedAvatar"
+            "$ref": "#/components/schemas/MeetingSessionAvatarComposed"
           },
           "avatar_state": {
             "$ref": "#/components/schemas/MeetingSessionCreatedAvatarState"
@@ -144798,7 +144798,7 @@
             "format": "date-time"
           },
           "assistant": {
-            "$ref": "#/components/schemas/MeetingSessionCreatedAssistant"
+            "$ref": "#/components/schemas/MeetingSessionAssistantComposed"
           },
           "assistant_state": {
             "$ref": "#/components/schemas/MeetingSessionCreatedAssistantState"
@@ -165667,7 +165667,7 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
-            "$ref": "#/components/schemas/SpeakRequestVoiceSettings"
+            "$ref": "#/components/schemas/ConferenceSpeakRequestVoiceSettings"
           },
           "language": {
             "$ref": "#/components/schemas/SpeakRequestLanguage"
@@ -183606,7 +183606,7 @@
         "type": "object",
         "properties": {
           "misc": {
-            "$ref": "#/components/schemas/UpdatePortingOrderBodyMisc"
+            "$ref": "#/components/schemas/PortingOrderMiscComposed"
           },
           "end_user": {
             "$ref": "#/components/schemas/PortingOrderEndUser"
@@ -190676,7 +190676,7 @@
           "components": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WhatsappUpdateTemplateRequestComponentsItem"
+              "$ref": "#/components/schemas/WhatsappCreateTemplateRequestComponentsItem"
             },
             "description": "Updated template components. Same structure as the create request."
           }
@@ -191221,7 +191221,10 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WirelessBlocklistValuesItem"
+              "type": "string",
+              "description": "ISO 3166-1 Alpha-2 Country Code.",
+              "example": "US",
+              "x-client-inline-scalar": true
             },
             "description": "Values to block. The values here depend on the \u0060type\u0060 of Wireless Blocklist.",
             "example": [
@@ -201993,7 +201996,10 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WirelessWirelessBlocklistValuesItem"
+              "type": "string",
+              "description": "ISO 3166-1 Alpha-2 Country Code.",
+              "example": "US",
+              "x-client-inline-scalar": true
             },
             "description": "Values to block. The values here depend on the \u0060type\u0060 of Wireless Blocklist.",
             "example": [
@@ -203847,7 +203853,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ConversationMessageMetadataAdditionalPropertiesAnyOf4Item"
+              "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
             }
           }
         ]
@@ -204439,7 +204445,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateMsgReqMetadataAdditionalPropertiesAnyOf4Item"
+              "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
             }
           }
         ]
@@ -208886,23 +208892,10 @@
         }
       },
       "WirelessBlocklistValuesItem": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "ISO 3166-1 Alpha-2 Country Code.",
-            "example": "US"
-          },
-          {
-            "type": "string",
-            "description": "Mobile Country Code.",
-            "example": "311"
-          },
-          {
-            "type": "string",
-            "description": "Public land mobile network code (MCC \u002B MNC).",
-            "example": "311210"
-          }
-        ]
+        "type": "string",
+        "description": "ISO 3166-1 Alpha-2 Country Code.",
+        "example": "US",
+        "x-client-inline-scalar": true
       },
       "CallAnalyzedBodyPayloadCost": {
         "oneOf": [
@@ -210055,23 +210048,10 @@
         }
       },
       "WirelessWirelessBlocklistValuesItem": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "ISO 3166-1 Alpha-2 Country Code.",
-            "example": "US"
-          },
-          {
-            "type": "string",
-            "description": "Mobile Country Code.",
-            "example": "311"
-          },
-          {
-            "type": "string",
-            "description": "Public land mobile network code (MCC \u002B MNC).",
-            "example": "311210"
-          }
-        ]
+        "type": "string",
+        "description": "ISO 3166-1 Alpha-2 Country Code.",
+        "example": "US",
+        "x-client-inline-scalar": true
       },
       "CreatePortingReportRequestParams": {
         "required": [
@@ -210658,9 +210638,9 @@
         "type": "object",
         "properties": {
           "accepted": {
-            "const": null,
             "type": "boolean",
-            "default": true
+            "default": true,
+            "x-client-original-const": true
           }
         },
         "additionalProperties": false
@@ -210885,7 +210865,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/AssistantWhatsappChatReqConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         },
         "description": "Metadata stored on the conversation. Keys starting with \u0060telnyx_\u0060 and the \u0060assistant_id\u0060 key are reserved."
       },
@@ -214865,7 +214845,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/CreateScheduledEventRequestConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         },
         "description": "Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own."
       },
@@ -219754,7 +219734,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/ScheduledPhoneCallEventResponseConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         }
       },
       "ScheduledPhoneCallEventResponseDynamicVariables": {
@@ -219769,7 +219749,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/ScheduledSmsEventResponseConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         }
       },
       "ScheduledSmsEventResponseDynamicVariables": {
@@ -221423,7 +221403,7 @@
           "loc": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ValidationErrorResponseDetailItemLocItem"
+              "$ref": "#/components/schemas/Loopcount"
             }
           },
           "msg": {
@@ -233275,7 +233255,10 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateWirelessBlocklistRequestValuesItem"
+              "type": "string",
+              "description": "ISO 3166-1 Alpha-2 Country Code.",
+              "example": "US",
+              "x-client-inline-scalar": true
             },
             "description": "Values to block. The values here depend on the \u0060type\u0060 of Wireless Blocklist.",
             "example": [
@@ -233296,7 +233279,10 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UpdateWirelessBlocklistRequestValuesItem"
+              "type": "string",
+              "description": "ISO 3166-1 Alpha-2 Country Code.",
+              "example": "US",
+              "x-client-inline-scalar": true
             },
             "description": "Values to block. The values here depend on the \u0060type\u0060 of Wireless Blocklist.",
             "example": [
@@ -238662,42 +238648,16 @@
         ]
       },
       "CreateWirelessBlocklistRequestValuesItem": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "ISO 3166-1 Alpha-2 Country Code.",
-            "example": "US"
-          },
-          {
-            "type": "string",
-            "description": "Mobile Country Code.",
-            "example": "311"
-          },
-          {
-            "type": "string",
-            "description": "Public land mobile network code (MCC \u002B MNC).",
-            "example": "311210"
-          }
-        ]
+        "type": "string",
+        "description": "ISO 3166-1 Alpha-2 Country Code.",
+        "example": "US",
+        "x-client-inline-scalar": true
       },
       "UpdateWirelessBlocklistRequestValuesItem": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "ISO 3166-1 Alpha-2 Country Code.",
-            "example": "US"
-          },
-          {
-            "type": "string",
-            "description": "Mobile Country Code.",
-            "example": "311"
-          },
-          {
-            "type": "string",
-            "description": "Public land mobile network code (MCC \u002B MNC).",
-            "example": "311210"
-          }
-        ]
+        "type": "string",
+        "description": "ISO 3166-1 Alpha-2 Country Code.",
+        "example": "US",
+        "x-client-inline-scalar": true
       },
       "ActionResponseRequestProperty": {
         "type": "object",
@@ -238790,7 +238750,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/AssistantWhatsappChatReqConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         },
         "description": "Metadata stored on the conversation. Keys starting with \u0060telnyx_\u0060 and the \u0060assistant_id\u0060 key are reserved."
       },
@@ -239121,7 +239081,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/CreateScheduledEventRequestConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         },
         "description": "Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own."
       },
@@ -239764,7 +239724,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/ScheduledPhoneCallEventResponseConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         }
       },
       "ScheduledPhoneCallEventResponseDynamicVariablesProperty": {
@@ -239779,7 +239739,7 @@
         "title": "Conversation Metadata",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/ScheduledSmsEventResponseConversationMetadataAdditionalProperties"
+          "$ref": "#/components/schemas/AssistantSmsChatReqConversationMetadataAdditionalProperties"
         }
       },
       "ScheduledSmsEventResponseDynamicVariablesProperty": {
@@ -242384,12 +242344,12 @@
         }
       },
       "ArithmeticType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "arithmetic"
         ],
         "type": "string",
+        "x-client-original-const": "arithmetic",
         "x-ms-enum": {
           "name": "ArithmeticType",
           "modelAsString": false,
@@ -242419,12 +242379,12 @@
         }
       },
       "AssistantType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "assistant"
         ],
         "type": "string",
+        "x-client-original-const": "assistant",
         "x-ms-enum": {
           "name": "AssistantType",
           "modelAsString": false,
@@ -242460,12 +242420,12 @@
         }
       },
       "AudioChunkType": {
-        "const": null,
         "enum": [
           "audio_chunk"
         ],
         "type": "string",
         "description": "Frame type identifier.",
+        "x-client-original-const": "audio_chunk",
         "x-ms-enum": {
           "name": "AudioChunkType",
           "modelAsString": false,
@@ -242787,13 +242747,13 @@
         }
       },
       "TelnyxProvider": {
-        "const": null,
         "enum": [
           "telnyx"
         ],
         "type": "string",
         "description": "Avatar provider. The first release supports Telnyx avatars.",
         "example": "telnyx",
+        "x-client-original-const": "telnyx",
         "x-ms-enum": {
           "name": "TelnyxProvider",
           "modelAsString": false,
@@ -242914,10 +242874,10 @@
         "description": "Voice gender filter."
       },
       "BatchType": {
-        "const": null,
         "enum": [
           "batch"
         ],
+        "x-client-original-const": "batch",
         "x-ms-enum": {
           "name": "BatchType",
           "modelAsString": false,
@@ -242964,12 +242924,12 @@
         }
       },
       "BoolLiteralType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "bool_literal"
         ],
         "type": "string",
+        "x-client-original-const": "bool_literal",
         "x-ms-enum": {
           "name": "BoolLiteralType",
           "modelAsString": false,
@@ -243010,12 +242970,12 @@
         }
       },
       "BoolOpType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "bool_op"
         ],
         "type": "string",
+        "x-client-original-const": "bool_op",
         "x-ms-enum": {
           "name": "BoolOpType",
           "modelAsString": false,
@@ -245489,10 +245449,10 @@
         }
       },
       "ClickType": {
-        "const": null,
         "enum": [
           "click"
         ],
+        "x-client-original-const": "click",
         "x-ms-enum": {
           "name": "ClickType",
           "modelAsString": false,
@@ -245662,12 +245622,12 @@
         }
       },
       "ComparisonType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "comparison"
         ],
         "type": "string",
+        "x-client-original-const": "comparison",
         "x-ms-enum": {
           "name": "ComparisonType",
           "modelAsString": false,
@@ -248774,12 +248734,12 @@
         }
       },
       "DefaultValueType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "default"
         ],
         "type": "string",
+        "x-client-original-const": "default",
         "x-ms-enum": {
           "name": "DefaultValueType",
           "modelAsString": false,
@@ -249714,12 +249674,12 @@
         }
       },
       "VariableType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "variable"
         ],
         "type": "string",
+        "x-client-original-const": "variable",
         "x-ms-enum": {
           "name": "VariableType",
           "modelAsString": false,
@@ -249760,10 +249720,10 @@
         }
       },
       "EinIdentifierType": {
-        "const": null,
         "enum": [
           "EIN"
         ],
+        "x-client-original-const": "EIN",
         "x-ms-enum": {
           "name": "EinIdentifierType",
           "modelAsString": false,
@@ -251435,12 +251395,12 @@
         }
       },
       "ErrorType": {
-        "const": null,
         "enum": [
           "error"
         ],
         "type": "string",
         "description": "Frame type identifier.",
+        "x-client-original-const": "error",
         "x-ms-enum": {
           "name": "ErrorType",
           "modelAsString": false,
@@ -251661,12 +251621,12 @@
         }
       },
       "ExpressionType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "expression"
         ],
         "type": "string",
+        "x-client-original-const": "expression",
         "x-ms-enum": {
           "name": "ExpressionType",
           "modelAsString": false,
@@ -251794,10 +251754,10 @@
         }
       },
       "FillType": {
-        "const": null,
         "enum": [
           "fill"
         ],
+        "x-client-original-const": "fill",
         "x-ms-enum": {
           "name": "FillType",
           "modelAsString": false,
@@ -251886,12 +251846,12 @@
         }
       },
       "FinalType": {
-        "const": null,
         "enum": [
           "final"
         ],
         "type": "string",
         "description": "Frame type identifier.",
+        "x-client-original-const": "final",
         "x-ms-enum": {
           "name": "FinalType",
           "modelAsString": false,
@@ -251987,13 +251947,13 @@
         }
       },
       "PromptType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "prompt"
         ],
         "type": "string",
         "description": "Node kind discriminator. \u0060prompt\u0060 is an LLM-driven step.",
+        "x-client-original-const": "prompt",
         "x-ms-enum": {
           "name": "PromptType",
           "modelAsString": false,
@@ -252052,13 +252012,13 @@
         }
       },
       "FlowNodeReqType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "prompt"
         ],
         "type": "string",
         "description": "Node kind discriminator. \u0060prompt\u0060 (default) is an LLM-driven step; \u0060tool\u0060 is a standalone tool execution and \u0060speak\u0060 a scripted message (see \u0060ToolNodeReq\u0060 / \u0060SpeakNodeReq\u0060).",
+        "x-client-original-const": "prompt",
         "x-ms-enum": {
           "name": "FlowNodeReqType",
           "modelAsString": false,
@@ -252115,11 +252075,11 @@
         }
       },
       "ComputeFuncInvocationLogRecordType": {
-        "const": null,
         "enum": [
           "compute_func_invocation_log"
         ],
         "type": "string",
+        "x-client-original-const": "compute_func_invocation_log",
         "x-ms-enum": {
           "name": "ComputeFuncInvocationLogRecordType",
           "modelAsString": false,
@@ -252148,11 +252108,11 @@
         }
       },
       "ComputeFuncRuntimeLogRecordType": {
-        "const": null,
         "enum": [
           "compute_func_runtime_log"
         ],
         "type": "string",
+        "x-client-original-const": "compute_func_runtime_log",
         "x-ms-enum": {
           "name": "ComputeFuncRuntimeLogRecordType",
           "modelAsString": false,
@@ -252558,10 +252518,10 @@
         }
       },
       "GuardrailEventRecordType": {
-        "const": null,
         "enum": [
           "guardrail_event"
         ],
+        "x-client-original-const": "guardrail_event",
         "x-ms-enum": {
           "name": "GuardrailEventRecordType",
           "modelAsString": false,
@@ -254354,12 +254314,12 @@
         }
       },
       "LlmType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "llm"
         ],
         "type": "string",
+        "x-client-original-const": "llm",
         "x-ms-enum": {
           "name": "LlmType",
           "modelAsString": false,
@@ -255160,12 +255120,12 @@
         }
       },
       "MeetingSessionAvatarProvider": {
-        "const": null,
         "enum": [
           "telnyx"
         ],
         "type": "string",
         "description": "Avatar provider identifier.",
+        "x-client-original-const": "telnyx",
         "x-ms-enum": {
           "name": "MeetingSessionAvatarProvider",
           "modelAsString": false,
@@ -255178,12 +255138,12 @@
         }
       },
       "JpegFormat": {
-        "const": null,
         "enum": [
           "jpeg"
         ],
         "type": "string",
         "description": "Only JPEG images are accepted.",
+        "x-client-original-const": "jpeg",
         "x-ms-enum": {
           "name": "JpegFormat",
           "modelAsString": false,
@@ -255196,12 +255156,12 @@
         }
       },
       "MeetingSessionCameraImageUrlSourceFormat": {
-        "const": null,
         "enum": [
           "jpeg"
         ],
         "type": "string",
         "description": "Only JPEG images are accepted.",
+        "x-client-original-const": "jpeg",
         "x-ms-enum": {
           "name": "MeetingSessionCameraImageUrlSourceFormat",
           "modelAsString": false,
@@ -256290,10 +256250,10 @@
         }
       },
       "NavigateType": {
-        "const": null,
         "enum": [
           "navigate"
         ],
+        "x-client-original-const": "navigate",
         "x-ms-enum": {
           "name": "NavigateType",
           "modelAsString": false,
@@ -256466,12 +256426,12 @@
         }
       },
       "NodeType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "node"
         ],
         "type": "string",
+        "x-client-original-const": "node",
         "x-ms-enum": {
           "name": "NodeType",
           "modelAsString": false,
@@ -256743,12 +256703,12 @@
         }
       },
       "NumberLiteralType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "number_literal"
         ],
         "type": "string",
+        "x-client-original-const": "number_literal",
         "x-ms-enum": {
           "name": "NumberLiteralType",
           "modelAsString": false,
@@ -257342,10 +257302,10 @@
         }
       },
       "ObserveType": {
-        "const": null,
         "enum": [
           "observe"
         ],
+        "x-client-original-const": "observe",
         "x-ms-enum": {
           "name": "ObserveType",
           "modelAsString": false,
@@ -259012,7 +258972,17 @@
         ],
         "type": "string",
         "description": "Indicates whether or not the requested phone number has been ported",
-        "example": "Y"
+        "example": "Y",
+        "x-ms-enum": {
+          "name": "PortabilityPortedStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "",
+              "name": "EnumValue"
+            }
+          ]
+        }
       },
       "PortabilityLineType": {
         "enum": [
@@ -260393,10 +260363,10 @@
         }
       },
       "PressType": {
-        "const": null,
         "enum": [
           "press"
         ],
+        "x-client-original-const": "press",
         "x-ms-enum": {
           "name": "PressType",
           "modelAsString": false,
@@ -261538,11 +261508,11 @@
         }
       },
       "JsonObjectType": {
-        "const": null,
         "enum": [
           "json_object"
         ],
         "type": "string",
+        "x-client-original-const": "json_object",
         "x-ms-enum": {
           "name": "JsonObjectType",
           "modelAsString": false,
@@ -261555,11 +261525,11 @@
         }
       },
       "JsonSchemaType": {
-        "const": null,
         "enum": [
           "json_schema"
         ],
         "type": "string",
+        "x-client-original-const": "json_schema",
         "x-ms-enum": {
           "name": "JsonSchemaType",
           "modelAsString": false,
@@ -261572,11 +261542,11 @@
         }
       },
       "TextType": {
-        "const": null,
         "enum": [
           "text"
         ],
         "type": "string",
+        "x-client-original-const": "text",
         "x-ms-enum": {
           "name": "TextType",
           "modelAsString": false,
@@ -262102,10 +262072,10 @@
         }
       },
       "ScreenshotType": {
-        "const": null,
         "enum": [
           "screenshot"
         ],
+        "x-client-original-const": "screenshot",
         "x-ms-enum": {
           "name": "ScreenshotType",
           "modelAsString": false,
@@ -262118,10 +262088,10 @@
         }
       },
       "ScrollType": {
-        "const": null,
         "enum": [
           "scroll"
         ],
+        "x-client-original-const": "scroll",
         "x-ms-enum": {
           "name": "ScrollType",
           "modelAsString": false,
@@ -262134,10 +262104,10 @@
         }
       },
       "SelectType": {
-        "const": null,
         "enum": [
           "select"
         ],
+        "x-client-original-const": "select",
         "x-ms-enum": {
           "name": "SelectType",
           "modelAsString": false,
@@ -262229,12 +262199,12 @@
         }
       },
       "BuildLogInspectionRecordType": {
-        "const": null,
         "enum": [
           "build_log_inspection"
         ],
         "type": "string",
         "description": "Stable record type retained by both inspection path aliases.",
+        "x-client-original-const": "build_log_inspection",
         "x-ms-enum": {
           "name": "BuildLogInspectionRecordType",
           "modelAsString": false,
@@ -262797,13 +262767,13 @@
         }
       },
       "SpeakType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "speak"
         ],
         "type": "string",
         "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+        "x-client-original-const": "speak",
         "x-ms-enum": {
           "name": "SpeakType",
           "modelAsString": false,
@@ -262816,13 +262786,13 @@
         }
       },
       "SpeakNodeReqType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "speak"
         ],
         "type": "string",
         "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+        "x-client-original-const": "speak",
         "x-ms-enum": {
           "name": "SpeakNodeReqType",
           "modelAsString": false,
@@ -263512,10 +263482,10 @@
         }
       },
       "StockSymbolIdentifierType": {
-        "const": null,
         "enum": [
           "STOCK_SYMBOL"
         ],
+        "x-client-original-const": "STOCK_SYMBOL",
         "x-ms-enum": {
           "name": "StockSymbolIdentifierType",
           "modelAsString": false,
@@ -263551,12 +263521,12 @@
         }
       },
       "StringLiteralType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "string_literal"
         ],
         "type": "string",
+        "x-client-original-const": "string_literal",
         "x-ms-enum": {
           "name": "StringLiteralType",
           "modelAsString": false,
@@ -263600,12 +263570,12 @@
         }
       },
       "SttErrorFrameType": {
-        "const": null,
         "enum": [
           "error"
         ],
         "type": "string",
         "description": "Frame type identifier.",
+        "x-client-original-const": "error",
         "x-ms-enum": {
           "name": "SttErrorFrameType",
           "modelAsString": false,
@@ -263921,12 +263891,12 @@
         }
       },
       "TelnyxAvatarSettingsProvider": {
-        "const": null,
         "enum": [
           "telnyx"
         ],
         "type": "string",
         "description": "Selects the Telnyx open-source avatar provider.",
+        "x-client-original-const": "telnyx",
         "x-ms-enum": {
           "name": "TelnyxAvatarSettingsProvider",
           "modelAsString": false,
@@ -265526,10 +265496,10 @@
         }
       },
       "TokenGroupRecordType": {
-        "const": null,
         "enum": [
           "token_group"
         ],
+        "x-client-original-const": "token_group",
         "x-ms-enum": {
           "name": "TokenGroupRecordType",
           "modelAsString": false,
@@ -265542,10 +265512,10 @@
         }
       },
       "TokenKeyRecordType": {
-        "const": null,
         "enum": [
           "token_key"
         ],
+        "x-client-original-const": "token_key",
         "x-ms-enum": {
           "name": "TokenKeyRecordType",
           "modelAsString": false,
@@ -265600,10 +265570,10 @@
         }
       },
       "TokenKeyCreatedRecordType": {
-        "const": null,
         "enum": [
           "token_key"
         ],
+        "x-client-original-const": "token_key",
         "x-ms-enum": {
           "name": "TokenKeyCreatedRecordType",
           "modelAsString": false,
@@ -265709,13 +265679,13 @@
         }
       },
       "ToolType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "tool"
         ],
         "type": "string",
         "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+        "x-client-original-const": "tool",
         "x-ms-enum": {
           "name": "ToolType",
           "modelAsString": false,
@@ -265728,13 +265698,13 @@
         }
       },
       "ToolNodeReqType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "tool"
         ],
         "type": "string",
         "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+        "x-client-original-const": "tool",
         "x-ms-enum": {
           "name": "ToolNodeReqType",
           "modelAsString": false,
@@ -265775,12 +265745,12 @@
         }
       },
       "TranscriptType": {
-        "const": null,
         "enum": [
           "transcript"
         ],
         "type": "string",
         "description": "Frame type identifier.",
+        "x-client-original-const": "transcript",
         "x-ms-enum": {
           "name": "TranscriptType",
           "modelAsString": false,
@@ -268391,10 +268361,10 @@
         }
       },
       "GuardrailEvaluationType": {
-        "const": null,
         "enum": [
           "guardrail.evaluation"
         ],
+        "x-client-original-const": "guardrail.evaluation",
         "x-ms-enum": {
           "name": "GuardrailEvaluationType",
           "modelAsString": false,
@@ -268407,10 +268377,10 @@
         }
       },
       "Value1SchemaVersion": {
-        "const": null,
         "enum": [
           "1"
         ],
+        "x-client-original-const": "1",
         "x-ms-enum": {
           "name": "Value1SchemaVersion",
           "modelAsString": false,
@@ -268475,10 +268445,10 @@
         }
       },
       "InferenceRequestType": {
-        "const": null,
         "enum": [
           "inference.request"
         ],
+        "x-client-original-const": "inference.request",
         "x-ms-enum": {
           "name": "InferenceRequestType",
           "modelAsString": false,
@@ -268491,10 +268461,10 @@
         }
       },
       "UsageExportInferenceRequestSchemaVersion": {
-        "const": null,
         "enum": [
           "1"
         ],
+        "x-client-original-const": "1",
         "x-ms-enum": {
           "name": "UsageExportInferenceRequestSchemaVersion",
           "modelAsString": false,
@@ -269232,10 +269202,10 @@
         }
       },
       "WaitForType": {
-        "const": null,
         "enum": [
           "wait_for"
         ],
+        "x-client-original-const": "wait_for",
         "x-ms-enum": {
           "name": "WaitForType",
           "modelAsString": false,
@@ -273421,10 +273391,10 @@
         }
       },
       "BrandContactsBrandContactType": {
-        "const": null,
         "enum": [
           "BRAND"
         ],
+        "x-client-original-const": "BRAND",
         "x-ms-enum": {
           "name": "BrandContactsBrandContactType",
           "modelAsString": false,
@@ -273474,12 +273444,12 @@
         }
       },
       "CustomType": {
-        "const": null,
         "enum": [
           "custom"
         ],
         "type": "string",
         "description": "Answered from the \u0060prompt\u0060 below rather than a fixed question.",
+        "x-client-original-const": "custom",
         "x-ms-enum": {
           "name": "CustomType",
           "modelAsString": false,
@@ -273492,10 +273462,10 @@
         }
       },
       "BasicAuthType": {
-        "const": null,
         "enum": [
           "basic"
         ],
+        "x-client-original-const": "basic",
         "x-ms-enum": {
           "name": "BasicAuthType",
           "modelAsString": false,
@@ -273508,10 +273478,10 @@
         }
       },
       "BearerAuthType": {
-        "const": null,
         "enum": [
           "bearer"
         ],
+        "x-client-original-const": "bearer",
         "x-ms-enum": {
           "name": "BearerAuthType",
           "modelAsString": false,
@@ -273524,10 +273494,10 @@
         }
       },
       "NoneAuthType": {
-        "const": null,
         "enum": [
           "none"
         ],
+        "x-client-original-const": "none",
         "x-ms-enum": {
           "name": "NoneAuthType",
           "modelAsString": false,
@@ -273546,12 +273516,12 @@
         "type": "boolean"
       },
       "RequestStartType": {
-        "const": null,
         "enum": [
           "request_start"
         ],
         "type": "string",
         "description": "Speak the filler message immediately when the call to the agent begins.",
+        "x-client-original-const": "request_start",
         "x-ms-enum": {
           "name": "RequestStartType",
           "modelAsString": false,
@@ -273564,12 +273534,12 @@
         }
       },
       "RequestResponseDelayedType": {
-        "const": null,
         "enum": [
           "request_response_delayed"
         ],
         "type": "string",
         "description": "Speak the filler message only if the agent has not answered yet after \u0060timing_ms\u0060.",
+        "x-client-original-const": "request_response_delayed",
         "x-ms-enum": {
           "name": "RequestResponseDelayedType",
           "modelAsString": false,
@@ -273633,10 +273603,10 @@
         }
       },
       "UrlPatternKind": {
-        "const": null,
         "enum": [
           "url_pattern"
         ],
+        "x-client-original-const": "url_pattern",
         "x-ms-enum": {
           "name": "UrlPatternKind",
           "modelAsString": false,
@@ -273649,10 +273619,10 @@
         }
       },
       "RefValueKind": {
-        "const": null,
         "enum": [
           "ref"
         ],
+        "x-client-original-const": "ref",
         "x-ms-enum": {
           "name": "RefValueKind",
           "modelAsString": false,
@@ -273665,10 +273635,10 @@
         }
       },
       "TextKind": {
-        "const": null,
         "enum": [
           "text"
         ],
+        "x-client-original-const": "text",
         "x-ms-enum": {
           "name": "TextKind",
           "modelAsString": false,
@@ -273681,10 +273651,10 @@
         }
       },
       "DomStableKind": {
-        "const": null,
         "enum": [
           "dom_stable"
         ],
+        "x-client-original-const": "dom_stable",
         "x-ms-enum": {
           "name": "DomStableKind",
           "modelAsString": false,
@@ -273697,12 +273667,12 @@
         }
       },
       "WebhookToolParamsMessagesItemWebhookToolRequestStartMessageType": {
-        "const": null,
         "enum": [
           "request_start"
         ],
         "type": "string",
         "description": "Speak the filler message immediately when the webhook request begins.",
+        "x-client-original-const": "request_start",
         "x-ms-enum": {
           "name": "WebhookToolParamsMessagesItemWebhookToolRequestStartMessageType",
           "modelAsString": false,
@@ -273715,12 +273685,12 @@
         }
       },
       "WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageType": {
-        "const": null,
         "enum": [
           "request_response_delayed"
         ],
         "type": "string",
         "description": "Speak the filler message after the configured delay if the webhook response is still pending.",
+        "x-client-original-const": "request_response_delayed",
         "x-ms-enum": {
           "name": "WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageType",
           "modelAsString": false,
@@ -275519,6 +275489,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -275591,6 +275565,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -275638,6 +275616,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -275834,11 +275816,11 @@
         }
       },
       "MeetingSessionRecordingMediaDeletionResponseDataProvider": {
-        "const": null,
         "enum": [
           "telnyx"
         ],
         "type": "string",
+        "x-client-original-const": "telnyx",
         "x-ms-enum": {
           "name": "MeetingSessionRecordingMediaDeletionResponseDataProvider",
           "modelAsString": false,
@@ -275851,11 +275833,11 @@
         }
       },
       "ProviderRecordingMediaScope": {
-        "const": null,
         "enum": [
           "provider_recording_media"
         ],
         "type": "string",
+        "x-client-original-const": "provider_recording_media",
         "x-ms-enum": {
           "name": "ProviderRecordingMediaScope",
           "modelAsString": false,
@@ -275956,6 +275938,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276011,6 +275997,10 @@
               "name": "PrePaidWireless"
             },
             {
+              "value": "",
+              "name": "EnumValue"
+            },
+            {
               "value": "long_code",
               "name": "LongCode"
             }
@@ -276039,6 +276029,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276122,6 +276116,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276194,6 +276192,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276439,6 +276441,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276517,6 +276523,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276589,6 +276599,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276615,6 +276629,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276703,6 +276721,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -276791,6 +276813,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -277836,6 +277862,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -277924,6 +277954,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -278012,6 +278046,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -278174,6 +278212,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -279907,6 +279949,10 @@
             {
               "value": "Pre-Paid Wireless",
               "name": "PrePaidWireless"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }
@@ -288014,12 +288060,12 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": null,
             "enum": [
               "audio_chunk"
             ],
             "type": "string",
             "description": "Frame type identifier.",
+            "x-client-original-const": "audio_chunk",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288066,12 +288112,12 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": null,
             "enum": [
               "final"
             ],
             "type": "string",
             "description": "Frame type identifier.",
+            "x-client-original-const": "final",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288092,10 +288138,10 @@
             "description": "Empty string."
           },
           "isFinal": {
-            "const": null,
             "type": "boolean",
             "description": "Always \u0060true\u0060.",
-            "default": true
+            "default": true,
+            "x-client-original-const": true
           },
           "timeToFirstAudioFrameMs": {
             "type": "integer",
@@ -288110,12 +288156,12 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": null,
             "enum": [
               "error"
             ],
             "type": "string",
             "description": "Frame type identifier.",
+            "x-client-original-const": "error",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288250,13 +288296,13 @@
             "$ref": "#/components/schemas/TranscriptionSettings"
           },
           "type": {
-            "const": null,
             "title": "Type",
             "enum": [
               "prompt"
             ],
             "type": "string",
             "description": "Node kind discriminator. \u0060prompt\u0060 is an LLM-driven step.",
+            "x-client-original-const": "prompt",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288308,13 +288354,13 @@
             "description": "Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer \u0060tool_ids\u0060 to attach shared tools created with the AI Tools endpoints. On update, a sent \u0060tools\u0060 array fully replaces the assistant\u0027s inline tools; omit the field to leave them unchanged. Each tool type except \u0060function\u0060, \u0060webhook\u0060, and \u0060client_side_tool\u0060 allows at most one instance per assistant, counted across inline \u0060tools\u0060 and shared \u0060tool_ids\u0060 combined."
           },
           "type": {
-            "const": null,
             "title": "Type",
             "enum": [
               "tool"
             ],
             "type": "string",
             "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+            "x-client-original-const": "tool",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288345,13 +288391,13 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": null,
             "title": "Type",
             "enum": [
               "speak"
             ],
             "type": "string",
             "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+            "x-client-original-const": "speak",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288456,13 +288502,13 @@
             "$ref": "#/components/schemas/TranscriptionSettings"
           },
           "type": {
-            "const": null,
             "title": "Type",
             "enum": [
               "prompt"
             ],
             "type": "string",
             "description": "Node kind discriminator. \u0060prompt\u0060 (default) is an LLM-driven step; \u0060tool\u0060 is a standalone tool execution and \u0060speak\u0060 a scripted message (see \u0060ToolNodeReq\u0060 / \u0060SpeakNodeReq\u0060).",
+            "x-client-original-const": "prompt",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288522,13 +288568,13 @@
             "example": "tool-charge-card"
           },
           "type": {
-            "const": null,
             "title": "Type",
             "enum": [
               "tool"
             ],
             "type": "string",
             "description": "Node kind discriminator. Always \u0060tool\u0060 for a tool node.",
+            "x-client-original-const": "tool",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -288551,13 +288597,13 @@
         "type": "object",
         "properties": {
           "type": {
-            "const": null,
             "title": "Type",
             "enum": [
               "speak"
             ],
             "type": "string",
             "description": "Node kind discriminator. Always \u0060speak\u0060 for a speak node.",
+            "x-client-original-const": "speak",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
@@ -289177,6 +289223,60 @@
           "$ref": "#/components/schemas/CreateToolPost422Response"
         }
       },
+      "CreateEmailMessage422ResponseError": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "x-client-untyped-value": true,
+            "x-client-original-field-schemas": [
+              {
+                "x-client-untyped-value": true,
+                "x-client-original-field-schemas": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ErrorObject"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RenderErrorObject"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RecipientSuppressedErrorErrorsItem"
+                }
+              }
+            ]
+          },
+          "suppressed": {
+            "x-client-untyped-value": true,
+            "x-client-original-field-schemas": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SuppressedRecipient"
+                },
+                "description": "Present when every recipient is suppressed, so the request is rejected and no message is created."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RecipientSuppressedErrorSuppressedItem"
+                }
+              }
+            ]
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/CreateEmailMessage422Response"
+        }
+      },
       "CreateMachinePaymentAccountCredit403ResponseError": {
         "type": "object",
         "properties": {
@@ -289791,10 +289891,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -289841,10 +289941,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -289897,10 +289997,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -289947,10 +290047,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -289997,10 +290097,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290054,10 +290154,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290104,10 +290204,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290154,10 +290254,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290204,10 +290304,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290261,10 +290361,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290318,10 +290418,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -290375,10 +290475,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -291724,10 +291824,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -291781,10 +291881,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -292144,10 +292244,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -292194,10 +292294,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -292251,10 +292351,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,
@@ -292308,10 +292408,10 @@
           "Cache-Control": {
             "description": "All API responses; application cache is server-side only.",
             "schema": {
-              "const": null,
               "enum": [
                 "no-store"
               ],
+              "x-client-original-const": "no-store",
               "x-ms-enum": {
                 "name": "CacheControl",
                 "modelAsString": false,

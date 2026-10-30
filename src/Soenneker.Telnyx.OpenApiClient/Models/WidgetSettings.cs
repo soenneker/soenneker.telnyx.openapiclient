@@ -18,17 +18,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_thinking_text") is { } nullNodeAgentThinkingText && nullNodeAgentThinkingText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentThinkingText = null;
-            if (parseNode.GetChildNode("audio_visualizer_config") is { } nullNodeAudioVisualizerConfig && nullNodeAudioVisualizerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioVisualizerConfig = null;
-            if (parseNode.GetChildNode("default_state") is { } nullNodeDefaultState && nullNodeDefaultState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultState = null;
-            if (parseNode.GetChildNode("give_feedback_url") is { } nullNodeGiveFeedbackUrl && nullNodeGiveFeedbackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GiveFeedbackUrl = null;
-            if (parseNode.GetChildNode("logo_icon_url") is { } nullNodeLogoIconUrl && nullNodeLogoIconUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoIconUrl = null;
-            if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
-            if (parseNode.GetChildNode("report_issue_url") is { } nullNodeReportIssueUrl && nullNodeReportIssueUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportIssueUrl = null;
-            if (parseNode.GetChildNode("speak_to_interrupt_text") is { } nullNodeSpeakToInterruptText && nullNodeSpeakToInterruptText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakToInterruptText = null;
-            if (parseNode.GetChildNode("start_call_text") is { } nullNodeStartCallText && nullNodeStartCallText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartCallText = null;
-            if (parseNode.GetChildNode("theme") is { } nullNodeTheme && nullNodeTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Theme = null;
-            if (parseNode.GetChildNode("view_history_url") is { } nullNodeViewHistoryUrl && nullNodeViewHistoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewHistoryUrl = null;
+            if (parseNode.GetChildNode("agent_thinking_text") is null) { _explicitNullValueAgentThinkingText = default!; _explicitNullProperties?.Remove("agent_thinking_text"); }
+            else if (parseNode.GetChildNode("agent_thinking_text") is { } nullNodeAgentThinkingText && nullNodeAgentThinkingText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentThinkingText = null;
+            if (parseNode.GetChildNode("audio_visualizer_config") is null) { _explicitNullValueAudioVisualizerConfig = default!; _explicitNullProperties?.Remove("audio_visualizer_config"); }
+            else if (parseNode.GetChildNode("audio_visualizer_config") is { } nullNodeAudioVisualizerConfig && nullNodeAudioVisualizerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioVisualizerConfig = null;
+            if (parseNode.GetChildNode("default_state") is null) { _explicitNullValueDefaultState = default!; _explicitNullProperties?.Remove("default_state"); }
+            else if (parseNode.GetChildNode("default_state") is { } nullNodeDefaultState && nullNodeDefaultState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultState = null;
+            if (parseNode.GetChildNode("give_feedback_url") is null) { _explicitNullValueGiveFeedbackUrl = default!; _explicitNullProperties?.Remove("give_feedback_url"); }
+            else if (parseNode.GetChildNode("give_feedback_url") is { } nullNodeGiveFeedbackUrl && nullNodeGiveFeedbackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GiveFeedbackUrl = null;
+            if (parseNode.GetChildNode("logo_icon_url") is null) { _explicitNullValueLogoIconUrl = default!; _explicitNullProperties?.Remove("logo_icon_url"); }
+            else if (parseNode.GetChildNode("logo_icon_url") is { } nullNodeLogoIconUrl && nullNodeLogoIconUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoIconUrl = null;
+            if (parseNode.GetChildNode("position") is null) { _explicitNullValuePosition = default!; _explicitNullProperties?.Remove("position"); }
+            else if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
+            if (parseNode.GetChildNode("report_issue_url") is null) { _explicitNullValueReportIssueUrl = default!; _explicitNullProperties?.Remove("report_issue_url"); }
+            else if (parseNode.GetChildNode("report_issue_url") is { } nullNodeReportIssueUrl && nullNodeReportIssueUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportIssueUrl = null;
+            if (parseNode.GetChildNode("speak_to_interrupt_text") is null) { _explicitNullValueSpeakToInterruptText = default!; _explicitNullProperties?.Remove("speak_to_interrupt_text"); }
+            else if (parseNode.GetChildNode("speak_to_interrupt_text") is { } nullNodeSpeakToInterruptText && nullNodeSpeakToInterruptText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakToInterruptText = null;
+            if (parseNode.GetChildNode("start_call_text") is null) { _explicitNullValueStartCallText = default!; _explicitNullProperties?.Remove("start_call_text"); }
+            else if (parseNode.GetChildNode("start_call_text") is { } nullNodeStartCallText && nullNodeStartCallText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartCallText = null;
+            if (parseNode.GetChildNode("theme") is null) { _explicitNullValueTheme = default!; _explicitNullProperties?.Remove("theme"); }
+            else if (parseNode.GetChildNode("theme") is { } nullNodeTheme && nullNodeTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Theme = null;
+            if (parseNode.GetChildNode("view_history_url") is null) { _explicitNullValueViewHistoryUrl = default!; _explicitNullProperties?.Remove("view_history_url"); }
+            else if (parseNode.GetChildNode("view_history_url") is { } nullNodeViewHistoryUrl && nullNodeViewHistoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewHistoryUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,90 +47,90 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Text displayed while the agent is processing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentThinkingText { get => _explicitNullValueAgentThinkingText; set { _explicitNullValueAgentThinkingText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_thinking_text"); else _explicitNullProperties?.Remove("agent_thinking_text"); } }
+        public string? AgentThinkingText { get => _explicitNullValueAgentThinkingText; set { _explicitNullValueAgentThinkingText = value; AdditionalData?.Remove("agent_thinking_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_thinking_text"); else _explicitNullProperties?.Remove("agent_thinking_text"); } }
         private string? _explicitNullValueAgentThinkingText = default!;
 #nullable restore
 #else
-        public string AgentThinkingText { get => _explicitNullValueAgentThinkingText; set { _explicitNullValueAgentThinkingText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_thinking_text"); else _explicitNullProperties?.Remove("agent_thinking_text"); } }
+        public string AgentThinkingText { get => _explicitNullValueAgentThinkingText; set { _explicitNullValueAgentThinkingText = value; AdditionalData?.Remove("agent_thinking_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_thinking_text"); else _explicitNullProperties?.Remove("agent_thinking_text"); } }
         private string _explicitNullValueAgentThinkingText = default!;
 #endif
         /// <summary>The audio_visualizer_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig? AudioVisualizerConfig { get => _explicitNullValueAudioVisualizerConfig; set { _explicitNullValueAudioVisualizerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_visualizer_config"); else _explicitNullProperties?.Remove("audio_visualizer_config"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig? AudioVisualizerConfig { get => _explicitNullValueAudioVisualizerConfig; set { _explicitNullValueAudioVisualizerConfig = value; AdditionalData?.Remove("audio_visualizer_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_visualizer_config"); else _explicitNullProperties?.Remove("audio_visualizer_config"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig? _explicitNullValueAudioVisualizerConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig AudioVisualizerConfig { get => _explicitNullValueAudioVisualizerConfig; set { _explicitNullValueAudioVisualizerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_visualizer_config"); else _explicitNullProperties?.Remove("audio_visualizer_config"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig AudioVisualizerConfig { get => _explicitNullValueAudioVisualizerConfig; set { _explicitNullValueAudioVisualizerConfig = value; AdditionalData?.Remove("audio_visualizer_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_visualizer_config"); else _explicitNullProperties?.Remove("audio_visualizer_config"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig _explicitNullValueAudioVisualizerConfig = default!;
 #endif
         /// <summary>The default state of the widget.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState? DefaultState { get => _explicitNullValueDefaultState; set { _explicitNullValueDefaultState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_state"); else _explicitNullProperties?.Remove("default_state"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState? DefaultState { get => _explicitNullValueDefaultState; set { _explicitNullValueDefaultState = value; AdditionalData?.Remove("default_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_state"); else _explicitNullProperties?.Remove("default_state"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState? _explicitNullValueDefaultState = default!;
         /// <summary>URL for users to give feedback.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GiveFeedbackUrl { get => _explicitNullValueGiveFeedbackUrl; set { _explicitNullValueGiveFeedbackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("give_feedback_url"); else _explicitNullProperties?.Remove("give_feedback_url"); } }
+        public string? GiveFeedbackUrl { get => _explicitNullValueGiveFeedbackUrl; set { _explicitNullValueGiveFeedbackUrl = value; AdditionalData?.Remove("give_feedback_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("give_feedback_url"); else _explicitNullProperties?.Remove("give_feedback_url"); } }
         private string? _explicitNullValueGiveFeedbackUrl = default!;
 #nullable restore
 #else
-        public string GiveFeedbackUrl { get => _explicitNullValueGiveFeedbackUrl; set { _explicitNullValueGiveFeedbackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("give_feedback_url"); else _explicitNullProperties?.Remove("give_feedback_url"); } }
+        public string GiveFeedbackUrl { get => _explicitNullValueGiveFeedbackUrl; set { _explicitNullValueGiveFeedbackUrl = value; AdditionalData?.Remove("give_feedback_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("give_feedback_url"); else _explicitNullProperties?.Remove("give_feedback_url"); } }
         private string _explicitNullValueGiveFeedbackUrl = default!;
 #endif
         /// <summary>URL to a custom logo icon for the widget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoIconUrl { get => _explicitNullValueLogoIconUrl; set { _explicitNullValueLogoIconUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_icon_url"); else _explicitNullProperties?.Remove("logo_icon_url"); } }
+        public string? LogoIconUrl { get => _explicitNullValueLogoIconUrl; set { _explicitNullValueLogoIconUrl = value; AdditionalData?.Remove("logo_icon_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_icon_url"); else _explicitNullProperties?.Remove("logo_icon_url"); } }
         private string? _explicitNullValueLogoIconUrl = default!;
 #nullable restore
 #else
-        public string LogoIconUrl { get => _explicitNullValueLogoIconUrl; set { _explicitNullValueLogoIconUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_icon_url"); else _explicitNullProperties?.Remove("logo_icon_url"); } }
+        public string LogoIconUrl { get => _explicitNullValueLogoIconUrl; set { _explicitNullValueLogoIconUrl = value; AdditionalData?.Remove("logo_icon_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_icon_url"); else _explicitNullProperties?.Remove("logo_icon_url"); } }
         private string _explicitNullValueLogoIconUrl = default!;
 #endif
         /// <summary>The positioning style for the widget.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; AdditionalData?.Remove("position"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition? _explicitNullValuePosition = default!;
         /// <summary>URL for users to report issues.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReportIssueUrl { get => _explicitNullValueReportIssueUrl; set { _explicitNullValueReportIssueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_issue_url"); else _explicitNullProperties?.Remove("report_issue_url"); } }
+        public string? ReportIssueUrl { get => _explicitNullValueReportIssueUrl; set { _explicitNullValueReportIssueUrl = value; AdditionalData?.Remove("report_issue_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_issue_url"); else _explicitNullProperties?.Remove("report_issue_url"); } }
         private string? _explicitNullValueReportIssueUrl = default!;
 #nullable restore
 #else
-        public string ReportIssueUrl { get => _explicitNullValueReportIssueUrl; set { _explicitNullValueReportIssueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_issue_url"); else _explicitNullProperties?.Remove("report_issue_url"); } }
+        public string ReportIssueUrl { get => _explicitNullValueReportIssueUrl; set { _explicitNullValueReportIssueUrl = value; AdditionalData?.Remove("report_issue_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_issue_url"); else _explicitNullProperties?.Remove("report_issue_url"); } }
         private string _explicitNullValueReportIssueUrl = default!;
 #endif
         /// <summary>Text prompting users to speak to interrupt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpeakToInterruptText { get => _explicitNullValueSpeakToInterruptText; set { _explicitNullValueSpeakToInterruptText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_to_interrupt_text"); else _explicitNullProperties?.Remove("speak_to_interrupt_text"); } }
+        public string? SpeakToInterruptText { get => _explicitNullValueSpeakToInterruptText; set { _explicitNullValueSpeakToInterruptText = value; AdditionalData?.Remove("speak_to_interrupt_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_to_interrupt_text"); else _explicitNullProperties?.Remove("speak_to_interrupt_text"); } }
         private string? _explicitNullValueSpeakToInterruptText = default!;
 #nullable restore
 #else
-        public string SpeakToInterruptText { get => _explicitNullValueSpeakToInterruptText; set { _explicitNullValueSpeakToInterruptText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_to_interrupt_text"); else _explicitNullProperties?.Remove("speak_to_interrupt_text"); } }
+        public string SpeakToInterruptText { get => _explicitNullValueSpeakToInterruptText; set { _explicitNullValueSpeakToInterruptText = value; AdditionalData?.Remove("speak_to_interrupt_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_to_interrupt_text"); else _explicitNullProperties?.Remove("speak_to_interrupt_text"); } }
         private string _explicitNullValueSpeakToInterruptText = default!;
 #endif
         /// <summary>Custom text displayed on the start call button.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartCallText { get => _explicitNullValueStartCallText; set { _explicitNullValueStartCallText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_call_text"); else _explicitNullProperties?.Remove("start_call_text"); } }
+        public string? StartCallText { get => _explicitNullValueStartCallText; set { _explicitNullValueStartCallText = value; AdditionalData?.Remove("start_call_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_call_text"); else _explicitNullProperties?.Remove("start_call_text"); } }
         private string? _explicitNullValueStartCallText = default!;
 #nullable restore
 #else
-        public string StartCallText { get => _explicitNullValueStartCallText; set { _explicitNullValueStartCallText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_call_text"); else _explicitNullProperties?.Remove("start_call_text"); } }
+        public string StartCallText { get => _explicitNullValueStartCallText; set { _explicitNullValueStartCallText = value; AdditionalData?.Remove("start_call_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_call_text"); else _explicitNullProperties?.Remove("start_call_text"); } }
         private string _explicitNullValueStartCallText = default!;
 #endif
         /// <summary>The visual theme for the widget.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme? Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme? Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; AdditionalData?.Remove("theme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme? _explicitNullValueTheme = default!;
         /// <summary>URL to view conversation history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ViewHistoryUrl { get => _explicitNullValueViewHistoryUrl; set { _explicitNullValueViewHistoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_history_url"); else _explicitNullProperties?.Remove("view_history_url"); } }
+        public string? ViewHistoryUrl { get => _explicitNullValueViewHistoryUrl; set { _explicitNullValueViewHistoryUrl = value; AdditionalData?.Remove("view_history_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_history_url"); else _explicitNullProperties?.Remove("view_history_url"); } }
         private string? _explicitNullValueViewHistoryUrl = default!;
 #nullable restore
 #else
-        public string ViewHistoryUrl { get => _explicitNullValueViewHistoryUrl; set { _explicitNullValueViewHistoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_history_url"); else _explicitNullProperties?.Remove("view_history_url"); } }
+        public string ViewHistoryUrl { get => _explicitNullValueViewHistoryUrl; set { _explicitNullValueViewHistoryUrl = value; AdditionalData?.Remove("view_history_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_history_url"); else _explicitNullProperties?.Remove("view_history_url"); } }
         private string _explicitNullValueViewHistoryUrl = default!;
 #endif
         /// <summary>
@@ -149,14 +160,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "agent_thinking_text", n => { AgentThinkingText = n.GetStringValue(); } },
                 { "audio_visualizer_config", n => { AudioVisualizerConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig.CreateFromDiscriminatorValue); } },
-                { "default_state", n => { DefaultState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState>(); } },
+                { "default_state", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsDefaultState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultState = default; _explicitNullProperties?.Remove("default_state"); AdditionalData["default_state"] = unknown; } else { DefaultState = parsed; AdditionalData.Remove("default_state"); } } },
                 { "give_feedback_url", n => { GiveFeedbackUrl = n.GetStringValue(); } },
                 { "logo_icon_url", n => { LogoIconUrl = n.GetStringValue(); } },
-                { "position", n => { Position = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition>(); } },
+                { "position", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsPosition>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePosition = default; _explicitNullProperties?.Remove("position"); AdditionalData["position"] = unknown; } else { Position = parsed; AdditionalData.Remove("position"); } } },
                 { "report_issue_url", n => { ReportIssueUrl = n.GetStringValue(); } },
                 { "speak_to_interrupt_text", n => { SpeakToInterruptText = n.GetStringValue(); } },
                 { "start_call_text", n => { StartCallText = n.GetStringValue(); } },
-                { "theme", n => { Theme = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme>(); } },
+                { "theme", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettingsTheme>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTheme = default; _explicitNullProperties?.Remove("theme"); AdditionalData["theme"] = unknown; } else { Theme = parsed; AdditionalData.Remove("theme"); } } },
                 { "view_history_url", n => { ViewHistoryUrl = n.GetStringValue(); } },
             };
         }

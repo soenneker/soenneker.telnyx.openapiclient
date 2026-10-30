@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bucket_ids") is { } nullNodeBucketIds && nullNodeBucketIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketIds = null;
-            if (parseNode.GetChildNode("max_num_results") is { } nullNodeMaxNumResults && nullNodeMaxNumResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxNumResults = null;
+            if (parseNode.GetChildNode("bucket_ids") is null) { _explicitNullValueBucketIds = default!; _explicitNullProperties?.Remove("bucket_ids"); }
+            else if (parseNode.GetChildNode("bucket_ids") is { } nullNodeBucketIds && nullNodeBucketIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketIds = null;
+            if (parseNode.GetChildNode("max_num_results") is null) { _explicitNullValueMaxNumResults = default!; _explicitNullProperties?.Remove("max_num_results"); }
+            else if (parseNode.GetChildNode("max_num_results") is { } nullNodeMaxNumResults && nullNodeMaxNumResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxNumResults = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The bucket_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BucketIds { get => _explicitNullValueBucketIds; set { _explicitNullValueBucketIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_ids"); else _explicitNullProperties?.Remove("bucket_ids"); } }
+        public List<string>? BucketIds { get => _explicitNullValueBucketIds; set { _explicitNullValueBucketIds = value; AdditionalData?.Remove("bucket_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_ids"); else _explicitNullProperties?.Remove("bucket_ids"); } }
         private List<string>? _explicitNullValueBucketIds = default!;
 #nullable restore
 #else
-        public List<string> BucketIds { get => _explicitNullValueBucketIds; set { _explicitNullValueBucketIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_ids"); else _explicitNullProperties?.Remove("bucket_ids"); } }
+        public List<string> BucketIds { get => _explicitNullValueBucketIds; set { _explicitNullValueBucketIds = value; AdditionalData?.Remove("bucket_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_ids"); else _explicitNullProperties?.Remove("bucket_ids"); } }
         private List<string> _explicitNullValueBucketIds = default!;
 #endif
         /// <summary>The maximum number of results to retrieve as context for the language model.</summary>
-        public int? MaxNumResults { get => _explicitNullValueMaxNumResults; set { _explicitNullValueMaxNumResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_num_results"); else _explicitNullProperties?.Remove("max_num_results"); } }
+        public int? MaxNumResults { get => _explicitNullValueMaxNumResults; set { _explicitNullValueMaxNumResults = value; AdditionalData?.Remove("max_num_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_num_results"); else _explicitNullProperties?.Remove("max_num_results"); } }
         private int? _explicitNullValueMaxNumResults = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds"/> and sets the default values.

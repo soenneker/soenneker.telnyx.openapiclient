@@ -91,6 +91,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(AuditEventChangesFromMember1 != null || AuditEventChangesFromMember2 != null || AuditEventChangesFromMember3 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesFromMember1, AuditEventChangesFromMember2, AuditEventChangesFromMember3);
@@ -105,9 +107,16 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (AuditEventChangesFromMember1 == null && AuditEventChangesFromMember2 == null && AuditEventChangesFromMember3 == null && Boolean == null && Double == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (AuditEventChangesFromMember1 != null && AuditEventChangesFromMember2 == null && AuditEventChangesFromMember3 == null && Boolean == null && Double == null && String == null) { if (AuditEventChangesFromMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuditEventChangesFromMember1); return; }
-            if (AuditEventChangesFromMember2 != null && AuditEventChangesFromMember1 == null && AuditEventChangesFromMember3 == null && Boolean == null && Double == null && String == null) { if (AuditEventChangesFromMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuditEventChangesFromMember2); return; }
-            if (AuditEventChangesFromMember3 != null && AuditEventChangesFromMember1 == null && AuditEventChangesFromMember2 == null && Boolean == null && Double == null && String == null) { if (AuditEventChangesFromMember3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuditEventChangesFromMember3); return; }
+            int selectedUnionBranches = 0;
+            if (AuditEventChangesFromMember1 != null) selectedUnionBranches++;
+            if (AuditEventChangesFromMember2 != null) selectedUnionBranches++;
+            if (AuditEventChangesFromMember3 != null) selectedUnionBranches++;
+            if (Boolean != null) selectedUnionBranches++;
+            if (Double != null) selectedUnionBranches++;
+            if (String != null) selectedUnionBranches++;
+            if (AuditEventChangesFromMember1 != null && selectedUnionBranches == 1) { if (AuditEventChangesFromMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuditEventChangesFromMember1); return; }
+            if (AuditEventChangesFromMember2 != null && selectedUnionBranches == 1) { if (AuditEventChangesFromMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuditEventChangesFromMember2); return; }
+            if (AuditEventChangesFromMember3 != null && selectedUnionBranches == 1) { if (AuditEventChangesFromMember3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuditEventChangesFromMember3); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(Boolean != null)

@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("carrier_fee") is { } nullNodeCarrierFee && nullNodeCarrierFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CarrierFee = null;
-            if (parseNode.GetChildNode("rate") is { } nullNodeRate && nullNodeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rate = null;
+            if (parseNode.GetChildNode("carrier_fee") is null) { _explicitNullValueCarrierFee = default!; _explicitNullProperties?.Remove("carrier_fee"); }
+            else if (parseNode.GetChildNode("carrier_fee") is { } nullNodeCarrierFee && nullNodeCarrierFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CarrierFee = null;
+            if (parseNode.GetChildNode("rate") is null) { _explicitNullValueRate = default!; _explicitNullProperties?.Remove("rate"); }
+            else if (parseNode.GetChildNode("rate") is { } nullNodeRate && nullNodeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The carrier_fee property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownCarrierFee? CarrierFee { get => _explicitNullValueCarrierFee; set { _explicitNullValueCarrierFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier_fee"); else _explicitNullProperties?.Remove("carrier_fee"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownCarrierFee? CarrierFee { get => _explicitNullValueCarrierFee; set { _explicitNullValueCarrierFee = value; AdditionalData?.Remove("carrier_fee"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier_fee"); else _explicitNullProperties?.Remove("carrier_fee"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownCarrierFee? _explicitNullValueCarrierFee = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownCarrierFee CarrierFee { get => _explicitNullValueCarrierFee; set { _explicitNullValueCarrierFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier_fee"); else _explicitNullProperties?.Remove("carrier_fee"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownCarrierFee CarrierFee { get => _explicitNullValueCarrierFee; set { _explicitNullValueCarrierFee = value; AdditionalData?.Remove("carrier_fee"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carrier_fee"); else _explicitNullProperties?.Remove("carrier_fee"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownCarrierFee _explicitNullValueCarrierFee = default!;
 #endif
         /// <summary>The rate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownRate? Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownRate? Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; AdditionalData?.Remove("rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownRate? _explicitNullValueRate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownRate Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownRate Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; AdditionalData?.Remove("rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadCostBreakdownRate _explicitNullValueRate = default!;
 #endif
         /// <summary>

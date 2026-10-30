@@ -17,32 +17,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
-            if (parseNode.GetChildNode("max_sources") is { } nullNodeMaxSources && nullNodeMaxSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSources = null;
-            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
-            if (parseNode.GetChildNode("research_effort") is { } nullNodeResearchEffort && nullNodeResearchEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchEffort = null;
+            if (parseNode.GetChildNode("background") is null) { _explicitNullValueBackground = default!; _explicitNullProperties?.Remove("background"); }
+            else if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
+            if (parseNode.GetChildNode("max_sources") is null) { _explicitNullValueMaxSources = default!; _explicitNullProperties?.Remove("max_sources"); }
+            else if (parseNode.GetChildNode("max_sources") is { } nullNodeMaxSources && nullNodeMaxSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSources = null;
+            if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
+            else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("research_effort") is null) { _explicitNullValueResearchEffort = default!; _explicitNullProperties?.Remove("research_effort"); }
+            else if (parseNode.GetChildNode("research_effort") is { } nullNodeResearchEffort && nullNodeResearchEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchEffort = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When `true`, the research runs asynchronously. The response returns a `task_id` immediately instead of waiting for the result. Poll `GET /web_search/research/{task_id}` to check status.</summary>
-        public bool? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
+        public bool? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private bool? _explicitNullValueBackground = default!;
         /// <summary>Maximum number of sources to use.</summary>
-        public int? MaxSources { get => _explicitNullValueMaxSources; set { _explicitNullValueMaxSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_sources"); else _explicitNullProperties?.Remove("max_sources"); } }
+        public int? MaxSources { get => _explicitNullValueMaxSources; set { _explicitNullValueMaxSources = value; AdditionalData?.Remove("max_sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_sources"); else _explicitNullProperties?.Remove("max_sources"); } }
         private int? _explicitNullValueMaxSources = default!;
         /// <summary>The research question or topic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string _explicitNullValueQuery = default!;
 #endif
         /// <summary>Research depth level. `lite` is fastest, `deep` is most thorough.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ResearchRequestResearchEffort? ResearchEffort { get => _explicitNullValueResearchEffort; set { _explicitNullValueResearchEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_effort"); else _explicitNullProperties?.Remove("research_effort"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResearchRequestResearchEffort? ResearchEffort { get => _explicitNullValueResearchEffort; set { _explicitNullValueResearchEffort = value; AdditionalData?.Remove("research_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_effort"); else _explicitNullProperties?.Remove("research_effort"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ResearchRequestResearchEffort? _explicitNullValueResearchEffort = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResearchRequest"/> and sets the default values.
@@ -72,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "background", n => { Background = n.GetBoolValue(); } },
                 { "max_sources", n => { MaxSources = n.GetIntValue(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
-                { "research_effort", n => { ResearchEffort = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResearchRequestResearchEffort>(); } },
+                { "research_effort", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResearchRequestResearchEffort>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResearchEffort = default; _explicitNullProperties?.Remove("research_effort"); AdditionalData["research_effort"] = unknown; } else { ResearchEffort = parsed; AdditionalData.Remove("research_effort"); } } },
             };
         }
         /// <summary>

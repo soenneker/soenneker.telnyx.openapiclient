@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_key_ref") is { } nullNodeApiKeyRef && nullNodeApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyRef = null;
-            if (parseNode.GetChildNode("attendee_name") is { } nullNodeAttendeeName && nullNodeAttendeeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttendeeName = null;
-            if (parseNode.GetChildNode("attendee_timezone") is { } nullNodeAttendeeTimezone && nullNodeAttendeeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttendeeTimezone = null;
-            if (parseNode.GetChildNode("event_type_id") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("api_key_ref") is null) { _explicitNullValueApiKeyRef = default!; _explicitNullProperties?.Remove("api_key_ref"); }
+            else if (parseNode.GetChildNode("api_key_ref") is { } nullNodeApiKeyRef && nullNodeApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyRef = null;
+            if (parseNode.GetChildNode("attendee_name") is null) { _explicitNullValueAttendeeName = default!; _explicitNullProperties?.Remove("attendee_name"); }
+            else if (parseNode.GetChildNode("attendee_name") is { } nullNodeAttendeeName && nullNodeAttendeeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttendeeName = null;
+            if (parseNode.GetChildNode("attendee_timezone") is null) { _explicitNullValueAttendeeTimezone = default!; _explicitNullProperties?.Remove("attendee_timezone"); }
+            else if (parseNode.GetChildNode("attendee_timezone") is { } nullNodeAttendeeTimezone && nullNodeAttendeeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttendeeTimezone = null;
+            if (parseNode.GetChildNode("event_type_id") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("event_type_id"); }
+            else if (parseNode.GetChildNode("event_type_id") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Reference to an integration secret that contains your Cal.com API key. You would pass the `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your Cal.com API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
+        public string? ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; AdditionalData?.Remove("api_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
         private string? _explicitNullValueApiKeyRef = default!;
 #nullable restore
 #else
-        public string ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
+        public string ApiKeyRef { get => _explicitNullValueApiKeyRef; set { _explicitNullValueApiKeyRef = value; AdditionalData?.Remove("api_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_ref"); else _explicitNullProperties?.Remove("api_key_ref"); } }
         private string _explicitNullValueApiKeyRef = default!;
 #endif
         /// <summary>The name of the attendee [cal.com](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-attendee-name). If not provided, the assistant will ask for the attendee&apos;s name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AttendeeName { get => _explicitNullValueAttendeeName; set { _explicitNullValueAttendeeName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_name"); else _explicitNullProperties?.Remove("attendee_name"); } }
+        public string? AttendeeName { get => _explicitNullValueAttendeeName; set { _explicitNullValueAttendeeName = value; AdditionalData?.Remove("attendee_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_name"); else _explicitNullProperties?.Remove("attendee_name"); } }
         private string? _explicitNullValueAttendeeName = default!;
 #nullable restore
 #else
-        public string AttendeeName { get => _explicitNullValueAttendeeName; set { _explicitNullValueAttendeeName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_name"); else _explicitNullProperties?.Remove("attendee_name"); } }
+        public string AttendeeName { get => _explicitNullValueAttendeeName; set { _explicitNullValueAttendeeName = value; AdditionalData?.Remove("attendee_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_name"); else _explicitNullProperties?.Remove("attendee_name"); } }
         private string _explicitNullValueAttendeeName = default!;
 #endif
         /// <summary>The timezone of the attendee [cal.com](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-attendee-timezone). If not provided, the assistant will ask for the attendee&apos;s timezone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AttendeeTimezone { get => _explicitNullValueAttendeeTimezone; set { _explicitNullValueAttendeeTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_timezone"); else _explicitNullProperties?.Remove("attendee_timezone"); } }
+        public string? AttendeeTimezone { get => _explicitNullValueAttendeeTimezone; set { _explicitNullValueAttendeeTimezone = value; AdditionalData?.Remove("attendee_timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_timezone"); else _explicitNullProperties?.Remove("attendee_timezone"); } }
         private string? _explicitNullValueAttendeeTimezone = default!;
 #nullable restore
 #else
-        public string AttendeeTimezone { get => _explicitNullValueAttendeeTimezone; set { _explicitNullValueAttendeeTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_timezone"); else _explicitNullProperties?.Remove("attendee_timezone"); } }
+        public string AttendeeTimezone { get => _explicitNullValueAttendeeTimezone; set { _explicitNullValueAttendeeTimezone = value; AdditionalData?.Remove("attendee_timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee_timezone"); else _explicitNullProperties?.Remove("attendee_timezone"); } }
         private string _explicitNullValueAttendeeTimezone = default!;
 #endif
         /// <summary>Event Type ID for which slots are being fetched. [cal.com](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-event-type-id)</summary>
-        public int? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type_id"); else _explicitNullProperties?.Remove("event_type_id"); } }
+        public int? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("event_type_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type_id"); else _explicitNullProperties?.Remove("event_type_id"); } }
         private int? _explicitNullValueEventTypeId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams"/> and sets the default values.

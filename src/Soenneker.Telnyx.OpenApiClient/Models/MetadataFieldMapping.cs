@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("local_field") is { } nullNodeLocalField && nullNodeLocalField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalField = null;
-            if (parseNode.GetChildNode("parent_field") is { } nullNodeParentField && nullNodeParentField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentField = null;
+            if (parseNode.GetChildNode("local_field") is null) { _explicitNullValueLocalField = default!; _explicitNullProperties?.Remove("local_field"); }
+            else if (parseNode.GetChildNode("local_field") is { } nullNodeLocalField && nullNodeLocalField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalField = null;
+            if (parseNode.GetChildNode("parent_field") is null) { _explicitNullValueParentField = default!; _explicitNullProperties?.Remove("parent_field"); }
+            else if (parseNode.GetChildNode("parent_field") is { } nullNodeParentField && nullNodeParentField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentField = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The local_field property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocalField { get => _explicitNullValueLocalField; set { _explicitNullValueLocalField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_field"); else _explicitNullProperties?.Remove("local_field"); } }
+        public string? LocalField { get => _explicitNullValueLocalField; set { _explicitNullValueLocalField = value; AdditionalData?.Remove("local_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_field"); else _explicitNullProperties?.Remove("local_field"); } }
         private string? _explicitNullValueLocalField = default!;
 #nullable restore
 #else
-        public string LocalField { get => _explicitNullValueLocalField; set { _explicitNullValueLocalField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_field"); else _explicitNullProperties?.Remove("local_field"); } }
+        public string LocalField { get => _explicitNullValueLocalField; set { _explicitNullValueLocalField = value; AdditionalData?.Remove("local_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_field"); else _explicitNullProperties?.Remove("local_field"); } }
         private string _explicitNullValueLocalField = default!;
 #endif
         /// <summary>The parent_field property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentField { get => _explicitNullValueParentField; set { _explicitNullValueParentField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_field"); else _explicitNullProperties?.Remove("parent_field"); } }
+        public string? ParentField { get => _explicitNullValueParentField; set { _explicitNullValueParentField = value; AdditionalData?.Remove("parent_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_field"); else _explicitNullProperties?.Remove("parent_field"); } }
         private string? _explicitNullValueParentField = default!;
 #nullable restore
 #else
-        public string ParentField { get => _explicitNullValueParentField; set { _explicitNullValueParentField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_field"); else _explicitNullProperties?.Remove("parent_field"); } }
+        public string ParentField { get => _explicitNullValueParentField; set { _explicitNullValueParentField = value; AdditionalData?.Remove("parent_field"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_field"); else _explicitNullProperties?.Remove("parent_field"); } }
         private string _explicitNullValueParentField = default!;
 #endif
         /// <summary>

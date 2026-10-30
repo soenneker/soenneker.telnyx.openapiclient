@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("downstreamCnpId") is { } nullNodeDownstreamCnpId && nullNodeDownstreamCnpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownstreamCnpId = null;
-            if (parseNode.GetChildNode("sharedDate") is { } nullNodeSharedDate && nullNodeSharedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedDate = null;
-            if (parseNode.GetChildNode("sharingStatus") is { } nullNodeSharingStatus && nullNodeSharingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharingStatus = null;
-            if (parseNode.GetChildNode("statusDate") is { } nullNodeStatusDate && nullNodeStatusDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusDate = null;
-            if (parseNode.GetChildNode("upstreamCnpId") is { } nullNodeUpstreamCnpId && nullNodeUpstreamCnpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpstreamCnpId = null;
+            if (parseNode.GetChildNode("downstreamCnpId") is null) { _explicitNullValueDownstreamCnpId = default!; _explicitNullProperties?.Remove("downstreamCnpId"); }
+            else if (parseNode.GetChildNode("downstreamCnpId") is { } nullNodeDownstreamCnpId && nullNodeDownstreamCnpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownstreamCnpId = null;
+            if (parseNode.GetChildNode("sharedDate") is null) { _explicitNullValueSharedDate = default!; _explicitNullProperties?.Remove("sharedDate"); }
+            else if (parseNode.GetChildNode("sharedDate") is { } nullNodeSharedDate && nullNodeSharedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedDate = null;
+            if (parseNode.GetChildNode("sharingStatus") is null) { _explicitNullValueSharingStatus = default!; _explicitNullProperties?.Remove("sharingStatus"); }
+            else if (parseNode.GetChildNode("sharingStatus") is { } nullNodeSharingStatus && nullNodeSharingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharingStatus = null;
+            if (parseNode.GetChildNode("statusDate") is null) { _explicitNullValueStatusDate = default!; _explicitNullProperties?.Remove("statusDate"); }
+            else if (parseNode.GetChildNode("statusDate") is { } nullNodeStatusDate && nullNodeStatusDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusDate = null;
+            if (parseNode.GetChildNode("upstreamCnpId") is null) { _explicitNullValueUpstreamCnpId = default!; _explicitNullProperties?.Remove("upstreamCnpId"); }
+            else if (parseNode.GetChildNode("upstreamCnpId") is { } nullNodeUpstreamCnpId && nullNodeUpstreamCnpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpstreamCnpId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The downstreamCnpId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DownstreamCnpId { get => _explicitNullValueDownstreamCnpId; set { _explicitNullValueDownstreamCnpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("downstreamCnpId"); else _explicitNullProperties?.Remove("downstreamCnpId"); } }
+        public string? DownstreamCnpId { get => _explicitNullValueDownstreamCnpId; set { _explicitNullValueDownstreamCnpId = value; AdditionalData?.Remove("downstreamCnpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("downstreamCnpId"); else _explicitNullProperties?.Remove("downstreamCnpId"); } }
         private string? _explicitNullValueDownstreamCnpId = default!;
 #nullable restore
 #else
-        public string DownstreamCnpId { get => _explicitNullValueDownstreamCnpId; set { _explicitNullValueDownstreamCnpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("downstreamCnpId"); else _explicitNullProperties?.Remove("downstreamCnpId"); } }
+        public string DownstreamCnpId { get => _explicitNullValueDownstreamCnpId; set { _explicitNullValueDownstreamCnpId = value; AdditionalData?.Remove("downstreamCnpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("downstreamCnpId"); else _explicitNullProperties?.Remove("downstreamCnpId"); } }
         private string _explicitNullValueDownstreamCnpId = default!;
 #endif
         /// <summary>The sharedDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SharedDate { get => _explicitNullValueSharedDate; set { _explicitNullValueSharedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedDate"); else _explicitNullProperties?.Remove("sharedDate"); } }
+        public string? SharedDate { get => _explicitNullValueSharedDate; set { _explicitNullValueSharedDate = value; AdditionalData?.Remove("sharedDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedDate"); else _explicitNullProperties?.Remove("sharedDate"); } }
         private string? _explicitNullValueSharedDate = default!;
 #nullable restore
 #else
-        public string SharedDate { get => _explicitNullValueSharedDate; set { _explicitNullValueSharedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedDate"); else _explicitNullProperties?.Remove("sharedDate"); } }
+        public string SharedDate { get => _explicitNullValueSharedDate; set { _explicitNullValueSharedDate = value; AdditionalData?.Remove("sharedDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedDate"); else _explicitNullProperties?.Remove("sharedDate"); } }
         private string _explicitNullValueSharedDate = default!;
 #endif
         /// <summary>The sharingStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SharingStatus { get => _explicitNullValueSharingStatus; set { _explicitNullValueSharingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharingStatus"); else _explicitNullProperties?.Remove("sharingStatus"); } }
+        public string? SharingStatus { get => _explicitNullValueSharingStatus; set { _explicitNullValueSharingStatus = value; AdditionalData?.Remove("sharingStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharingStatus"); else _explicitNullProperties?.Remove("sharingStatus"); } }
         private string? _explicitNullValueSharingStatus = default!;
 #nullable restore
 #else
-        public string SharingStatus { get => _explicitNullValueSharingStatus; set { _explicitNullValueSharingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharingStatus"); else _explicitNullProperties?.Remove("sharingStatus"); } }
+        public string SharingStatus { get => _explicitNullValueSharingStatus; set { _explicitNullValueSharingStatus = value; AdditionalData?.Remove("sharingStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharingStatus"); else _explicitNullProperties?.Remove("sharingStatus"); } }
         private string _explicitNullValueSharingStatus = default!;
 #endif
         /// <summary>The statusDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusDate { get => _explicitNullValueStatusDate; set { _explicitNullValueStatusDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statusDate"); else _explicitNullProperties?.Remove("statusDate"); } }
+        public string? StatusDate { get => _explicitNullValueStatusDate; set { _explicitNullValueStatusDate = value; AdditionalData?.Remove("statusDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statusDate"); else _explicitNullProperties?.Remove("statusDate"); } }
         private string? _explicitNullValueStatusDate = default!;
 #nullable restore
 #else
-        public string StatusDate { get => _explicitNullValueStatusDate; set { _explicitNullValueStatusDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statusDate"); else _explicitNullProperties?.Remove("statusDate"); } }
+        public string StatusDate { get => _explicitNullValueStatusDate; set { _explicitNullValueStatusDate = value; AdditionalData?.Remove("statusDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statusDate"); else _explicitNullProperties?.Remove("statusDate"); } }
         private string _explicitNullValueStatusDate = default!;
 #endif
         /// <summary>The upstreamCnpId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpstreamCnpId { get => _explicitNullValueUpstreamCnpId; set { _explicitNullValueUpstreamCnpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upstreamCnpId"); else _explicitNullProperties?.Remove("upstreamCnpId"); } }
+        public string? UpstreamCnpId { get => _explicitNullValueUpstreamCnpId; set { _explicitNullValueUpstreamCnpId = value; AdditionalData?.Remove("upstreamCnpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upstreamCnpId"); else _explicitNullProperties?.Remove("upstreamCnpId"); } }
         private string? _explicitNullValueUpstreamCnpId = default!;
 #nullable restore
 #else
-        public string UpstreamCnpId { get => _explicitNullValueUpstreamCnpId; set { _explicitNullValueUpstreamCnpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upstreamCnpId"); else _explicitNullProperties?.Remove("upstreamCnpId"); } }
+        public string UpstreamCnpId { get => _explicitNullValueUpstreamCnpId; set { _explicitNullValueUpstreamCnpId = value; AdditionalData?.Remove("upstreamCnpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upstreamCnpId"); else _explicitNullProperties?.Remove("upstreamCnpId"); } }
         private string _explicitNullValueUpstreamCnpId = default!;
 #endif
         /// <summary>

@@ -17,16 +17,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("administrative_area") is { } nullNodeAdministrativeArea && nullNodeAdministrativeArea.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdministrativeArea = null;
-            if (parseNode.GetChildNode("advance_requirements") is { } nullNodeAdvanceRequirements && nullNodeAdvanceRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvanceRequirements = null;
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("coverage_type") is { } nullNodeCoverageType && nullNodeCoverageType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverageType = null;
-            if (parseNode.GetChildNode("group") is { } nullNodeGroup && nullNodeGroup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Group = null;
-            if (parseNode.GetChildNode("group_type") is { } nullNodeGroupType && nullNodeGroupType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupType = null;
-            if (parseNode.GetChildNode("number_range") is { } nullNodeNumberRange && nullNodeNumberRange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberRange = null;
-            if (parseNode.GetChildNode("number_type") is { } nullNodeNumberType && nullNodeNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberType = null;
-            if (parseNode.GetChildNode("phone_number_type") is { } nullNodePhoneNumberType && nullNodePhoneNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberType = null;
-            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("administrative_area") is null) { _explicitNullValueAdministrativeArea = default!; _explicitNullProperties?.Remove("administrative_area"); }
+            else if (parseNode.GetChildNode("administrative_area") is { } nullNodeAdministrativeArea && nullNodeAdministrativeArea.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdministrativeArea = null;
+            if (parseNode.GetChildNode("advance_requirements") is null) { _explicitNullValueAdvanceRequirements = default!; _explicitNullProperties?.Remove("advance_requirements"); }
+            else if (parseNode.GetChildNode("advance_requirements") is { } nullNodeAdvanceRequirements && nullNodeAdvanceRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvanceRequirements = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("coverage_type") is null) { _explicitNullValueCoverageType = default!; _explicitNullProperties?.Remove("coverage_type"); }
+            else if (parseNode.GetChildNode("coverage_type") is { } nullNodeCoverageType && nullNodeCoverageType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverageType = null;
+            if (parseNode.GetChildNode("group") is null) { _explicitNullValueGroup = default!; _explicitNullProperties?.Remove("group"); }
+            else if (parseNode.GetChildNode("group") is { } nullNodeGroup && nullNodeGroup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Group = null;
+            if (parseNode.GetChildNode("group_type") is null) { _explicitNullValueGroupType = default!; _explicitNullProperties?.Remove("group_type"); }
+            else if (parseNode.GetChildNode("group_type") is { } nullNodeGroupType && nullNodeGroupType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupType = null;
+            if (parseNode.GetChildNode("number_range") is null) { _explicitNullValueNumberRange = default!; _explicitNullProperties?.Remove("number_range"); }
+            else if (parseNode.GetChildNode("number_range") is { } nullNodeNumberRange && nullNodeNumberRange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberRange = null;
+            if (parseNode.GetChildNode("number_type") is null) { _explicitNullValueNumberType = default!; _explicitNullProperties?.Remove("number_type"); }
+            else if (parseNode.GetChildNode("number_type") is { } nullNodeNumberType && nullNodeNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberType = null;
+            if (parseNode.GetChildNode("phone_number_type") is null) { _explicitNullValuePhoneNumberType = default!; _explicitNullProperties?.Remove("phone_number_type"); }
+            else if (parseNode.GetChildNode("phone_number_type") is { } nullNodePhoneNumberType && nullNodePhoneNumberType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberType = null;
+            if (parseNode.GetChildNode("record_type") is null) { _explicitNullValueRecordType = default!; _explicitNullProperties?.Remove("record_type"); }
+            else if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,59 +44,59 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The administrative_area property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdministrativeArea { get => _explicitNullValueAdministrativeArea; set { _explicitNullValueAdministrativeArea = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("administrative_area"); else _explicitNullProperties?.Remove("administrative_area"); } }
+        public string? AdministrativeArea { get => _explicitNullValueAdministrativeArea; set { _explicitNullValueAdministrativeArea = value; AdditionalData?.Remove("administrative_area"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("administrative_area"); else _explicitNullProperties?.Remove("administrative_area"); } }
         private string? _explicitNullValueAdministrativeArea = default!;
 #nullable restore
 #else
-        public string AdministrativeArea { get => _explicitNullValueAdministrativeArea; set { _explicitNullValueAdministrativeArea = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("administrative_area"); else _explicitNullProperties?.Remove("administrative_area"); } }
+        public string AdministrativeArea { get => _explicitNullValueAdministrativeArea; set { _explicitNullValueAdministrativeArea = value; AdditionalData?.Remove("administrative_area"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("administrative_area"); else _explicitNullProperties?.Remove("administrative_area"); } }
         private string _explicitNullValueAdministrativeArea = default!;
 #endif
         /// <summary>Indicates if the phone number requires advance requirements.</summary>
-        public bool? AdvanceRequirements { get => _explicitNullValueAdvanceRequirements; set { _explicitNullValueAdvanceRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advance_requirements"); else _explicitNullProperties?.Remove("advance_requirements"); } }
+        public bool? AdvanceRequirements { get => _explicitNullValueAdvanceRequirements; set { _explicitNullValueAdvanceRequirements = value; AdditionalData?.Remove("advance_requirements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advance_requirements"); else _explicitNullProperties?.Remove("advance_requirements"); } }
         private bool? _explicitNullValueAdvanceRequirements = default!;
         /// <summary>The count property</summary>
-        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
         /// <summary>The coverage_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType? CoverageType { get => _explicitNullValueCoverageType; set { _explicitNullValueCoverageType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverage_type"); else _explicitNullProperties?.Remove("coverage_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType? CoverageType { get => _explicitNullValueCoverageType; set { _explicitNullValueCoverageType = value; AdditionalData?.Remove("coverage_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverage_type"); else _explicitNullProperties?.Remove("coverage_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType? _explicitNullValueCoverageType = default!;
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Group { get => _explicitNullValueGroup; set { _explicitNullValueGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group"); else _explicitNullProperties?.Remove("group"); } }
+        public string? Group { get => _explicitNullValueGroup; set { _explicitNullValueGroup = value; AdditionalData?.Remove("group"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group"); else _explicitNullProperties?.Remove("group"); } }
         private string? _explicitNullValueGroup = default!;
 #nullable restore
 #else
-        public string Group { get => _explicitNullValueGroup; set { _explicitNullValueGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group"); else _explicitNullProperties?.Remove("group"); } }
+        public string Group { get => _explicitNullValueGroup; set { _explicitNullValueGroup = value; AdditionalData?.Remove("group"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group"); else _explicitNullProperties?.Remove("group"); } }
         private string _explicitNullValueGroup = default!;
 #endif
         /// <summary>The group_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroupType { get => _explicitNullValueGroupType; set { _explicitNullValueGroupType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_type"); else _explicitNullProperties?.Remove("group_type"); } }
+        public string? GroupType { get => _explicitNullValueGroupType; set { _explicitNullValueGroupType = value; AdditionalData?.Remove("group_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_type"); else _explicitNullProperties?.Remove("group_type"); } }
         private string? _explicitNullValueGroupType = default!;
 #nullable restore
 #else
-        public string GroupType { get => _explicitNullValueGroupType; set { _explicitNullValueGroupType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_type"); else _explicitNullProperties?.Remove("group_type"); } }
+        public string GroupType { get => _explicitNullValueGroupType; set { _explicitNullValueGroupType = value; AdditionalData?.Remove("group_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_type"); else _explicitNullProperties?.Remove("group_type"); } }
         private string _explicitNullValueGroupType = default!;
 #endif
         /// <summary>The number_range property</summary>
-        public int? NumberRange { get => _explicitNullValueNumberRange; set { _explicitNullValueNumberRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_range"); else _explicitNullProperties?.Remove("number_range"); } }
+        public int? NumberRange { get => _explicitNullValueNumberRange; set { _explicitNullValueNumberRange = value; AdditionalData?.Remove("number_range"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_range"); else _explicitNullProperties?.Remove("number_range"); } }
         private int? _explicitNullValueNumberRange = default!;
         /// <summary>The number_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType? NumberType { get => _explicitNullValueNumberType; set { _explicitNullValueNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_type"); else _explicitNullProperties?.Remove("number_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType? NumberType { get => _explicitNullValueNumberType; set { _explicitNullValueNumberType = value; AdditionalData?.Remove("number_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_type"); else _explicitNullProperties?.Remove("number_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType? _explicitNullValueNumberType = default!;
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType? PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType? PhoneNumberType { get => _explicitNullValuePhoneNumberType; set { _explicitNullValuePhoneNumberType = value; AdditionalData?.Remove("phone_number_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_type"); else _explicitNullProperties?.Remove("phone_number_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType? _explicitNullValuePhoneNumberType = default!;
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>
@@ -117,12 +127,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "administrative_area", n => { AdministrativeArea = n.GetStringValue(); } },
                 { "advance_requirements", n => { AdvanceRequirements = n.GetBoolValue(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
-                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType>(); } },
+                { "coverage_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageCoverageType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCoverageType = default; _explicitNullProperties?.Remove("coverage_type"); AdditionalData["coverage_type"] = unknown; } else { CoverageType = parsed; AdditionalData.Remove("coverage_type"); } } },
                 { "group", n => { Group = n.GetStringValue(); } },
                 { "group_type", n => { GroupType = n.GetStringValue(); } },
                 { "number_range", n => { NumberRange = n.GetIntValue(); } },
-                { "number_type", n => { NumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType>(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType>(); } },
+                { "number_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverageNumberType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNumberType = default; _explicitNullProperties?.Remove("number_type"); AdditionalData["number_type"] = unknown; } else { NumberType = parsed; AdditionalData.Remove("number_type"); } } },
+                { "phone_number_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoveragePhoneNumberType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePhoneNumberType = default; _explicitNullProperties?.Remove("phone_number_type"); AdditionalData["phone_number_type"] = unknown; } else { PhoneNumberType = parsed; AdditionalData.Remove("phone_number_type"); } } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }

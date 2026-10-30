@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dmarc_policy") is { } nullNodeDmarcPolicy && nullNodeDmarcPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DmarcPolicy = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
-            if (parseNode.GetChildNode("inbound_enabled") is { } nullNodeInboundEnabled && nullNodeInboundEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundEnabled = null;
-            if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
+            if (parseNode.GetChildNode("dmarc_policy") is null) { _explicitNullValueDmarcPolicy = default!; _explicitNullProperties?.Remove("dmarc_policy"); }
+            else if (parseNode.GetChildNode("dmarc_policy") is { } nullNodeDmarcPolicy && nullNodeDmarcPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DmarcPolicy = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("inbound_enabled") is null) { _explicitNullValueInboundEnabled = default!; _explicitNullProperties?.Remove("inbound_enabled"); }
+            else if (parseNode.GetChildNode("inbound_enabled") is { } nullNodeInboundEnabled && nullNodeInboundEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundEnabled = null;
+            if (parseNode.GetChildNode("tracking") is null) { _explicitNullValueTracking = default!; _explicitNullProperties?.Remove("tracking"); }
+            else if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>DMARC policy. Omit/null for the advisory default (v=DMARC1; p=none; rua=mailto:dmarc@telnyx.com).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy? DmarcPolicy { get => _explicitNullValueDmarcPolicy; set { _explicitNullValueDmarcPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc_policy"); else _explicitNullProperties?.Remove("dmarc_policy"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy? DmarcPolicy { get => _explicitNullValueDmarcPolicy; set { _explicitNullValueDmarcPolicy = value; AdditionalData?.Remove("dmarc_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc_policy"); else _explicitNullProperties?.Remove("dmarc_policy"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy? _explicitNullValueDmarcPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy DmarcPolicy { get => _explicitNullValueDmarcPolicy; set { _explicitNullValueDmarcPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc_policy"); else _explicitNullProperties?.Remove("dmarc_policy"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy DmarcPolicy { get => _explicitNullValueDmarcPolicy; set { _explicitNullValueDmarcPolicy = value; AdditionalData?.Remove("dmarc_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc_policy"); else _explicitNullProperties?.Remove("dmarc_policy"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailDomainRequestDmarcPolicy _explicitNullValueDmarcPolicy = default!;
 #endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>Enable inbound routing for this domain</summary>
-        public bool? InboundEnabled { get => _explicitNullValueInboundEnabled; set { _explicitNullValueInboundEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_enabled"); else _explicitNullProperties?.Remove("inbound_enabled"); } }
+        public bool? InboundEnabled { get => _explicitNullValueInboundEnabled; set { _explicitNullValueInboundEnabled = value; AdditionalData?.Remove("inbound_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_enabled"); else _explicitNullProperties?.Remove("inbound_enabled"); } }
         private bool? _explicitNullValueInboundEnabled = default!;
         /// <summary>The tracking property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings? _explicitNullValueTracking = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings _explicitNullValueTracking = default!;
 #endif
         /// <summary>

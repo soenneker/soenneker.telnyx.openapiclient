@@ -18,23 +18,40 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("billing_address") is { } nullNodeBillingAddress && nullNodeBillingAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingAddress = null;
-            if (parseNode.GetChildNode("billing_contact") is { } nullNodeBillingContact && nullNodeBillingContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingContact = null;
-            if (parseNode.GetChildNode("corporate_registration_number") is { } nullNodeCorporateRegistrationNumber && nullNodeCorporateRegistrationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorporateRegistrationNumber = null;
-            if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
-            if (parseNode.GetChildNode("doing_business_as") is { } nullNodeDoingBusinessAs && nullNodeDoingBusinessAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoingBusinessAs = null;
-            if (parseNode.GetChildNode("dun_bradstreet_number") is { } nullNodeDunBradstreetNumber && nullNodeDunBradstreetNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DunBradstreetNumber = null;
-            if (parseNode.GetChildNode("fein") is { } nullNodeFein && nullNodeFein.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fein = null;
-            if (parseNode.GetChildNode("industry") is { } nullNodeIndustry && nullNodeIndustry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Industry = null;
-            if (parseNode.GetChildNode("jurisdiction_of_incorporation") is { } nullNodeJurisdictionOfIncorporation && nullNodeJurisdictionOfIncorporation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JurisdictionOfIncorporation = null;
-            if (parseNode.GetChildNode("legal_name") is { } nullNodeLegalName && nullNodeLegalName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegalName = null;
-            if (parseNode.GetChildNode("number_of_employees") is { } nullNodeNumberOfEmployees && nullNodeNumberOfEmployees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfEmployees = null;
-            if (parseNode.GetChildNode("organization_contact") is { } nullNodeOrganizationContact && nullNodeOrganizationContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationContact = null;
-            if (parseNode.GetChildNode("organization_legal_type") is { } nullNodeOrganizationLegalType && nullNodeOrganizationLegalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationLegalType = null;
-            if (parseNode.GetChildNode("organization_physical_address") is { } nullNodeOrganizationPhysicalAddress && nullNodeOrganizationPhysicalAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationPhysicalAddress = null;
-            if (parseNode.GetChildNode("primary_business_domain_sic_code") is { } nullNodePrimaryBusinessDomainSicCode && nullNodePrimaryBusinessDomainSicCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryBusinessDomainSicCode = null;
-            if (parseNode.GetChildNode("professional_license_number") is { } nullNodeProfessionalLicenseNumber && nullNodeProfessionalLicenseNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfessionalLicenseNumber = null;
-            if (parseNode.GetChildNode("website") is { } nullNodeWebsite && nullNodeWebsite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Website = null;
+            if (parseNode.GetChildNode("billing_address") is null) { _explicitNullValueBillingAddress = default!; _explicitNullProperties?.Remove("billing_address"); }
+            else if (parseNode.GetChildNode("billing_address") is { } nullNodeBillingAddress && nullNodeBillingAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingAddress = null;
+            if (parseNode.GetChildNode("billing_contact") is null) { _explicitNullValueBillingContact = default!; _explicitNullProperties?.Remove("billing_contact"); }
+            else if (parseNode.GetChildNode("billing_contact") is { } nullNodeBillingContact && nullNodeBillingContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingContact = null;
+            if (parseNode.GetChildNode("corporate_registration_number") is null) { _explicitNullValueCorporateRegistrationNumber = default!; _explicitNullProperties?.Remove("corporate_registration_number"); }
+            else if (parseNode.GetChildNode("corporate_registration_number") is { } nullNodeCorporateRegistrationNumber && nullNodeCorporateRegistrationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorporateRegistrationNumber = null;
+            if (parseNode.GetChildNode("customer_reference") is null) { _explicitNullValueCustomerReference = default!; _explicitNullProperties?.Remove("customer_reference"); }
+            else if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
+            if (parseNode.GetChildNode("doing_business_as") is null) { _explicitNullValueDoingBusinessAs = default!; _explicitNullProperties?.Remove("doing_business_as"); }
+            else if (parseNode.GetChildNode("doing_business_as") is { } nullNodeDoingBusinessAs && nullNodeDoingBusinessAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoingBusinessAs = null;
+            if (parseNode.GetChildNode("dun_bradstreet_number") is null) { _explicitNullValueDunBradstreetNumber = default!; _explicitNullProperties?.Remove("dun_bradstreet_number"); }
+            else if (parseNode.GetChildNode("dun_bradstreet_number") is { } nullNodeDunBradstreetNumber && nullNodeDunBradstreetNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DunBradstreetNumber = null;
+            if (parseNode.GetChildNode("fein") is null) { _explicitNullValueFein = default!; _explicitNullProperties?.Remove("fein"); }
+            else if (parseNode.GetChildNode("fein") is { } nullNodeFein && nullNodeFein.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fein = null;
+            if (parseNode.GetChildNode("industry") is null) { _explicitNullValueIndustry = default!; _explicitNullProperties?.Remove("industry"); }
+            else if (parseNode.GetChildNode("industry") is { } nullNodeIndustry && nullNodeIndustry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Industry = null;
+            if (parseNode.GetChildNode("jurisdiction_of_incorporation") is null) { _explicitNullValueJurisdictionOfIncorporation = default!; _explicitNullProperties?.Remove("jurisdiction_of_incorporation"); }
+            else if (parseNode.GetChildNode("jurisdiction_of_incorporation") is { } nullNodeJurisdictionOfIncorporation && nullNodeJurisdictionOfIncorporation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JurisdictionOfIncorporation = null;
+            if (parseNode.GetChildNode("legal_name") is null) { _explicitNullValueLegalName = default!; _explicitNullProperties?.Remove("legal_name"); }
+            else if (parseNode.GetChildNode("legal_name") is { } nullNodeLegalName && nullNodeLegalName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegalName = null;
+            if (parseNode.GetChildNode("number_of_employees") is null) { _explicitNullValueNumberOfEmployees = default!; _explicitNullProperties?.Remove("number_of_employees"); }
+            else if (parseNode.GetChildNode("number_of_employees") is { } nullNodeNumberOfEmployees && nullNodeNumberOfEmployees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfEmployees = null;
+            if (parseNode.GetChildNode("organization_contact") is null) { _explicitNullValueOrganizationContact = default!; _explicitNullProperties?.Remove("organization_contact"); }
+            else if (parseNode.GetChildNode("organization_contact") is { } nullNodeOrganizationContact && nullNodeOrganizationContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationContact = null;
+            if (parseNode.GetChildNode("organization_legal_type") is null) { _explicitNullValueOrganizationLegalType = default!; _explicitNullProperties?.Remove("organization_legal_type"); }
+            else if (parseNode.GetChildNode("organization_legal_type") is { } nullNodeOrganizationLegalType && nullNodeOrganizationLegalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationLegalType = null;
+            if (parseNode.GetChildNode("organization_physical_address") is null) { _explicitNullValueOrganizationPhysicalAddress = default!; _explicitNullProperties?.Remove("organization_physical_address"); }
+            else if (parseNode.GetChildNode("organization_physical_address") is { } nullNodeOrganizationPhysicalAddress && nullNodeOrganizationPhysicalAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationPhysicalAddress = null;
+            if (parseNode.GetChildNode("primary_business_domain_sic_code") is null) { _explicitNullValuePrimaryBusinessDomainSicCode = default!; _explicitNullProperties?.Remove("primary_business_domain_sic_code"); }
+            else if (parseNode.GetChildNode("primary_business_domain_sic_code") is { } nullNodePrimaryBusinessDomainSicCode && nullNodePrimaryBusinessDomainSicCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryBusinessDomainSicCode = null;
+            if (parseNode.GetChildNode("professional_license_number") is null) { _explicitNullValueProfessionalLicenseNumber = default!; _explicitNullProperties?.Remove("professional_license_number"); }
+            else if (parseNode.GetChildNode("professional_license_number") is { } nullNodeProfessionalLicenseNumber && nullNodeProfessionalLicenseNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfessionalLicenseNumber = null;
+            if (parseNode.GetChildNode("website") is null) { _explicitNullValueWebsite = default!; _explicitNullProperties?.Remove("website"); }
+            else if (parseNode.GetChildNode("website") is { } nullNodeWebsite && nullNodeWebsite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Website = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -42,164 +59,164 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The billing_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingAddress? BillingAddress { get => _explicitNullValueBillingAddress; set { _explicitNullValueBillingAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_address"); else _explicitNullProperties?.Remove("billing_address"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingAddress? BillingAddress { get => _explicitNullValueBillingAddress; set { _explicitNullValueBillingAddress = value; AdditionalData?.Remove("billing_address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_address"); else _explicitNullProperties?.Remove("billing_address"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BillingAddress? _explicitNullValueBillingAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingAddress BillingAddress { get => _explicitNullValueBillingAddress; set { _explicitNullValueBillingAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_address"); else _explicitNullProperties?.Remove("billing_address"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingAddress BillingAddress { get => _explicitNullValueBillingAddress; set { _explicitNullValueBillingAddress = value; AdditionalData?.Remove("billing_address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_address"); else _explicitNullProperties?.Remove("billing_address"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BillingAddress _explicitNullValueBillingAddress = default!;
 #endif
         /// <summary>The billing_contact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact? BillingContact { get => _explicitNullValueBillingContact; set { _explicitNullValueBillingContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_contact"); else _explicitNullProperties?.Remove("billing_contact"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact? BillingContact { get => _explicitNullValueBillingContact; set { _explicitNullValueBillingContact = value; AdditionalData?.Remove("billing_contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_contact"); else _explicitNullProperties?.Remove("billing_contact"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact? _explicitNullValueBillingContact = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact BillingContact { get => _explicitNullValueBillingContact; set { _explicitNullValueBillingContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_contact"); else _explicitNullProperties?.Remove("billing_contact"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact BillingContact { get => _explicitNullValueBillingContact; set { _explicitNullValueBillingContact = value; AdditionalData?.Remove("billing_contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_contact"); else _explicitNullProperties?.Remove("billing_contact"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BillingContact _explicitNullValueBillingContact = default!;
 #endif
         /// <summary>The official number your company received when it was legally registered or incorporated (for example from your state or national business registry). It is on your certificate of incorporation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CorporateRegistrationNumber { get => _explicitNullValueCorporateRegistrationNumber; set { _explicitNullValueCorporateRegistrationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corporate_registration_number"); else _explicitNullProperties?.Remove("corporate_registration_number"); } }
+        public string? CorporateRegistrationNumber { get => _explicitNullValueCorporateRegistrationNumber; set { _explicitNullValueCorporateRegistrationNumber = value; AdditionalData?.Remove("corporate_registration_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corporate_registration_number"); else _explicitNullProperties?.Remove("corporate_registration_number"); } }
         private string? _explicitNullValueCorporateRegistrationNumber = default!;
 #nullable restore
 #else
-        public string CorporateRegistrationNumber { get => _explicitNullValueCorporateRegistrationNumber; set { _explicitNullValueCorporateRegistrationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corporate_registration_number"); else _explicitNullProperties?.Remove("corporate_registration_number"); } }
+        public string CorporateRegistrationNumber { get => _explicitNullValueCorporateRegistrationNumber; set { _explicitNullValueCorporateRegistrationNumber = value; AdditionalData?.Remove("corporate_registration_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("corporate_registration_number"); else _explicitNullProperties?.Remove("corporate_registration_number"); } }
         private string _explicitNullValueCorporateRegistrationNumber = default!;
 #endif
         /// <summary>Your own label for this account. Enter any reference that helps you find it in your records. Telnyx does not use it during vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; AdditionalData?.Remove("customer_reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
         private string? _explicitNullValueCustomerReference = default!;
 #nullable restore
 #else
-        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; AdditionalData?.Remove("customer_reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
         private string _explicitNullValueCustomerReference = default!;
 #endif
         /// <summary>The trade name your business operates under if it is different from your legal name, also called a Doing Business As (DBA) name. Leave blank if you only use your legal name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DoingBusinessAs { get => _explicitNullValueDoingBusinessAs; set { _explicitNullValueDoingBusinessAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("doing_business_as"); else _explicitNullProperties?.Remove("doing_business_as"); } }
+        public string? DoingBusinessAs { get => _explicitNullValueDoingBusinessAs; set { _explicitNullValueDoingBusinessAs = value; AdditionalData?.Remove("doing_business_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("doing_business_as"); else _explicitNullProperties?.Remove("doing_business_as"); } }
         private string? _explicitNullValueDoingBusinessAs = default!;
 #nullable restore
 #else
-        public string DoingBusinessAs { get => _explicitNullValueDoingBusinessAs; set { _explicitNullValueDoingBusinessAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("doing_business_as"); else _explicitNullProperties?.Remove("doing_business_as"); } }
+        public string DoingBusinessAs { get => _explicitNullValueDoingBusinessAs; set { _explicitNullValueDoingBusinessAs = value; AdditionalData?.Remove("doing_business_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("doing_business_as"); else _explicitNullProperties?.Remove("doing_business_as"); } }
         private string _explicitNullValueDoingBusinessAs = default!;
 #endif
         /// <summary>Your optional 9-digit D-U-N-S Number issued by Dun &amp; Bradstreet, a unique identifier for your business. Leave blank if you do not have one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DunBradstreetNumber { get => _explicitNullValueDunBradstreetNumber; set { _explicitNullValueDunBradstreetNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dun_bradstreet_number"); else _explicitNullProperties?.Remove("dun_bradstreet_number"); } }
+        public string? DunBradstreetNumber { get => _explicitNullValueDunBradstreetNumber; set { _explicitNullValueDunBradstreetNumber = value; AdditionalData?.Remove("dun_bradstreet_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dun_bradstreet_number"); else _explicitNullProperties?.Remove("dun_bradstreet_number"); } }
         private string? _explicitNullValueDunBradstreetNumber = default!;
 #nullable restore
 #else
-        public string DunBradstreetNumber { get => _explicitNullValueDunBradstreetNumber; set { _explicitNullValueDunBradstreetNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dun_bradstreet_number"); else _explicitNullProperties?.Remove("dun_bradstreet_number"); } }
+        public string DunBradstreetNumber { get => _explicitNullValueDunBradstreetNumber; set { _explicitNullValueDunBradstreetNumber = value; AdditionalData?.Remove("dun_bradstreet_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dun_bradstreet_number"); else _explicitNullProperties?.Remove("dun_bradstreet_number"); } }
         private string _explicitNullValueDunBradstreetNumber = default!;
 #endif
         /// <summary>US Federal Employer Identification Number (`NN-NNNNNNN`) or Canadian equivalent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Fein { get => _explicitNullValueFein; set { _explicitNullValueFein = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fein"); else _explicitNullProperties?.Remove("fein"); } }
+        public string? Fein { get => _explicitNullValueFein; set { _explicitNullValueFein = value; AdditionalData?.Remove("fein"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fein"); else _explicitNullProperties?.Remove("fein"); } }
         private string? _explicitNullValueFein = default!;
 #nullable restore
 #else
-        public string Fein { get => _explicitNullValueFein; set { _explicitNullValueFein = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fein"); else _explicitNullProperties?.Remove("fein"); } }
+        public string Fein { get => _explicitNullValueFein; set { _explicitNullValueFein = value; AdditionalData?.Remove("fein"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fein"); else _explicitNullProperties?.Remove("fein"); } }
         private string _explicitNullValueFein = default!;
 #endif
         /// <summary>The industry your business operates in. Choose the closest match from the list; if your value is not accepted, pick the nearest category.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry? Industry { get => _explicitNullValueIndustry; set { _explicitNullValueIndustry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry"); else _explicitNullProperties?.Remove("industry"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry? Industry { get => _explicitNullValueIndustry; set { _explicitNullValueIndustry = value; AdditionalData?.Remove("industry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry"); else _explicitNullProperties?.Remove("industry"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry? _explicitNullValueIndustry = default!;
         /// <summary>The state, province, or country where your business was legally incorporated, for example Delaware.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JurisdictionOfIncorporation { get => _explicitNullValueJurisdictionOfIncorporation; set { _explicitNullValueJurisdictionOfIncorporation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdiction_of_incorporation"); else _explicitNullProperties?.Remove("jurisdiction_of_incorporation"); } }
+        public string? JurisdictionOfIncorporation { get => _explicitNullValueJurisdictionOfIncorporation; set { _explicitNullValueJurisdictionOfIncorporation = value; AdditionalData?.Remove("jurisdiction_of_incorporation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdiction_of_incorporation"); else _explicitNullProperties?.Remove("jurisdiction_of_incorporation"); } }
         private string? _explicitNullValueJurisdictionOfIncorporation = default!;
 #nullable restore
 #else
-        public string JurisdictionOfIncorporation { get => _explicitNullValueJurisdictionOfIncorporation; set { _explicitNullValueJurisdictionOfIncorporation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdiction_of_incorporation"); else _explicitNullProperties?.Remove("jurisdiction_of_incorporation"); } }
+        public string JurisdictionOfIncorporation { get => _explicitNullValueJurisdictionOfIncorporation; set { _explicitNullValueJurisdictionOfIncorporation = value; AdditionalData?.Remove("jurisdiction_of_incorporation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdiction_of_incorporation"); else _explicitNullProperties?.Remove("jurisdiction_of_incorporation"); } }
         private string _explicitNullValueJurisdictionOfIncorporation = default!;
 #endif
         /// <summary>Your business&apos;s full registered legal name, exactly as it appears on your incorporation or tax documents, 3 to 64 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LegalName { get => _explicitNullValueLegalName; set { _explicitNullValueLegalName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal_name"); else _explicitNullProperties?.Remove("legal_name"); } }
+        public string? LegalName { get => _explicitNullValueLegalName; set { _explicitNullValueLegalName = value; AdditionalData?.Remove("legal_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal_name"); else _explicitNullProperties?.Remove("legal_name"); } }
         private string? _explicitNullValueLegalName = default!;
 #nullable restore
 #else
-        public string LegalName { get => _explicitNullValueLegalName; set { _explicitNullValueLegalName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal_name"); else _explicitNullProperties?.Remove("legal_name"); } }
+        public string LegalName { get => _explicitNullValueLegalName; set { _explicitNullValueLegalName = value; AdditionalData?.Remove("legal_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal_name"); else _explicitNullProperties?.Remove("legal_name"); } }
         private string _explicitNullValueLegalName = default!;
 #endif
         /// <summary>Approximate headcount range. Used for vetting heuristics; pick the bucket that contains your current employee count.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NumberOfEmployees { get => _explicitNullValueNumberOfEmployees; set { _explicitNullValueNumberOfEmployees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_employees"); else _explicitNullProperties?.Remove("number_of_employees"); } }
+        public string? NumberOfEmployees { get => _explicitNullValueNumberOfEmployees; set { _explicitNullValueNumberOfEmployees = value; AdditionalData?.Remove("number_of_employees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_employees"); else _explicitNullProperties?.Remove("number_of_employees"); } }
         private string? _explicitNullValueNumberOfEmployees = default!;
 #nullable restore
 #else
-        public string NumberOfEmployees { get => _explicitNullValueNumberOfEmployees; set { _explicitNullValueNumberOfEmployees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_employees"); else _explicitNullProperties?.Remove("number_of_employees"); } }
+        public string NumberOfEmployees { get => _explicitNullValueNumberOfEmployees; set { _explicitNullValueNumberOfEmployees = value; AdditionalData?.Remove("number_of_employees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_employees"); else _explicitNullProperties?.Remove("number_of_employees"); } }
         private string _explicitNullValueNumberOfEmployees = default!;
 #endif
         /// <summary>The organization_contact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact? OrganizationContact { get => _explicitNullValueOrganizationContact; set { _explicitNullValueOrganizationContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_contact"); else _explicitNullProperties?.Remove("organization_contact"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact? OrganizationContact { get => _explicitNullValueOrganizationContact; set { _explicitNullValueOrganizationContact = value; AdditionalData?.Remove("organization_contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_contact"); else _explicitNullProperties?.Remove("organization_contact"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact? _explicitNullValueOrganizationContact = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact OrganizationContact { get => _explicitNullValueOrganizationContact; set { _explicitNullValueOrganizationContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_contact"); else _explicitNullProperties?.Remove("organization_contact"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact OrganizationContact { get => _explicitNullValueOrganizationContact; set { _explicitNullValueOrganizationContact = value; AdditionalData?.Remove("organization_contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_contact"); else _explicitNullProperties?.Remove("organization_contact"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.OrganizationContact _explicitNullValueOrganizationContact = default!;
 #endif
         /// <summary>Legal-entity form. Pick the form that matches your incorporation documents:- `corporation` - C-corp or S-corp.- `llc` - limited liability company.- `partnership` - general/limited partnership.- `nonprofit` - non-profit corporation, charitable trust, or 501(c)(3)/equivalent.- `other` - anything else (sole proprietorships, government bodies, DBAs, etc.). You may be asked for additional documents during vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationLegalType { get => _explicitNullValueOrganizationLegalType; set { _explicitNullValueOrganizationLegalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_legal_type"); else _explicitNullProperties?.Remove("organization_legal_type"); } }
+        public string? OrganizationLegalType { get => _explicitNullValueOrganizationLegalType; set { _explicitNullValueOrganizationLegalType = value; AdditionalData?.Remove("organization_legal_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_legal_type"); else _explicitNullProperties?.Remove("organization_legal_type"); } }
         private string? _explicitNullValueOrganizationLegalType = default!;
 #nullable restore
 #else
-        public string OrganizationLegalType { get => _explicitNullValueOrganizationLegalType; set { _explicitNullValueOrganizationLegalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_legal_type"); else _explicitNullProperties?.Remove("organization_legal_type"); } }
+        public string OrganizationLegalType { get => _explicitNullValueOrganizationLegalType; set { _explicitNullValueOrganizationLegalType = value; AdditionalData?.Remove("organization_legal_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_legal_type"); else _explicitNullProperties?.Remove("organization_legal_type"); } }
         private string _explicitNullValueOrganizationLegalType = default!;
 #endif
         /// <summary>The organization_physical_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress? OrganizationPhysicalAddress { get => _explicitNullValueOrganizationPhysicalAddress; set { _explicitNullValueOrganizationPhysicalAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_physical_address"); else _explicitNullProperties?.Remove("organization_physical_address"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress? OrganizationPhysicalAddress { get => _explicitNullValueOrganizationPhysicalAddress; set { _explicitNullValueOrganizationPhysicalAddress = value; AdditionalData?.Remove("organization_physical_address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_physical_address"); else _explicitNullProperties?.Remove("organization_physical_address"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress? _explicitNullValueOrganizationPhysicalAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress OrganizationPhysicalAddress { get => _explicitNullValueOrganizationPhysicalAddress; set { _explicitNullValueOrganizationPhysicalAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_physical_address"); else _explicitNullProperties?.Remove("organization_physical_address"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress OrganizationPhysicalAddress { get => _explicitNullValueOrganizationPhysicalAddress; set { _explicitNullValueOrganizationPhysicalAddress = value; AdditionalData?.Remove("organization_physical_address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_physical_address"); else _explicitNullProperties?.Remove("organization_physical_address"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PhysicalAddress _explicitNullValueOrganizationPhysicalAddress = default!;
 #endif
         /// <summary>The 4-digit Standard Industrial Classification code for your main line of business, which tells us what industry you operate in. Look it up in the SIC code directory if you are unsure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryBusinessDomainSicCode { get => _explicitNullValuePrimaryBusinessDomainSicCode; set { _explicitNullValuePrimaryBusinessDomainSicCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_business_domain_sic_code"); else _explicitNullProperties?.Remove("primary_business_domain_sic_code"); } }
+        public string? PrimaryBusinessDomainSicCode { get => _explicitNullValuePrimaryBusinessDomainSicCode; set { _explicitNullValuePrimaryBusinessDomainSicCode = value; AdditionalData?.Remove("primary_business_domain_sic_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_business_domain_sic_code"); else _explicitNullProperties?.Remove("primary_business_domain_sic_code"); } }
         private string? _explicitNullValuePrimaryBusinessDomainSicCode = default!;
 #nullable restore
 #else
-        public string PrimaryBusinessDomainSicCode { get => _explicitNullValuePrimaryBusinessDomainSicCode; set { _explicitNullValuePrimaryBusinessDomainSicCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_business_domain_sic_code"); else _explicitNullProperties?.Remove("primary_business_domain_sic_code"); } }
+        public string PrimaryBusinessDomainSicCode { get => _explicitNullValuePrimaryBusinessDomainSicCode; set { _explicitNullValuePrimaryBusinessDomainSicCode = value; AdditionalData?.Remove("primary_business_domain_sic_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_business_domain_sic_code"); else _explicitNullProperties?.Remove("primary_business_domain_sic_code"); } }
         private string _explicitNullValuePrimaryBusinessDomainSicCode = default!;
 #endif
         /// <summary>If your business operates under a professional license (for example legal, medical, or financial services), enter the license number issued by the licensing authority. Leave blank if it does not apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProfessionalLicenseNumber { get => _explicitNullValueProfessionalLicenseNumber; set { _explicitNullValueProfessionalLicenseNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("professional_license_number"); else _explicitNullProperties?.Remove("professional_license_number"); } }
+        public string? ProfessionalLicenseNumber { get => _explicitNullValueProfessionalLicenseNumber; set { _explicitNullValueProfessionalLicenseNumber = value; AdditionalData?.Remove("professional_license_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("professional_license_number"); else _explicitNullProperties?.Remove("professional_license_number"); } }
         private string? _explicitNullValueProfessionalLicenseNumber = default!;
 #nullable restore
 #else
-        public string ProfessionalLicenseNumber { get => _explicitNullValueProfessionalLicenseNumber; set { _explicitNullValueProfessionalLicenseNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("professional_license_number"); else _explicitNullProperties?.Remove("professional_license_number"); } }
+        public string ProfessionalLicenseNumber { get => _explicitNullValueProfessionalLicenseNumber; set { _explicitNullValueProfessionalLicenseNumber = value; AdditionalData?.Remove("professional_license_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("professional_license_number"); else _explicitNullProperties?.Remove("professional_license_number"); } }
         private string _explicitNullValueProfessionalLicenseNumber = default!;
 #endif
         /// <summary>Your business&apos;s public website address, including https://. Leave blank if your business has no website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        public string? Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; AdditionalData?.Remove("website"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
         private string? _explicitNullValueWebsite = default!;
 #nullable restore
 #else
-        public string Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        public string Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; AdditionalData?.Remove("website"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
         private string _explicitNullValueWebsite = default!;
 #endif
         /// <summary>
@@ -234,7 +251,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "doing_business_as", n => { DoingBusinessAs = n.GetStringValue(); } },
                 { "dun_bradstreet_number", n => { DunBradstreetNumber = n.GetStringValue(); } },
                 { "fein", n => { Fein = n.GetStringValue(); } },
-                { "industry", n => { Industry = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry>(); } },
+                { "industry", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnterpriseUpdateIndustry>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIndustry = default; _explicitNullProperties?.Remove("industry"); AdditionalData["industry"] = unknown; } else { Industry = parsed; AdditionalData.Remove("industry"); } } },
                 { "jurisdiction_of_incorporation", n => { JurisdictionOfIncorporation = n.GetStringValue(); } },
                 { "legal_name", n => { LegalName = n.GetStringValue(); } },
                 { "number_of_employees", n => { NumberOfEmployees = n.GetStringValue(); } },

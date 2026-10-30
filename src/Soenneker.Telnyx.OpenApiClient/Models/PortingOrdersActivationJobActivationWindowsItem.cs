@@ -17,17 +17,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("end_at") is { } nullNodeEndAt && nullNodeEndAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndAt = null;
-            if (parseNode.GetChildNode("start_at") is { } nullNodeStartAt && nullNodeStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartAt = null;
+            if (parseNode.GetChildNode("end_at") is null) { _explicitNullValueEndAt = default!; _explicitNullProperties?.Remove("end_at"); }
+            else if (parseNode.GetChildNode("end_at") is { } nullNodeEndAt && nullNodeEndAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndAt = null;
+            if (parseNode.GetChildNode("start_at") is null) { _explicitNullValueStartAt = default!; _explicitNullProperties?.Remove("start_at"); }
+            else if (parseNode.GetChildNode("start_at") is { } nullNodeStartAt && nullNodeStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the activation window ends</summary>
-        public DateTimeOffset? EndAt { get => _explicitNullValueEndAt; set { _explicitNullValueEndAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_at"); else _explicitNullProperties?.Remove("end_at"); } }
+        public DateTimeOffset? EndAt { get => _explicitNullValueEndAt; set { _explicitNullValueEndAt = value; AdditionalData?.Remove("end_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_at"); else _explicitNullProperties?.Remove("end_at"); } }
         private DateTimeOffset? _explicitNullValueEndAt = default!;
         /// <summary>ISO 8601 formatted date indicating when the activation window starts</summary>
-        public DateTimeOffset? StartAt { get => _explicitNullValueStartAt; set { _explicitNullValueStartAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_at"); else _explicitNullProperties?.Remove("start_at"); } }
+        public DateTimeOffset? StartAt { get => _explicitNullValueStartAt; set { _explicitNullValueStartAt = value; AdditionalData?.Remove("start_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_at"); else _explicitNullProperties?.Remove("start_at"); } }
         private DateTimeOffset? _explicitNullValueStartAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem"/> and sets the default values.

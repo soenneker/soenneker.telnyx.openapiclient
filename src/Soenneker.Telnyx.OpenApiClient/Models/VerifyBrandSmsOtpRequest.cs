@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("otpPin") is { } nullNodeOtpPin && nullNodeOtpPin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpPin = null;
+            if (parseNode.GetChildNode("otpPin") is null) { _explicitNullValueOtpPin = default!; _explicitNullProperties?.Remove("otpPin"); }
+            else if (parseNode.GetChildNode("otpPin") is { } nullNodeOtpPin && nullNodeOtpPin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpPin = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The OTP PIN received via SMS</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OtpPin { get => _explicitNullValueOtpPin; set { _explicitNullValueOtpPin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpPin"); else _explicitNullProperties?.Remove("otpPin"); } }
+        public string? OtpPin { get => _explicitNullValueOtpPin; set { _explicitNullValueOtpPin = value; AdditionalData?.Remove("otpPin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpPin"); else _explicitNullProperties?.Remove("otpPin"); } }
         private string? _explicitNullValueOtpPin = default!;
 #nullable restore
 #else
-        public string OtpPin { get => _explicitNullValueOtpPin; set { _explicitNullValueOtpPin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpPin"); else _explicitNullProperties?.Remove("otpPin"); } }
+        public string OtpPin { get => _explicitNullValueOtpPin; set { _explicitNullValueOtpPin = value; AdditionalData?.Remove("otpPin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpPin"); else _explicitNullProperties?.Remove("otpPin"); } }
         private string _explicitNullValueOtpPin = default!;
 #endif
         /// <summary>

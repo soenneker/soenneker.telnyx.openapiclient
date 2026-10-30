@@ -18,13 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sip_region") is { } nullNodeSipRegion && nullNodeSipRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegion = null;
+            if (parseNode.GetChildNode("sip_region") is null) { _explicitNullValueSipRegion = default!; _explicitNullProperties?.Remove("sip_region"); }
+            else if (parseNode.GetChildNode("sip_region") is { } nullNodeSipRegion && nullNodeSipRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>SIP region passed to Telnyx when initiating an outbound call. Valuesmatch the Telnyx TeXML `SipRegion` parameter exactly. Telnyx defaults to`US` when omitted.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegion? SipRegion { get => _explicitNullValueSipRegion; set { _explicitNullValueSipRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_region"); else _explicitNullProperties?.Remove("sip_region"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegion? SipRegion { get => _explicitNullValueSipRegion; set { _explicitNullValueSipRegion = value; AdditionalData?.Remove("sip_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_region"); else _explicitNullProperties?.Remove("sip_region"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SipRegion? _explicitNullValueSipRegion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledCallSettings"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegion>(); } },
+                { "sip_region", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSipRegion = default; _explicitNullProperties?.Remove("sip_region"); AdditionalData["sip_region"] = unknown; } else { SipRegion = parsed; AdditionalData.Remove("sip_region"); } } },
             };
         }
         /// <summary>

@@ -18,40 +18,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("drain") is { } nullNodeDrain && nullNodeDrain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Drain = null;
-            if (parseNode.GetChildNode("force") is { } nullNodeForce && nullNodeForce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Force = null;
-            if (parseNode.GetChildNode("pool_id") is { } nullNodePoolId && nullNodePoolId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoolId = null;
-            if (parseNode.GetChildNode("warmup") is { } nullNodeWarmup && nullNodeWarmup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warmup = null;
-            if (parseNode.GetChildNode("warmup_paused") is { } nullNodeWarmupPaused && nullNodeWarmupPaused.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmupPaused = null;
-            if (parseNode.GetChildNode("weight") is { } nullNodeWeight && nullNodeWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Weight = null;
+            if (parseNode.GetChildNode("drain") is null) { _explicitNullValueDrain = default!; _explicitNullProperties?.Remove("drain"); }
+            else if (parseNode.GetChildNode("drain") is { } nullNodeDrain && nullNodeDrain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Drain = null;
+            if (parseNode.GetChildNode("force") is null) { _explicitNullValueForce = default!; _explicitNullProperties?.Remove("force"); }
+            else if (parseNode.GetChildNode("force") is { } nullNodeForce && nullNodeForce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Force = null;
+            if (parseNode.GetChildNode("pool_id") is null) { _explicitNullValuePoolId = default!; _explicitNullProperties?.Remove("pool_id"); }
+            else if (parseNode.GetChildNode("pool_id") is { } nullNodePoolId && nullNodePoolId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoolId = null;
+            if (parseNode.GetChildNode("warmup") is null) { _explicitNullValueWarmup = default!; _explicitNullProperties?.Remove("warmup"); }
+            else if (parseNode.GetChildNode("warmup") is { } nullNodeWarmup && nullNodeWarmup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warmup = null;
+            if (parseNode.GetChildNode("warmup_paused") is null) { _explicitNullValueWarmupPaused = default!; _explicitNullProperties?.Remove("warmup_paused"); }
+            else if (parseNode.GetChildNode("warmup_paused") is { } nullNodeWarmupPaused && nullNodeWarmupPaused.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmupPaused = null;
+            if (parseNode.GetChildNode("weight") is null) { _explicitNullValueWeight = default!; _explicitNullProperties?.Remove("weight"); }
+            else if (parseNode.GetChildNode("weight") is { } nullNodeWeight && nullNodeWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Weight = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set together with `force: true` to move the last IP out of its current pool. Acknowledges that mail routed to the emptied pool is held. Used only with `pool_id`.</summary>
-        public bool? Drain { get => _explicitNullValueDrain; set { _explicitNullValueDrain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drain"); else _explicitNullProperties?.Remove("drain"); } }
+        public bool? Drain { get => _explicitNullValueDrain; set { _explicitNullValueDrain = value; AdditionalData?.Remove("drain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drain"); else _explicitNullProperties?.Remove("drain"); } }
         private bool? _explicitNullValueDrain = default!;
         /// <summary>Set together with `drain: true` to move the last IP out of its current pool. Used only with `pool_id`.</summary>
-        public bool? Force { get => _explicitNullValueForce; set { _explicitNullValueForce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force"); else _explicitNullProperties?.Remove("force"); } }
+        public bool? Force { get => _explicitNullValueForce; set { _explicitNullValueForce = value; AdditionalData?.Remove("force"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force"); else _explicitNullProperties?.Remove("force"); } }
         private bool? _explicitNullValueForce = default!;
         /// <summary>Move the IP to this pool, replacing its current membership. Use the IP&apos;s current pool to change only its weight. To take an IP out of a pool, use `DELETE /email/ip_pools/{id}/ips/{ip_id}`.</summary>
-        public Guid? PoolId { get => _explicitNullValuePoolId; set { _explicitNullValuePoolId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool_id"); else _explicitNullProperties?.Remove("pool_id"); } }
+        public Guid? PoolId { get => _explicitNullValuePoolId; set { _explicitNullValuePoolId = value; AdditionalData?.Remove("pool_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool_id"); else _explicitNullProperties?.Remove("pool_id"); } }
         private Guid? _explicitNullValuePoolId = default!;
         /// <summary>Alias for `warmup_paused`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequestWarmup? Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequestWarmup? Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; AdditionalData?.Remove("warmup"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequestWarmup? _explicitNullValueWarmup = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequestWarmup Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequestWarmup Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; AdditionalData?.Remove("warmup"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequestWarmup _explicitNullValueWarmup = default!;
 #endif
         /// <summary>Pause (`true`) or resume (`false`) the warm-up ramp; equivalent to the `pause_warmup` and `resume_warmup` actions. A Boolean value takes precedence over `warmup.paused`. When a pause field is present and `pool_id` is absent, supplying neither pause field as a Boolean invokes resume.</summary>
-        public bool? WarmupPaused { get => _explicitNullValueWarmupPaused; set { _explicitNullValueWarmupPaused = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup_paused"); else _explicitNullProperties?.Remove("warmup_paused"); } }
+        public bool? WarmupPaused { get => _explicitNullValueWarmupPaused; set { _explicitNullValueWarmupPaused = value; AdditionalData?.Remove("warmup_paused"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup_paused"); else _explicitNullProperties?.Remove("warmup_paused"); } }
         private bool? _explicitNullValueWarmupPaused = default!;
         /// <summary>Routing weight in the target pool. Used only with `pool_id`.</summary>
-        public int? Weight { get => _explicitNullValueWeight; set { _explicitNullValueWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weight"); else _explicitNullProperties?.Remove("weight"); } }
+        public int? Weight { get => _explicitNullValueWeight; set { _explicitNullValueWeight = value; AdditionalData?.Remove("weight"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weight"); else _explicitNullProperties?.Remove("weight"); } }
         private int? _explicitNullValueWeight = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpUpdateRequest"/> and sets the default values.

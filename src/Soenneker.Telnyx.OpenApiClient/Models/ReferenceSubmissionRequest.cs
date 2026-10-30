@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("business_references") is { } nullNodeBusinessReferences && nullNodeBusinessReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessReferences = null;
-            if (parseNode.GetChildNode("financial_reference") is { } nullNodeFinancialReference && nullNodeFinancialReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinancialReference = null;
+            if (parseNode.GetChildNode("business_references") is null) { _explicitNullValueBusinessReferences = default!; _explicitNullProperties?.Remove("business_references"); }
+            else if (parseNode.GetChildNode("business_references") is { } nullNodeBusinessReferences && nullNodeBusinessReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessReferences = null;
+            if (parseNode.GetChildNode("financial_reference") is null) { _explicitNullValueFinancialReference = default!; _explicitNullProperties?.Remove("financial_reference"); }
+            else if (parseNode.GetChildNode("financial_reference") is { } nullNodeFinancialReference && nullNodeFinancialReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinancialReference = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Exactly two business references. Array order determines each one&apos;s slot: the first entry becomes slot 1 and the second becomes slot 2. Those slots are what you pass when updating a single reference later. Each should be a senior contact who can speak to your company&apos;s reputation and operations: a C-suite executive (CEO, CFO, CTO, COO), an owner or founder as reflected in your corporate records, or a senior manager, director, or executive at an organization you work with, such as a vendor, partner, or client.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>? BusinessReferences { get => _explicitNullValueBusinessReferences; set { _explicitNullValueBusinessReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_references"); else _explicitNullProperties?.Remove("business_references"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>? BusinessReferences { get => _explicitNullValueBusinessReferences; set { _explicitNullValueBusinessReferences = value; AdditionalData?.Remove("business_references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_references"); else _explicitNullProperties?.Remove("business_references"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput>? _explicitNullValueBusinessReferences = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput> BusinessReferences { get => _explicitNullValueBusinessReferences; set { _explicitNullValueBusinessReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_references"); else _explicitNullProperties?.Remove("business_references"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput> BusinessReferences { get => _explicitNullValueBusinessReferences; set { _explicitNullValueBusinessReferences = value; AdditionalData?.Remove("business_references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_references"); else _explicitNullProperties?.Remove("business_references"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceInput> _explicitNullValueBusinessReferences = default!;
 #endif
         /// <summary>One financial reference who can confirm the company pays its bills: a licensed certified public accountant (CPA) the company uses, a contact at a bank or financial institution that has a relationship with the company, or a reasonable alternative banking or financial reference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference? FinancialReference { get => _explicitNullValueFinancialReference; set { _explicitNullValueFinancialReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financial_reference"); else _explicitNullProperties?.Remove("financial_reference"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference? FinancialReference { get => _explicitNullValueFinancialReference; set { _explicitNullValueFinancialReference = value; AdditionalData?.Remove("financial_reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financial_reference"); else _explicitNullProperties?.Remove("financial_reference"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference? _explicitNullValueFinancialReference = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference FinancialReference { get => _explicitNullValueFinancialReference; set { _explicitNullValueFinancialReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financial_reference"); else _explicitNullProperties?.Remove("financial_reference"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference FinancialReference { get => _explicitNullValueFinancialReference; set { _explicitNullValueFinancialReference = value; AdditionalData?.Remove("financial_reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financial_reference"); else _explicitNullProperties?.Remove("financial_reference"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ReferenceSubmissionRequestFinancialReference _explicitNullValueFinancialReference = default!;
 #endif
         /// <summary>

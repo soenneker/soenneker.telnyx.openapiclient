@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mp3") is { } nullNodeMp3 && nullNodeMp3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mp3 = null;
-            if (parseNode.GetChildNode("wav") is { } nullNodeWav && nullNodeWav.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wav = null;
+            if (parseNode.GetChildNode("mp3") is null) { _explicitNullValueMp3 = default!; _explicitNullProperties?.Remove("mp3"); }
+            else if (parseNode.GetChildNode("mp3") is { } nullNodeMp3 && nullNodeMp3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mp3 = null;
+            if (parseNode.GetChildNode("wav") is null) { _explicitNullValueWav = default!; _explicitNullProperties?.Remove("wav"); }
+            else if (parseNode.GetChildNode("wav") is { } nullNodeWav && nullNodeWav.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wav = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Recording URL in requested `mp3` format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mp3 { get => _explicitNullValueMp3; set { _explicitNullValueMp3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mp3"); else _explicitNullProperties?.Remove("mp3"); } }
+        public string? Mp3 { get => _explicitNullValueMp3; set { _explicitNullValueMp3 = value; AdditionalData?.Remove("mp3"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mp3"); else _explicitNullProperties?.Remove("mp3"); } }
         private string? _explicitNullValueMp3 = default!;
 #nullable restore
 #else
-        public string Mp3 { get => _explicitNullValueMp3; set { _explicitNullValueMp3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mp3"); else _explicitNullProperties?.Remove("mp3"); } }
+        public string Mp3 { get => _explicitNullValueMp3; set { _explicitNullValueMp3 = value; AdditionalData?.Remove("mp3"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mp3"); else _explicitNullProperties?.Remove("mp3"); } }
         private string _explicitNullValueMp3 = default!;
 #endif
         /// <summary>Recording URL in requested `wav` format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Wav { get => _explicitNullValueWav; set { _explicitNullValueWav = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wav"); else _explicitNullProperties?.Remove("wav"); } }
+        public string? Wav { get => _explicitNullValueWav; set { _explicitNullValueWav = value; AdditionalData?.Remove("wav"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wav"); else _explicitNullProperties?.Remove("wav"); } }
         private string? _explicitNullValueWav = default!;
 #nullable restore
 #else
-        public string Wav { get => _explicitNullValueWav; set { _explicitNullValueWav = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wav"); else _explicitNullProperties?.Remove("wav"); } }
+        public string Wav { get => _explicitNullValueWav; set { _explicitNullValueWav = value; AdditionalData?.Remove("wav"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wav"); else _explicitNullProperties?.Remove("wav"); } }
         private string _explicitNullValueWav = default!;
 #endif
         /// <summary>

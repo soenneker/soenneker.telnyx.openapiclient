@@ -18,10 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("checklist") is { } nullNodeChecklist && nullNodeChecklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checklist = null;
-            if (parseNode.GetChildNode("dns_status") is { } nullNodeDnsStatus && nullNodeDnsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsStatus = null;
-            if (parseNode.GetChildNode("ptr_request_pr_url") is { } nullNodePtrRequestPrUrl && nullNodePtrRequestPrUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequestPrUrl = null;
-            if (parseNode.GetChildNode("ptr_request_state") is { } nullNodePtrRequestState && nullNodePtrRequestState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequestState = null;
+            if (parseNode.GetChildNode("checklist") is null) { _explicitNullValueChecklist = default!; _explicitNullProperties?.Remove("checklist"); }
+            else if (parseNode.GetChildNode("checklist") is { } nullNodeChecklist && nullNodeChecklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checklist = null;
+            if (parseNode.GetChildNode("dns_status") is null) { _explicitNullValueDnsStatus = default!; _explicitNullProperties?.Remove("dns_status"); }
+            else if (parseNode.GetChildNode("dns_status") is { } nullNodeDnsStatus && nullNodeDnsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsStatus = null;
+            if (parseNode.GetChildNode("ptr_request_pr_url") is null) { _explicitNullValuePtrRequestPrUrl = default!; _explicitNullProperties?.Remove("ptr_request_pr_url"); }
+            else if (parseNode.GetChildNode("ptr_request_pr_url") is { } nullNodePtrRequestPrUrl && nullNodePtrRequestPrUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequestPrUrl = null;
+            if (parseNode.GetChildNode("ptr_request_state") is null) { _explicitNullValuePtrRequestState = default!; _explicitNullProperties?.Remove("ptr_request_state"); }
+            else if (parseNode.GetChildNode("ptr_request_state") is { } nullNodePtrRequestState && nullNodePtrRequestState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PtrRequestState = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,28 +33,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Informational progress flags for the Telnyx-managed PTR. They do not gate `start_warmup`; use `dns_status` to check whether the IP can carry mail.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist? Checklist { get => _explicitNullValueChecklist; set { _explicitNullValueChecklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checklist"); else _explicitNullProperties?.Remove("checklist"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist? Checklist { get => _explicitNullValueChecklist; set { _explicitNullValueChecklist = value; AdditionalData?.Remove("checklist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checklist"); else _explicitNullProperties?.Remove("checklist"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist? _explicitNullValueChecklist = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist Checklist { get => _explicitNullValueChecklist; set { _explicitNullValueChecklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checklist"); else _explicitNullProperties?.Remove("checklist"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist Checklist { get => _explicitNullValueChecklist; set { _explicitNullValueChecklist = value; AdditionalData?.Remove("checklist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checklist"); else _explicitNullProperties?.Remove("checklist"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist _explicitNullValueChecklist = default!;
 #endif
         /// <summary>`dns_confirmed`: the PTR is forward-confirmed and `dns_confirmed_at` is set. `pending_ptr`: the PTR record is not yet in place. `pending_dns`: the PTR record is waiting for forward confirmation. `dns_lost`: a previously confirmed PTR no longer confirms, or the PTR request was abandoned before it ever confirmed (`ptr_request_state` is `abandoned`); the IP carries no mail until DNS is confirmed. `not_applicable`: the IP is released or has no PTR record on file.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus? DnsStatus { get => _explicitNullValueDnsStatus; set { _explicitNullValueDnsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_status"); else _explicitNullProperties?.Remove("dns_status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus? DnsStatus { get => _explicitNullValueDnsStatus; set { _explicitNullValueDnsStatus = value; AdditionalData?.Remove("dns_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_status"); else _explicitNullProperties?.Remove("dns_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus? _explicitNullValueDnsStatus = default!;
         /// <summary>Reference to the Telnyx PTR change request, when one exists. Informational.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PtrRequestPrUrl { get => _explicitNullValuePtrRequestPrUrl; set { _explicitNullValuePtrRequestPrUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_pr_url"); else _explicitNullProperties?.Remove("ptr_request_pr_url"); } }
+        public string? PtrRequestPrUrl { get => _explicitNullValuePtrRequestPrUrl; set { _explicitNullValuePtrRequestPrUrl = value; AdditionalData?.Remove("ptr_request_pr_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_pr_url"); else _explicitNullProperties?.Remove("ptr_request_pr_url"); } }
         private string? _explicitNullValuePtrRequestPrUrl = default!;
 #nullable restore
 #else
-        public string PtrRequestPrUrl { get => _explicitNullValuePtrRequestPrUrl; set { _explicitNullValuePtrRequestPrUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_pr_url"); else _explicitNullProperties?.Remove("ptr_request_pr_url"); } }
+        public string PtrRequestPrUrl { get => _explicitNullValuePtrRequestPrUrl; set { _explicitNullValuePtrRequestPrUrl = value; AdditionalData?.Remove("ptr_request_pr_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_pr_url"); else _explicitNullProperties?.Remove("ptr_request_pr_url"); } }
         private string _explicitNullValuePtrRequestPrUrl = default!;
 #endif
         /// <summary>State of the Telnyx PTR change: `pending`, `pr_open`, `merged`, `confirmed`, `failed`, or `abandoned`. Informational.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? PtrRequestState { get => _explicitNullValuePtrRequestState; set { _explicitNullValuePtrRequestState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_state"); else _explicitNullProperties?.Remove("ptr_request_state"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? PtrRequestState { get => _explicitNullValuePtrRequestState; set { _explicitNullValuePtrRequestState = value; AdditionalData?.Remove("ptr_request_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_state"); else _explicitNullProperties?.Remove("ptr_request_state"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? _explicitNullValuePtrRequestState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning"/> and sets the default values.
@@ -78,9 +82,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "checklist", n => { Checklist = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist>(global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist.CreateFromDiscriminatorValue); } },
-                { "dns_status", n => { DnsStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus>(); } },
+                { "dns_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDnsStatus = default; _explicitNullProperties?.Remove("dns_status"); AdditionalData["dns_status"] = unknown; } else { DnsStatus = parsed; AdditionalData.Remove("dns_status"); } } },
                 { "ptr_request_pr_url", n => { PtrRequestPrUrl = n.GetStringValue(); } },
-                { "ptr_request_state", n => { PtrRequestState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>(); } },
+                { "ptr_request_state", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePtrRequestState = default; _explicitNullProperties?.Remove("ptr_request_state"); AdditionalData["ptr_request_state"] = unknown; } else { PtrRequestState = parsed; AdditionalData.Remove("ptr_request_state"); } } },
             };
         }
         /// <summary>

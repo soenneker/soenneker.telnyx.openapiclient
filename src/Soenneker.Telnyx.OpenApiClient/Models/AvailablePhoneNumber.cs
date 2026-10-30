@@ -17,79 +17,88 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("best_effort") is { } nullNodeBestEffort && nullNodeBestEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BestEffort = null;
-            if (parseNode.GetChildNode("cost_information") is { } nullNodeCostInformation && nullNodeCostInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CostInformation = null;
-            if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
-            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
-            if (parseNode.GetChildNode("quickship") is { } nullNodeQuickship && nullNodeQuickship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quickship = null;
-            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
-            if (parseNode.GetChildNode("region_information") is { } nullNodeRegionInformation && nullNodeRegionInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionInformation = null;
-            if (parseNode.GetChildNode("reservable") is { } nullNodeReservable && nullNodeReservable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reservable = null;
-            if (parseNode.GetChildNode("vanity_format") is { } nullNodeVanityFormat && nullNodeVanityFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VanityFormat = null;
+            if (parseNode.GetChildNode("best_effort") is null) { _explicitNullValueBestEffort = default!; _explicitNullProperties?.Remove("best_effort"); }
+            else if (parseNode.GetChildNode("best_effort") is { } nullNodeBestEffort && nullNodeBestEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BestEffort = null;
+            if (parseNode.GetChildNode("cost_information") is null) { _explicitNullValueCostInformation = default!; _explicitNullProperties?.Remove("cost_information"); }
+            else if (parseNode.GetChildNode("cost_information") is { } nullNodeCostInformation && nullNodeCostInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CostInformation = null;
+            if (parseNode.GetChildNode("features") is null) { _explicitNullValueFeatures = default!; _explicitNullProperties?.Remove("features"); }
+            else if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
+            if (parseNode.GetChildNode("phone_number") is null) { _explicitNullValuePhoneNumber = default!; _explicitNullProperties?.Remove("phone_number"); }
+            else if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("quickship") is null) { _explicitNullValueQuickship = default!; _explicitNullProperties?.Remove("quickship"); }
+            else if (parseNode.GetChildNode("quickship") is { } nullNodeQuickship && nullNodeQuickship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quickship = null;
+            if (parseNode.GetChildNode("record_type") is null) { _explicitNullValueRecordType = default!; _explicitNullProperties?.Remove("record_type"); }
+            else if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("region_information") is null) { _explicitNullValueRegionInformation = default!; _explicitNullProperties?.Remove("region_information"); }
+            else if (parseNode.GetChildNode("region_information") is { } nullNodeRegionInformation && nullNodeRegionInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionInformation = null;
+            if (parseNode.GetChildNode("reservable") is null) { _explicitNullValueReservable = default!; _explicitNullProperties?.Remove("reservable"); }
+            else if (parseNode.GetChildNode("reservable") is { } nullNodeReservable && nullNodeReservable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reservable = null;
+            if (parseNode.GetChildNode("vanity_format") is null) { _explicitNullValueVanityFormat = default!; _explicitNullProperties?.Remove("vanity_format"); }
+            else if (parseNode.GetChildNode("vanity_format") is { } nullNodeVanityFormat && nullNodeVanityFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VanityFormat = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies whether the phone number is an exact match based on the search criteria or not.</summary>
-        public bool? BestEffort { get => _explicitNullValueBestEffort; set { _explicitNullValueBestEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("best_effort"); else _explicitNullProperties?.Remove("best_effort"); } }
+        public bool? BestEffort { get => _explicitNullValueBestEffort; set { _explicitNullValueBestEffort = value; AdditionalData?.Remove("best_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("best_effort"); else _explicitNullProperties?.Remove("best_effort"); } }
         private bool? _explicitNullValueBestEffort = default!;
         /// <summary>The cost_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation? CostInformation { get => _explicitNullValueCostInformation; set { _explicitNullValueCostInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_information"); else _explicitNullProperties?.Remove("cost_information"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation? CostInformation { get => _explicitNullValueCostInformation; set { _explicitNullValueCostInformation = value; AdditionalData?.Remove("cost_information"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_information"); else _explicitNullProperties?.Remove("cost_information"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation? _explicitNullValueCostInformation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation CostInformation { get => _explicitNullValueCostInformation; set { _explicitNullValueCostInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_information"); else _explicitNullProperties?.Remove("cost_information"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation CostInformation { get => _explicitNullValueCostInformation; set { _explicitNullValueCostInformation = value; AdditionalData?.Remove("cost_information"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cost_information"); else _explicitNullProperties?.Remove("cost_information"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation _explicitNullValueCostInformation = default!;
 #endif
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>? _explicitNullValueFeatures = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature> _explicitNullValueFeatures = default!;
 #endif
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>Specifies whether the phone number can receive calls immediately after purchase or not.</summary>
-        public bool? Quickship { get => _explicitNullValueQuickship; set { _explicitNullValueQuickship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quickship"); else _explicitNullProperties?.Remove("quickship"); } }
+        public bool? Quickship { get => _explicitNullValueQuickship; set { _explicitNullValueQuickship = value; AdditionalData?.Remove("quickship"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quickship"); else _explicitNullProperties?.Remove("quickship"); } }
         private bool? _explicitNullValueQuickship = default!;
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberRecordType? _explicitNullValueRecordType = default!;
         /// <summary>The region_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>? RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>? RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; AdditionalData?.Remove("region_information"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>? _explicitNullValueRegionInformation = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation> RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation> RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; AdditionalData?.Remove("region_information"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation> _explicitNullValueRegionInformation = default!;
 #endif
         /// <summary>Specifies whether the phone number can be reserved before purchase or not.</summary>
-        public bool? Reservable { get => _explicitNullValueReservable; set { _explicitNullValueReservable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservable"); else _explicitNullProperties?.Remove("reservable"); } }
+        public bool? Reservable { get => _explicitNullValueReservable; set { _explicitNullValueReservable = value; AdditionalData?.Remove("reservable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservable"); else _explicitNullProperties?.Remove("reservable"); } }
         private bool? _explicitNullValueReservable = default!;
         /// <summary>The vanity_format property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VanityFormat { get => _explicitNullValueVanityFormat; set { _explicitNullValueVanityFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vanity_format"); else _explicitNullProperties?.Remove("vanity_format"); } }
+        public string? VanityFormat { get => _explicitNullValueVanityFormat; set { _explicitNullValueVanityFormat = value; AdditionalData?.Remove("vanity_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vanity_format"); else _explicitNullProperties?.Remove("vanity_format"); } }
         private string? _explicitNullValueVanityFormat = default!;
 #nullable restore
 #else
-        public string VanityFormat { get => _explicitNullValueVanityFormat; set { _explicitNullValueVanityFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vanity_format"); else _explicitNullProperties?.Remove("vanity_format"); } }
+        public string VanityFormat { get => _explicitNullValueVanityFormat; set { _explicitNullValueVanityFormat = value; AdditionalData?.Remove("vanity_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vanity_format"); else _explicitNullProperties?.Remove("vanity_format"); } }
         private string _explicitNullValueVanityFormat = default!;
 #endif
         /// <summary>
@@ -122,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "features", n => { Features = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>(global::Soenneker.Telnyx.OpenApiClient.Models.Feature.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "quickship", n => { Quickship = n.GetBoolValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberRecordType>(); } },
+                { "record_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberRecordType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordType = default; _explicitNullProperties?.Remove("record_type"); AdditionalData["record_type"] = unknown; } else { RecordType = parsed; AdditionalData.Remove("record_type"); } } },
                 { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>(global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reservable", n => { Reservable = n.GetBoolValue(); } },
                 { "vanity_format", n => { VanityFormat = n.GetStringValue(); } },

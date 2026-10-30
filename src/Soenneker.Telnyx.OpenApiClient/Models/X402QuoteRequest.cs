@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("amount_usd") is { } nullNodeAmountUsd && nullNodeAmountUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmountUsd = null;
+            if (parseNode.GetChildNode("amount_usd") is null) { _explicitNullValueAmountUsd = default!; _explicitNullProperties?.Remove("amount_usd"); }
+            else if (parseNode.GetChildNode("amount_usd") is { } nullNodeAmountUsd && nullNodeAmountUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmountUsd = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Amount in USD to fund (minimum 5.00, maximum 10000.00).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AmountUsd { get => _explicitNullValueAmountUsd; set { _explicitNullValueAmountUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_usd"); else _explicitNullProperties?.Remove("amount_usd"); } }
+        public string? AmountUsd { get => _explicitNullValueAmountUsd; set { _explicitNullValueAmountUsd = value; AdditionalData?.Remove("amount_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_usd"); else _explicitNullProperties?.Remove("amount_usd"); } }
         private string? _explicitNullValueAmountUsd = default!;
 #nullable restore
 #else
-        public string AmountUsd { get => _explicitNullValueAmountUsd; set { _explicitNullValueAmountUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_usd"); else _explicitNullProperties?.Remove("amount_usd"); } }
+        public string AmountUsd { get => _explicitNullValueAmountUsd; set { _explicitNullValueAmountUsd = value; AdditionalData?.Remove("amount_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount_usd"); else _explicitNullProperties?.Remove("amount_usd"); } }
         private string _explicitNullValueAmountUsd = default!;
 #endif
         /// <summary>

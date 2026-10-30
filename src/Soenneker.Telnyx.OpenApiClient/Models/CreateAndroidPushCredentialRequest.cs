@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("alias") is { } nullNodeAlias && nullNodeAlias.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Alias = null;
-            if (parseNode.GetChildNode("project_account_json_file") is { } nullNodeProjectAccountJsonFile && nullNodeProjectAccountJsonFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectAccountJsonFile = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("alias") is null) { _explicitNullValueAlias = default!; _explicitNullProperties?.Remove("alias"); }
+            else if (parseNode.GetChildNode("alias") is { } nullNodeAlias && nullNodeAlias.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Alias = null;
+            if (parseNode.GetChildNode("project_account_json_file") is null) { _explicitNullValueProjectAccountJsonFile = default!; _explicitNullProperties?.Remove("project_account_json_file"); }
+            else if (parseNode.GetChildNode("project_account_json_file") is { } nullNodeProjectAccountJsonFile && nullNodeProjectAccountJsonFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectAccountJsonFile = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Alias to uniquely identify the credential</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Alias { get => _explicitNullValueAlias; set { _explicitNullValueAlias = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alias"); else _explicitNullProperties?.Remove("alias"); } }
+        public string? Alias { get => _explicitNullValueAlias; set { _explicitNullValueAlias = value; AdditionalData?.Remove("alias"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alias"); else _explicitNullProperties?.Remove("alias"); } }
         private string? _explicitNullValueAlias = default!;
 #nullable restore
 #else
-        public string Alias { get => _explicitNullValueAlias; set { _explicitNullValueAlias = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alias"); else _explicitNullProperties?.Remove("alias"); } }
+        public string Alias { get => _explicitNullValueAlias; set { _explicitNullValueAlias = value; AdditionalData?.Remove("alias"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alias"); else _explicitNullProperties?.Remove("alias"); } }
         private string _explicitNullValueAlias = default!;
 #endif
         /// <summary>Private key file in JSON format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty? ProjectAccountJsonFile { get => _explicitNullValueProjectAccountJsonFile; set { _explicitNullValueProjectAccountJsonFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_account_json_file"); else _explicitNullProperties?.Remove("project_account_json_file"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty? ProjectAccountJsonFile { get => _explicitNullValueProjectAccountJsonFile; set { _explicitNullValueProjectAccountJsonFile = value; AdditionalData?.Remove("project_account_json_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_account_json_file"); else _explicitNullProperties?.Remove("project_account_json_file"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty? _explicitNullValueProjectAccountJsonFile = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty ProjectAccountJsonFile { get => _explicitNullValueProjectAccountJsonFile; set { _explicitNullValueProjectAccountJsonFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_account_json_file"); else _explicitNullProperties?.Remove("project_account_json_file"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty ProjectAccountJsonFile { get => _explicitNullValueProjectAccountJsonFile; set { _explicitNullValueProjectAccountJsonFile = value; AdditionalData?.Remove("project_account_json_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_account_json_file"); else _explicitNullProperties?.Remove("project_account_json_file"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty _explicitNullValueProjectAccountJsonFile = default!;
 #endif
         /// <summary>Type of mobile push credential. Should be &lt;code&gt;android&lt;/code&gt; here</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequestProjectAccountJsonFileProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AndroidType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

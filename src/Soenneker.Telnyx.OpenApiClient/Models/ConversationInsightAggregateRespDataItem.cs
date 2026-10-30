@@ -18,13 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("record_count") is { } nullNodeRecordCount && nullNodeRecordCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordCount = null;
+            if (parseNode.GetChildNode("record_count") is null) { _explicitNullValueRecordCount = default!; _explicitNullProperties?.Remove("record_count"); }
+            else if (parseNode.GetChildNode("record_count") is { } nullNodeRecordCount && nullNodeRecordCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of conversation insights that match this combination of grouped field values.</summary>
-        public int? RecordCount { get => _explicitNullValueRecordCount; set { _explicitNullValueRecordCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_count"); else _explicitNullProperties?.Remove("record_count"); } }
+        public int? RecordCount { get => _explicitNullValueRecordCount; set { _explicitNullValueRecordCount = value; AdditionalData?.Remove("record_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_count"); else _explicitNullProperties?.Remove("record_count"); } }
         private int? _explicitNullValueRecordCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConversationInsightAggregateRespDataItem"/> and sets the default values.

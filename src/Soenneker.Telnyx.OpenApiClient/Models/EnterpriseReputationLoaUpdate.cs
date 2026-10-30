@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
+            if (parseNode.GetChildNode("loa_document_id") is null) { _explicitNullValueLoaDocumentId = default!; _explicitNullProperties?.Remove("loa_document_id"); }
+            else if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Id of the new signed LOA document (from the Telnyx Documents API). Changing it resets LOA approval; the new document must be approved before more numbers can be added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        public string? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; AdditionalData?.Remove("loa_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
         private string? _explicitNullValueLoaDocumentId = default!;
 #nullable restore
 #else
-        public string LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        public string LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; AdditionalData?.Remove("loa_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
         private string _explicitNullValueLoaDocumentId = default!;
 #endif
         /// <summary>

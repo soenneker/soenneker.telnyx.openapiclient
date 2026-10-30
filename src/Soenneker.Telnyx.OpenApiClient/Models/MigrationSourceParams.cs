@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bucket_name") is { } nullNodeBucketName && nullNodeBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketName = null;
-            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
-            if (parseNode.GetChildNode("provider_auth") is { } nullNodeProviderAuth && nullNodeProviderAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderAuth = null;
-            if (parseNode.GetChildNode("source_region") is { } nullNodeSourceRegion && nullNodeSourceRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceRegion = null;
+            if (parseNode.GetChildNode("bucket_name") is null) { _explicitNullValueBucketName = default!; _explicitNullProperties?.Remove("bucket_name"); }
+            else if (parseNode.GetChildNode("bucket_name") is { } nullNodeBucketName && nullNodeBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketName = null;
+            if (parseNode.GetChildNode("provider") is null) { _explicitNullValueProvider = default!; _explicitNullProperties?.Remove("provider"); }
+            else if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("provider_auth") is null) { _explicitNullValueProviderAuth = default!; _explicitNullProperties?.Remove("provider_auth"); }
+            else if (parseNode.GetChildNode("provider_auth") is { } nullNodeProviderAuth && nullNodeProviderAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderAuth = null;
+            if (parseNode.GetChildNode("source_region") is null) { _explicitNullValueSourceRegion = default!; _explicitNullProperties?.Remove("source_region"); }
+            else if (parseNode.GetChildNode("source_region") is { } nullNodeSourceRegion && nullNodeSourceRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceRegion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,11 +32,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Bucket name to migrate the data from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
+        public string? BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; AdditionalData?.Remove("bucket_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
         private string? _explicitNullValueBucketName = default!;
 #nullable restore
 #else
-        public string BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
+        public string BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; AdditionalData?.Remove("bucket_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
         private string _explicitNullValueBucketName = default!;
 #endif
         /// <summary>Unique identifier for the data migration source.</summary>
@@ -44,26 +48,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>Cloud provider from which to migrate data. Use &apos;telnyx&apos; if you want to migrate data from one Telnyx bucket to another.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider? _explicitNullValueProvider = default!;
         /// <summary>The provider_auth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth? ProviderAuth { get => _explicitNullValueProviderAuth; set { _explicitNullValueProviderAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_auth"); else _explicitNullProperties?.Remove("provider_auth"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth? ProviderAuth { get => _explicitNullValueProviderAuth; set { _explicitNullValueProviderAuth = value; AdditionalData?.Remove("provider_auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_auth"); else _explicitNullProperties?.Remove("provider_auth"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth? _explicitNullValueProviderAuth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth ProviderAuth { get => _explicitNullValueProviderAuth; set { _explicitNullValueProviderAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_auth"); else _explicitNullProperties?.Remove("provider_auth"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth ProviderAuth { get => _explicitNullValueProviderAuth; set { _explicitNullValueProviderAuth = value; AdditionalData?.Remove("provider_auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_auth"); else _explicitNullProperties?.Remove("provider_auth"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth _explicitNullValueProviderAuth = default!;
 #endif
         /// <summary>For intra-Telnyx buckets migration, specify the source bucket region in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceRegion { get => _explicitNullValueSourceRegion; set { _explicitNullValueSourceRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_region"); else _explicitNullProperties?.Remove("source_region"); } }
+        public string? SourceRegion { get => _explicitNullValueSourceRegion; set { _explicitNullValueSourceRegion = value; AdditionalData?.Remove("source_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_region"); else _explicitNullProperties?.Remove("source_region"); } }
         private string? _explicitNullValueSourceRegion = default!;
 #nullable restore
 #else
-        public string SourceRegion { get => _explicitNullValueSourceRegion; set { _explicitNullValueSourceRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_region"); else _explicitNullProperties?.Remove("source_region"); } }
+        public string SourceRegion { get => _explicitNullValueSourceRegion; set { _explicitNullValueSourceRegion = value; AdditionalData?.Remove("source_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_region"); else _explicitNullProperties?.Remove("source_region"); } }
         private string _explicitNullValueSourceRegion = default!;
 #endif
         /// <summary>
@@ -93,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "bucket_name", n => { BucketName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider>(); } },
+                { "provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProvider = default; _explicitNullProperties?.Remove("provider"); AdditionalData["provider"] = unknown; } else { Provider = parsed; AdditionalData.Remove("provider"); } } },
                 { "provider_auth", n => { ProviderAuth = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth>(global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParamsProviderAuth.CreateFromDiscriminatorValue); } },
                 { "source_region", n => { SourceRegion = n.GetStringValue(); } },
             };

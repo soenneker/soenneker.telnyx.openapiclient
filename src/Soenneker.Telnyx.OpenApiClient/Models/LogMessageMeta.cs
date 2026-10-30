@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("external_connection_id") is { } nullNodeExternalConnectionId && nullNodeExternalConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalConnectionId = null;
-            if (parseNode.GetChildNode("telephone_number") is { } nullNodeTelephoneNumber && nullNodeTelephoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelephoneNumber = null;
-            if (parseNode.GetChildNode("ticket_id") is { } nullNodeTicketId && nullNodeTicketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TicketId = null;
+            if (parseNode.GetChildNode("external_connection_id") is null) { _explicitNullValueExternalConnectionId = default!; _explicitNullProperties?.Remove("external_connection_id"); }
+            else if (parseNode.GetChildNode("external_connection_id") is { } nullNodeExternalConnectionId && nullNodeExternalConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalConnectionId = null;
+            if (parseNode.GetChildNode("telephone_number") is null) { _explicitNullValueTelephoneNumber = default!; _explicitNullProperties?.Remove("telephone_number"); }
+            else if (parseNode.GetChildNode("telephone_number") is { } nullNodeTelephoneNumber && nullNodeTelephoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelephoneNumber = null;
+            if (parseNode.GetChildNode("ticket_id") is null) { _explicitNullValueTicketId = default!; _explicitNullProperties?.Remove("ticket_id"); }
+            else if (parseNode.GetChildNode("ticket_id") is { } nullNodeTicketId && nullNodeTicketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TicketId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The external connection the log message is associated with, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalConnectionId { get => _explicitNullValueExternalConnectionId; set { _explicitNullValueExternalConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_connection_id"); else _explicitNullProperties?.Remove("external_connection_id"); } }
+        public string? ExternalConnectionId { get => _explicitNullValueExternalConnectionId; set { _explicitNullValueExternalConnectionId = value; AdditionalData?.Remove("external_connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_connection_id"); else _explicitNullProperties?.Remove("external_connection_id"); } }
         private string? _explicitNullValueExternalConnectionId = default!;
 #nullable restore
 #else
-        public string ExternalConnectionId { get => _explicitNullValueExternalConnectionId; set { _explicitNullValueExternalConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_connection_id"); else _explicitNullProperties?.Remove("external_connection_id"); } }
+        public string ExternalConnectionId { get => _explicitNullValueExternalConnectionId; set { _explicitNullValueExternalConnectionId = value; AdditionalData?.Remove("external_connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_connection_id"); else _explicitNullProperties?.Remove("external_connection_id"); } }
         private string _explicitNullValueExternalConnectionId = default!;
 #endif
         /// <summary>The telephone number the log message is associated with, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
+        public string? TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; AdditionalData?.Remove("telephone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
         private string? _explicitNullValueTelephoneNumber = default!;
 #nullable restore
 #else
-        public string TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
+        public string TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; AdditionalData?.Remove("telephone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
         private string _explicitNullValueTelephoneNumber = default!;
 #endif
         /// <summary>The ticket ID for an operation that generated the log message, if any.</summary>
-        public Guid? TicketId { get => _explicitNullValueTicketId; set { _explicitNullValueTicketId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ticket_id"); else _explicitNullProperties?.Remove("ticket_id"); } }
+        public Guid? TicketId { get => _explicitNullValueTicketId; set { _explicitNullValueTicketId = value; AdditionalData?.Remove("ticket_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ticket_id"); else _explicitNullProperties?.Remove("ticket_id"); } }
         private Guid? _explicitNullValueTicketId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.LogMessageMeta"/> and sets the default values.

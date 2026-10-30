@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("keep_after_hangup") is { } nullNodeKeepAfterHangup && nullNodeKeepAfterHangup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepAfterHangup = null;
+            if (parseNode.GetChildNode("keep_after_hangup") is null) { _explicitNullValueKeepAfterHangup = default!; _explicitNullProperties?.Remove("keep_after_hangup"); }
+            else if (parseNode.GetChildNode("keep_after_hangup") is { } nullNodeKeepAfterHangup && nullNodeKeepAfterHangup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepAfterHangup = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the call should remain in queue after hangup.</summary>
-        public bool? KeepAfterHangup { get => _explicitNullValueKeepAfterHangup; set { _explicitNullValueKeepAfterHangup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_after_hangup"); else _explicitNullProperties?.Remove("keep_after_hangup"); } }
+        public bool? KeepAfterHangup { get => _explicitNullValueKeepAfterHangup; set { _explicitNullValueKeepAfterHangup = value; AdditionalData?.Remove("keep_after_hangup"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_after_hangup"); else _explicitNullProperties?.Remove("keep_after_hangup"); } }
         private bool? _explicitNullValueKeepAfterHangup = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateQueuedCallRequest"/> and sets the default values.

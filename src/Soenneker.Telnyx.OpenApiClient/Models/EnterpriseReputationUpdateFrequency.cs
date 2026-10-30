@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("check_frequency") is { } nullNodeCheckFrequency && nullNodeCheckFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckFrequency = null;
+            if (parseNode.GetChildNode("check_frequency") is null) { _explicitNullValueCheckFrequency = default!; _explicitNullProperties?.Remove("check_frequency"); }
+            else if (parseNode.GetChildNode("check_frequency") is { } nullNodeCheckFrequency && nullNodeCheckFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckFrequency = null;
         }
 
         /// <summary>How often Telnyx refreshes the stored reputation data for this enterprise&apos;s registered numbers.</summary>

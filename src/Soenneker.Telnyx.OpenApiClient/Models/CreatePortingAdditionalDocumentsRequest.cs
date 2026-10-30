@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("additional_documents") is { } nullNodeAdditionalDocuments && nullNodeAdditionalDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalDocuments = null;
+            if (parseNode.GetChildNode("additional_documents") is null) { _explicitNullValueAdditionalDocuments = default!; _explicitNullProperties?.Remove("additional_documents"); }
+            else if (parseNode.GetChildNode("additional_documents") is { } nullNodeAdditionalDocuments && nullNodeAdditionalDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalDocuments = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The additional_documents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingAdditionalDocumentsRequestAdditionalDocumentsItem>? AdditionalDocuments { get => _explicitNullValueAdditionalDocuments; set { _explicitNullValueAdditionalDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_documents"); else _explicitNullProperties?.Remove("additional_documents"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingAdditionalDocumentsRequestAdditionalDocumentsItem>? AdditionalDocuments { get => _explicitNullValueAdditionalDocuments; set { _explicitNullValueAdditionalDocuments = value; AdditionalData?.Remove("additional_documents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_documents"); else _explicitNullProperties?.Remove("additional_documents"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingAdditionalDocumentsRequestAdditionalDocumentsItem>? _explicitNullValueAdditionalDocuments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingAdditionalDocumentsRequestAdditionalDocumentsItem> AdditionalDocuments { get => _explicitNullValueAdditionalDocuments; set { _explicitNullValueAdditionalDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_documents"); else _explicitNullProperties?.Remove("additional_documents"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingAdditionalDocumentsRequestAdditionalDocumentsItem> AdditionalDocuments { get => _explicitNullValueAdditionalDocuments; set { _explicitNullValueAdditionalDocuments = value; AdditionalData?.Remove("additional_documents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_documents"); else _explicitNullProperties?.Remove("additional_documents"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingAdditionalDocumentsRequestAdditionalDocumentsItem> _explicitNullValueAdditionalDocuments = default!;
 #endif
         /// <summary>

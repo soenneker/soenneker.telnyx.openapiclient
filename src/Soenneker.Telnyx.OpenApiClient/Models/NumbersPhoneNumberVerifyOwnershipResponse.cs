@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("found") is { } nullNodeFound && nullNodeFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Found = null;
-            if (parseNode.GetChildNode("not_found") is { } nullNodeNotFound && nullNodeNotFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotFound = null;
+            if (parseNode.GetChildNode("found") is null) { _explicitNullValueFound = default!; _explicitNullProperties?.Remove("found"); }
+            else if (parseNode.GetChildNode("found") is { } nullNodeFound && nullNodeFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Found = null;
+            if (parseNode.GetChildNode("not_found") is null) { _explicitNullValueNotFound = default!; _explicitNullProperties?.Remove("not_found"); }
+            else if (parseNode.GetChildNode("not_found") is { } nullNodeNotFound && nullNodeNotFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotFound = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The list of phone numbers which you own and are in an editable state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberVerifyOwnershipResponseFoundItem>? Found { get => _explicitNullValueFound; set { _explicitNullValueFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found"); else _explicitNullProperties?.Remove("found"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberVerifyOwnershipResponseFoundItem>? Found { get => _explicitNullValueFound; set { _explicitNullValueFound = value; AdditionalData?.Remove("found"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found"); else _explicitNullProperties?.Remove("found"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberVerifyOwnershipResponseFoundItem>? _explicitNullValueFound = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberVerifyOwnershipResponseFoundItem> Found { get => _explicitNullValueFound; set { _explicitNullValueFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found"); else _explicitNullProperties?.Remove("found"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberVerifyOwnershipResponseFoundItem> Found { get => _explicitNullValueFound; set { _explicitNullValueFound = value; AdditionalData?.Remove("found"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("found"); else _explicitNullProperties?.Remove("found"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberVerifyOwnershipResponseFoundItem> _explicitNullValueFound = default!;
 #endif
         /// <summary>Phone numbers that are not found in the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NotFound { get => _explicitNullValueNotFound; set { _explicitNullValueNotFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found"); else _explicitNullProperties?.Remove("not_found"); } }
+        public List<string>? NotFound { get => _explicitNullValueNotFound; set { _explicitNullValueNotFound = value; AdditionalData?.Remove("not_found"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found"); else _explicitNullProperties?.Remove("not_found"); } }
         private List<string>? _explicitNullValueNotFound = default!;
 #nullable restore
 #else
-        public List<string> NotFound { get => _explicitNullValueNotFound; set { _explicitNullValueNotFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found"); else _explicitNullProperties?.Remove("not_found"); } }
+        public List<string> NotFound { get => _explicitNullValueNotFound; set { _explicitNullValueNotFound = value; AdditionalData?.Remove("not_found"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found"); else _explicitNullProperties?.Remove("not_found"); } }
         private List<string> _explicitNullValueNotFound = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>

@@ -17,87 +17,96 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("autoescape") is { } nullNodeAutoescape && nullNodeAutoescape.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Autoescape = null;
-            if (parseNode.GetChildNode("html_body") is { } nullNodeHtmlBody && nullNodeHtmlBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlBody = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("strict_variables") is { } nullNodeStrictVariables && nullNodeStrictVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StrictVariables = null;
-            if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
-            if (parseNode.GetChildNode("text_body") is { } nullNodeTextBody && nullNodeTextBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextBody = null;
-            if (parseNode.GetChildNode("variables") is { } nullNodeVariables && nullNodeVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Variables = null;
-            if (parseNode.GetChildNode("variable_schema") is { } nullNodeVariableSchema && nullNodeVariableSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariableSchema = null;
-            if (parseNode.GetChildNode("variables_mode") is { } nullNodeVariablesMode && nullNodeVariablesMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariablesMode = null;
+            if (parseNode.GetChildNode("autoescape") is null) { _explicitNullValueAutoescape = default!; _explicitNullProperties?.Remove("autoescape"); }
+            else if (parseNode.GetChildNode("autoescape") is { } nullNodeAutoescape && nullNodeAutoescape.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Autoescape = null;
+            if (parseNode.GetChildNode("html_body") is null) { _explicitNullValueHtmlBody = default!; _explicitNullProperties?.Remove("html_body"); }
+            else if (parseNode.GetChildNode("html_body") is { } nullNodeHtmlBody && nullNodeHtmlBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlBody = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("strict_variables") is null) { _explicitNullValueStrictVariables = default!; _explicitNullProperties?.Remove("strict_variables"); }
+            else if (parseNode.GetChildNode("strict_variables") is { } nullNodeStrictVariables && nullNodeStrictVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StrictVariables = null;
+            if (parseNode.GetChildNode("subject") is null) { _explicitNullValueSubject = default!; _explicitNullProperties?.Remove("subject"); }
+            else if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
+            if (parseNode.GetChildNode("text_body") is null) { _explicitNullValueTextBody = default!; _explicitNullProperties?.Remove("text_body"); }
+            else if (parseNode.GetChildNode("text_body") is { } nullNodeTextBody && nullNodeTextBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextBody = null;
+            if (parseNode.GetChildNode("variables") is null) { _explicitNullValueVariables = default!; _explicitNullProperties?.Remove("variables"); }
+            else if (parseNode.GetChildNode("variables") is { } nullNodeVariables && nullNodeVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Variables = null;
+            if (parseNode.GetChildNode("variable_schema") is null) { _explicitNullValueVariableSchema = default!; _explicitNullProperties?.Remove("variable_schema"); }
+            else if (parseNode.GetChildNode("variable_schema") is { } nullNodeVariableSchema && nullNodeVariableSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariableSchema = null;
+            if (parseNode.GetChildNode("variables_mode") is null) { _explicitNullValueVariablesMode = default!; _explicitNullProperties?.Remove("variables_mode"); }
+            else if (parseNode.GetChildNode("variables_mode") is { } nullNodeVariablesMode && nullNodeVariablesMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariablesMode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Per-template HTML autoescaping setting.</summary>
-        public bool? Autoescape { get => _explicitNullValueAutoescape; set { _explicitNullValueAutoescape = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoescape"); else _explicitNullProperties?.Remove("autoescape"); } }
+        public bool? Autoescape { get => _explicitNullValueAutoescape; set { _explicitNullValueAutoescape = value; AdditionalData?.Remove("autoescape"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoescape"); else _explicitNullProperties?.Remove("autoescape"); } }
         private bool? _explicitNullValueAutoescape = default!;
         /// <summary>Liquid template HTML body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlBody { get => _explicitNullValueHtmlBody; set { _explicitNullValueHtmlBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_body"); else _explicitNullProperties?.Remove("html_body"); } }
+        public string? HtmlBody { get => _explicitNullValueHtmlBody; set { _explicitNullValueHtmlBody = value; AdditionalData?.Remove("html_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_body"); else _explicitNullProperties?.Remove("html_body"); } }
         private string? _explicitNullValueHtmlBody = default!;
 #nullable restore
 #else
-        public string HtmlBody { get => _explicitNullValueHtmlBody; set { _explicitNullValueHtmlBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_body"); else _explicitNullProperties?.Remove("html_body"); } }
+        public string HtmlBody { get => _explicitNullValueHtmlBody; set { _explicitNullValueHtmlBody = value; AdditionalData?.Remove("html_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_body"); else _explicitNullProperties?.Remove("html_body"); } }
         private string _explicitNullValueHtmlBody = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Per-template strict variable-validation setting.</summary>
-        public bool? StrictVariables { get => _explicitNullValueStrictVariables; set { _explicitNullValueStrictVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strict_variables"); else _explicitNullProperties?.Remove("strict_variables"); } }
+        public bool? StrictVariables { get => _explicitNullValueStrictVariables; set { _explicitNullValueStrictVariables = value; AdditionalData?.Remove("strict_variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strict_variables"); else _explicitNullProperties?.Remove("strict_variables"); } }
         private bool? _explicitNullValueStrictVariables = default!;
         /// <summary>Liquid template subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; AdditionalData?.Remove("subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string? _explicitNullValueSubject = default!;
 #nullable restore
 #else
-        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; AdditionalData?.Remove("subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string _explicitNullValueSubject = default!;
 #endif
         /// <summary>Liquid template text body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TextBody { get => _explicitNullValueTextBody; set { _explicitNullValueTextBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_body"); else _explicitNullProperties?.Remove("text_body"); } }
+        public string? TextBody { get => _explicitNullValueTextBody; set { _explicitNullValueTextBody = value; AdditionalData?.Remove("text_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_body"); else _explicitNullProperties?.Remove("text_body"); } }
         private string? _explicitNullValueTextBody = default!;
 #nullable restore
 #else
-        public string TextBody { get => _explicitNullValueTextBody; set { _explicitNullValueTextBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_body"); else _explicitNullProperties?.Remove("text_body"); } }
+        public string TextBody { get => _explicitNullValueTextBody; set { _explicitNullValueTextBody = value; AdditionalData?.Remove("text_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_body"); else _explicitNullProperties?.Remove("text_body"); } }
         private string _explicitNullValueTextBody = default!;
 #endif
         /// <summary>Persisted variable names. In `automatic` mode a non-null array is rejected; in `explicit` mode this is the exact manual array and each item is limited to 255 Unicode code points.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Variables { get => _explicitNullValueVariables; set { _explicitNullValueVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables"); else _explicitNullProperties?.Remove("variables"); } }
+        public List<string>? Variables { get => _explicitNullValueVariables; set { _explicitNullValueVariables = value; AdditionalData?.Remove("variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables"); else _explicitNullProperties?.Remove("variables"); } }
         private List<string>? _explicitNullValueVariables = default!;
 #nullable restore
 #else
-        public List<string> Variables { get => _explicitNullValueVariables; set { _explicitNullValueVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables"); else _explicitNullProperties?.Remove("variables"); } }
+        public List<string> Variables { get => _explicitNullValueVariables; set { _explicitNullValueVariables = value; AdditionalData?.Remove("variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables"); else _explicitNullProperties?.Remove("variables"); } }
         private List<string> _explicitNullValueVariables = default!;
 #endif
         /// <summary>Structured variable requirements. Required variables cannot define defaults; invalid combinations return 422. Set to `null` to clear the schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty? VariableSchema { get => _explicitNullValueVariableSchema; set { _explicitNullValueVariableSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable_schema"); else _explicitNullProperties?.Remove("variable_schema"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty? VariableSchema { get => _explicitNullValueVariableSchema; set { _explicitNullValueVariableSchema = value; AdditionalData?.Remove("variable_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable_schema"); else _explicitNullProperties?.Remove("variable_schema"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty? _explicitNullValueVariableSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty VariableSchema { get => _explicitNullValueVariableSchema; set { _explicitNullValueVariableSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable_schema"); else _explicitNullProperties?.Remove("variable_schema"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty VariableSchema { get => _explicitNullValueVariableSchema; set { _explicitNullValueVariableSchema = value; AdditionalData?.Remove("variable_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable_schema"); else _explicitNullProperties?.Remove("variable_schema"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty _explicitNullValueVariableSchema = default!;
 #endif
         /// <summary>Controls how `variables` is maintained. Setting `automatic` re-extracts immediately from the effective subject, HTML body, and text body and rejects a simultaneous non-null array. Setting `explicit` requires the exact non-null array, including valid `[]`. With the mode omitted, a non-null array selects explicit mode, null selects automatic mode, and omitting both fields preserves the current mode. Source-content changes re-extract only in automatic mode.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariablesMode? VariablesMode { get => _explicitNullValueVariablesMode; set { _explicitNullValueVariablesMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables_mode"); else _explicitNullProperties?.Remove("variables_mode"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariablesMode? VariablesMode { get => _explicitNullValueVariablesMode; set { _explicitNullValueVariablesMode = value; AdditionalData?.Remove("variables_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables_mode"); else _explicitNullProperties?.Remove("variables_mode"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariablesMode? _explicitNullValueVariablesMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequest"/> and sets the default values.
@@ -132,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "text_body", n => { TextBody = n.GetStringValue(); } },
                 { "variable_schema", n => { VariableSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariableSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "variables", n => { Variables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "variables_mode", n => { VariablesMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariablesMode>(); } },
+                { "variables_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateEmailTemplateRequestVariablesMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVariablesMode = default; _explicitNullProperties?.Remove("variables_mode"); AdditionalData["variables_mode"] = unknown; } else { VariablesMode = parsed; AdditionalData.Remove("variables_mode"); } } },
             };
         }
         /// <summary>

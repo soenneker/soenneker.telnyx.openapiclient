@@ -17,23 +17,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("effective_start_at") is { } nullNodeEffectiveStartAt && nullNodeEffectiveStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveStartAt = null;
-            if (parseNode.GetChildNode("requirement_type_ids") is { } nullNodeRequirementTypeIds && nullNodeRequirementTypeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementTypeIds = null;
+            if (parseNode.GetChildNode("effective_start_at") is null) { _explicitNullValueEffectiveStartAt = default!; _explicitNullProperties?.Remove("effective_start_at"); }
+            else if (parseNode.GetChildNode("effective_start_at") is { } nullNodeEffectiveStartAt && nullNodeEffectiveStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveStartAt = null;
+            if (parseNode.GetChildNode("requirement_type_ids") is null) { _explicitNullValueRequirementTypeIds = default!; _explicitNullProperties?.Remove("requirement_type_ids"); }
+            else if (parseNode.GetChildNode("requirement_type_ids") is { } nullNodeRequirementTypeIds && nullNodeRequirementTypeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementTypeIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the new version should become active. Must be a future date-time.</summary>
-        public DateTimeOffset? EffectiveStartAt { get => _explicitNullValueEffectiveStartAt; set { _explicitNullValueEffectiveStartAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_start_at"); else _explicitNullProperties?.Remove("effective_start_at"); } }
+        public DateTimeOffset? EffectiveStartAt { get => _explicitNullValueEffectiveStartAt; set { _explicitNullValueEffectiveStartAt = value; AdditionalData?.Remove("effective_start_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_start_at"); else _explicitNullProperties?.Remove("effective_start_at"); } }
         private DateTimeOffset? _explicitNullValueEffectiveStartAt = default!;
         /// <summary>List of requirement type UUIDs that apply to the new version. Replaces the existing requirement types for the new version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? RequirementTypeIds { get => _explicitNullValueRequirementTypeIds; set { _explicitNullValueRequirementTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_ids"); else _explicitNullProperties?.Remove("requirement_type_ids"); } }
+        public List<Guid?>? RequirementTypeIds { get => _explicitNullValueRequirementTypeIds; set { _explicitNullValueRequirementTypeIds = value; AdditionalData?.Remove("requirement_type_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_ids"); else _explicitNullProperties?.Remove("requirement_type_ids"); } }
         private List<Guid?>? _explicitNullValueRequirementTypeIds = default!;
 #nullable restore
 #else
-        public List<Guid?> RequirementTypeIds { get => _explicitNullValueRequirementTypeIds; set { _explicitNullValueRequirementTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_ids"); else _explicitNullProperties?.Remove("requirement_type_ids"); } }
+        public List<Guid?> RequirementTypeIds { get => _explicitNullValueRequirementTypeIds; set { _explicitNullValueRequirementTypeIds = value; AdditionalData?.Remove("requirement_type_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_ids"); else _explicitNullProperties?.Remove("requirement_type_ids"); } }
         private List<Guid?> _explicitNullValueRequirementTypeIds = default!;
 #endif
         /// <summary>

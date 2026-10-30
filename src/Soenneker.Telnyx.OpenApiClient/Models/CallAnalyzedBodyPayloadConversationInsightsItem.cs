@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("conversation_insights") is { } nullNodeConversationInsights && nullNodeConversationInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationInsights = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("conversation_insights") is null) { _explicitNullValueConversationInsights = default!; _explicitNullProperties?.Remove("conversation_insights"); }
+            else if (parseNode.GetChildNode("conversation_insights") is { } nullNodeConversationInsights && nullNodeConversationInsights.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationInsights = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Generated insight results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAnalyzedBodyPayloadConversationInsightsItemConversationInsightsItem>? ConversationInsights { get => _explicitNullValueConversationInsights; set { _explicitNullValueConversationInsights = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_insights"); else _explicitNullProperties?.Remove("conversation_insights"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAnalyzedBodyPayloadConversationInsightsItemConversationInsightsItem>? ConversationInsights { get => _explicitNullValueConversationInsights; set { _explicitNullValueConversationInsights = value; AdditionalData?.Remove("conversation_insights"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_insights"); else _explicitNullProperties?.Remove("conversation_insights"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAnalyzedBodyPayloadConversationInsightsItemConversationInsightsItem>? _explicitNullValueConversationInsights = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAnalyzedBodyPayloadConversationInsightsItemConversationInsightsItem> ConversationInsights { get => _explicitNullValueConversationInsights; set { _explicitNullValueConversationInsights = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_insights"); else _explicitNullProperties?.Remove("conversation_insights"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAnalyzedBodyPayloadConversationInsightsItemConversationInsightsItem> ConversationInsights { get => _explicitNullValueConversationInsights; set { _explicitNullValueConversationInsights = value; AdditionalData?.Remove("conversation_insights"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_insights"); else _explicitNullProperties?.Remove("conversation_insights"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CallAnalyzedBodyPayloadConversationInsightsItemConversationInsightsItem> _explicitNullValueConversationInsights = default!;
 #endif
         /// <summary>Status of insight generation for this entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>

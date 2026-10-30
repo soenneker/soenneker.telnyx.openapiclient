@@ -17,99 +17,111 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("beep_enabled") is { } nullNodeBeepEnabled && nullNodeBeepEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepEnabled = null;
-            if (parseNode.GetChildNode("call_control_id") is { } nullNodeCallControlId && nullNodeCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlId = null;
-            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
-            if (parseNode.GetChildNode("comfort_noise") is { } nullNodeComfortNoise && nullNodeComfortNoise.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComfortNoise = null;
-            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
-            if (parseNode.GetChildNode("duration_minutes") is { } nullNodeDurationMinutes && nullNodeDurationMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationMinutes = null;
-            if (parseNode.GetChildNode("hold_audio_url") is { } nullNodeHoldAudioUrl && nullNodeHoldAudioUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldAudioUrl = null;
-            if (parseNode.GetChildNode("hold_media_name") is { } nullNodeHoldMediaName && nullNodeHoldMediaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldMediaName = null;
-            if (parseNode.GetChildNode("max_participants") is { } nullNodeMaxParticipants && nullNodeMaxParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParticipants = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("start_conference_on_create") is { } nullNodeStartConferenceOnCreate && nullNodeStartConferenceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartConferenceOnCreate = null;
+            if (parseNode.GetChildNode("beep_enabled") is null) { _explicitNullValueBeepEnabled = default!; _explicitNullProperties?.Remove("beep_enabled"); }
+            else if (parseNode.GetChildNode("beep_enabled") is { } nullNodeBeepEnabled && nullNodeBeepEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepEnabled = null;
+            if (parseNode.GetChildNode("call_control_id") is null) { _explicitNullValueCallControlId = default!; _explicitNullProperties?.Remove("call_control_id"); }
+            else if (parseNode.GetChildNode("call_control_id") is { } nullNodeCallControlId && nullNodeCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlId = null;
+            if (parseNode.GetChildNode("client_state") is null) { _explicitNullValueClientState = default!; _explicitNullProperties?.Remove("client_state"); }
+            else if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("comfort_noise") is null) { _explicitNullValueComfortNoise = default!; _explicitNullProperties?.Remove("comfort_noise"); }
+            else if (parseNode.GetChildNode("comfort_noise") is { } nullNodeComfortNoise && nullNodeComfortNoise.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComfortNoise = null;
+            if (parseNode.GetChildNode("command_id") is null) { _explicitNullValueCommandId = default!; _explicitNullProperties?.Remove("command_id"); }
+            else if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("duration_minutes") is null) { _explicitNullValueDurationMinutes = default!; _explicitNullProperties?.Remove("duration_minutes"); }
+            else if (parseNode.GetChildNode("duration_minutes") is { } nullNodeDurationMinutes && nullNodeDurationMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationMinutes = null;
+            if (parseNode.GetChildNode("hold_audio_url") is null) { _explicitNullValueHoldAudioUrl = default!; _explicitNullProperties?.Remove("hold_audio_url"); }
+            else if (parseNode.GetChildNode("hold_audio_url") is { } nullNodeHoldAudioUrl && nullNodeHoldAudioUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldAudioUrl = null;
+            if (parseNode.GetChildNode("hold_media_name") is null) { _explicitNullValueHoldMediaName = default!; _explicitNullProperties?.Remove("hold_media_name"); }
+            else if (parseNode.GetChildNode("hold_media_name") is { } nullNodeHoldMediaName && nullNodeHoldMediaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldMediaName = null;
+            if (parseNode.GetChildNode("max_participants") is null) { _explicitNullValueMaxParticipants = default!; _explicitNullProperties?.Remove("max_participants"); }
+            else if (parseNode.GetChildNode("max_participants") is { } nullNodeMaxParticipants && nullNodeMaxParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParticipants = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("start_conference_on_create") is null) { _explicitNullValueStartConferenceOnCreate = default!; _explicitNullProperties?.Remove("start_conference_on_create"); }
+            else if (parseNode.GetChildNode("start_conference_on_create") is { } nullNodeStartConferenceOnCreate && nullNodeStartConferenceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartConferenceOnCreate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether a beep sound should be played when participants join and/or leave the conference.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled? BeepEnabled { get => _explicitNullValueBeepEnabled; set { _explicitNullValueBeepEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_enabled"); else _explicitNullProperties?.Remove("beep_enabled"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled? BeepEnabled { get => _explicitNullValueBeepEnabled; set { _explicitNullValueBeepEnabled = value; AdditionalData?.Remove("beep_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beep_enabled"); else _explicitNullProperties?.Remove("beep_enabled"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled? _explicitNullValueBeepEnabled = default!;
         /// <summary>Unique identifier and token for controlling the call</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        public string? CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; AdditionalData?.Remove("call_control_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
         private string? _explicitNullValueCallControlId = default!;
 #nullable restore
 #else
-        public string CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        public string CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; AdditionalData?.Remove("call_control_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
         private string _explicitNullValueCallControlId = default!;
 #endif
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string. The client_state will be updated for the creator call leg and will be used for all webhooks related to the created conference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Toggle background comfort noise.</summary>
-        public bool? ComfortNoise { get => _explicitNullValueComfortNoise; set { _explicitNullValueComfortNoise = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comfort_noise"); else _explicitNullProperties?.Remove("comfort_noise"); } }
+        public bool? ComfortNoise { get => _explicitNullValueComfortNoise; set { _explicitNullValueComfortNoise = value; AdditionalData?.Remove("comfort_noise"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comfort_noise"); else _explicitNullProperties?.Remove("comfort_noise"); } }
         private bool? _explicitNullValueComfortNoise = default!;
         /// <summary>Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Time length (minutes) after which the conference will end.</summary>
-        public int? DurationMinutes { get => _explicitNullValueDurationMinutes; set { _explicitNullValueDurationMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_minutes"); else _explicitNullProperties?.Remove("duration_minutes"); } }
+        public int? DurationMinutes { get => _explicitNullValueDurationMinutes; set { _explicitNullValueDurationMinutes = value; AdditionalData?.Remove("duration_minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_minutes"); else _explicitNullProperties?.Remove("duration_minutes"); } }
         private int? _explicitNullValueDurationMinutes = default!;
         /// <summary>The URL of a file to be played to participants joining the conference. The URL can point to either a WAV or MP3 file. hold_media_name and hold_audio_url cannot be used together in one request. Takes effect only when &quot;start_conference_on_create&quot; is set to &quot;false&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoldAudioUrl { get => _explicitNullValueHoldAudioUrl; set { _explicitNullValueHoldAudioUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_audio_url"); else _explicitNullProperties?.Remove("hold_audio_url"); } }
+        public string? HoldAudioUrl { get => _explicitNullValueHoldAudioUrl; set { _explicitNullValueHoldAudioUrl = value; AdditionalData?.Remove("hold_audio_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_audio_url"); else _explicitNullProperties?.Remove("hold_audio_url"); } }
         private string? _explicitNullValueHoldAudioUrl = default!;
 #nullable restore
 #else
-        public string HoldAudioUrl { get => _explicitNullValueHoldAudioUrl; set { _explicitNullValueHoldAudioUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_audio_url"); else _explicitNullProperties?.Remove("hold_audio_url"); } }
+        public string HoldAudioUrl { get => _explicitNullValueHoldAudioUrl; set { _explicitNullValueHoldAudioUrl = value; AdditionalData?.Remove("hold_audio_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_audio_url"); else _explicitNullProperties?.Remove("hold_audio_url"); } }
         private string _explicitNullValueHoldAudioUrl = default!;
 #endif
         /// <summary>The media_name of a file to be played to participants joining the conference. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file. Takes effect only when &quot;start_conference_on_create&quot; is set to &quot;false&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoldMediaName { get => _explicitNullValueHoldMediaName; set { _explicitNullValueHoldMediaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_media_name"); else _explicitNullProperties?.Remove("hold_media_name"); } }
+        public string? HoldMediaName { get => _explicitNullValueHoldMediaName; set { _explicitNullValueHoldMediaName = value; AdditionalData?.Remove("hold_media_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_media_name"); else _explicitNullProperties?.Remove("hold_media_name"); } }
         private string? _explicitNullValueHoldMediaName = default!;
 #nullable restore
 #else
-        public string HoldMediaName { get => _explicitNullValueHoldMediaName; set { _explicitNullValueHoldMediaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_media_name"); else _explicitNullProperties?.Remove("hold_media_name"); } }
+        public string HoldMediaName { get => _explicitNullValueHoldMediaName; set { _explicitNullValueHoldMediaName = value; AdditionalData?.Remove("hold_media_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hold_media_name"); else _explicitNullProperties?.Remove("hold_media_name"); } }
         private string _explicitNullValueHoldMediaName = default!;
 #endif
         /// <summary>The maximum number of active conference participants to allow. Must be between 2 and 800. Defaults to 250</summary>
-        public int? MaxParticipants { get => _explicitNullValueMaxParticipants; set { _explicitNullValueMaxParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_participants"); else _explicitNullProperties?.Remove("max_participants"); } }
+        public int? MaxParticipants { get => _explicitNullValueMaxParticipants; set { _explicitNullValueMaxParticipants = value; AdditionalData?.Remove("max_participants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_participants"); else _explicitNullProperties?.Remove("max_participants"); } }
         private int? _explicitNullValueMaxParticipants = default!;
         /// <summary>Name of the conference</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Sets the region where the conference data will be hosted. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion? _explicitNullValueRegion = default!;
         /// <summary>Whether the conference should be started on creation. If the conference isn&apos;t started all participants that join are automatically put on hold. Defaults to &quot;true&quot;.</summary>
-        public bool? StartConferenceOnCreate { get => _explicitNullValueStartConferenceOnCreate; set { _explicitNullValueStartConferenceOnCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_conference_on_create"); else _explicitNullProperties?.Remove("start_conference_on_create"); } }
+        public bool? StartConferenceOnCreate { get => _explicitNullValueStartConferenceOnCreate; set { _explicitNullValueStartConferenceOnCreate = value; AdditionalData?.Remove("start_conference_on_create"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_conference_on_create"); else _explicitNullProperties?.Remove("start_conference_on_create"); } }
         private bool? _explicitNullValueStartConferenceOnCreate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest"/> and sets the default values.
@@ -137,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled>(); } },
+                { "beep_enabled", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestBeepEnabled>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBeepEnabled = default; _explicitNullProperties?.Remove("beep_enabled"); AdditionalData["beep_enabled"] = unknown; } else { BeepEnabled = parsed; AdditionalData.Remove("beep_enabled"); } } },
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "comfort_noise", n => { ComfortNoise = n.GetBoolValue(); } },
@@ -147,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hold_media_name", n => { HoldMediaName = n.GetStringValue(); } },
                 { "max_participants", n => { MaxParticipants = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion>(); } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequestRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
                 { "start_conference_on_create", n => { StartConferenceOnCreate = n.GetBoolValue(); } },
             };
         }

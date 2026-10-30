@@ -17,7 +17,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("text") is null) { _explicitNullValueText = default!; _explicitNullProperties?.Remove("text"); }
+            else if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("attempt") is null) { _explicitNullValueAttempt = default!; _explicitNullProperties?.Remove("attempt"); }
+            else if (parseNode.GetChildNode("attempt") is { } nullNodeAttempt && nullNodeAttempt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attempt = null;
+            if (parseNode.GetChildNode("error_type") is null) { _explicitNullValueErrorType = default!; _explicitNullProperties?.Remove("error_type"); }
+            else if (parseNode.GetChildNode("error_type") is { } nullNodeErrorType && nullNodeErrorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorType = null;
+            if (parseNode.GetChildNode("card_type") is null) { _explicitNullValueCardType = default!; _explicitNullProperties?.Remove("card_type"); }
+            else if (parseNode.GetChildNode("card_type") is { } nullNodeCardType && nullNodeCardType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CardType = null;
         }
+
+        // Restore fields omitted by the generator's model-depth limit.
+#nullable enable
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
+        public string? Attempt { get => _explicitNullValueAttempt; set { _explicitNullValueAttempt = value; AdditionalData?.Remove("attempt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempt"); else _explicitNullProperties?.Remove("attempt"); } }
+        private string? _explicitNullValueAttempt = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType? ErrorType { get => _explicitNullValueErrorType; set { _explicitNullValueErrorType = value; AdditionalData?.Remove("error_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_type"); else _explicitNullProperties?.Remove("error_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType? _explicitNullValueErrorType = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType? CardType { get => _explicitNullValueCardType; set { _explicitNullValueCardType = value; AdditionalData?.Remove("card_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("card_type"); else _explicitNullProperties?.Remove("card_type"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType? _explicitNullValueCardType = default!;
+#nullable restore
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -46,6 +66,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "attempt", n => { Attempt = n.GetStringValue(); } },
+                { "error_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorType = default; _explicitNullProperties?.Remove("error_type"); AdditionalData["error_type"] = unknown; } else { ErrorType = parsed; AdditionalData.Remove("error_type"); } } },
+                { "card_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCardType = default; _explicitNullProperties?.Remove("card_type"); AdditionalData["card_type"] = unknown; } else { CardType = parsed; AdditionalData.Remove("card_type"); } } },
             };
         }
         /// <summary>
@@ -55,6 +79,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("text", Text);
+            writer.WriteStringValue("attempt", Attempt);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemErrorType>("error_type", ErrorType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsSecurityCodePayToolPromptListItemCardType>("card_type", CardType);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

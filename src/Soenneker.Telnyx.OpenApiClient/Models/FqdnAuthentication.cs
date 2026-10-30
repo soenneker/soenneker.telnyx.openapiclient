@@ -17,19 +17,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
-            if (parseNode.GetChildNode("failover_url") is { } nullNodeFailoverUrl && nullNodeFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailoverUrl = null;
-            if (parseNode.GetChildNode("fqdn_outbound_authentication") is { } nullNodeFqdnOutboundAuthentication && nullNodeFqdnOutboundAuthentication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FqdnOutboundAuthentication = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("ip_authentication_method") is { } nullNodeIpAuthenticationMethod && nullNodeIpAuthenticationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAuthenticationMethod = null;
-            if (parseNode.GetChildNode("microsoft_teams_sbc") is { } nullNodeMicrosoftTeamsSbc && nullNodeMicrosoftTeamsSbc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MicrosoftTeamsSbc = null;
-            if (parseNode.GetChildNode("password") is { } nullNodePassword && nullNodePassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Password = null;
-            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
-            if (parseNode.GetChildNode("txt_name") is { } nullNodeTxtName && nullNodeTxtName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxtName = null;
-            if (parseNode.GetChildNode("txt_ttl") is { } nullNodeTxtTtl && nullNodeTxtTtl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxtTtl = null;
-            if (parseNode.GetChildNode("txt_value") is { } nullNodeTxtValue && nullNodeTxtValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxtValue = null;
-            if (parseNode.GetChildNode("user_name") is { } nullNodeUserName && nullNodeUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserName = null;
-            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+            if (parseNode.GetChildNode("connection_id") is null) { _explicitNullValueConnectionId = default!; _explicitNullProperties?.Remove("connection_id"); }
+            else if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("failover_url") is null) { _explicitNullValueFailoverUrl = default!; _explicitNullProperties?.Remove("failover_url"); }
+            else if (parseNode.GetChildNode("failover_url") is { } nullNodeFailoverUrl && nullNodeFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailoverUrl = null;
+            if (parseNode.GetChildNode("fqdn_outbound_authentication") is null) { _explicitNullValueFqdnOutboundAuthentication = default!; _explicitNullProperties?.Remove("fqdn_outbound_authentication"); }
+            else if (parseNode.GetChildNode("fqdn_outbound_authentication") is { } nullNodeFqdnOutboundAuthentication && nullNodeFqdnOutboundAuthentication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FqdnOutboundAuthentication = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("ip_authentication_method") is null) { _explicitNullValueIpAuthenticationMethod = default!; _explicitNullProperties?.Remove("ip_authentication_method"); }
+            else if (parseNode.GetChildNode("ip_authentication_method") is { } nullNodeIpAuthenticationMethod && nullNodeIpAuthenticationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAuthenticationMethod = null;
+            if (parseNode.GetChildNode("microsoft_teams_sbc") is null) { _explicitNullValueMicrosoftTeamsSbc = default!; _explicitNullProperties?.Remove("microsoft_teams_sbc"); }
+            else if (parseNode.GetChildNode("microsoft_teams_sbc") is { } nullNodeMicrosoftTeamsSbc && nullNodeMicrosoftTeamsSbc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MicrosoftTeamsSbc = null;
+            if (parseNode.GetChildNode("password") is null) { _explicitNullValuePassword = default!; _explicitNullProperties?.Remove("password"); }
+            else if (parseNode.GetChildNode("password") is { } nullNodePassword && nullNodePassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Password = null;
+            if (parseNode.GetChildNode("record_type") is null) { _explicitNullValueRecordType = default!; _explicitNullProperties?.Remove("record_type"); }
+            else if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("txt_name") is null) { _explicitNullValueTxtName = default!; _explicitNullProperties?.Remove("txt_name"); }
+            else if (parseNode.GetChildNode("txt_name") is { } nullNodeTxtName && nullNodeTxtName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxtName = null;
+            if (parseNode.GetChildNode("txt_ttl") is null) { _explicitNullValueTxtTtl = default!; _explicitNullProperties?.Remove("txt_ttl"); }
+            else if (parseNode.GetChildNode("txt_ttl") is { } nullNodeTxtTtl && nullNodeTxtTtl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxtTtl = null;
+            if (parseNode.GetChildNode("txt_value") is null) { _explicitNullValueTxtValue = default!; _explicitNullProperties?.Remove("txt_value"); }
+            else if (parseNode.GetChildNode("txt_value") is { } nullNodeTxtValue && nullNodeTxtValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxtValue = null;
+            if (parseNode.GetChildNode("user_name") is null) { _explicitNullValueUserName = default!; _explicitNullProperties?.Remove("user_name"); }
+            else if (parseNode.GetChildNode("user_name") is { } nullNodeUserName && nullNodeUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserName = null;
+            if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
+            else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,103 +50,103 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The ID of the FQDN connection this authentication strategy belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
         private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
         private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The failover webhook URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailoverUrl { get => _explicitNullValueFailoverUrl; set { _explicitNullValueFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_url"); else _explicitNullProperties?.Remove("failover_url"); } }
+        public string? FailoverUrl { get => _explicitNullValueFailoverUrl; set { _explicitNullValueFailoverUrl = value; AdditionalData?.Remove("failover_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_url"); else _explicitNullProperties?.Remove("failover_url"); } }
         private string? _explicitNullValueFailoverUrl = default!;
 #nullable restore
 #else
-        public string FailoverUrl { get => _explicitNullValueFailoverUrl; set { _explicitNullValueFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_url"); else _explicitNullProperties?.Remove("failover_url"); } }
+        public string FailoverUrl { get => _explicitNullValueFailoverUrl; set { _explicitNullValueFailoverUrl = value; AdditionalData?.Remove("failover_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_url"); else _explicitNullProperties?.Remove("failover_url"); } }
         private string _explicitNullValueFailoverUrl = default!;
 #endif
         /// <summary>The outbound authentication type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationFqdnOutboundAuthentication? FqdnOutboundAuthentication { get => _explicitNullValueFqdnOutboundAuthentication; set { _explicitNullValueFqdnOutboundAuthentication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fqdn_outbound_authentication"); else _explicitNullProperties?.Remove("fqdn_outbound_authentication"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationFqdnOutboundAuthentication? FqdnOutboundAuthentication { get => _explicitNullValueFqdnOutboundAuthentication; set { _explicitNullValueFqdnOutboundAuthentication = value; AdditionalData?.Remove("fqdn_outbound_authentication"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fqdn_outbound_authentication"); else _explicitNullProperties?.Remove("fqdn_outbound_authentication"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationFqdnOutboundAuthentication? _explicitNullValueFqdnOutboundAuthentication = default!;
         /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The IP authentication method.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationIpAuthenticationMethod? IpAuthenticationMethod { get => _explicitNullValueIpAuthenticationMethod; set { _explicitNullValueIpAuthenticationMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_authentication_method"); else _explicitNullProperties?.Remove("ip_authentication_method"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationIpAuthenticationMethod? IpAuthenticationMethod { get => _explicitNullValueIpAuthenticationMethod; set { _explicitNullValueIpAuthenticationMethod = value; AdditionalData?.Remove("ip_authentication_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_authentication_method"); else _explicitNullProperties?.Remove("ip_authentication_method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationIpAuthenticationMethod? _explicitNullValueIpAuthenticationMethod = default!;
         /// <summary>Whether the connection is a Microsoft Teams SBC.</summary>
-        public bool? MicrosoftTeamsSbc { get => _explicitNullValueMicrosoftTeamsSbc; set { _explicitNullValueMicrosoftTeamsSbc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_teams_sbc"); else _explicitNullProperties?.Remove("microsoft_teams_sbc"); } }
+        public bool? MicrosoftTeamsSbc { get => _explicitNullValueMicrosoftTeamsSbc; set { _explicitNullValueMicrosoftTeamsSbc = value; AdditionalData?.Remove("microsoft_teams_sbc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_teams_sbc"); else _explicitNullProperties?.Remove("microsoft_teams_sbc"); } }
         private bool? _explicitNullValueMicrosoftTeamsSbc = default!;
         /// <summary>The password for authentication. For primary accounts created on or after September 8, 2026, this password is returned as `********`. The password is returned in full on create, and on update only when that update changed the password. Accounts created before September 8, 2026 are unaffected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
+        public string? Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; AdditionalData?.Remove("password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
         private string? _explicitNullValuePassword = default!;
 #nullable restore
 #else
-        public string Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
+        public string Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; AdditionalData?.Remove("password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
         private string _explicitNullValuePassword = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>The TXT record name for Microsoft Teams SBC DNS verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TxtName { get => _explicitNullValueTxtName; set { _explicitNullValueTxtName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_name"); else _explicitNullProperties?.Remove("txt_name"); } }
+        public string? TxtName { get => _explicitNullValueTxtName; set { _explicitNullValueTxtName = value; AdditionalData?.Remove("txt_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_name"); else _explicitNullProperties?.Remove("txt_name"); } }
         private string? _explicitNullValueTxtName = default!;
 #nullable restore
 #else
-        public string TxtName { get => _explicitNullValueTxtName; set { _explicitNullValueTxtName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_name"); else _explicitNullProperties?.Remove("txt_name"); } }
+        public string TxtName { get => _explicitNullValueTxtName; set { _explicitNullValueTxtName = value; AdditionalData?.Remove("txt_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_name"); else _explicitNullProperties?.Remove("txt_name"); } }
         private string _explicitNullValueTxtName = default!;
 #endif
         /// <summary>The TTL for the TXT record.</summary>
-        public int? TxtTtl { get => _explicitNullValueTxtTtl; set { _explicitNullValueTxtTtl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_ttl"); else _explicitNullProperties?.Remove("txt_ttl"); } }
+        public int? TxtTtl { get => _explicitNullValueTxtTtl; set { _explicitNullValueTxtTtl = value; AdditionalData?.Remove("txt_ttl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_ttl"); else _explicitNullProperties?.Remove("txt_ttl"); } }
         private int? _explicitNullValueTxtTtl = default!;
         /// <summary>The TXT record value for Microsoft Teams SBC DNS verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TxtValue { get => _explicitNullValueTxtValue; set { _explicitNullValueTxtValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_value"); else _explicitNullProperties?.Remove("txt_value"); } }
+        public string? TxtValue { get => _explicitNullValueTxtValue; set { _explicitNullValueTxtValue = value; AdditionalData?.Remove("txt_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_value"); else _explicitNullProperties?.Remove("txt_value"); } }
         private string? _explicitNullValueTxtValue = default!;
 #nullable restore
 #else
-        public string TxtValue { get => _explicitNullValueTxtValue; set { _explicitNullValueTxtValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_value"); else _explicitNullProperties?.Remove("txt_value"); } }
+        public string TxtValue { get => _explicitNullValueTxtValue; set { _explicitNullValueTxtValue = value; AdditionalData?.Remove("txt_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txt_value"); else _explicitNullProperties?.Remove("txt_value"); } }
         private string _explicitNullValueTxtValue = default!;
 #endif
         /// <summary>The username for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserName { get => _explicitNullValueUserName; set { _explicitNullValueUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_name"); else _explicitNullProperties?.Remove("user_name"); } }
+        public string? UserName { get => _explicitNullValueUserName; set { _explicitNullValueUserName = value; AdditionalData?.Remove("user_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_name"); else _explicitNullProperties?.Remove("user_name"); } }
         private string? _explicitNullValueUserName = default!;
 #nullable restore
 #else
-        public string UserName { get => _explicitNullValueUserName; set { _explicitNullValueUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_name"); else _explicitNullProperties?.Remove("user_name"); } }
+        public string UserName { get => _explicitNullValueUserName; set { _explicitNullValueUserName = value; AdditionalData?.Remove("user_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_name"); else _explicitNullProperties?.Remove("user_name"); } }
         private string _explicitNullValueUserName = default!;
 #endif
         /// <summary>The webhook URL for authentication events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
@@ -164,9 +177,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "failover_url", n => { FailoverUrl = n.GetStringValue(); } },
-                { "fqdn_outbound_authentication", n => { FqdnOutboundAuthentication = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationFqdnOutboundAuthentication>(); } },
+                { "fqdn_outbound_authentication", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationFqdnOutboundAuthentication>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFqdnOutboundAuthentication = default; _explicitNullProperties?.Remove("fqdn_outbound_authentication"); AdditionalData["fqdn_outbound_authentication"] = unknown; } else { FqdnOutboundAuthentication = parsed; AdditionalData.Remove("fqdn_outbound_authentication"); } } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "ip_authentication_method", n => { IpAuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationIpAuthenticationMethod>(); } },
+                { "ip_authentication_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnAuthenticationIpAuthenticationMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIpAuthenticationMethod = default; _explicitNullProperties?.Remove("ip_authentication_method"); AdditionalData["ip_authentication_method"] = unknown; } else { IpAuthenticationMethod = parsed; AdditionalData.Remove("ip_authentication_method"); } } },
                 { "microsoft_teams_sbc", n => { MicrosoftTeamsSbc = n.GetBoolValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },

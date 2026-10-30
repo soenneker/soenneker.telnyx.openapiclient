@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("product_retailer_id") is { } nullNodeProductRetailerId && nullNodeProductRetailerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductRetailerId = null;
+            if (parseNode.GetChildNode("product_retailer_id") is null) { _explicitNullValueProductRetailerId = default!; _explicitNullProperties?.Remove("product_retailer_id"); }
+            else if (parseNode.GetChildNode("product_retailer_id") is { } nullNodeProductRetailerId && nullNodeProductRetailerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductRetailerId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The product_retailer_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProductRetailerId { get => _explicitNullValueProductRetailerId; set { _explicitNullValueProductRetailerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_retailer_id"); else _explicitNullProperties?.Remove("product_retailer_id"); } }
+        public string? ProductRetailerId { get => _explicitNullValueProductRetailerId; set { _explicitNullValueProductRetailerId = value; AdditionalData?.Remove("product_retailer_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_retailer_id"); else _explicitNullProperties?.Remove("product_retailer_id"); } }
         private string? _explicitNullValueProductRetailerId = default!;
 #nullable restore
 #else
-        public string ProductRetailerId { get => _explicitNullValueProductRetailerId; set { _explicitNullValueProductRetailerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_retailer_id"); else _explicitNullProperties?.Remove("product_retailer_id"); } }
+        public string ProductRetailerId { get => _explicitNullValueProductRetailerId; set { _explicitNullValueProductRetailerId = value; AdditionalData?.Remove("product_retailer_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_retailer_id"); else _explicitNullProperties?.Remove("product_retailer_id"); } }
         private string _explicitNullValueProductRetailerId = default!;
 #endif
         /// <summary>

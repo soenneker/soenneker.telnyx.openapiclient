@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("campaignUsecase") is { } nullNodeCampaignUsecase && nullNodeCampaignUsecase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignUsecase = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("monthlyCost") is { } nullNodeMonthlyCost && nullNodeMonthlyCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyCost = null;
-            if (parseNode.GetChildNode("upFrontCost") is { } nullNodeUpFrontCost && nullNodeUpFrontCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpFrontCost = null;
+            if (parseNode.GetChildNode("campaignUsecase") is null) { _explicitNullValueCampaignUsecase = default!; _explicitNullProperties?.Remove("campaignUsecase"); }
+            else if (parseNode.GetChildNode("campaignUsecase") is { } nullNodeCampaignUsecase && nullNodeCampaignUsecase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignUsecase = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("monthlyCost") is null) { _explicitNullValueMonthlyCost = default!; _explicitNullProperties?.Remove("monthlyCost"); }
+            else if (parseNode.GetChildNode("monthlyCost") is { } nullNodeMonthlyCost && nullNodeMonthlyCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyCost = null;
+            if (parseNode.GetChildNode("upFrontCost") is null) { _explicitNullValueUpFrontCost = default!; _explicitNullProperties?.Remove("upFrontCost"); }
+            else if (parseNode.GetChildNode("upFrontCost") is { } nullNodeUpFrontCost && nullNodeUpFrontCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpFrontCost = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The campaignUsecase property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignUsecase { get => _explicitNullValueCampaignUsecase; set { _explicitNullValueCampaignUsecase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaignUsecase"); else _explicitNullProperties?.Remove("campaignUsecase"); } }
+        public string? CampaignUsecase { get => _explicitNullValueCampaignUsecase; set { _explicitNullValueCampaignUsecase = value; AdditionalData?.Remove("campaignUsecase"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaignUsecase"); else _explicitNullProperties?.Remove("campaignUsecase"); } }
         private string? _explicitNullValueCampaignUsecase = default!;
 #nullable restore
 #else
-        public string CampaignUsecase { get => _explicitNullValueCampaignUsecase; set { _explicitNullValueCampaignUsecase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaignUsecase"); else _explicitNullProperties?.Remove("campaignUsecase"); } }
+        public string CampaignUsecase { get => _explicitNullValueCampaignUsecase; set { _explicitNullValueCampaignUsecase = value; AdditionalData?.Remove("campaignUsecase"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaignUsecase"); else _explicitNullProperties?.Remove("campaignUsecase"); } }
         private string _explicitNullValueCampaignUsecase = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The monthlyCost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MonthlyCost { get => _explicitNullValueMonthlyCost; set { _explicitNullValueMonthlyCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthlyCost"); else _explicitNullProperties?.Remove("monthlyCost"); } }
+        public string? MonthlyCost { get => _explicitNullValueMonthlyCost; set { _explicitNullValueMonthlyCost = value; AdditionalData?.Remove("monthlyCost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthlyCost"); else _explicitNullProperties?.Remove("monthlyCost"); } }
         private string? _explicitNullValueMonthlyCost = default!;
 #nullable restore
 #else
-        public string MonthlyCost { get => _explicitNullValueMonthlyCost; set { _explicitNullValueMonthlyCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthlyCost"); else _explicitNullProperties?.Remove("monthlyCost"); } }
+        public string MonthlyCost { get => _explicitNullValueMonthlyCost; set { _explicitNullValueMonthlyCost = value; AdditionalData?.Remove("monthlyCost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthlyCost"); else _explicitNullProperties?.Remove("monthlyCost"); } }
         private string _explicitNullValueMonthlyCost = default!;
 #endif
         /// <summary>The upFrontCost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpFrontCost { get => _explicitNullValueUpFrontCost; set { _explicitNullValueUpFrontCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upFrontCost"); else _explicitNullProperties?.Remove("upFrontCost"); } }
+        public string? UpFrontCost { get => _explicitNullValueUpFrontCost; set { _explicitNullValueUpFrontCost = value; AdditionalData?.Remove("upFrontCost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upFrontCost"); else _explicitNullProperties?.Remove("upFrontCost"); } }
         private string? _explicitNullValueUpFrontCost = default!;
 #nullable restore
 #else
-        public string UpFrontCost { get => _explicitNullValueUpFrontCost; set { _explicitNullValueUpFrontCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upFrontCost"); else _explicitNullProperties?.Remove("upFrontCost"); } }
+        public string UpFrontCost { get => _explicitNullValueUpFrontCost; set { _explicitNullValueUpFrontCost = value; AdditionalData?.Remove("upFrontCost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("upFrontCost"); else _explicitNullProperties?.Remove("upFrontCost"); } }
         private string _explicitNullValueUpFrontCost = default!;
 #endif
         /// <summary>

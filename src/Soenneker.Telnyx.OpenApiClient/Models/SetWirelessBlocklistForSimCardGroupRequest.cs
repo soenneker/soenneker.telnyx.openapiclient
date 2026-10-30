@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("wireless_blocklist_id") is { } nullNodeWirelessBlocklistId && nullNodeWirelessBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WirelessBlocklistId = null;
+            if (parseNode.GetChildNode("wireless_blocklist_id") is null) { _explicitNullValueWirelessBlocklistId = default!; _explicitNullProperties?.Remove("wireless_blocklist_id"); }
+            else if (parseNode.GetChildNode("wireless_blocklist_id") is { } nullNodeWirelessBlocklistId && nullNodeWirelessBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WirelessBlocklistId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identification of the related Wireless Blocklist resource.</summary>
-        public Guid? WirelessBlocklistId { get => _explicitNullValueWirelessBlocklistId; set { _explicitNullValueWirelessBlocklistId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireless_blocklist_id"); else _explicitNullProperties?.Remove("wireless_blocklist_id"); } }
+        public Guid? WirelessBlocklistId { get => _explicitNullValueWirelessBlocklistId; set { _explicitNullValueWirelessBlocklistId = value; AdditionalData?.Remove("wireless_blocklist_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireless_blocklist_id"); else _explicitNullProperties?.Remove("wireless_blocklist_id"); } }
         private Guid? _explicitNullValueWirelessBlocklistId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SetWirelessBlocklistForSimCardGroupRequest"/> and sets the default values.

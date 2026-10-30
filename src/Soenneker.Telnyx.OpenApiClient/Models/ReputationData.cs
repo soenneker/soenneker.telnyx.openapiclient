@@ -18,44 +18,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection_score") is { } nullNodeConnectionScore && nullNodeConnectionScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionScore = null;
-            if (parseNode.GetChildNode("engagement_score") is { } nullNodeEngagementScore && nullNodeEngagementScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EngagementScore = null;
-            if (parseNode.GetChildNode("last_refreshed_at") is { } nullNodeLastRefreshedAt && nullNodeLastRefreshedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshedAt = null;
-            if (parseNode.GetChildNode("maturity_score") is { } nullNodeMaturityScore && nullNodeMaturityScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaturityScore = null;
-            if (parseNode.GetChildNode("sentiment_score") is { } nullNodeSentimentScore && nullNodeSentimentScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentimentScore = null;
-            if (parseNode.GetChildNode("spam_category") is { } nullNodeSpamCategory && nullNodeSpamCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCategory = null;
-            if (parseNode.GetChildNode("spam_risk") is { } nullNodeSpamRisk && nullNodeSpamRisk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamRisk = null;
+            if (parseNode.GetChildNode("connection_score") is null) { _explicitNullValueConnectionScore = default!; _explicitNullProperties?.Remove("connection_score"); }
+            else if (parseNode.GetChildNode("connection_score") is { } nullNodeConnectionScore && nullNodeConnectionScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionScore = null;
+            if (parseNode.GetChildNode("engagement_score") is null) { _explicitNullValueEngagementScore = default!; _explicitNullProperties?.Remove("engagement_score"); }
+            else if (parseNode.GetChildNode("engagement_score") is { } nullNodeEngagementScore && nullNodeEngagementScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EngagementScore = null;
+            if (parseNode.GetChildNode("last_refreshed_at") is null) { _explicitNullValueLastRefreshedAt = default!; _explicitNullProperties?.Remove("last_refreshed_at"); }
+            else if (parseNode.GetChildNode("last_refreshed_at") is { } nullNodeLastRefreshedAt && nullNodeLastRefreshedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshedAt = null;
+            if (parseNode.GetChildNode("maturity_score") is null) { _explicitNullValueMaturityScore = default!; _explicitNullProperties?.Remove("maturity_score"); }
+            else if (parseNode.GetChildNode("maturity_score") is { } nullNodeMaturityScore && nullNodeMaturityScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaturityScore = null;
+            if (parseNode.GetChildNode("sentiment_score") is null) { _explicitNullValueSentimentScore = default!; _explicitNullProperties?.Remove("sentiment_score"); }
+            else if (parseNode.GetChildNode("sentiment_score") is { } nullNodeSentimentScore && nullNodeSentimentScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentimentScore = null;
+            if (parseNode.GetChildNode("spam_category") is null) { _explicitNullValueSpamCategory = default!; _explicitNullProperties?.Remove("spam_category"); }
+            else if (parseNode.GetChildNode("spam_category") is { } nullNodeSpamCategory && nullNodeSpamCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCategory = null;
+            if (parseNode.GetChildNode("spam_risk") is null) { _explicitNullValueSpamRisk = default!; _explicitNullProperties?.Remove("spam_risk"); }
+            else if (parseNode.GetChildNode("spam_risk") is { } nullNodeSpamRisk && nullNodeSpamRisk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamRisk = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connection_score property</summary>
-        public int? ConnectionScore { get => _explicitNullValueConnectionScore; set { _explicitNullValueConnectionScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_score"); else _explicitNullProperties?.Remove("connection_score"); } }
+        public int? ConnectionScore { get => _explicitNullValueConnectionScore; set { _explicitNullValueConnectionScore = value; AdditionalData?.Remove("connection_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_score"); else _explicitNullProperties?.Remove("connection_score"); } }
         private int? _explicitNullValueConnectionScore = default!;
         /// <summary>The engagement_score property</summary>
-        public int? EngagementScore { get => _explicitNullValueEngagementScore; set { _explicitNullValueEngagementScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engagement_score"); else _explicitNullProperties?.Remove("engagement_score"); } }
+        public int? EngagementScore { get => _explicitNullValueEngagementScore; set { _explicitNullValueEngagementScore = value; AdditionalData?.Remove("engagement_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engagement_score"); else _explicitNullProperties?.Remove("engagement_score"); } }
         private int? _explicitNullValueEngagementScore = default!;
         /// <summary>The last_refreshed_at property</summary>
-        public DateTimeOffset? LastRefreshedAt { get => _explicitNullValueLastRefreshedAt; set { _explicitNullValueLastRefreshedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refreshed_at"); else _explicitNullProperties?.Remove("last_refreshed_at"); } }
+        public DateTimeOffset? LastRefreshedAt { get => _explicitNullValueLastRefreshedAt; set { _explicitNullValueLastRefreshedAt = value; AdditionalData?.Remove("last_refreshed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refreshed_at"); else _explicitNullProperties?.Remove("last_refreshed_at"); } }
         private DateTimeOffset? _explicitNullValueLastRefreshedAt = default!;
         /// <summary>The maturity_score property</summary>
-        public int? MaturityScore { get => _explicitNullValueMaturityScore; set { _explicitNullValueMaturityScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maturity_score"); else _explicitNullProperties?.Remove("maturity_score"); } }
+        public int? MaturityScore { get => _explicitNullValueMaturityScore; set { _explicitNullValueMaturityScore = value; AdditionalData?.Remove("maturity_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maturity_score"); else _explicitNullProperties?.Remove("maturity_score"); } }
         private int? _explicitNullValueMaturityScore = default!;
         /// <summary>The sentiment_score property</summary>
-        public int? SentimentScore { get => _explicitNullValueSentimentScore; set { _explicitNullValueSentimentScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_score"); else _explicitNullProperties?.Remove("sentiment_score"); } }
+        public int? SentimentScore { get => _explicitNullValueSentimentScore; set { _explicitNullValueSentimentScore = value; AdditionalData?.Remove("sentiment_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_score"); else _explicitNullProperties?.Remove("sentiment_score"); } }
         private int? _explicitNullValueSentimentScore = default!;
         /// <summary>Category label from the reputation feed when the number is flagged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpamCategory { get => _explicitNullValueSpamCategory; set { _explicitNullValueSpamCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_category"); else _explicitNullProperties?.Remove("spam_category"); } }
+        public string? SpamCategory { get => _explicitNullValueSpamCategory; set { _explicitNullValueSpamCategory = value; AdditionalData?.Remove("spam_category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_category"); else _explicitNullProperties?.Remove("spam_category"); } }
         private string? _explicitNullValueSpamCategory = default!;
 #nullable restore
 #else
-        public string SpamCategory { get => _explicitNullValueSpamCategory; set { _explicitNullValueSpamCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_category"); else _explicitNullProperties?.Remove("spam_category"); } }
+        public string SpamCategory { get => _explicitNullValueSpamCategory; set { _explicitNullValueSpamCategory = value; AdditionalData?.Remove("spam_category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_category"); else _explicitNullProperties?.Remove("spam_category"); } }
         private string _explicitNullValueSpamCategory = default!;
 #endif
         /// <summary>Overall spam-risk classification.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk? SpamRisk { get => _explicitNullValueSpamRisk; set { _explicitNullValueSpamRisk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_risk"); else _explicitNullProperties?.Remove("spam_risk"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk? SpamRisk { get => _explicitNullValueSpamRisk; set { _explicitNullValueSpamRisk = value; AdditionalData?.Remove("spam_risk"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_risk"); else _explicitNullProperties?.Remove("spam_risk"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk? _explicitNullValueSpamRisk = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData"/> and sets the default values.
@@ -88,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "maturity_score", n => { MaturityScore = n.GetIntValue(); } },
                 { "sentiment_score", n => { SentimentScore = n.GetIntValue(); } },
                 { "spam_category", n => { SpamCategory = n.GetStringValue(); } },
-                { "spam_risk", n => { SpamRisk = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk>(); } },
+                { "spam_risk", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationDataSpamRisk>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSpamRisk = default; _explicitNullProperties?.Remove("spam_risk"); AdditionalData["spam_risk"] = unknown; } else { SpamRisk = parsed; AdditionalData.Remove("spam_risk"); } } },
             };
         }
         /// <summary>

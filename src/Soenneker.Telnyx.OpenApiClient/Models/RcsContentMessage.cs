@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("content_info") is { } nullNodeContentInfo && nullNodeContentInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContentInfo = null;
-            if (parseNode.GetChildNode("rich_card") is { } nullNodeRichCard && nullNodeRichCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RichCard = null;
-            if (parseNode.GetChildNode("suggestions") is { } nullNodeSuggestions && nullNodeSuggestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggestions = null;
-            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("content_info") is null) { _explicitNullValueContentInfo = default!; _explicitNullProperties?.Remove("content_info"); }
+            else if (parseNode.GetChildNode("content_info") is { } nullNodeContentInfo && nullNodeContentInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContentInfo = null;
+            if (parseNode.GetChildNode("rich_card") is null) { _explicitNullValueRichCard = default!; _explicitNullProperties?.Remove("rich_card"); }
+            else if (parseNode.GetChildNode("rich_card") is { } nullNodeRichCard && nullNodeRichCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RichCard = null;
+            if (parseNode.GetChildNode("suggestions") is null) { _explicitNullValueSuggestions = default!; _explicitNullProperties?.Remove("suggestions"); }
+            else if (parseNode.GetChildNode("suggestions") is { } nullNodeSuggestions && nullNodeSuggestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggestions = null;
+            if (parseNode.GetChildNode("text") is null) { _explicitNullValueText = default!; _explicitNullProperties?.Remove("text"); }
+            else if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The content_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo? ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo? ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; AdditionalData?.Remove("content_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo? _explicitNullValueContentInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; AdditionalData?.Remove("content_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo _explicitNullValueContentInfo = default!;
 #endif
         /// <summary>The rich_card property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard? RichCard { get => _explicitNullValueRichCard; set { _explicitNullValueRichCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rich_card"); else _explicitNullProperties?.Remove("rich_card"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard? RichCard { get => _explicitNullValueRichCard; set { _explicitNullValueRichCard = value; AdditionalData?.Remove("rich_card"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rich_card"); else _explicitNullProperties?.Remove("rich_card"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard? _explicitNullValueRichCard = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard RichCard { get => _explicitNullValueRichCard; set { _explicitNullValueRichCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rich_card"); else _explicitNullProperties?.Remove("rich_card"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard RichCard { get => _explicitNullValueRichCard; set { _explicitNullValueRichCard = value; AdditionalData?.Remove("rich_card"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rich_card"); else _explicitNullProperties?.Remove("rich_card"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard _explicitNullValueRichCard = default!;
 #endif
         /// <summary>List of suggested actions and replies</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsSuggestion>? Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsSuggestion>? Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; AdditionalData?.Remove("suggestions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsSuggestion>? _explicitNullValueSuggestions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsSuggestion> Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsSuggestion> Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; AdditionalData?.Remove("suggestions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RcsSuggestion> _explicitNullValueSuggestions = default!;
 #endif
         /// <summary>Text (maximum 3072 characters)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
         private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
         private string _explicitNullValueText = default!;
 #endif
         /// <summary>

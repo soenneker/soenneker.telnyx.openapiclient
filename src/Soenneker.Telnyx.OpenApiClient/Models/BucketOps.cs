@@ -17,29 +17,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bytes_received") is { } nullNodeBytesReceived && nullNodeBytesReceived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BytesReceived = null;
-            if (parseNode.GetChildNode("bytes_sent") is { } nullNodeBytesSent && nullNodeBytesSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BytesSent = null;
-            if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
-            if (parseNode.GetChildNode("ops") is { } nullNodeOps && nullNodeOps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ops = null;
-            if (parseNode.GetChildNode("successful_ops") is { } nullNodeSuccessfulOps && nullNodeSuccessfulOps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessfulOps = null;
+            if (parseNode.GetChildNode("bytes_received") is null) { _explicitNullValueBytesReceived = default!; _explicitNullProperties?.Remove("bytes_received"); }
+            else if (parseNode.GetChildNode("bytes_received") is { } nullNodeBytesReceived && nullNodeBytesReceived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BytesReceived = null;
+            if (parseNode.GetChildNode("bytes_sent") is null) { _explicitNullValueBytesSent = default!; _explicitNullProperties?.Remove("bytes_sent"); }
+            else if (parseNode.GetChildNode("bytes_sent") is { } nullNodeBytesSent && nullNodeBytesSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BytesSent = null;
+            if (parseNode.GetChildNode("category") is null) { _explicitNullValueCategory = default!; _explicitNullProperties?.Remove("category"); }
+            else if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
+            if (parseNode.GetChildNode("ops") is null) { _explicitNullValueOps = default!; _explicitNullProperties?.Remove("ops"); }
+            else if (parseNode.GetChildNode("ops") is { } nullNodeOps && nullNodeOps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ops = null;
+            if (parseNode.GetChildNode("successful_ops") is null) { _explicitNullValueSuccessfulOps = default!; _explicitNullProperties?.Remove("successful_ops"); }
+            else if (parseNode.GetChildNode("successful_ops") is { } nullNodeSuccessfulOps && nullNodeSuccessfulOps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessfulOps = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of bytes received</summary>
-        public int? BytesReceived { get => _explicitNullValueBytesReceived; set { _explicitNullValueBytesReceived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes_received"); else _explicitNullProperties?.Remove("bytes_received"); } }
+        public int? BytesReceived { get => _explicitNullValueBytesReceived; set { _explicitNullValueBytesReceived = value; AdditionalData?.Remove("bytes_received"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes_received"); else _explicitNullProperties?.Remove("bytes_received"); } }
         private int? _explicitNullValueBytesReceived = default!;
         /// <summary>The number of bytes sent</summary>
-        public int? BytesSent { get => _explicitNullValueBytesSent; set { _explicitNullValueBytesSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes_sent"); else _explicitNullProperties?.Remove("bytes_sent"); } }
+        public int? BytesSent { get => _explicitNullValueBytesSent; set { _explicitNullValueBytesSent = value; AdditionalData?.Remove("bytes_sent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes_sent"); else _explicitNullProperties?.Remove("bytes_sent"); } }
         private int? _explicitNullValueBytesSent = default!;
         /// <summary>The category of the bucket operation</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; AdditionalData?.Remove("category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory? _explicitNullValueCategory = default!;
         /// <summary>The number of operations</summary>
-        public int? Ops { get => _explicitNullValueOps; set { _explicitNullValueOps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ops"); else _explicitNullProperties?.Remove("ops"); } }
+        public int? Ops { get => _explicitNullValueOps; set { _explicitNullValueOps = value; AdditionalData?.Remove("ops"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ops"); else _explicitNullProperties?.Remove("ops"); } }
         private int? _explicitNullValueOps = default!;
         /// <summary>The number of successful operations</summary>
-        public int? SuccessfulOps { get => _explicitNullValueSuccessfulOps; set { _explicitNullValueSuccessfulOps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful_ops"); else _explicitNullProperties?.Remove("successful_ops"); } }
+        public int? SuccessfulOps { get => _explicitNullValueSuccessfulOps; set { _explicitNullValueSuccessfulOps = value; AdditionalData?.Remove("successful_ops"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful_ops"); else _explicitNullProperties?.Remove("successful_ops"); } }
         private int? _explicitNullValueSuccessfulOps = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps"/> and sets the default values.
@@ -68,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "bytes_received", n => { BytesReceived = n.GetIntValue(); } },
                 { "bytes_sent", n => { BytesSent = n.GetIntValue(); } },
-                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory>(); } },
+                { "category", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOpsCategory>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCategory = default; _explicitNullProperties?.Remove("category"); AdditionalData["category"] = unknown; } else { Category = parsed; AdditionalData.Remove("category"); } } },
                 { "ops", n => { Ops = n.GetIntValue(); } },
                 { "successful_ops", n => { SuccessfulOps = n.GetIntValue(); } },
             };

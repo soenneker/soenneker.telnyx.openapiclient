@@ -18,17 +18,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attenuation_limit") is { } nullNodeAttenuationLimit && nullNodeAttenuationLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttenuationLimit = null;
-            if (parseNode.GetChildNode("engine") is { } nullNodeEngine && nullNodeEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Engine = null;
+            if (parseNode.GetChildNode("attenuation_limit") is null) { _explicitNullValueAttenuationLimit = default!; _explicitNullProperties?.Remove("attenuation_limit"); }
+            else if (parseNode.GetChildNode("attenuation_limit") is { } nullNodeAttenuationLimit && nullNodeAttenuationLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttenuationLimit = null;
+            if (parseNode.GetChildNode("engine") is null) { _explicitNullValueEngine = default!; _explicitNullProperties?.Remove("engine"); }
+            else if (parseNode.GetChildNode("engine") is { } nullNodeEngine && nullNodeEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Engine = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attenuation limit value for the selected engine. Default values vary by engine: 0 for &apos;denoiser&apos;, 80 for &apos;deep_filter_net&apos;, &apos;deep_filter_net_large&apos;, and all Krisp engines (&apos;krisp_viva_tel&apos;, &apos;krisp_viva_tel_lite&apos;, &apos;krisp_viva_promodel&apos;, &apos;krisp_viva_ss&apos;), 100 for &apos;quail_voice_focus&apos;.</summary>
-        public int? AttenuationLimit { get => _explicitNullValueAttenuationLimit; set { _explicitNullValueAttenuationLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attenuation_limit"); else _explicitNullProperties?.Remove("attenuation_limit"); } }
+        public int? AttenuationLimit { get => _explicitNullValueAttenuationLimit; set { _explicitNullValueAttenuationLimit = value; AdditionalData?.Remove("attenuation_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attenuation_limit"); else _explicitNullProperties?.Remove("attenuation_limit"); } }
         private int? _explicitNullValueAttenuationLimit = default!;
         /// <summary>The noise suppression engine to use. &apos;denoiser&apos; is the default engine. &apos;deep_filter_net&apos; and &apos;deep_filter_net_large&apos; are alternative engines with different performance characteristics. Krisp engines (&apos;krisp_viva_tel&apos;, &apos;krisp_viva_tel_lite&apos;, &apos;krisp_viva_promodel&apos;, &apos;krisp_viva_ss&apos;) provide advanced noise suppression capabilities. &apos;quail_voice_focus&apos; provides Quail-based voice focus noise suppression.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine? Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine? Engine { get => _explicitNullValueEngine; set { _explicitNullValueEngine = value; AdditionalData?.Remove("engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("engine"); else _explicitNullProperties?.Remove("engine"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine? _explicitNullValueEngine = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails"/> and sets the default values.
@@ -56,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
-                { "engine", n => { Engine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine>(); } },
+                { "engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetailsEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEngine = default; _explicitNullProperties?.Remove("engine"); AdditionalData["engine"] = unknown; } else { Engine = parsed; AdditionalData.Remove("engine"); } } },
             };
         }
         /// <summary>

@@ -18,42 +18,47 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attempted_at") is { } nullNodeAttemptedAt && nullNodeAttemptedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttemptedAt = null;
-            if (parseNode.GetChildNode("attempt_number") is { } nullNodeAttemptNumber && nullNodeAttemptNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttemptNumber = null;
-            if (parseNode.GetChildNode("call_duration") is { } nullNodeCallDuration && nullNodeCallDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallDuration = null;
-            if (parseNode.GetChildNode("call_status") is { } nullNodeCallStatus && nullNodeCallStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallStatus = null;
-            if (parseNode.GetChildNode("telnyx_call_control_id") is { } nullNodeTelnyxCallControlId && nullNodeTelnyxCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxCallControlId = null;
+            if (parseNode.GetChildNode("attempted_at") is null) { _explicitNullValueAttemptedAt = default!; _explicitNullProperties?.Remove("attempted_at"); }
+            else if (parseNode.GetChildNode("attempted_at") is { } nullNodeAttemptedAt && nullNodeAttemptedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttemptedAt = null;
+            if (parseNode.GetChildNode("attempt_number") is null) { _explicitNullValueAttemptNumber = default!; _explicitNullProperties?.Remove("attempt_number"); }
+            else if (parseNode.GetChildNode("attempt_number") is { } nullNodeAttemptNumber && nullNodeAttemptNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttemptNumber = null;
+            if (parseNode.GetChildNode("call_duration") is null) { _explicitNullValueCallDuration = default!; _explicitNullProperties?.Remove("call_duration"); }
+            else if (parseNode.GetChildNode("call_duration") is { } nullNodeCallDuration && nullNodeCallDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallDuration = null;
+            if (parseNode.GetChildNode("call_status") is null) { _explicitNullValueCallStatus = default!; _explicitNullProperties?.Remove("call_status"); }
+            else if (parseNode.GetChildNode("call_status") is { } nullNodeCallStatus && nullNodeCallStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallStatus = null;
+            if (parseNode.GetChildNode("telnyx_call_control_id") is null) { _explicitNullValueTelnyxCallControlId = default!; _explicitNullProperties?.Remove("telnyx_call_control_id"); }
+            else if (parseNode.GetChildNode("telnyx_call_control_id") is { } nullNodeTelnyxCallControlId && nullNodeTelnyxCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelnyxCallControlId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attempted_at property</summary>
-        public DateTimeOffset? AttemptedAt { get => _explicitNullValueAttemptedAt; set { _explicitNullValueAttemptedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempted_at"); else _explicitNullProperties?.Remove("attempted_at"); } }
+        public DateTimeOffset? AttemptedAt { get => _explicitNullValueAttemptedAt; set { _explicitNullValueAttemptedAt = value; AdditionalData?.Remove("attempted_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempted_at"); else _explicitNullProperties?.Remove("attempted_at"); } }
         private DateTimeOffset? _explicitNullValueAttemptedAt = default!;
         /// <summary>The attempt_number property</summary>
-        public int? AttemptNumber { get => _explicitNullValueAttemptNumber; set { _explicitNullValueAttemptNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempt_number"); else _explicitNullProperties?.Remove("attempt_number"); } }
+        public int? AttemptNumber { get => _explicitNullValueAttemptNumber; set { _explicitNullValueAttemptNumber = value; AdditionalData?.Remove("attempt_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempt_number"); else _explicitNullProperties?.Remove("attempt_number"); } }
         private int? _explicitNullValueAttemptNumber = default!;
         /// <summary>Duration of the call in seconds</summary>
-        public int? CallDuration { get => _explicitNullValueCallDuration; set { _explicitNullValueCallDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_duration"); else _explicitNullProperties?.Remove("call_duration"); } }
+        public int? CallDuration { get => _explicitNullValueCallDuration; set { _explicitNullValueCallDuration = value; AdditionalData?.Remove("call_duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_duration"); else _explicitNullProperties?.Remove("call_duration"); } }
         private int? _explicitNullValueCallDuration = default!;
         /// <summary>Values: busy, canceled, no-answer, ringing, completed, failed, in-progress</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallStatus { get => _explicitNullValueCallStatus; set { _explicitNullValueCallStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_status"); else _explicitNullProperties?.Remove("call_status"); } }
+        public string? CallStatus { get => _explicitNullValueCallStatus; set { _explicitNullValueCallStatus = value; AdditionalData?.Remove("call_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_status"); else _explicitNullProperties?.Remove("call_status"); } }
         private string? _explicitNullValueCallStatus = default!;
 #nullable restore
 #else
-        public string CallStatus { get => _explicitNullValueCallStatus; set { _explicitNullValueCallStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_status"); else _explicitNullProperties?.Remove("call_status"); } }
+        public string CallStatus { get => _explicitNullValueCallStatus; set { _explicitNullValueCallStatus = value; AdditionalData?.Remove("call_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_status"); else _explicitNullProperties?.Remove("call_status"); } }
         private string _explicitNullValueCallStatus = default!;
 #endif
         /// <summary>The telnyx_call_control_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelnyxCallControlId { get => _explicitNullValueTelnyxCallControlId; set { _explicitNullValueTelnyxCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_call_control_id"); else _explicitNullProperties?.Remove("telnyx_call_control_id"); } }
+        public string? TelnyxCallControlId { get => _explicitNullValueTelnyxCallControlId; set { _explicitNullValueTelnyxCallControlId = value; AdditionalData?.Remove("telnyx_call_control_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_call_control_id"); else _explicitNullProperties?.Remove("telnyx_call_control_id"); } }
         private string? _explicitNullValueTelnyxCallControlId = default!;
 #nullable restore
 #else
-        public string TelnyxCallControlId { get => _explicitNullValueTelnyxCallControlId; set { _explicitNullValueTelnyxCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_call_control_id"); else _explicitNullProperties?.Remove("telnyx_call_control_id"); } }
+        public string TelnyxCallControlId { get => _explicitNullValueTelnyxCallControlId; set { _explicitNullValueTelnyxCallControlId = value; AdditionalData?.Remove("telnyx_call_control_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telnyx_call_control_id"); else _explicitNullProperties?.Remove("telnyx_call_control_id"); } }
         private string _explicitNullValueTelnyxCallControlId = default!;
 #endif
         /// <summary>

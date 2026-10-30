@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("verification_method") is { } nullNodeVerificationMethod && nullNodeVerificationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationMethod = null;
+            if (parseNode.GetChildNode("verification_method") is null) { _explicitNullValueVerificationMethod = default!; _explicitNullProperties?.Remove("verification_method"); }
+            else if (parseNode.GetChildNode("verification_method") is { } nullNodeVerificationMethod && nullNodeVerificationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationMethod = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The verification_method property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod? VerificationMethod { get => _explicitNullValueVerificationMethod; set { _explicitNullValueVerificationMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_method"); else _explicitNullProperties?.Remove("verification_method"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod? VerificationMethod { get => _explicitNullValueVerificationMethod; set { _explicitNullValueVerificationMethod = value; AdditionalData?.Remove("verification_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_method"); else _explicitNullProperties?.Remove("verification_method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod? _explicitNullValueVerificationMethod = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod>(); } },
+                { "verification_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappResendVerificationRequestVerificationMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVerificationMethod = default; _explicitNullProperties?.Remove("verification_method"); AdditionalData["verification_method"] = unknown; } else { VerificationMethod = parsed; AdditionalData.Remove("verification_method"); } } },
             };
         }
         /// <summary>

@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("alphanumeric_sender_id") is { } nullNodeAlphanumericSenderId && nullNodeAlphanumericSenderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlphanumericSenderId = null;
-            if (parseNode.GetChildNode("messaging_profile_id") is { } nullNodeMessagingProfileId && nullNodeMessagingProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingProfileId = null;
-            if (parseNode.GetChildNode("us_long_code_fallback") is { } nullNodeUsLongCodeFallback && nullNodeUsLongCodeFallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsLongCodeFallback = null;
+            if (parseNode.GetChildNode("alphanumeric_sender_id") is null) { _explicitNullValueAlphanumericSenderId = default!; _explicitNullProperties?.Remove("alphanumeric_sender_id"); }
+            else if (parseNode.GetChildNode("alphanumeric_sender_id") is { } nullNodeAlphanumericSenderId && nullNodeAlphanumericSenderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlphanumericSenderId = null;
+            if (parseNode.GetChildNode("messaging_profile_id") is null) { _explicitNullValueMessagingProfileId = default!; _explicitNullProperties?.Remove("messaging_profile_id"); }
+            else if (parseNode.GetChildNode("messaging_profile_id") is { } nullNodeMessagingProfileId && nullNodeMessagingProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingProfileId = null;
+            if (parseNode.GetChildNode("us_long_code_fallback") is null) { _explicitNullValueUsLongCodeFallback = default!; _explicitNullProperties?.Remove("us_long_code_fallback"); }
+            else if (parseNode.GetChildNode("us_long_code_fallback") is { } nullNodeUsLongCodeFallback && nullNodeUsLongCodeFallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsLongCodeFallback = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The alphanumeric sender ID string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlphanumericSenderId { get => _explicitNullValueAlphanumericSenderId; set { _explicitNullValueAlphanumericSenderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alphanumeric_sender_id"); else _explicitNullProperties?.Remove("alphanumeric_sender_id"); } }
+        public string? AlphanumericSenderId { get => _explicitNullValueAlphanumericSenderId; set { _explicitNullValueAlphanumericSenderId = value; AdditionalData?.Remove("alphanumeric_sender_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alphanumeric_sender_id"); else _explicitNullProperties?.Remove("alphanumeric_sender_id"); } }
         private string? _explicitNullValueAlphanumericSenderId = default!;
 #nullable restore
 #else
-        public string AlphanumericSenderId { get => _explicitNullValueAlphanumericSenderId; set { _explicitNullValueAlphanumericSenderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alphanumeric_sender_id"); else _explicitNullProperties?.Remove("alphanumeric_sender_id"); } }
+        public string AlphanumericSenderId { get => _explicitNullValueAlphanumericSenderId; set { _explicitNullValueAlphanumericSenderId = value; AdditionalData?.Remove("alphanumeric_sender_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alphanumeric_sender_id"); else _explicitNullProperties?.Remove("alphanumeric_sender_id"); } }
         private string _explicitNullValueAlphanumericSenderId = default!;
 #endif
         /// <summary>The messaging profile to associate the sender ID with.</summary>
-        public Guid? MessagingProfileId { get => _explicitNullValueMessagingProfileId; set { _explicitNullValueMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_profile_id"); else _explicitNullProperties?.Remove("messaging_profile_id"); } }
+        public Guid? MessagingProfileId { get => _explicitNullValueMessagingProfileId; set { _explicitNullValueMessagingProfileId = value; AdditionalData?.Remove("messaging_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_profile_id"); else _explicitNullProperties?.Remove("messaging_profile_id"); } }
         private Guid? _explicitNullValueMessagingProfileId = default!;
         /// <summary>A US long code number to use as fallback when sending to US destinations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UsLongCodeFallback { get => _explicitNullValueUsLongCodeFallback; set { _explicitNullValueUsLongCodeFallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_long_code_fallback"); else _explicitNullProperties?.Remove("us_long_code_fallback"); } }
+        public string? UsLongCodeFallback { get => _explicitNullValueUsLongCodeFallback; set { _explicitNullValueUsLongCodeFallback = value; AdditionalData?.Remove("us_long_code_fallback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_long_code_fallback"); else _explicitNullProperties?.Remove("us_long_code_fallback"); } }
         private string? _explicitNullValueUsLongCodeFallback = default!;
 #nullable restore
 #else
-        public string UsLongCodeFallback { get => _explicitNullValueUsLongCodeFallback; set { _explicitNullValueUsLongCodeFallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_long_code_fallback"); else _explicitNullProperties?.Remove("us_long_code_fallback"); } }
+        public string UsLongCodeFallback { get => _explicitNullValueUsLongCodeFallback; set { _explicitNullValueUsLongCodeFallback = value; AdditionalData?.Remove("us_long_code_fallback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_long_code_fallback"); else _explicitNullProperties?.Remove("us_long_code_fallback"); } }
         private string _explicitNullValueUsLongCodeFallback = default!;
 #endif
         /// <summary>

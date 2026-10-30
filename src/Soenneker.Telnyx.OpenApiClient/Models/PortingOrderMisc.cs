@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("new_billing_phone_number") is { } nullNodeNewBillingPhoneNumber && nullNodeNewBillingPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewBillingPhoneNumber = null;
-            if (parseNode.GetChildNode("remaining_numbers_action") is { } nullNodeRemainingNumbersAction && nullNodeRemainingNumbersAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemainingNumbersAction = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("new_billing_phone_number") is null) { _explicitNullValueNewBillingPhoneNumber = default!; _explicitNullProperties?.Remove("new_billing_phone_number"); }
+            else if (parseNode.GetChildNode("new_billing_phone_number") is { } nullNodeNewBillingPhoneNumber && nullNodeNewBillingPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewBillingPhoneNumber = null;
+            if (parseNode.GetChildNode("remaining_numbers_action") is null) { _explicitNullValueRemainingNumbersAction = default!; _explicitNullProperties?.Remove("remaining_numbers_action"); }
+            else if (parseNode.GetChildNode("remaining_numbers_action") is { } nullNodeRemainingNumbersAction && nullNodeRemainingNumbersAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemainingNumbersAction = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>New billing phone number for the remaining numbers. Used in case the current billing phone number is being ported to Telnyx. This will be set on your account with your current service provider and should be one of the numbers remaining on that account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewBillingPhoneNumber { get => _explicitNullValueNewBillingPhoneNumber; set { _explicitNullValueNewBillingPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_billing_phone_number"); else _explicitNullProperties?.Remove("new_billing_phone_number"); } }
+        public string? NewBillingPhoneNumber { get => _explicitNullValueNewBillingPhoneNumber; set { _explicitNullValueNewBillingPhoneNumber = value; AdditionalData?.Remove("new_billing_phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_billing_phone_number"); else _explicitNullProperties?.Remove("new_billing_phone_number"); } }
         private string? _explicitNullValueNewBillingPhoneNumber = default!;
 #nullable restore
 #else
-        public string NewBillingPhoneNumber { get => _explicitNullValueNewBillingPhoneNumber; set { _explicitNullValueNewBillingPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_billing_phone_number"); else _explicitNullProperties?.Remove("new_billing_phone_number"); } }
+        public string NewBillingPhoneNumber { get => _explicitNullValueNewBillingPhoneNumber; set { _explicitNullValueNewBillingPhoneNumber = value; AdditionalData?.Remove("new_billing_phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_billing_phone_number"); else _explicitNullProperties?.Remove("new_billing_phone_number"); } }
         private string _explicitNullValueNewBillingPhoneNumber = default!;
 #endif
         /// <summary>Remaining numbers can be either kept with their current service provider or disconnected. &apos;new_billing_telephone_number&apos; is required when &apos;remaining_numbers_action&apos; is &apos;keep&apos;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction? RemainingNumbersAction { get => _explicitNullValueRemainingNumbersAction; set { _explicitNullValueRemainingNumbersAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining_numbers_action"); else _explicitNullProperties?.Remove("remaining_numbers_action"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction? RemainingNumbersAction { get => _explicitNullValueRemainingNumbersAction; set { _explicitNullValueRemainingNumbersAction = value; AdditionalData?.Remove("remaining_numbers_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining_numbers_action"); else _explicitNullProperties?.Remove("remaining_numbers_action"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction? _explicitNullValueRemainingNumbersAction = default!;
         /// <summary>A port can be either &apos;full&apos; or &apos;partial&apos;. When type is &apos;full&apos; the other attributes should be omitted.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc"/> and sets the default values.
@@ -66,8 +69,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "new_billing_phone_number", n => { NewBillingPhoneNumber = n.GetStringValue(); } },
-                { "remaining_numbers_action", n => { RemainingNumbersAction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType>(); } },
+                { "remaining_numbers_action", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMiscRemainingNumbersAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRemainingNumbersAction = default; _explicitNullProperties?.Remove("remaining_numbers_action"); AdditionalData["remaining_numbers_action"] = unknown; } else { RemainingNumbersAction = parsed; AdditionalData.Remove("remaining_numbers_action"); } } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

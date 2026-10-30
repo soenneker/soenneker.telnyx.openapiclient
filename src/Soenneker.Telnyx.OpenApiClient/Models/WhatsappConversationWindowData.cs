@@ -17,31 +17,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("last_user_message_at") is { } nullNodeLastUserMessageAt && nullNodeLastUserMessageAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUserMessageAt = null;
-            if (parseNode.GetChildNode("window_active") is { } nullNodeWindowActive && nullNodeWindowActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowActive = null;
-            if (parseNode.GetChildNode("window_expires_at") is { } nullNodeWindowExpiresAt && nullNodeWindowExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowExpiresAt = null;
-            if (parseNode.GetChildNode("window_type") is { } nullNodeWindowType && nullNodeWindowType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowType = null;
+            if (parseNode.GetChildNode("last_user_message_at") is null) { _explicitNullValueLastUserMessageAt = default!; _explicitNullProperties?.Remove("last_user_message_at"); }
+            else if (parseNode.GetChildNode("last_user_message_at") is { } nullNodeLastUserMessageAt && nullNodeLastUserMessageAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUserMessageAt = null;
+            if (parseNode.GetChildNode("window_active") is null) { _explicitNullValueWindowActive = default!; _explicitNullProperties?.Remove("window_active"); }
+            else if (parseNode.GetChildNode("window_active") is { } nullNodeWindowActive && nullNodeWindowActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowActive = null;
+            if (parseNode.GetChildNode("window_expires_at") is null) { _explicitNullValueWindowExpiresAt = default!; _explicitNullProperties?.Remove("window_expires_at"); }
+            else if (parseNode.GetChildNode("window_expires_at") is { } nullNodeWindowExpiresAt && nullNodeWindowExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowExpiresAt = null;
+            if (parseNode.GetChildNode("window_type") is null) { _explicitNullValueWindowType = default!; _explicitNullProperties?.Remove("window_type"); }
+            else if (parseNode.GetChildNode("window_type") is { } nullNodeWindowType && nullNodeWindowType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp of the last inbound message that opened the window</summary>
-        public DateTimeOffset? LastUserMessageAt { get => _explicitNullValueLastUserMessageAt; set { _explicitNullValueLastUserMessageAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_user_message_at"); else _explicitNullProperties?.Remove("last_user_message_at"); } }
+        public DateTimeOffset? LastUserMessageAt { get => _explicitNullValueLastUserMessageAt; set { _explicitNullValueLastUserMessageAt = value; AdditionalData?.Remove("last_user_message_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_user_message_at"); else _explicitNullProperties?.Remove("last_user_message_at"); } }
         private DateTimeOffset? _explicitNullValueLastUserMessageAt = default!;
         /// <summary>Whether the 24-hour conversation window is currently open</summary>
-        public bool? WindowActive { get => _explicitNullValueWindowActive; set { _explicitNullValueWindowActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_active"); else _explicitNullProperties?.Remove("window_active"); } }
+        public bool? WindowActive { get => _explicitNullValueWindowActive; set { _explicitNullValueWindowActive = value; AdditionalData?.Remove("window_active"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_active"); else _explicitNullProperties?.Remove("window_active"); } }
         private bool? _explicitNullValueWindowActive = default!;
         /// <summary>When the window closes. Null if no active window.</summary>
-        public DateTimeOffset? WindowExpiresAt { get => _explicitNullValueWindowExpiresAt; set { _explicitNullValueWindowExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_expires_at"); else _explicitNullProperties?.Remove("window_expires_at"); } }
+        public DateTimeOffset? WindowExpiresAt { get => _explicitNullValueWindowExpiresAt; set { _explicitNullValueWindowExpiresAt = value; AdditionalData?.Remove("window_expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_expires_at"); else _explicitNullProperties?.Remove("window_expires_at"); } }
         private DateTimeOffset? _explicitNullValueWindowExpiresAt = default!;
         /// <summary>Window type. Currently always 24h when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WindowType { get => _explicitNullValueWindowType; set { _explicitNullValueWindowType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_type"); else _explicitNullProperties?.Remove("window_type"); } }
+        public string? WindowType { get => _explicitNullValueWindowType; set { _explicitNullValueWindowType = value; AdditionalData?.Remove("window_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_type"); else _explicitNullProperties?.Remove("window_type"); } }
         private string? _explicitNullValueWindowType = default!;
 #nullable restore
 #else
-        public string WindowType { get => _explicitNullValueWindowType; set { _explicitNullValueWindowType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_type"); else _explicitNullProperties?.Remove("window_type"); } }
+        public string WindowType { get => _explicitNullValueWindowType; set { _explicitNullValueWindowType = value; AdditionalData?.Remove("window_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("window_type"); else _explicitNullProperties?.Remove("window_type"); } }
         private string _explicitNullValueWindowType = default!;
 #endif
         /// <summary>

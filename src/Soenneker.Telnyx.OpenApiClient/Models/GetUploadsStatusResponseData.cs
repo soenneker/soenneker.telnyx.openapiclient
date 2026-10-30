@@ -17,17 +17,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pending_numbers_count") is { } nullNodePendingNumbersCount && nullNodePendingNumbersCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingNumbersCount = null;
-            if (parseNode.GetChildNode("pending_orders_count") is { } nullNodePendingOrdersCount && nullNodePendingOrdersCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingOrdersCount = null;
+            if (parseNode.GetChildNode("pending_numbers_count") is null) { _explicitNullValuePendingNumbersCount = default!; _explicitNullProperties?.Remove("pending_numbers_count"); }
+            else if (parseNode.GetChildNode("pending_numbers_count") is { } nullNodePendingNumbersCount && nullNodePendingNumbersCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingNumbersCount = null;
+            if (parseNode.GetChildNode("pending_orders_count") is null) { _explicitNullValuePendingOrdersCount = default!; _explicitNullProperties?.Remove("pending_orders_count"); }
+            else if (parseNode.GetChildNode("pending_orders_count") is { } nullNodePendingOrdersCount && nullNodePendingOrdersCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingOrdersCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The count of phone numbers that are pending assignment to the external connection.</summary>
-        public int? PendingNumbersCount { get => _explicitNullValuePendingNumbersCount; set { _explicitNullValuePendingNumbersCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_numbers_count"); else _explicitNullProperties?.Remove("pending_numbers_count"); } }
+        public int? PendingNumbersCount { get => _explicitNullValuePendingNumbersCount; set { _explicitNullValuePendingNumbersCount = value; AdditionalData?.Remove("pending_numbers_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_numbers_count"); else _explicitNullProperties?.Remove("pending_numbers_count"); } }
         private int? _explicitNullValuePendingNumbersCount = default!;
         /// <summary>The count of number uploads that have not yet been uploaded to Microsoft.</summary>
-        public int? PendingOrdersCount { get => _explicitNullValuePendingOrdersCount; set { _explicitNullValuePendingOrdersCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_orders_count"); else _explicitNullProperties?.Remove("pending_orders_count"); } }
+        public int? PendingOrdersCount { get => _explicitNullValuePendingOrdersCount; set { _explicitNullValuePendingOrdersCount = value; AdditionalData?.Remove("pending_orders_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_orders_count"); else _explicitNullProperties?.Remove("pending_orders_count"); } }
         private int? _explicitNullValuePendingOrdersCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetUploadsStatusResponseData"/> and sets the default values.

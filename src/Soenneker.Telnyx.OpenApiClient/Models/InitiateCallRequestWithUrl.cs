@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("Texml") is { } nullNodeTexml && nullNodeTexml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Texml = null;
+            if (parseNode.GetChildNode("Texml") is null) { _explicitNullValueTexml = default!; _explicitNullProperties?.Remove("Texml"); }
+            else if (parseNode.GetChildNode("Texml") is { } nullNodeTexml && nullNodeTexml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Texml = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The Texml property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
+        public UntypedNode? Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; AdditionalData?.Remove("Texml"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
         private UntypedNode? _explicitNullValueTexml = default!;
 #nullable restore
 #else
-        public UntypedNode Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
+        public UntypedNode Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; AdditionalData?.Remove("Texml"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
         private UntypedNode _explicitNullValueTexml = default!;
 #endif
         /// <summary>

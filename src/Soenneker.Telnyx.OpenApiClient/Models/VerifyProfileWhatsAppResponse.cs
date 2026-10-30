@@ -17,14 +17,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_name") is { } nullNodeAppName && nullNodeAppName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppName = null;
-            if (parseNode.GetChildNode("code_length") is { } nullNodeCodeLength && nullNodeCodeLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeLength = null;
-            if (parseNode.GetChildNode("default_verification_timeout_secs") is { } nullNodeDefaultVerificationTimeoutSecs && nullNodeDefaultVerificationTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultVerificationTimeoutSecs = null;
-            if (parseNode.GetChildNode("messaging_template_id") is { } nullNodeMessagingTemplateId && nullNodeMessagingTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingTemplateId = null;
-            if (parseNode.GetChildNode("sender_phone_number") is { } nullNodeSenderPhoneNumber && nullNodeSenderPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderPhoneNumber = null;
-            if (parseNode.GetChildNode("template_id") is { } nullNodeTemplateId && nullNodeTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateId = null;
-            if (parseNode.GetChildNode("waba_id") is { } nullNodeWabaId && nullNodeWabaId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WabaId = null;
-            if (parseNode.GetChildNode("whitelisted_destinations") is { } nullNodeWhitelistedDestinations && nullNodeWhitelistedDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhitelistedDestinations = null;
+            if (parseNode.GetChildNode("app_name") is null) { _explicitNullValueAppName = default!; _explicitNullProperties?.Remove("app_name"); }
+            else if (parseNode.GetChildNode("app_name") is { } nullNodeAppName && nullNodeAppName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppName = null;
+            if (parseNode.GetChildNode("code_length") is null) { _explicitNullValueCodeLength = default!; _explicitNullProperties?.Remove("code_length"); }
+            else if (parseNode.GetChildNode("code_length") is { } nullNodeCodeLength && nullNodeCodeLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeLength = null;
+            if (parseNode.GetChildNode("default_verification_timeout_secs") is null) { _explicitNullValueDefaultVerificationTimeoutSecs = default!; _explicitNullProperties?.Remove("default_verification_timeout_secs"); }
+            else if (parseNode.GetChildNode("default_verification_timeout_secs") is { } nullNodeDefaultVerificationTimeoutSecs && nullNodeDefaultVerificationTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultVerificationTimeoutSecs = null;
+            if (parseNode.GetChildNode("messaging_template_id") is null) { _explicitNullValueMessagingTemplateId = default!; _explicitNullProperties?.Remove("messaging_template_id"); }
+            else if (parseNode.GetChildNode("messaging_template_id") is { } nullNodeMessagingTemplateId && nullNodeMessagingTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessagingTemplateId = null;
+            if (parseNode.GetChildNode("sender_phone_number") is null) { _explicitNullValueSenderPhoneNumber = default!; _explicitNullProperties?.Remove("sender_phone_number"); }
+            else if (parseNode.GetChildNode("sender_phone_number") is { } nullNodeSenderPhoneNumber && nullNodeSenderPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderPhoneNumber = null;
+            if (parseNode.GetChildNode("template_id") is null) { _explicitNullValueTemplateId = default!; _explicitNullProperties?.Remove("template_id"); }
+            else if (parseNode.GetChildNode("template_id") is { } nullNodeTemplateId && nullNodeTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateId = null;
+            if (parseNode.GetChildNode("waba_id") is null) { _explicitNullValueWabaId = default!; _explicitNullProperties?.Remove("waba_id"); }
+            else if (parseNode.GetChildNode("waba_id") is { } nullNodeWabaId && nullNodeWabaId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WabaId = null;
+            if (parseNode.GetChildNode("whitelisted_destinations") is null) { _explicitNullValueWhitelistedDestinations = default!; _explicitNullProperties?.Remove("whitelisted_destinations"); }
+            else if (parseNode.GetChildNode("whitelisted_destinations") is { } nullNodeWhitelistedDestinations && nullNodeWhitelistedDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhitelistedDestinations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,60 +40,60 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The name that identifies the application requesting 2fa in the verification message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppName { get => _explicitNullValueAppName; set { _explicitNullValueAppName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name"); else _explicitNullProperties?.Remove("app_name"); } }
+        public string? AppName { get => _explicitNullValueAppName; set { _explicitNullValueAppName = value; AdditionalData?.Remove("app_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name"); else _explicitNullProperties?.Remove("app_name"); } }
         private string? _explicitNullValueAppName = default!;
 #nullable restore
 #else
-        public string AppName { get => _explicitNullValueAppName; set { _explicitNullValueAppName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name"); else _explicitNullProperties?.Remove("app_name"); } }
+        public string AppName { get => _explicitNullValueAppName; set { _explicitNullValueAppName = value; AdditionalData?.Remove("app_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_name"); else _explicitNullProperties?.Remove("app_name"); } }
         private string _explicitNullValueAppName = default!;
 #endif
         /// <summary>The length of the verify code to generate.</summary>
-        public int? CodeLength { get => _explicitNullValueCodeLength; set { _explicitNullValueCodeLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_length"); else _explicitNullProperties?.Remove("code_length"); } }
+        public int? CodeLength { get => _explicitNullValueCodeLength; set { _explicitNullValueCodeLength = value; AdditionalData?.Remove("code_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_length"); else _explicitNullProperties?.Remove("code_length"); } }
         private int? _explicitNullValueCodeLength = default!;
         /// <summary>For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.</summary>
-        public int? DefaultVerificationTimeoutSecs { get => _explicitNullValueDefaultVerificationTimeoutSecs; set { _explicitNullValueDefaultVerificationTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_verification_timeout_secs"); else _explicitNullProperties?.Remove("default_verification_timeout_secs"); } }
+        public int? DefaultVerificationTimeoutSecs { get => _explicitNullValueDefaultVerificationTimeoutSecs; set { _explicitNullValueDefaultVerificationTimeoutSecs = value; AdditionalData?.Remove("default_verification_timeout_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_verification_timeout_secs"); else _explicitNullProperties?.Remove("default_verification_timeout_secs"); } }
         private int? _explicitNullValueDefaultVerificationTimeoutSecs = default!;
         /// <summary>The message template identifier selected from /verify_profiles/templates</summary>
-        public Guid? MessagingTemplateId { get => _explicitNullValueMessagingTemplateId; set { _explicitNullValueMessagingTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_template_id"); else _explicitNullProperties?.Remove("messaging_template_id"); } }
+        public Guid? MessagingTemplateId { get => _explicitNullValueMessagingTemplateId; set { _explicitNullValueMessagingTemplateId = value; AdditionalData?.Remove("messaging_template_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messaging_template_id"); else _explicitNullProperties?.Remove("messaging_template_id"); } }
         private Guid? _explicitNullValueMessagingTemplateId = default!;
         /// <summary>Phone number registered on the customer WABA to send OTPs from</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SenderPhoneNumber { get => _explicitNullValueSenderPhoneNumber; set { _explicitNullValueSenderPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_phone_number"); else _explicitNullProperties?.Remove("sender_phone_number"); } }
+        public string? SenderPhoneNumber { get => _explicitNullValueSenderPhoneNumber; set { _explicitNullValueSenderPhoneNumber = value; AdditionalData?.Remove("sender_phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_phone_number"); else _explicitNullProperties?.Remove("sender_phone_number"); } }
         private string? _explicitNullValueSenderPhoneNumber = default!;
 #nullable restore
 #else
-        public string SenderPhoneNumber { get => _explicitNullValueSenderPhoneNumber; set { _explicitNullValueSenderPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_phone_number"); else _explicitNullProperties?.Remove("sender_phone_number"); } }
+        public string SenderPhoneNumber { get => _explicitNullValueSenderPhoneNumber; set { _explicitNullValueSenderPhoneNumber = value; AdditionalData?.Remove("sender_phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_phone_number"); else _explicitNullProperties?.Remove("sender_phone_number"); } }
         private string _explicitNullValueSenderPhoneNumber = default!;
 #endif
         /// <summary>Customer pre-approved authentication template ID registered on Meta</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_id"); else _explicitNullProperties?.Remove("template_id"); } }
+        public string? TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; AdditionalData?.Remove("template_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_id"); else _explicitNullProperties?.Remove("template_id"); } }
         private string? _explicitNullValueTemplateId = default!;
 #nullable restore
 #else
-        public string TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_id"); else _explicitNullProperties?.Remove("template_id"); } }
+        public string TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; AdditionalData?.Remove("template_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_id"); else _explicitNullProperties?.Remove("template_id"); } }
         private string _explicitNullValueTemplateId = default!;
 #endif
         /// <summary>Customer Meta WABA ID for Bring-Your-Own-WABA sending</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WabaId { get => _explicitNullValueWabaId; set { _explicitNullValueWabaId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waba_id"); else _explicitNullProperties?.Remove("waba_id"); } }
+        public string? WabaId { get => _explicitNullValueWabaId; set { _explicitNullValueWabaId = value; AdditionalData?.Remove("waba_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waba_id"); else _explicitNullProperties?.Remove("waba_id"); } }
         private string? _explicitNullValueWabaId = default!;
 #nullable restore
 #else
-        public string WabaId { get => _explicitNullValueWabaId; set { _explicitNullValueWabaId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waba_id"); else _explicitNullProperties?.Remove("waba_id"); } }
+        public string WabaId { get => _explicitNullValueWabaId; set { _explicitNullValueWabaId = value; AdditionalData?.Remove("waba_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waba_id"); else _explicitNullProperties?.Remove("waba_id"); } }
         private string _explicitNullValueWabaId = default!;
 #endif
         /// <summary>Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[&quot;*&quot;]`, all destinations will be allowed. **Conditionally required:** this field must be provided when your organization is configured to require explicit whitelisted destinations; otherwise it is optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
+        public List<string>? WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; AdditionalData?.Remove("whitelisted_destinations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
         private List<string>? _explicitNullValueWhitelistedDestinations = default!;
 #nullable restore
 #else
-        public List<string> WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
+        public List<string> WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; AdditionalData?.Remove("whitelisted_destinations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
         private List<string> _explicitNullValueWhitelistedDestinations = default!;
 #endif
         /// <summary>

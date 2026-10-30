@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cnam_listing_details") is { } nullNodeCnamListingDetails && nullNodeCnamListingDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListingDetails = null;
-            if (parseNode.GetChildNode("cnam_listing_enabled") is { } nullNodeCnamListingEnabled && nullNodeCnamListingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListingEnabled = null;
+            if (parseNode.GetChildNode("cnam_listing_details") is null) { _explicitNullValueCnamListingDetails = default!; _explicitNullProperties?.Remove("cnam_listing_details"); }
+            else if (parseNode.GetChildNode("cnam_listing_details") is { } nullNodeCnamListingDetails && nullNodeCnamListingDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListingDetails = null;
+            if (parseNode.GetChildNode("cnam_listing_enabled") is null) { _explicitNullValueCnamListingEnabled = default!; _explicitNullProperties?.Remove("cnam_listing_enabled"); }
+            else if (parseNode.GetChildNode("cnam_listing_enabled") is { } nullNodeCnamListingEnabled && nullNodeCnamListingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListingEnabled = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The CNAM listing details for this number. Must be alphanumeric characters or spaces with a maximum length of 15. Requires cnam_listing_enabled to also be set to true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CnamListingDetails { get => _explicitNullValueCnamListingDetails; set { _explicitNullValueCnamListingDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing_details"); else _explicitNullProperties?.Remove("cnam_listing_details"); } }
+        public string? CnamListingDetails { get => _explicitNullValueCnamListingDetails; set { _explicitNullValueCnamListingDetails = value; AdditionalData?.Remove("cnam_listing_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing_details"); else _explicitNullProperties?.Remove("cnam_listing_details"); } }
         private string? _explicitNullValueCnamListingDetails = default!;
 #nullable restore
 #else
-        public string CnamListingDetails { get => _explicitNullValueCnamListingDetails; set { _explicitNullValueCnamListingDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing_details"); else _explicitNullProperties?.Remove("cnam_listing_details"); } }
+        public string CnamListingDetails { get => _explicitNullValueCnamListingDetails; set { _explicitNullValueCnamListingDetails = value; AdditionalData?.Remove("cnam_listing_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing_details"); else _explicitNullProperties?.Remove("cnam_listing_details"); } }
         private string _explicitNullValueCnamListingDetails = default!;
 #endif
         /// <summary>Enables CNAM listings for this number. Requires cnam_listing_details to also be set.</summary>
-        public bool? CnamListingEnabled { get => _explicitNullValueCnamListingEnabled; set { _explicitNullValueCnamListingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing_enabled"); else _explicitNullProperties?.Remove("cnam_listing_enabled"); } }
+        public bool? CnamListingEnabled { get => _explicitNullValueCnamListingEnabled; set { _explicitNullValueCnamListingEnabled = value; AdditionalData?.Remove("cnam_listing_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing_enabled"); else _explicitNullProperties?.Remove("cnam_listing_enabled"); } }
         private bool? _explicitNullValueCnamListingEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing"/> and sets the default values.

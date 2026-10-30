@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("next_after") is { } nullNodeNextAfter && nullNodeNextAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextAfter = null;
+            if (parseNode.GetChildNode("next_after") is null) { _explicitNullValueNextAfter = default!; _explicitNullProperties?.Remove("next_after"); }
+            else if (parseNode.GetChildNode("next_after") is { } nullNodeNextAfter && nullNodeNextAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextAfter = null;
         }
 
         /// <summary>Cursor to pass as `after` on the next request, or null when the response contains no segments.</summary>

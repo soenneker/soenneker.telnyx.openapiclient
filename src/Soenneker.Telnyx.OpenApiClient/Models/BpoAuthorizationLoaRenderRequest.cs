@@ -17,23 +17,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bpo_enterprise_id") is { } nullNodeBpoEnterpriseId && nullNodeBpoEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BpoEnterpriseId = null;
-            if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
+            if (parseNode.GetChildNode("bpo_enterprise_id") is null) { _explicitNullValueBpoEnterpriseId = default!; _explicitNullProperties?.Remove("bpo_enterprise_id"); }
+            else if (parseNode.GetChildNode("bpo_enterprise_id") is { } nullNodeBpoEnterpriseId && nullNodeBpoEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BpoEnterpriseId = null;
+            if (parseNode.GetChildNode("signature") is null) { _explicitNullValueSignature = default!; _explicitNullProperties?.Remove("signature"); }
+            else if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The approved BPO enterprise the Brand Owner is authorizing. Must be a BPO account on the caller&apos;s organization that has already been approved.</summary>
-        public Guid? BpoEnterpriseId { get => _explicitNullValueBpoEnterpriseId; set { _explicitNullValueBpoEnterpriseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bpo_enterprise_id"); else _explicitNullProperties?.Remove("bpo_enterprise_id"); } }
+        public Guid? BpoEnterpriseId { get => _explicitNullValueBpoEnterpriseId; set { _explicitNullValueBpoEnterpriseId = value; AdditionalData?.Remove("bpo_enterprise_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bpo_enterprise_id"); else _explicitNullProperties?.Remove("bpo_enterprise_id"); } }
         private Guid? _explicitNullValueBpoEnterpriseId = default!;
         /// <summary>Optional. When provided the rendered PDF embeds the signature image, printed name, and signed-at date. When absent the PDF is returned unsigned so the Brand Owner can sign externally and the BPO can upload it via the Documents API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationLoaRenderRequestSignature? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationLoaRenderRequestSignature? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; AdditionalData?.Remove("signature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationLoaRenderRequestSignature? _explicitNullValueSignature = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationLoaRenderRequestSignature Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationLoaRenderRequestSignature Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; AdditionalData?.Remove("signature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationLoaRenderRequestSignature _explicitNullValueSignature = default!;
 #endif
         /// <summary>

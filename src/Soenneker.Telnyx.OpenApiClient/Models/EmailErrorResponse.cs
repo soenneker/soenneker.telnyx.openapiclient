@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
-            if (parseNode.GetChildNode("suppressed") is { } nullNodeSuppressed && nullNodeSuppressed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suppressed = null;
+            if (parseNode.GetChildNode("errors") is null) { _explicitNullValueErrors = default!; _explicitNullProperties?.Remove("errors"); }
+            else if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("suppressed") is null) { _explicitNullValueSuppressed = default!; _explicitNullProperties?.Remove("suppressed"); }
+            else if (parseNode.GetChildNode("suppressed") is { } nullNodeSuppressed && nullNodeSuppressed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suppressed = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,11 +29,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject> _explicitNullValueErrors = default!;
 #endif
         /// <summary>The primary error message.</summary>
@@ -39,11 +41,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Present when every recipient is suppressed, so the request is rejected and no message is created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient>? Suppressed { get => _explicitNullValueSuppressed; set { _explicitNullValueSuppressed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suppressed"); else _explicitNullProperties?.Remove("suppressed"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient>? Suppressed { get => _explicitNullValueSuppressed; set { _explicitNullValueSuppressed = value; AdditionalData?.Remove("suppressed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suppressed"); else _explicitNullProperties?.Remove("suppressed"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient>? _explicitNullValueSuppressed = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient> Suppressed { get => _explicitNullValueSuppressed; set { _explicitNullValueSuppressed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suppressed"); else _explicitNullProperties?.Remove("suppressed"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient> Suppressed { get => _explicitNullValueSuppressed; set { _explicitNullValueSuppressed = value; AdditionalData?.Remove("suppressed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suppressed"); else _explicitNullProperties?.Remove("suppressed"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.SuppressedRecipient> _explicitNullValueSuppressed = default!;
 #endif
         /// <summary>

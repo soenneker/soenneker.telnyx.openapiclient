@@ -17,26 +17,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activate_at") is { } nullNodeActivateAt && nullNodeActivateAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivateAt = null;
-            if (parseNode.GetChildNode("activation_type") is { } nullNodeActivationType && nullNodeActivationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationType = null;
-            if (parseNode.GetChildNode("activation_windows") is { } nullNodeActivationWindows && nullNodeActivationWindows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationWindows = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("activate_at") is null) { _explicitNullValueActivateAt = default!; _explicitNullProperties?.Remove("activate_at"); }
+            else if (parseNode.GetChildNode("activate_at") is { } nullNodeActivateAt && nullNodeActivateAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivateAt = null;
+            if (parseNode.GetChildNode("activation_type") is null) { _explicitNullValueActivationType = default!; _explicitNullProperties?.Remove("activation_type"); }
+            else if (parseNode.GetChildNode("activation_type") is { } nullNodeActivationType && nullNodeActivationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationType = null;
+            if (parseNode.GetChildNode("activation_windows") is null) { _explicitNullValueActivationWindows = default!; _explicitNullProperties?.Remove("activation_windows"); }
+            else if (parseNode.GetChildNode("activation_windows") is { } nullNodeActivationWindows && nullNodeActivationWindows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationWindows = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>ISO 8601 formatted date indicating when the activation job should be executed. This time should be between some activation window.</summary>
-        public DateTimeOffset? ActivateAt { get => _explicitNullValueActivateAt; set { _explicitNullValueActivateAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activate_at"); else _explicitNullProperties?.Remove("activate_at"); } }
+        public DateTimeOffset? ActivateAt { get => _explicitNullValueActivateAt; set { _explicitNullValueActivateAt = value; AdditionalData?.Remove("activate_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activate_at"); else _explicitNullProperties?.Remove("activate_at"); } }
         private DateTimeOffset? _explicitNullValueActivateAt = default!;
         /// <summary>Specifies the type of this activation job</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType? ActivationType { get => _explicitNullValueActivationType; set { _explicitNullValueActivationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_type"); else _explicitNullProperties?.Remove("activation_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType? ActivationType { get => _explicitNullValueActivationType; set { _explicitNullValueActivationType = value; AdditionalData?.Remove("activation_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_type"); else _explicitNullProperties?.Remove("activation_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType? _explicitNullValueActivationType = default!;
         /// <summary>List of allowed activation windows for this activation job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>? ActivationWindows { get => _explicitNullValueActivationWindows; set { _explicitNullValueActivationWindows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_windows"); else _explicitNullProperties?.Remove("activation_windows"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>? ActivationWindows { get => _explicitNullValueActivationWindows; set { _explicitNullValueActivationWindows = value; AdditionalData?.Remove("activation_windows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_windows"); else _explicitNullProperties?.Remove("activation_windows"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>? _explicitNullValueActivationWindows = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem> ActivationWindows { get => _explicitNullValueActivationWindows; set { _explicitNullValueActivationWindows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_windows"); else _explicitNullProperties?.Remove("activation_windows"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem> ActivationWindows { get => _explicitNullValueActivationWindows; set { _explicitNullValueActivationWindows = value; AdditionalData?.Remove("activation_windows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_windows"); else _explicitNullProperties?.Remove("activation_windows"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem> _explicitNullValueActivationWindows = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Specifies the status of this activation job</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus? _explicitNullValueStatus = default!;
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
@@ -84,12 +88,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activate_at", n => { ActivateAt = n.GetDateTimeOffsetValue(); } },
-                { "activation_type", n => { ActivationType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType>(); } },
+                { "activation_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueActivationType = default; _explicitNullProperties?.Remove("activation_type"); AdditionalData["activation_type"] = unknown; } else { ActivationType = parsed; AdditionalData.Remove("activation_type"); } } },
                 { "activation_windows", n => { ActivationWindows = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobActivationWindowsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersActivationJobStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

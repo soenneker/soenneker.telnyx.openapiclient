@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("call_control_id") is { } nullNodeCallControlId && nullNodeCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlId = null;
-            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
-            if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
-            if (parseNode.GetChildNode("supervisor_role") is { } nullNodeSupervisorRole && nullNodeSupervisorRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupervisorRole = null;
-            if (parseNode.GetChildNode("whisper_call_control_ids") is { } nullNodeWhisperCallControlIds && nullNodeWhisperCallControlIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhisperCallControlIds = null;
+            if (parseNode.GetChildNode("call_control_id") is null) { _explicitNullValueCallControlId = default!; _explicitNullProperties?.Remove("call_control_id"); }
+            else if (parseNode.GetChildNode("call_control_id") is { } nullNodeCallControlId && nullNodeCallControlId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlId = null;
+            if (parseNode.GetChildNode("command_id") is null) { _explicitNullValueCommandId = default!; _explicitNullProperties?.Remove("command_id"); }
+            else if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
+            else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
+            if (parseNode.GetChildNode("supervisor_role") is null) { _explicitNullValueSupervisorRole = default!; _explicitNullProperties?.Remove("supervisor_role"); }
+            else if (parseNode.GetChildNode("supervisor_role") is { } nullNodeSupervisorRole && nullNodeSupervisorRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupervisorRole = null;
+            if (parseNode.GetChildNode("whisper_call_control_ids") is null) { _explicitNullValueWhisperCallControlIds = default!; _explicitNullProperties?.Remove("whisper_call_control_ids"); }
+            else if (parseNode.GetChildNode("whisper_call_control_ids") is { } nullNodeWhisperCallControlIds && nullNodeWhisperCallControlIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhisperCallControlIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,37 +34,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Unique identifier and token for controlling the call</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        public string? CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; AdditionalData?.Remove("call_control_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
         private string? _explicitNullValueCallControlId = default!;
 #nullable restore
 #else
-        public string CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
+        public string CallControlId { get => _explicitNullValueCallControlId; set { _explicitNullValueCallControlId = value; AdditionalData?.Remove("call_control_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_id"); else _explicitNullProperties?.Remove("call_control_id"); } }
         private string _explicitNullValueCallControlId = default!;
 #endif
         /// <summary>Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? _explicitNullValueRegion = default!;
         /// <summary>Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. &quot;barge&quot; means the supervisor enters the conference as a normal participant. This is the same as &quot;none&quot;. &quot;monitor&quot; means the supervisor is muted but can hear all participants. &quot;whisper&quot; means that only the specified &quot;whisper_call_control_ids&quot; can hear the supervisor. Defaults to &quot;none&quot;.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole? SupervisorRole { get => _explicitNullValueSupervisorRole; set { _explicitNullValueSupervisorRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervisor_role"); else _explicitNullProperties?.Remove("supervisor_role"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole? SupervisorRole { get => _explicitNullValueSupervisorRole; set { _explicitNullValueSupervisorRole = value; AdditionalData?.Remove("supervisor_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervisor_role"); else _explicitNullProperties?.Remove("supervisor_role"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole? _explicitNullValueSupervisorRole = default!;
         /// <summary>Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? WhisperCallControlIds { get => _explicitNullValueWhisperCallControlIds; set { _explicitNullValueWhisperCallControlIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whisper_call_control_ids"); else _explicitNullProperties?.Remove("whisper_call_control_ids"); } }
+        public List<string>? WhisperCallControlIds { get => _explicitNullValueWhisperCallControlIds; set { _explicitNullValueWhisperCallControlIds = value; AdditionalData?.Remove("whisper_call_control_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whisper_call_control_ids"); else _explicitNullProperties?.Remove("whisper_call_control_ids"); } }
         private List<string>? _explicitNullValueWhisperCallControlIds = default!;
 #nullable restore
 #else
-        public List<string> WhisperCallControlIds { get => _explicitNullValueWhisperCallControlIds; set { _explicitNullValueWhisperCallControlIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whisper_call_control_ids"); else _explicitNullProperties?.Remove("whisper_call_control_ids"); } }
+        public List<string> WhisperCallControlIds { get => _explicitNullValueWhisperCallControlIds; set { _explicitNullValueWhisperCallControlIds = value; AdditionalData?.Remove("whisper_call_control_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whisper_call_control_ids"); else _explicitNullProperties?.Remove("whisper_call_control_ids"); } }
         private List<string> _explicitNullValueWhisperCallControlIds = default!;
 #endif
         /// <summary>
@@ -89,8 +94,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
-                { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole>(); } },
+                { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
+                { "supervisor_role", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequestSupervisorRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSupervisorRole = default; _explicitNullProperties?.Remove("supervisor_role"); AdditionalData["supervisor_role"] = unknown; } else { SupervisorRole = parsed; AdditionalData.Remove("supervisor_role"); } } },
                 { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }

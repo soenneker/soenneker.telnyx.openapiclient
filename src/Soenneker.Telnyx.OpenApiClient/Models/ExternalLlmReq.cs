@@ -17,71 +17,78 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("authentication_method") is { } nullNodeAuthenticationMethod && nullNodeAuthenticationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationMethod = null;
-            if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
-            if (parseNode.GetChildNode("certificate_ref") is { } nullNodeCertificateRef && nullNodeCertificateRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateRef = null;
-            if (parseNode.GetChildNode("forward_metadata") is { } nullNodeForwardMetadata && nullNodeForwardMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardMetadata = null;
-            if (parseNode.GetChildNode("llm_api_key_ref") is { } nullNodeLlmApiKeyRef && nullNodeLlmApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeyRef = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("token_retrieval_url") is { } nullNodeTokenRetrievalUrl && nullNodeTokenRetrievalUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenRetrievalUrl = null;
+            if (parseNode.GetChildNode("authentication_method") is null) { _explicitNullValueAuthenticationMethod = default!; _explicitNullProperties?.Remove("authentication_method"); }
+            else if (parseNode.GetChildNode("authentication_method") is { } nullNodeAuthenticationMethod && nullNodeAuthenticationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationMethod = null;
+            if (parseNode.GetChildNode("base_url") is null) { _explicitNullValueBaseUrl = default!; _explicitNullProperties?.Remove("base_url"); }
+            else if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
+            if (parseNode.GetChildNode("certificate_ref") is null) { _explicitNullValueCertificateRef = default!; _explicitNullProperties?.Remove("certificate_ref"); }
+            else if (parseNode.GetChildNode("certificate_ref") is { } nullNodeCertificateRef && nullNodeCertificateRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateRef = null;
+            if (parseNode.GetChildNode("forward_metadata") is null) { _explicitNullValueForwardMetadata = default!; _explicitNullProperties?.Remove("forward_metadata"); }
+            else if (parseNode.GetChildNode("forward_metadata") is { } nullNodeForwardMetadata && nullNodeForwardMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardMetadata = null;
+            if (parseNode.GetChildNode("llm_api_key_ref") is null) { _explicitNullValueLlmApiKeyRef = default!; _explicitNullProperties?.Remove("llm_api_key_ref"); }
+            else if (parseNode.GetChildNode("llm_api_key_ref") is { } nullNodeLlmApiKeyRef && nullNodeLlmApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeyRef = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("token_retrieval_url") is null) { _explicitNullValueTokenRetrievalUrl = default!; _explicitNullProperties?.Remove("token_retrieval_url"); }
+            else if (parseNode.GetChildNode("token_retrieval_url") is { } nullNodeTokenRetrievalUrl && nullNodeTokenRetrievalUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenRetrievalUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Authentication method used when connecting to the external LLM endpoint.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod? AuthenticationMethod { get => _explicitNullValueAuthenticationMethod; set { _explicitNullValueAuthenticationMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authentication_method"); else _explicitNullProperties?.Remove("authentication_method"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod? AuthenticationMethod { get => _explicitNullValueAuthenticationMethod; set { _explicitNullValueAuthenticationMethod = value; AdditionalData?.Remove("authentication_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authentication_method"); else _explicitNullProperties?.Remove("authentication_method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod? _explicitNullValueAuthenticationMethod = default!;
         /// <summary>Base URL for the external LLM endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        public string? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string? _explicitNullValueBaseUrl = default!;
 #nullable restore
 #else
-        public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string _explicitNullValueBaseUrl = default!;
 #endif
         /// <summary>Integration secret identifier for the client certificate used with certificate authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CertificateRef { get => _explicitNullValueCertificateRef; set { _explicitNullValueCertificateRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ref"); else _explicitNullProperties?.Remove("certificate_ref"); } }
+        public string? CertificateRef { get => _explicitNullValueCertificateRef; set { _explicitNullValueCertificateRef = value; AdditionalData?.Remove("certificate_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ref"); else _explicitNullProperties?.Remove("certificate_ref"); } }
         private string? _explicitNullValueCertificateRef = default!;
 #nullable restore
 #else
-        public string CertificateRef { get => _explicitNullValueCertificateRef; set { _explicitNullValueCertificateRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ref"); else _explicitNullProperties?.Remove("certificate_ref"); } }
+        public string CertificateRef { get => _explicitNullValueCertificateRef; set { _explicitNullValueCertificateRef = value; AdditionalData?.Remove("certificate_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ref"); else _explicitNullProperties?.Remove("certificate_ref"); } }
         private string _explicitNullValueCertificateRef = default!;
 #endif
         /// <summary>When `true`, Telnyx forwards the assistant&apos;s dynamic variables to the external LLM endpoint as a top-level `extra_metadata` object on the chat completion request body. Defaults to `false`. Example payload sent to the external endpoint: `{&quot;extra_metadata&quot;: {&quot;customer_name&quot;: &quot;Jane&quot;, &quot;account_id&quot;: &quot;acct_789&quot;, &quot;telnyx_agent_target&quot;: &quot;+13125550100&quot;, &quot;telnyx_end_user_target&quot;: &quot;+13125550123&quot;}}`. Distinct from OpenAI&apos;s native `metadata` field, which has its own size and type limits.</summary>
-        public bool? ForwardMetadata { get => _explicitNullValueForwardMetadata; set { _explicitNullValueForwardMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forward_metadata"); else _explicitNullProperties?.Remove("forward_metadata"); } }
+        public bool? ForwardMetadata { get => _explicitNullValueForwardMetadata; set { _explicitNullValueForwardMetadata = value; AdditionalData?.Remove("forward_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forward_metadata"); else _explicitNullProperties?.Remove("forward_metadata"); } }
         private bool? _explicitNullValueForwardMetadata = default!;
         /// <summary>Integration secret identifier for the external LLM API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        public string? LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; AdditionalData?.Remove("llm_api_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
         private string? _explicitNullValueLlmApiKeyRef = default!;
 #nullable restore
 #else
-        public string LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        public string LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; AdditionalData?.Remove("llm_api_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
         private string _explicitNullValueLlmApiKeyRef = default!;
 #endif
         /// <summary>Model identifier to use with the external LLM endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string _explicitNullValueModel = default!;
 #endif
         /// <summary>URL used to retrieve an access token when certificate authentication is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenRetrievalUrl { get => _explicitNullValueTokenRetrievalUrl; set { _explicitNullValueTokenRetrievalUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_retrieval_url"); else _explicitNullProperties?.Remove("token_retrieval_url"); } }
+        public string? TokenRetrievalUrl { get => _explicitNullValueTokenRetrievalUrl; set { _explicitNullValueTokenRetrievalUrl = value; AdditionalData?.Remove("token_retrieval_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_retrieval_url"); else _explicitNullProperties?.Remove("token_retrieval_url"); } }
         private string? _explicitNullValueTokenRetrievalUrl = default!;
 #nullable restore
 #else
-        public string TokenRetrievalUrl { get => _explicitNullValueTokenRetrievalUrl; set { _explicitNullValueTokenRetrievalUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_retrieval_url"); else _explicitNullProperties?.Remove("token_retrieval_url"); } }
+        public string TokenRetrievalUrl { get => _explicitNullValueTokenRetrievalUrl; set { _explicitNullValueTokenRetrievalUrl = value; AdditionalData?.Remove("token_retrieval_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_retrieval_url"); else _explicitNullProperties?.Remove("token_retrieval_url"); } }
         private string _explicitNullValueTokenRetrievalUrl = default!;
 #endif
         /// <summary>
@@ -110,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod>(); } },
+                { "authentication_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthenticationMethod = default; _explicitNullProperties?.Remove("authentication_method"); AdditionalData["authentication_method"] = unknown; } else { AuthenticationMethod = parsed; AdditionalData.Remove("authentication_method"); } } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "certificate_ref", n => { CertificateRef = n.GetStringValue(); } },
                 { "forward_metadata", n => { ForwardMetadata = n.GetBoolValue(); } },

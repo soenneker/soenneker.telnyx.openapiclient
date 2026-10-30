@@ -18,10 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
-            if (parseNode.GetChildNode("product_dimensions") is { } nullNodeProductDimensions && nullNodeProductDimensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductDimensions = null;
-            if (parseNode.GetChildNode("product_metrics") is { } nullNodeProductMetrics && nullNodeProductMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductMetrics = null;
-            if (parseNode.GetChildNode("record_types") is { } nullNodeRecordTypes && nullNodeRecordTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTypes = null;
+            if (parseNode.GetChildNode("product") is null) { _explicitNullValueProduct = default!; _explicitNullProperties?.Remove("product"); }
+            else if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+            if (parseNode.GetChildNode("product_dimensions") is null) { _explicitNullValueProductDimensions = default!; _explicitNullProperties?.Remove("product_dimensions"); }
+            else if (parseNode.GetChildNode("product_dimensions") is { } nullNodeProductDimensions && nullNodeProductDimensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductDimensions = null;
+            if (parseNode.GetChildNode("product_metrics") is null) { _explicitNullValueProductMetrics = default!; _explicitNullProperties?.Remove("product_metrics"); }
+            else if (parseNode.GetChildNode("product_metrics") is { } nullNodeProductMetrics && nullNodeProductMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductMetrics = null;
+            if (parseNode.GetChildNode("record_types") is null) { _explicitNullValueRecordTypes = default!; _explicitNullProperties?.Remove("record_types"); }
+            else if (parseNode.GetChildNode("record_types") is { } nullNodeRecordTypes && nullNodeRecordTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTypes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Telnyx Product</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        public string? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; AdditionalData?.Remove("product"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
         private string? _explicitNullValueProduct = default!;
 #nullable restore
 #else
-        public string Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        public string Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; AdditionalData?.Remove("product"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
         private string _explicitNullValueProduct = default!;
 #endif
         /// <summary>Telnyx Product Dimensions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
+        public List<string>? ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; AdditionalData?.Remove("product_dimensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
         private List<string>? _explicitNullValueProductDimensions = default!;
 #nullable restore
 #else
-        public List<string> ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
+        public List<string> ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; AdditionalData?.Remove("product_dimensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
         private List<string> _explicitNullValueProductDimensions = default!;
 #endif
         /// <summary>Telnyx Product Metrics</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
+        public List<string>? ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; AdditionalData?.Remove("product_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
         private List<string>? _explicitNullValueProductMetrics = default!;
 #nullable restore
 #else
-        public List<string> ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
+        public List<string> ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; AdditionalData?.Remove("product_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
         private List<string> _explicitNullValueProductMetrics = default!;
 #endif
         /// <summary>Subproducts if applicable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsRecordType>? RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_types"); else _explicitNullProperties?.Remove("record_types"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsRecordType>? RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; AdditionalData?.Remove("record_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_types"); else _explicitNullProperties?.Remove("record_types"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsRecordType>? _explicitNullValueRecordTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsRecordType> RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_types"); else _explicitNullProperties?.Remove("record_types"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsRecordType> RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; AdditionalData?.Remove("record_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_types"); else _explicitNullProperties?.Remove("record_types"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsRecordType> _explicitNullValueRecordTypes = default!;
 #endif
         /// <summary>

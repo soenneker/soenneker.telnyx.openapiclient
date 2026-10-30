@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("user_comment") is { } nullNodeUserComment && nullNodeUserComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserComment = null;
-            if (parseNode.GetChildNode("user_rating") is { } nullNodeUserRating && nullNodeUserRating.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserRating = null;
+            if (parseNode.GetChildNode("user_comment") is null) { _explicitNullValueUserComment = default!; _explicitNullProperties?.Remove("user_comment"); }
+            else if (parseNode.GetChildNode("user_comment") is { } nullNodeUserComment && nullNodeUserComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserComment = null;
+            if (parseNode.GetChildNode("user_rating") is null) { _explicitNullValueUserRating = default!; _explicitNullProperties?.Remove("user_rating"); }
+            else if (parseNode.GetChildNode("user_rating") is { } nullNodeUserRating && nullNodeUserRating.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserRating = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A comment related to the customer rating.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserComment { get => _explicitNullValueUserComment; set { _explicitNullValueUserComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_comment"); else _explicitNullProperties?.Remove("user_comment"); } }
+        public string? UserComment { get => _explicitNullValueUserComment; set { _explicitNullValueUserComment = value; AdditionalData?.Remove("user_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_comment"); else _explicitNullProperties?.Remove("user_comment"); } }
         private string? _explicitNullValueUserComment = default!;
 #nullable restore
 #else
-        public string UserComment { get => _explicitNullValueUserComment; set { _explicitNullValueUserComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_comment"); else _explicitNullProperties?.Remove("user_comment"); } }
+        public string UserComment { get => _explicitNullValueUserComment; set { _explicitNullValueUserComment = value; AdditionalData?.Remove("user_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_comment"); else _explicitNullProperties?.Remove("user_comment"); } }
         private string _explicitNullValueUserComment = default!;
 #endif
         /// <summary>Once an order is ported, cancellation is requested or the request is cancelled, the user may rate their experience</summary>
-        public int? UserRating { get => _explicitNullValueUserRating; set { _explicitNullValueUserRating = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_rating"); else _explicitNullProperties?.Remove("user_rating"); } }
+        public int? UserRating { get => _explicitNullValueUserRating; set { _explicitNullValueUserRating = value; AdditionalData?.Remove("user_rating"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_rating"); else _explicitNullProperties?.Remove("user_rating"); } }
         private int? _explicitNullValueUserRating = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderUserFeedback"/> and sets the default values.

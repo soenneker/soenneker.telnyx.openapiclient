@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("header_handle") is { } nullNodeHeaderHandle && nullNodeHeaderHandle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderHandle = null;
-            if (parseNode.GetChildNode("header_text") is { } nullNodeHeaderText && nullNodeHeaderText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderText = null;
+            if (parseNode.GetChildNode("header_handle") is null) { _explicitNullValueHeaderHandle = default!; _explicitNullProperties?.Remove("header_handle"); }
+            else if (parseNode.GetChildNode("header_handle") is { } nullNodeHeaderHandle && nullNodeHeaderHandle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderHandle = null;
+            if (parseNode.GetChildNode("header_text") is null) { _explicitNullValueHeaderText = default!; _explicitNullProperties?.Remove("header_text"); }
+            else if (parseNode.GetChildNode("header_text") is { } nullNodeHeaderText && nullNodeHeaderText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderText = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Media handle for IMAGE, VIDEO, or DOCUMENT headers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HeaderHandle { get => _explicitNullValueHeaderHandle; set { _explicitNullValueHeaderHandle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_handle"); else _explicitNullProperties?.Remove("header_handle"); } }
+        public List<string>? HeaderHandle { get => _explicitNullValueHeaderHandle; set { _explicitNullValueHeaderHandle = value; AdditionalData?.Remove("header_handle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_handle"); else _explicitNullProperties?.Remove("header_handle"); } }
         private List<string>? _explicitNullValueHeaderHandle = default!;
 #nullable restore
 #else
-        public List<string> HeaderHandle { get => _explicitNullValueHeaderHandle; set { _explicitNullValueHeaderHandle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_handle"); else _explicitNullProperties?.Remove("header_handle"); } }
+        public List<string> HeaderHandle { get => _explicitNullValueHeaderHandle; set { _explicitNullValueHeaderHandle = value; AdditionalData?.Remove("header_handle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_handle"); else _explicitNullProperties?.Remove("header_handle"); } }
         private List<string> _explicitNullValueHeaderHandle = default!;
 #endif
         /// <summary>Sample values for text header variables.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HeaderText { get => _explicitNullValueHeaderText; set { _explicitNullValueHeaderText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_text"); else _explicitNullProperties?.Remove("header_text"); } }
+        public List<string>? HeaderText { get => _explicitNullValueHeaderText; set { _explicitNullValueHeaderText = value; AdditionalData?.Remove("header_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_text"); else _explicitNullProperties?.Remove("header_text"); } }
         private List<string>? _explicitNullValueHeaderText = default!;
 #nullable restore
 #else
-        public List<string> HeaderText { get => _explicitNullValueHeaderText; set { _explicitNullValueHeaderText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_text"); else _explicitNullProperties?.Remove("header_text"); } }
+        public List<string> HeaderText { get => _explicitNullValueHeaderText; set { _explicitNullValueHeaderText = value; AdditionalData?.Remove("header_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header_text"); else _explicitNullProperties?.Remove("header_text"); } }
         private List<string> _explicitNullValueHeaderText = default!;
 #endif
         /// <summary>

@@ -18,21 +18,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
-            if (parseNode.GetChildNode("dps_limit") is { } nullNodeDpsLimit && nullNodeDpsLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DpsLimit = null;
-            if (parseNode.GetChildNode("hourly_limit") is { } nullNodeHourlyLimit && nullNodeHourlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HourlyLimit = null;
+            if (parseNode.GetChildNode("daily_limit") is null) { _explicitNullValueDailyLimit = default!; _explicitNullProperties?.Remove("daily_limit"); }
+            else if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
+            if (parseNode.GetChildNode("dps_limit") is null) { _explicitNullValueDpsLimit = default!; _explicitNullProperties?.Remove("dps_limit"); }
+            else if (parseNode.GetChildNode("dps_limit") is { } nullNodeDpsLimit && nullNodeDpsLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DpsLimit = null;
+            if (parseNode.GetChildNode("hourly_limit") is null) { _explicitNullValueHourlyLimit = default!; _explicitNullProperties?.Remove("hourly_limit"); }
+            else if (parseNode.GetChildNode("hourly_limit") is { } nullNodeHourlyLimit && nullNodeHourlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HourlyLimit = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Rejected by a daily limit.</summary>
-        public int? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
+        public int? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; AdditionalData?.Remove("daily_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
         private int? _explicitNullValueDailyLimit = default!;
         /// <summary>Rejected by the dials-per-second limit.</summary>
-        public int? DpsLimit { get => _explicitNullValueDpsLimit; set { _explicitNullValueDpsLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dps_limit"); else _explicitNullProperties?.Remove("dps_limit"); } }
+        public int? DpsLimit { get => _explicitNullValueDpsLimit; set { _explicitNullValueDpsLimit = value; AdditionalData?.Remove("dps_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dps_limit"); else _explicitNullProperties?.Remove("dps_limit"); } }
         private int? _explicitNullValueDpsLimit = default!;
         /// <summary>Rejected by an hourly limit.</summary>
-        public int? HourlyLimit { get => _explicitNullValueHourlyLimit; set { _explicitNullValueHourlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hourly_limit"); else _explicitNullProperties?.Remove("hourly_limit"); } }
+        public int? HourlyLimit { get => _explicitNullValueHourlyLimit; set { _explicitNullValueHourlyLimit = value; AdditionalData?.Remove("hourly_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hourly_limit"); else _explicitNullProperties?.Remove("hourly_limit"); } }
         private int? _explicitNullValueHourlyLimit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricDialsRejected"/> and sets the default values.

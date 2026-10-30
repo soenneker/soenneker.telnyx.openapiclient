@@ -18,17 +18,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ttfb_eagerness") is { } nullNodeTtfbEagerness && nullNodeTtfbEagerness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TtfbEagerness = null;
-            if (parseNode.GetChildNode("voice_id") is { } nullNodeVoiceId && nullNodeVoiceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceId = null;
+            if (parseNode.GetChildNode("ttfb_eagerness") is null) { _explicitNullValueTtfbEagerness = default!; _explicitNullProperties?.Remove("ttfb_eagerness"); }
+            else if (parseNode.GetChildNode("ttfb_eagerness") is { } nullNodeTtfbEagerness && nullNodeTtfbEagerness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TtfbEagerness = null;
+            if (parseNode.GetChildNode("voice_id") is null) { _explicitNullValueVoiceId = default!; _explicitNullProperties?.Remove("voice_id"); }
+            else if (parseNode.GetChildNode("voice_id") is { } nullNodeVoiceId && nullNodeVoiceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time-to-first-byte eagerness, trading synthesis latency for quality.</summary>
-        public float? TtfbEagerness { get => _explicitNullValueTtfbEagerness; set { _explicitNullValueTtfbEagerness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttfb_eagerness"); else _explicitNullProperties?.Remove("ttfb_eagerness"); } }
+        public float? TtfbEagerness { get => _explicitNullValueTtfbEagerness; set { _explicitNullValueTtfbEagerness = value; AdditionalData?.Remove("ttfb_eagerness"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttfb_eagerness"); else _explicitNullProperties?.Remove("ttfb_eagerness"); } }
         private float? _explicitNullValueTtfbEagerness = default!;
         /// <summary>Humain voice identifier.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParamsVoiceId? VoiceId { get => _explicitNullValueVoiceId; set { _explicitNullValueVoiceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_id"); else _explicitNullProperties?.Remove("voice_id"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParamsVoiceId? VoiceId { get => _explicitNullValueVoiceId; set { _explicitNullValueVoiceId = value; AdditionalData?.Remove("voice_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_id"); else _explicitNullProperties?.Remove("voice_id"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParamsVoiceId? _explicitNullValueVoiceId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParams"/> and sets the default values.
@@ -56,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ttfb_eagerness", n => { TtfbEagerness = n.GetFloatValue(); } },
-                { "voice_id", n => { VoiceId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParamsVoiceId>(); } },
+                { "voice_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HumainProviderParamsVoiceId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVoiceId = default; _explicitNullProperties?.Remove("voice_id"); AdditionalData["voice_id"] = unknown; } else { VoiceId = parsed; AdditionalData.Remove("voice_id"); } } },
             };
         }
         /// <summary>

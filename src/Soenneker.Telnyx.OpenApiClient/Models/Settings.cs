@@ -18,10 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("idp_cert_fingerprint") is { } nullNodeIdpCertFingerprint && nullNodeIdpCertFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertFingerprint = null;
-            if (parseNode.GetChildNode("idp_cert_fingerprint_algorithm") is { } nullNodeIdpCertFingerprintAlgorithm && nullNodeIdpCertFingerprintAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertFingerprintAlgorithm = null;
-            if (parseNode.GetChildNode("idp_entity_id") is { } nullNodeIdpEntityId && nullNodeIdpEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpEntityId = null;
-            if (parseNode.GetChildNode("idp_sso_target_url") is { } nullNodeIdpSsoTargetUrl && nullNodeIdpSsoTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpSsoTargetUrl = null;
+            if (parseNode.GetChildNode("idp_cert_fingerprint") is null) { _explicitNullValueIdpCertFingerprint = default!; _explicitNullProperties?.Remove("idp_cert_fingerprint"); }
+            else if (parseNode.GetChildNode("idp_cert_fingerprint") is { } nullNodeIdpCertFingerprint && nullNodeIdpCertFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertFingerprint = null;
+            if (parseNode.GetChildNode("idp_cert_fingerprint_algorithm") is null) { _explicitNullValueIdpCertFingerprintAlgorithm = default!; _explicitNullProperties?.Remove("idp_cert_fingerprint_algorithm"); }
+            else if (parseNode.GetChildNode("idp_cert_fingerprint_algorithm") is { } nullNodeIdpCertFingerprintAlgorithm && nullNodeIdpCertFingerprintAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpCertFingerprintAlgorithm = null;
+            if (parseNode.GetChildNode("idp_entity_id") is null) { _explicitNullValueIdpEntityId = default!; _explicitNullProperties?.Remove("idp_entity_id"); }
+            else if (parseNode.GetChildNode("idp_entity_id") is { } nullNodeIdpEntityId && nullNodeIdpEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpEntityId = null;
+            if (parseNode.GetChildNode("idp_sso_target_url") is null) { _explicitNullValueIdpSsoTargetUrl = default!; _explicitNullProperties?.Remove("idp_sso_target_url"); }
+            else if (parseNode.GetChildNode("idp_sso_target_url") is { } nullNodeIdpSsoTargetUrl && nullNodeIdpSsoTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpSsoTargetUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,34 +33,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The certificate fingerprint for the identity provider (IdP)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpCertFingerprint { get => _explicitNullValueIdpCertFingerprint; set { _explicitNullValueIdpCertFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint"); else _explicitNullProperties?.Remove("idp_cert_fingerprint"); } }
+        public string? IdpCertFingerprint { get => _explicitNullValueIdpCertFingerprint; set { _explicitNullValueIdpCertFingerprint = value; AdditionalData?.Remove("idp_cert_fingerprint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint"); else _explicitNullProperties?.Remove("idp_cert_fingerprint"); } }
         private string? _explicitNullValueIdpCertFingerprint = default!;
 #nullable restore
 #else
-        public string IdpCertFingerprint { get => _explicitNullValueIdpCertFingerprint; set { _explicitNullValueIdpCertFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint"); else _explicitNullProperties?.Remove("idp_cert_fingerprint"); } }
+        public string IdpCertFingerprint { get => _explicitNullValueIdpCertFingerprint; set { _explicitNullValueIdpCertFingerprint = value; AdditionalData?.Remove("idp_cert_fingerprint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint"); else _explicitNullProperties?.Remove("idp_cert_fingerprint"); } }
         private string _explicitNullValueIdpCertFingerprint = default!;
 #endif
         /// <summary>The algorithm used to generate the identity provider&apos;s (IdP) certificate fingerprint</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm? IdpCertFingerprintAlgorithm { get => _explicitNullValueIdpCertFingerprintAlgorithm; set { _explicitNullValueIdpCertFingerprintAlgorithm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint_algorithm"); else _explicitNullProperties?.Remove("idp_cert_fingerprint_algorithm"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm? IdpCertFingerprintAlgorithm { get => _explicitNullValueIdpCertFingerprintAlgorithm; set { _explicitNullValueIdpCertFingerprintAlgorithm = value; AdditionalData?.Remove("idp_cert_fingerprint_algorithm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_cert_fingerprint_algorithm"); else _explicitNullProperties?.Remove("idp_cert_fingerprint_algorithm"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm? _explicitNullValueIdpCertFingerprintAlgorithm = default!;
         /// <summary>The Entity ID for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
+        public string? IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; AdditionalData?.Remove("idp_entity_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
         private string? _explicitNullValueIdpEntityId = default!;
 #nullable restore
 #else
-        public string IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
+        public string IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; AdditionalData?.Remove("idp_entity_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
         private string _explicitNullValueIdpEntityId = default!;
 #endif
         /// <summary>The SSO target url for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpSsoTargetUrl { get => _explicitNullValueIdpSsoTargetUrl; set { _explicitNullValueIdpSsoTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_sso_target_url"); else _explicitNullProperties?.Remove("idp_sso_target_url"); } }
+        public string? IdpSsoTargetUrl { get => _explicitNullValueIdpSsoTargetUrl; set { _explicitNullValueIdpSsoTargetUrl = value; AdditionalData?.Remove("idp_sso_target_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_sso_target_url"); else _explicitNullProperties?.Remove("idp_sso_target_url"); } }
         private string? _explicitNullValueIdpSsoTargetUrl = default!;
 #nullable restore
 #else
-        public string IdpSsoTargetUrl { get => _explicitNullValueIdpSsoTargetUrl; set { _explicitNullValueIdpSsoTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_sso_target_url"); else _explicitNullProperties?.Remove("idp_sso_target_url"); } }
+        public string IdpSsoTargetUrl { get => _explicitNullValueIdpSsoTargetUrl; set { _explicitNullValueIdpSsoTargetUrl = value; AdditionalData?.Remove("idp_sso_target_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_sso_target_url"); else _explicitNullProperties?.Remove("idp_sso_target_url"); } }
         private string _explicitNullValueIdpSsoTargetUrl = default!;
 #endif
         /// <summary>
@@ -85,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "idp_cert_fingerprint", n => { IdpCertFingerprint = n.GetStringValue(); } },
-                { "idp_cert_fingerprint_algorithm", n => { IdpCertFingerprintAlgorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm>(); } },
+                { "idp_cert_fingerprint_algorithm", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIdpCertFingerprintAlgorithm = default; _explicitNullProperties?.Remove("idp_cert_fingerprint_algorithm"); AdditionalData["idp_cert_fingerprint_algorithm"] = unknown; } else { IdpCertFingerprintAlgorithm = parsed; AdditionalData.Remove("idp_cert_fingerprint_algorithm"); } } },
                 { "idp_entity_id", n => { IdpEntityId = n.GetStringValue(); } },
                 { "idp_sso_target_url", n => { IdpSsoTargetUrl = n.GetStringValue(); } },
             };

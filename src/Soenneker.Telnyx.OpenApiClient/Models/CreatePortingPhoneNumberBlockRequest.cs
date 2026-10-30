@@ -17,18 +17,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activation_ranges") is { } nullNodeActivationRanges && nullNodeActivationRanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationRanges = null;
-            if (parseNode.GetChildNode("phone_number_range") is { } nullNodePhoneNumberRange && nullNodePhoneNumberRange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberRange = null;
+            if (parseNode.GetChildNode("activation_ranges") is null) { _explicitNullValueActivationRanges = default!; _explicitNullProperties?.Remove("activation_ranges"); }
+            else if (parseNode.GetChildNode("activation_ranges") is { } nullNodeActivationRanges && nullNodeActivationRanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationRanges = null;
+            if (parseNode.GetChildNode("phone_number_range") is null) { _explicitNullValuePhoneNumberRange = default!; _explicitNullProperties?.Remove("phone_number_range"); }
+            else if (parseNode.GetChildNode("phone_number_range") is { } nullNodePhoneNumberRange && nullNodePhoneNumberRange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberRange = null;
         }
 
         /// <summary>Specifies the activation ranges for this porting phone number block. The activation range must be within the block range and should not overlap with other activation ranges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestActivationRangesItem>? ActivationRanges { get => _explicitNullValueActivationRanges; set { _explicitNullValueActivationRanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_ranges"); else _explicitNullProperties?.Remove("activation_ranges"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestActivationRangesItem>? ActivationRanges { get => _explicitNullValueActivationRanges; set { _explicitNullValueActivationRanges = value; AdditionalData?.Remove("activation_ranges"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_ranges"); else _explicitNullProperties?.Remove("activation_ranges"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestActivationRangesItem>? _explicitNullValueActivationRanges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestActivationRangesItem> ActivationRanges { get => _explicitNullValueActivationRanges; set { _explicitNullValueActivationRanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_ranges"); else _explicitNullProperties?.Remove("activation_ranges"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestActivationRangesItem> ActivationRanges { get => _explicitNullValueActivationRanges; set { _explicitNullValueActivationRanges = value; AdditionalData?.Remove("activation_ranges"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_ranges"); else _explicitNullProperties?.Remove("activation_ranges"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestActivationRangesItem> _explicitNullValueActivationRanges = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,11 +38,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_number_range property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestPhoneNumberRange? PhoneNumberRange { get => _explicitNullValuePhoneNumberRange; set { _explicitNullValuePhoneNumberRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_range"); else _explicitNullProperties?.Remove("phone_number_range"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestPhoneNumberRange? PhoneNumberRange { get => _explicitNullValuePhoneNumberRange; set { _explicitNullValuePhoneNumberRange = value; AdditionalData?.Remove("phone_number_range"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_range"); else _explicitNullProperties?.Remove("phone_number_range"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestPhoneNumberRange? _explicitNullValuePhoneNumberRange = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestPhoneNumberRange PhoneNumberRange { get => _explicitNullValuePhoneNumberRange; set { _explicitNullValuePhoneNumberRange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_range"); else _explicitNullProperties?.Remove("phone_number_range"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestPhoneNumberRange PhoneNumberRange { get => _explicitNullValuePhoneNumberRange; set { _explicitNullValuePhoneNumberRange = value; AdditionalData?.Remove("phone_number_range"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_range"); else _explicitNullProperties?.Remove("phone_number_range"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingPhoneNumberBlockRequestPhoneNumberRange _explicitNullValuePhoneNumberRange = default!;
 #endif
         /// <summary>

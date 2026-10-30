@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destination_version_id") is { } nullNodeDestinationVersionId && nullNodeDestinationVersionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationVersionId = null;
+            if (parseNode.GetChildNode("destination_version_id") is null) { _explicitNullValueDestinationVersionId = default!; _explicitNullProperties?.Remove("destination_version_id"); }
+            else if (parseNode.GetChildNode("destination_version_id") is { } nullNodeDestinationVersionId && nullNodeDestinationVersionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationVersionId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Optional assistant version ID to use for this test run. If provided, the version must exist or a 400 error will be returned. If not provided, test will run on main version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationVersionId { get => _explicitNullValueDestinationVersionId; set { _explicitNullValueDestinationVersionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_version_id"); else _explicitNullProperties?.Remove("destination_version_id"); } }
+        public string? DestinationVersionId { get => _explicitNullValueDestinationVersionId; set { _explicitNullValueDestinationVersionId = value; AdditionalData?.Remove("destination_version_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_version_id"); else _explicitNullProperties?.Remove("destination_version_id"); } }
         private string? _explicitNullValueDestinationVersionId = default!;
 #nullable restore
 #else
-        public string DestinationVersionId { get => _explicitNullValueDestinationVersionId; set { _explicitNullValueDestinationVersionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_version_id"); else _explicitNullProperties?.Remove("destination_version_id"); } }
+        public string DestinationVersionId { get => _explicitNullValueDestinationVersionId; set { _explicitNullValueDestinationVersionId = value; AdditionalData?.Remove("destination_version_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_version_id"); else _explicitNullProperties?.Remove("destination_version_id"); } }
         private string _explicitNullValueDestinationVersionId = default!;
 #endif
         /// <summary>

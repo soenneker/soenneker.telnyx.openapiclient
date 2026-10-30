@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
-            if (parseNode.GetChildNode("total_failed") is { } nullNodeTotalFailed && nullNodeTotalFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalFailed = null;
-            if (parseNode.GetChildNode("total_requested") is { } nullNodeTotalRequested && nullNodeTotalRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequested = null;
-            if (parseNode.GetChildNode("total_successful") is { } nullNodeTotalSuccessful && nullNodeTotalSuccessful.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSuccessful = null;
+            if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
+            else if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("total_failed") is null) { _explicitNullValueTotalFailed = default!; _explicitNullProperties?.Remove("total_failed"); }
+            else if (parseNode.GetChildNode("total_failed") is { } nullNodeTotalFailed && nullNodeTotalFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalFailed = null;
+            if (parseNode.GetChildNode("total_requested") is null) { _explicitNullValueTotalRequested = default!; _explicitNullProperties?.Remove("total_requested"); }
+            else if (parseNode.GetChildNode("total_requested") is { } nullNodeTotalRequested && nullNodeTotalRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequested = null;
+            if (parseNode.GetChildNode("total_successful") is null) { _explicitNullValueTotalSuccessful = default!; _explicitNullProperties?.Remove("total_successful"); }
+            else if (parseNode.GetChildNode("total_successful") is { } nullNodeTotalSuccessful && nullNodeTotalSuccessful.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSuccessful = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,21 +32,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Per-number outcome of the refresh.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem> _explicitNullValueResults = default!;
 #endif
         /// <summary>The total_failed property</summary>
-        public int? TotalFailed { get => _explicitNullValueTotalFailed; set { _explicitNullValueTotalFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_failed"); else _explicitNullProperties?.Remove("total_failed"); } }
+        public int? TotalFailed { get => _explicitNullValueTotalFailed; set { _explicitNullValueTotalFailed = value; AdditionalData?.Remove("total_failed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_failed"); else _explicitNullProperties?.Remove("total_failed"); } }
         private int? _explicitNullValueTotalFailed = default!;
         /// <summary>The total_requested property</summary>
-        public int? TotalRequested { get => _explicitNullValueTotalRequested; set { _explicitNullValueTotalRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_requested"); else _explicitNullProperties?.Remove("total_requested"); } }
+        public int? TotalRequested { get => _explicitNullValueTotalRequested; set { _explicitNullValueTotalRequested = value; AdditionalData?.Remove("total_requested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_requested"); else _explicitNullProperties?.Remove("total_requested"); } }
         private int? _explicitNullValueTotalRequested = default!;
         /// <summary>The total_successful property</summary>
-        public int? TotalSuccessful { get => _explicitNullValueTotalSuccessful; set { _explicitNullValueTotalSuccessful = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_successful"); else _explicitNullProperties?.Remove("total_successful"); } }
+        public int? TotalSuccessful { get => _explicitNullValueTotalSuccessful; set { _explicitNullValueTotalSuccessful = value; AdditionalData?.Remove("total_successful"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_successful"); else _explicitNullProperties?.Remove("total_successful"); } }
         private int? _explicitNullValueTotalSuccessful = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseData"/> and sets the default values.

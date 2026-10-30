@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("llm_model_name") is { } nullNodeLlmModelName && nullNodeLlmModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmModelName = null;
-            if (parseNode.GetChildNode("llm_parameter_count") is { } nullNodeLlmParameterCount && nullNodeLlmParameterCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmParameterCount = null;
-            if (parseNode.GetChildNode("llm_quantization") is { } nullNodeLlmQuantization && nullNodeLlmQuantization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmQuantization = null;
+            if (parseNode.GetChildNode("llm_model_name") is null) { _explicitNullValueLlmModelName = default!; _explicitNullProperties?.Remove("llm_model_name"); }
+            else if (parseNode.GetChildNode("llm_model_name") is { } nullNodeLlmModelName && nullNodeLlmModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmModelName = null;
+            if (parseNode.GetChildNode("llm_parameter_count") is null) { _explicitNullValueLlmParameterCount = default!; _explicitNullProperties?.Remove("llm_parameter_count"); }
+            else if (parseNode.GetChildNode("llm_parameter_count") is { } nullNodeLlmParameterCount && nullNodeLlmParameterCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmParameterCount = null;
+            if (parseNode.GetChildNode("llm_quantization") is null) { _explicitNullValueLlmQuantization = default!; _explicitNullProperties?.Remove("llm_quantization"); }
+            else if (parseNode.GetChildNode("llm_quantization") is { } nullNodeLlmQuantization && nullNodeLlmQuantization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmQuantization = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Name of the LLM the client is using.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmModelName { get => _explicitNullValueLlmModelName; set { _explicitNullValueLlmModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model_name"); else _explicitNullProperties?.Remove("llm_model_name"); } }
+        public string? LlmModelName { get => _explicitNullValueLlmModelName; set { _explicitNullValueLlmModelName = value; AdditionalData?.Remove("llm_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model_name"); else _explicitNullProperties?.Remove("llm_model_name"); } }
         private string? _explicitNullValueLlmModelName = default!;
 #nullable restore
 #else
-        public string LlmModelName { get => _explicitNullValueLlmModelName; set { _explicitNullValueLlmModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model_name"); else _explicitNullProperties?.Remove("llm_model_name"); } }
+        public string LlmModelName { get => _explicitNullValueLlmModelName; set { _explicitNullValueLlmModelName = value; AdditionalData?.Remove("llm_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model_name"); else _explicitNullProperties?.Remove("llm_model_name"); } }
         private string _explicitNullValueLlmModelName = default!;
 #endif
         /// <summary>Parameter count of the client LLM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmParameterCount { get => _explicitNullValueLlmParameterCount; set { _explicitNullValueLlmParameterCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_parameter_count"); else _explicitNullProperties?.Remove("llm_parameter_count"); } }
+        public string? LlmParameterCount { get => _explicitNullValueLlmParameterCount; set { _explicitNullValueLlmParameterCount = value; AdditionalData?.Remove("llm_parameter_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_parameter_count"); else _explicitNullProperties?.Remove("llm_parameter_count"); } }
         private string? _explicitNullValueLlmParameterCount = default!;
 #nullable restore
 #else
-        public string LlmParameterCount { get => _explicitNullValueLlmParameterCount; set { _explicitNullValueLlmParameterCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_parameter_count"); else _explicitNullProperties?.Remove("llm_parameter_count"); } }
+        public string LlmParameterCount { get => _explicitNullValueLlmParameterCount; set { _explicitNullValueLlmParameterCount = value; AdditionalData?.Remove("llm_parameter_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_parameter_count"); else _explicitNullProperties?.Remove("llm_parameter_count"); } }
         private string _explicitNullValueLlmParameterCount = default!;
 #endif
         /// <summary>Quantization of the client LLM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmQuantization { get => _explicitNullValueLlmQuantization; set { _explicitNullValueLlmQuantization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_quantization"); else _explicitNullProperties?.Remove("llm_quantization"); } }
+        public string? LlmQuantization { get => _explicitNullValueLlmQuantization; set { _explicitNullValueLlmQuantization = value; AdditionalData?.Remove("llm_quantization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_quantization"); else _explicitNullProperties?.Remove("llm_quantization"); } }
         private string? _explicitNullValueLlmQuantization = default!;
 #nullable restore
 #else
-        public string LlmQuantization { get => _explicitNullValueLlmQuantization; set { _explicitNullValueLlmQuantization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_quantization"); else _explicitNullProperties?.Remove("llm_quantization"); } }
+        public string LlmQuantization { get => _explicitNullValueLlmQuantization; set { _explicitNullValueLlmQuantization = value; AdditionalData?.Remove("llm_quantization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_quantization"); else _explicitNullProperties?.Remove("llm_quantization"); } }
         private string _explicitNullValueLlmQuantization = default!;
 #endif
         /// <summary>

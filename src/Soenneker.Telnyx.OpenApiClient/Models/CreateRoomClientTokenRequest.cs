@@ -17,17 +17,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("refresh_token_ttl_secs") is { } nullNodeRefreshTokenTtlSecs && nullNodeRefreshTokenTtlSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshTokenTtlSecs = null;
-            if (parseNode.GetChildNode("token_ttl_secs") is { } nullNodeTokenTtlSecs && nullNodeTokenTtlSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenTtlSecs = null;
+            if (parseNode.GetChildNode("refresh_token_ttl_secs") is null) { _explicitNullValueRefreshTokenTtlSecs = default!; _explicitNullProperties?.Remove("refresh_token_ttl_secs"); }
+            else if (parseNode.GetChildNode("refresh_token_ttl_secs") is { } nullNodeRefreshTokenTtlSecs && nullNodeRefreshTokenTtlSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshTokenTtlSecs = null;
+            if (parseNode.GetChildNode("token_ttl_secs") is null) { _explicitNullValueTokenTtlSecs = default!; _explicitNullProperties?.Remove("token_ttl_secs"); }
+            else if (parseNode.GetChildNode("token_ttl_secs") is { } nullNodeTokenTtlSecs && nullNodeTokenTtlSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenTtlSecs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time to live in seconds of the Refresh Token, after that time the Refresh Token is invalid and can&apos;t be used to refresh Client Token.</summary>
-        public int? RefreshTokenTtlSecs { get => _explicitNullValueRefreshTokenTtlSecs; set { _explicitNullValueRefreshTokenTtlSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token_ttl_secs"); else _explicitNullProperties?.Remove("refresh_token_ttl_secs"); } }
+        public int? RefreshTokenTtlSecs { get => _explicitNullValueRefreshTokenTtlSecs; set { _explicitNullValueRefreshTokenTtlSecs = value; AdditionalData?.Remove("refresh_token_ttl_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token_ttl_secs"); else _explicitNullProperties?.Remove("refresh_token_ttl_secs"); } }
         private int? _explicitNullValueRefreshTokenTtlSecs = default!;
         /// <summary>The time to live in seconds of the Client Token, after that time the Client Token is invalid and can&apos;t be used to join a Room.</summary>
-        public int? TokenTtlSecs { get => _explicitNullValueTokenTtlSecs; set { _explicitNullValueTokenTtlSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_ttl_secs"); else _explicitNullProperties?.Remove("token_ttl_secs"); } }
+        public int? TokenTtlSecs { get => _explicitNullValueTokenTtlSecs; set { _explicitNullValueTokenTtlSecs = value; AdditionalData?.Remove("token_ttl_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_ttl_secs"); else _explicitNullProperties?.Remove("token_ttl_secs"); } }
         private int? _explicitNullValueTokenTtlSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomClientTokenRequest"/> and sets the default values.

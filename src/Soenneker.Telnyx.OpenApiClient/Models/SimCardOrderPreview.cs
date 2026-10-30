@@ -17,16 +17,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("quantity") is { } nullNodeQuantity && nullNodeQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quantity = null;
-            if (parseNode.GetChildNode("shipping_cost") is { } nullNodeShippingCost && nullNodeShippingCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShippingCost = null;
-            if (parseNode.GetChildNode("sim_cards_cost") is { } nullNodeSimCardsCost && nullNodeSimCardsCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardsCost = null;
-            if (parseNode.GetChildNode("total_cost") is { } nullNodeTotalCost && nullNodeTotalCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCost = null;
+            if (parseNode.GetChildNode("quantity") is null) { _explicitNullValueQuantity = default!; _explicitNullProperties?.Remove("quantity"); }
+            else if (parseNode.GetChildNode("quantity") is { } nullNodeQuantity && nullNodeQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quantity = null;
+            if (parseNode.GetChildNode("shipping_cost") is null) { _explicitNullValueShippingCost = default!; _explicitNullProperties?.Remove("shipping_cost"); }
+            else if (parseNode.GetChildNode("shipping_cost") is { } nullNodeShippingCost && nullNodeShippingCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShippingCost = null;
+            if (parseNode.GetChildNode("sim_cards_cost") is null) { _explicitNullValueSimCardsCost = default!; _explicitNullProperties?.Remove("sim_cards_cost"); }
+            else if (parseNode.GetChildNode("sim_cards_cost") is { } nullNodeSimCardsCost && nullNodeSimCardsCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardsCost = null;
+            if (parseNode.GetChildNode("total_cost") is null) { _explicitNullValueTotalCost = default!; _explicitNullProperties?.Remove("total_cost"); }
+            else if (parseNode.GetChildNode("total_cost") is { } nullNodeTotalCost && nullNodeTotalCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCost = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount of SIM cards requested in the SIM card order.</summary>
-        public int? Quantity { get => _explicitNullValueQuantity; set { _explicitNullValueQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quantity"); else _explicitNullProperties?.Remove("quantity"); } }
+        public int? Quantity { get => _explicitNullValueQuantity; set { _explicitNullValueQuantity = value; AdditionalData?.Remove("quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quantity"); else _explicitNullProperties?.Remove("quantity"); } }
         private int? _explicitNullValueQuantity = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,31 +43,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The shipping_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewShippingCost? ShippingCost { get => _explicitNullValueShippingCost; set { _explicitNullValueShippingCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shipping_cost"); else _explicitNullProperties?.Remove("shipping_cost"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewShippingCost? ShippingCost { get => _explicitNullValueShippingCost; set { _explicitNullValueShippingCost = value; AdditionalData?.Remove("shipping_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shipping_cost"); else _explicitNullProperties?.Remove("shipping_cost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewShippingCost? _explicitNullValueShippingCost = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewShippingCost ShippingCost { get => _explicitNullValueShippingCost; set { _explicitNullValueShippingCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shipping_cost"); else _explicitNullProperties?.Remove("shipping_cost"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewShippingCost ShippingCost { get => _explicitNullValueShippingCost; set { _explicitNullValueShippingCost = value; AdditionalData?.Remove("shipping_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shipping_cost"); else _explicitNullProperties?.Remove("shipping_cost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewShippingCost _explicitNullValueShippingCost = default!;
 #endif
         /// <summary>The sim_cards_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewSimCardsCost? SimCardsCost { get => _explicitNullValueSimCardsCost; set { _explicitNullValueSimCardsCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_cards_cost"); else _explicitNullProperties?.Remove("sim_cards_cost"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewSimCardsCost? SimCardsCost { get => _explicitNullValueSimCardsCost; set { _explicitNullValueSimCardsCost = value; AdditionalData?.Remove("sim_cards_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_cards_cost"); else _explicitNullProperties?.Remove("sim_cards_cost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewSimCardsCost? _explicitNullValueSimCardsCost = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewSimCardsCost SimCardsCost { get => _explicitNullValueSimCardsCost; set { _explicitNullValueSimCardsCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_cards_cost"); else _explicitNullProperties?.Remove("sim_cards_cost"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewSimCardsCost SimCardsCost { get => _explicitNullValueSimCardsCost; set { _explicitNullValueSimCardsCost = value; AdditionalData?.Remove("sim_cards_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_cards_cost"); else _explicitNullProperties?.Remove("sim_cards_cost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewSimCardsCost _explicitNullValueSimCardsCost = default!;
 #endif
         /// <summary>The total_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewTotalCost? TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewTotalCost? TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; AdditionalData?.Remove("total_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewTotalCost? _explicitNullValueTotalCost = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewTotalCost TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewTotalCost TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; AdditionalData?.Remove("total_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderPreviewTotalCost _explicitNullValueTotalCost = default!;
 #endif
         /// <summary>

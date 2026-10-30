@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("message_template") is { } nullNodeMessageTemplate && nullNodeMessageTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageTemplate = null;
+            if (parseNode.GetChildNode("message_template") is null) { _explicitNullValueMessageTemplate = default!; _explicitNullProperties?.Remove("message_template"); }
+            else if (parseNode.GetChildNode("message_template") is { } nullNodeMessageTemplate && nullNodeMessageTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageTemplate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Optional message template with dynamic variable support using mustache syntax (e.g., {{variable_name}}). When set, the assistant will use this template for the SMS body instead of generating one. Dynamic variables like {{telnyx_end_user_target}}, {{telnyx_agent_target}}, and custom webhook-provided variables will be resolved at runtime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessageTemplate { get => _explicitNullValueMessageTemplate; set { _explicitNullValueMessageTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_template"); else _explicitNullProperties?.Remove("message_template"); } }
+        public string? MessageTemplate { get => _explicitNullValueMessageTemplate; set { _explicitNullValueMessageTemplate = value; AdditionalData?.Remove("message_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_template"); else _explicitNullProperties?.Remove("message_template"); } }
         private string? _explicitNullValueMessageTemplate = default!;
 #nullable restore
 #else
-        public string MessageTemplate { get => _explicitNullValueMessageTemplate; set { _explicitNullValueMessageTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_template"); else _explicitNullProperties?.Remove("message_template"); } }
+        public string MessageTemplate { get => _explicitNullValueMessageTemplate; set { _explicitNullValueMessageTemplate = value; AdditionalData?.Remove("message_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_template"); else _explicitNullProperties?.Remove("message_template"); } }
         private string _explicitNullValueMessageTemplate = default!;
 #endif
         /// <summary>

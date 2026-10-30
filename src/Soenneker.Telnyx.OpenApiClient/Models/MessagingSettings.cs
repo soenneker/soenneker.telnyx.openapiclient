@@ -17,34 +17,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("conversation_inactivity_minutes") is { } nullNodeConversationInactivityMinutes && nullNodeConversationInactivityMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationInactivityMinutes = null;
-            if (parseNode.GetChildNode("default_messaging_profile_id") is { } nullNodeDefaultMessagingProfileId && nullNodeDefaultMessagingProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultMessagingProfileId = null;
-            if (parseNode.GetChildNode("delivery_status_webhook_url") is { } nullNodeDeliveryStatusWebhookUrl && nullNodeDeliveryStatusWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatusWebhookUrl = null;
+            if (parseNode.GetChildNode("conversation_inactivity_minutes") is null) { _explicitNullValueConversationInactivityMinutes = default!; _explicitNullProperties?.Remove("conversation_inactivity_minutes"); }
+            else if (parseNode.GetChildNode("conversation_inactivity_minutes") is { } nullNodeConversationInactivityMinutes && nullNodeConversationInactivityMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationInactivityMinutes = null;
+            if (parseNode.GetChildNode("default_messaging_profile_id") is null) { _explicitNullValueDefaultMessagingProfileId = default!; _explicitNullProperties?.Remove("default_messaging_profile_id"); }
+            else if (parseNode.GetChildNode("default_messaging_profile_id") is { } nullNodeDefaultMessagingProfileId && nullNodeDefaultMessagingProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultMessagingProfileId = null;
+            if (parseNode.GetChildNode("delivery_status_webhook_url") is null) { _explicitNullValueDeliveryStatusWebhookUrl = default!; _explicitNullProperties?.Remove("delivery_status_webhook_url"); }
+            else if (parseNode.GetChildNode("delivery_status_webhook_url") is { } nullNodeDeliveryStatusWebhookUrl && nullNodeDeliveryStatusWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatusWebhookUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If more than this many minutes have passed since the last message, the assistant will start a new conversation instead of continuing the existing one.</summary>
-        public int? ConversationInactivityMinutes { get => _explicitNullValueConversationInactivityMinutes; set { _explicitNullValueConversationInactivityMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_inactivity_minutes"); else _explicitNullProperties?.Remove("conversation_inactivity_minutes"); } }
+        public int? ConversationInactivityMinutes { get => _explicitNullValueConversationInactivityMinutes; set { _explicitNullValueConversationInactivityMinutes = value; AdditionalData?.Remove("conversation_inactivity_minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_inactivity_minutes"); else _explicitNullProperties?.Remove("conversation_inactivity_minutes"); } }
         private int? _explicitNullValueConversationInactivityMinutes = default!;
         /// <summary>Default Messaging Profile used for messaging exchanges with your assistant. This will be created automatically on assistant creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultMessagingProfileId { get => _explicitNullValueDefaultMessagingProfileId; set { _explicitNullValueDefaultMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_messaging_profile_id"); else _explicitNullProperties?.Remove("default_messaging_profile_id"); } }
+        public string? DefaultMessagingProfileId { get => _explicitNullValueDefaultMessagingProfileId; set { _explicitNullValueDefaultMessagingProfileId = value; AdditionalData?.Remove("default_messaging_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_messaging_profile_id"); else _explicitNullProperties?.Remove("default_messaging_profile_id"); } }
         private string? _explicitNullValueDefaultMessagingProfileId = default!;
 #nullable restore
 #else
-        public string DefaultMessagingProfileId { get => _explicitNullValueDefaultMessagingProfileId; set { _explicitNullValueDefaultMessagingProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_messaging_profile_id"); else _explicitNullProperties?.Remove("default_messaging_profile_id"); } }
+        public string DefaultMessagingProfileId { get => _explicitNullValueDefaultMessagingProfileId; set { _explicitNullValueDefaultMessagingProfileId = value; AdditionalData?.Remove("default_messaging_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_messaging_profile_id"); else _explicitNullProperties?.Remove("default_messaging_profile_id"); } }
         private string _explicitNullValueDefaultMessagingProfileId = default!;
 #endif
         /// <summary>The URL where webhooks related to delivery statused for assistant messages will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeliveryStatusWebhookUrl { get => _explicitNullValueDeliveryStatusWebhookUrl; set { _explicitNullValueDeliveryStatusWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_status_webhook_url"); else _explicitNullProperties?.Remove("delivery_status_webhook_url"); } }
+        public string? DeliveryStatusWebhookUrl { get => _explicitNullValueDeliveryStatusWebhookUrl; set { _explicitNullValueDeliveryStatusWebhookUrl = value; AdditionalData?.Remove("delivery_status_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_status_webhook_url"); else _explicitNullProperties?.Remove("delivery_status_webhook_url"); } }
         private string? _explicitNullValueDeliveryStatusWebhookUrl = default!;
 #nullable restore
 #else
-        public string DeliveryStatusWebhookUrl { get => _explicitNullValueDeliveryStatusWebhookUrl; set { _explicitNullValueDeliveryStatusWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_status_webhook_url"); else _explicitNullProperties?.Remove("delivery_status_webhook_url"); } }
+        public string DeliveryStatusWebhookUrl { get => _explicitNullValueDeliveryStatusWebhookUrl; set { _explicitNullValueDeliveryStatusWebhookUrl = value; AdditionalData?.Remove("delivery_status_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_status_webhook_url"); else _explicitNullProperties?.Remove("delivery_status_webhook_url"); } }
         private string _explicitNullValueDeliveryStatusWebhookUrl = default!;
 #endif
         /// <summary>

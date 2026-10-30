@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("requirement_id") is { } nullNodeRequirementId && nullNodeRequirementId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementId = null;
+            if (parseNode.GetChildNode("requirement_id") is null) { _explicitNullValueRequirementId = default!; _explicitNullProperties?.Remove("requirement_id"); }
+            else if (parseNode.GetChildNode("requirement_id") is { } nullNodeRequirementId && nullNodeRequirementId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Unique id for a requirement.</summary>
-        public Guid? RequirementId { get => _explicitNullValueRequirementId; set { _explicitNullValueRequirementId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_id"); else _explicitNullProperties?.Remove("requirement_id"); } }
+        public Guid? RequirementId { get => _explicitNullValueRequirementId; set { _explicitNullValueRequirementId = value; AdditionalData?.Remove("requirement_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_id"); else _explicitNullProperties?.Remove("requirement_id"); } }
         private Guid? _explicitNullValueRequirementId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement"/> and sets the default values.

@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("log_messages") is { } nullNodeLogMessages && nullNodeLogMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogMessages = null;
+            if (parseNode.GetChildNode("log_messages") is null) { _explicitNullValueLogMessages = default!; _explicitNullProperties?.Remove("log_messages"); }
+            else if (parseNode.GetChildNode("log_messages") is { } nullNodeLogMessages && nullNodeLogMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogMessages = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The log_messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.LogMessage>? LogMessages { get => _explicitNullValueLogMessages; set { _explicitNullValueLogMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_messages"); else _explicitNullProperties?.Remove("log_messages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.LogMessage>? LogMessages { get => _explicitNullValueLogMessages; set { _explicitNullValueLogMessages = value; AdditionalData?.Remove("log_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_messages"); else _explicitNullProperties?.Remove("log_messages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.LogMessage>? _explicitNullValueLogMessages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.LogMessage> LogMessages { get => _explicitNullValueLogMessages; set { _explicitNullValueLogMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_messages"); else _explicitNullProperties?.Remove("log_messages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.LogMessage> LogMessages { get => _explicitNullValueLogMessages; set { _explicitNullValueLogMessages = value; AdditionalData?.Remove("log_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_messages"); else _explicitNullProperties?.Remove("log_messages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.LogMessage> _explicitNullValueLogMessages = default!;
 #endif
         /// <summary>

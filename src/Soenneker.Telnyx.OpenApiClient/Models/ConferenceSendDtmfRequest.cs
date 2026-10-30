@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("call_control_ids") is { } nullNodeCallControlIds && nullNodeCallControlIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlIds = null;
-            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
-            if (parseNode.GetChildNode("digits") is { } nullNodeDigits && nullNodeDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Digits = null;
-            if (parseNode.GetChildNode("duration_millis") is { } nullNodeDurationMillis && nullNodeDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationMillis = null;
+            if (parseNode.GetChildNode("call_control_ids") is null) { _explicitNullValueCallControlIds = default!; _explicitNullProperties?.Remove("call_control_ids"); }
+            else if (parseNode.GetChildNode("call_control_ids") is { } nullNodeCallControlIds && nullNodeCallControlIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallControlIds = null;
+            if (parseNode.GetChildNode("client_state") is null) { _explicitNullValueClientState = default!; _explicitNullProperties?.Remove("client_state"); }
+            else if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("digits") is null) { _explicitNullValueDigits = default!; _explicitNullProperties?.Remove("digits"); }
+            else if (parseNode.GetChildNode("digits") is { } nullNodeDigits && nullNodeDigits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Digits = null;
+            if (parseNode.GetChildNode("duration_millis") is null) { _explicitNullValueDurationMillis = default!; _explicitNullProperties?.Remove("duration_millis"); }
+            else if (parseNode.GetChildNode("duration_millis") is { } nullNodeDurationMillis && nullNodeDurationMillis.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationMillis = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Array of participant call control IDs to send DTMF to. When empty, DTMF will be sent to all participants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CallControlIds { get => _explicitNullValueCallControlIds; set { _explicitNullValueCallControlIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_ids"); else _explicitNullProperties?.Remove("call_control_ids"); } }
+        public List<string>? CallControlIds { get => _explicitNullValueCallControlIds; set { _explicitNullValueCallControlIds = value; AdditionalData?.Remove("call_control_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_ids"); else _explicitNullProperties?.Remove("call_control_ids"); } }
         private List<string>? _explicitNullValueCallControlIds = default!;
 #nullable restore
 #else
-        public List<string> CallControlIds { get => _explicitNullValueCallControlIds; set { _explicitNullValueCallControlIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_ids"); else _explicitNullProperties?.Remove("call_control_ids"); } }
+        public List<string> CallControlIds { get => _explicitNullValueCallControlIds; set { _explicitNullValueCallControlIds = value; AdditionalData?.Remove("call_control_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_control_ids"); else _explicitNullProperties?.Remove("call_control_ids"); } }
         private List<string> _explicitNullValueCallControlIds = default!;
 #endif
         /// <summary>Use this field to add state to every subsequent webhook. Must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>DTMF digits to send. Valid characters: 0-9, A-D, *, #, w (0.5s pause), W (1s pause).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Digits { get => _explicitNullValueDigits; set { _explicitNullValueDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digits"); else _explicitNullProperties?.Remove("digits"); } }
+        public string? Digits { get => _explicitNullValueDigits; set { _explicitNullValueDigits = value; AdditionalData?.Remove("digits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digits"); else _explicitNullProperties?.Remove("digits"); } }
         private string? _explicitNullValueDigits = default!;
 #nullable restore
 #else
-        public string Digits { get => _explicitNullValueDigits; set { _explicitNullValueDigits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digits"); else _explicitNullProperties?.Remove("digits"); } }
+        public string Digits { get => _explicitNullValueDigits; set { _explicitNullValueDigits = value; AdditionalData?.Remove("digits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digits"); else _explicitNullProperties?.Remove("digits"); } }
         private string _explicitNullValueDigits = default!;
 #endif
         /// <summary>Duration of each DTMF digit in milliseconds.</summary>
-        public int? DurationMillis { get => _explicitNullValueDurationMillis; set { _explicitNullValueDurationMillis = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_millis"); else _explicitNullProperties?.Remove("duration_millis"); } }
+        public int? DurationMillis { get => _explicitNullValueDurationMillis; set { _explicitNullValueDurationMillis = value; AdditionalData?.Remove("duration_millis"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_millis"); else _explicitNullProperties?.Remove("duration_millis"); } }
         private int? _explicitNullValueDurationMillis = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSendDtmfRequest"/> and sets the default values.

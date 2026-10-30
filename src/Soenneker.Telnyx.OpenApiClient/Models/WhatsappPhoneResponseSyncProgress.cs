@@ -18,11 +18,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("contacts_status") is { } nullNodeContactsStatus && nullNodeContactsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactsStatus = null;
-            if (parseNode.GetChildNode("history_chunk_order") is { } nullNodeHistoryChunkOrder && nullNodeHistoryChunkOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryChunkOrder = null;
-            if (parseNode.GetChildNode("history_phase") is { } nullNodeHistoryPhase && nullNodeHistoryPhase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryPhase = null;
-            if (parseNode.GetChildNode("history_progress") is { } nullNodeHistoryProgress && nullNodeHistoryProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryProgress = null;
-            if (parseNode.GetChildNode("history_status") is { } nullNodeHistoryStatus && nullNodeHistoryStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryStatus = null;
+            if (parseNode.GetChildNode("contacts_status") is null) { _explicitNullValueContactsStatus = default!; _explicitNullProperties?.Remove("contacts_status"); }
+            else if (parseNode.GetChildNode("contacts_status") is { } nullNodeContactsStatus && nullNodeContactsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactsStatus = null;
+            if (parseNode.GetChildNode("history_chunk_order") is null) { _explicitNullValueHistoryChunkOrder = default!; _explicitNullProperties?.Remove("history_chunk_order"); }
+            else if (parseNode.GetChildNode("history_chunk_order") is { } nullNodeHistoryChunkOrder && nullNodeHistoryChunkOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryChunkOrder = null;
+            if (parseNode.GetChildNode("history_phase") is null) { _explicitNullValueHistoryPhase = default!; _explicitNullProperties?.Remove("history_phase"); }
+            else if (parseNode.GetChildNode("history_phase") is { } nullNodeHistoryPhase && nullNodeHistoryPhase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryPhase = null;
+            if (parseNode.GetChildNode("history_progress") is null) { _explicitNullValueHistoryProgress = default!; _explicitNullProperties?.Remove("history_progress"); }
+            else if (parseNode.GetChildNode("history_progress") is { } nullNodeHistoryProgress && nullNodeHistoryProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryProgress = null;
+            if (parseNode.GetChildNode("history_status") is null) { _explicitNullValueHistoryStatus = default!; _explicitNullProperties?.Remove("history_status"); }
+            else if (parseNode.GetChildNode("history_status") is { } nullNodeHistoryStatus && nullNodeHistoryStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,30 +35,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The contacts_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContactsStatus { get => _explicitNullValueContactsStatus; set { _explicitNullValueContactsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_status"); else _explicitNullProperties?.Remove("contacts_status"); } }
+        public string? ContactsStatus { get => _explicitNullValueContactsStatus; set { _explicitNullValueContactsStatus = value; AdditionalData?.Remove("contacts_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_status"); else _explicitNullProperties?.Remove("contacts_status"); } }
         private string? _explicitNullValueContactsStatus = default!;
 #nullable restore
 #else
-        public string ContactsStatus { get => _explicitNullValueContactsStatus; set { _explicitNullValueContactsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_status"); else _explicitNullProperties?.Remove("contacts_status"); } }
+        public string ContactsStatus { get => _explicitNullValueContactsStatus; set { _explicitNullValueContactsStatus = value; AdditionalData?.Remove("contacts_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_status"); else _explicitNullProperties?.Remove("contacts_status"); } }
         private string _explicitNullValueContactsStatus = default!;
 #endif
         /// <summary>The history_chunk_order property</summary>
-        public int? HistoryChunkOrder { get => _explicitNullValueHistoryChunkOrder; set { _explicitNullValueHistoryChunkOrder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_chunk_order"); else _explicitNullProperties?.Remove("history_chunk_order"); } }
+        public int? HistoryChunkOrder { get => _explicitNullValueHistoryChunkOrder; set { _explicitNullValueHistoryChunkOrder = value; AdditionalData?.Remove("history_chunk_order"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_chunk_order"); else _explicitNullProperties?.Remove("history_chunk_order"); } }
         private int? _explicitNullValueHistoryChunkOrder = default!;
         /// <summary>The history_phase property</summary>
-        public int? HistoryPhase { get => _explicitNullValueHistoryPhase; set { _explicitNullValueHistoryPhase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_phase"); else _explicitNullProperties?.Remove("history_phase"); } }
+        public int? HistoryPhase { get => _explicitNullValueHistoryPhase; set { _explicitNullValueHistoryPhase = value; AdditionalData?.Remove("history_phase"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_phase"); else _explicitNullProperties?.Remove("history_phase"); } }
         private int? _explicitNullValueHistoryPhase = default!;
         /// <summary>The history_progress property</summary>
-        public int? HistoryProgress { get => _explicitNullValueHistoryProgress; set { _explicitNullValueHistoryProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_progress"); else _explicitNullProperties?.Remove("history_progress"); } }
+        public int? HistoryProgress { get => _explicitNullValueHistoryProgress; set { _explicitNullValueHistoryProgress = value; AdditionalData?.Remove("history_progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_progress"); else _explicitNullProperties?.Remove("history_progress"); } }
         private int? _explicitNullValueHistoryProgress = default!;
         /// <summary>The history_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HistoryStatus { get => _explicitNullValueHistoryStatus; set { _explicitNullValueHistoryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_status"); else _explicitNullProperties?.Remove("history_status"); } }
+        public string? HistoryStatus { get => _explicitNullValueHistoryStatus; set { _explicitNullValueHistoryStatus = value; AdditionalData?.Remove("history_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_status"); else _explicitNullProperties?.Remove("history_status"); } }
         private string? _explicitNullValueHistoryStatus = default!;
 #nullable restore
 #else
-        public string HistoryStatus { get => _explicitNullValueHistoryStatus; set { _explicitNullValueHistoryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_status"); else _explicitNullProperties?.Remove("history_status"); } }
+        public string HistoryStatus { get => _explicitNullValueHistoryStatus; set { _explicitNullValueHistoryStatus = value; AdditionalData?.Remove("history_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_status"); else _explicitNullProperties?.Remove("history_status"); } }
         private string _explicitNullValueHistoryStatus = default!;
 #endif
         /// <summary>

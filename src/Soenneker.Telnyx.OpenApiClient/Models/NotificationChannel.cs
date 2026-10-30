@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("channel_destination") is { } nullNodeChannelDestination && nullNodeChannelDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelDestination = null;
-            if (parseNode.GetChildNode("channel_type_id") is { } nullNodeChannelTypeId && nullNodeChannelTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelTypeId = null;
-            if (parseNode.GetChildNode("notification_profile_id") is { } nullNodeNotificationProfileId && nullNodeNotificationProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationProfileId = null;
+            if (parseNode.GetChildNode("channel_destination") is null) { _explicitNullValueChannelDestination = default!; _explicitNullProperties?.Remove("channel_destination"); }
+            else if (parseNode.GetChildNode("channel_destination") is { } nullNodeChannelDestination && nullNodeChannelDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelDestination = null;
+            if (parseNode.GetChildNode("channel_type_id") is null) { _explicitNullValueChannelTypeId = default!; _explicitNullProperties?.Remove("channel_type_id"); }
+            else if (parseNode.GetChildNode("channel_type_id") is { } nullNodeChannelTypeId && nullNodeChannelTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelTypeId = null;
+            if (parseNode.GetChildNode("notification_profile_id") is null) { _explicitNullValueNotificationProfileId = default!; _explicitNullProperties?.Remove("notification_profile_id"); }
+            else if (parseNode.GetChildNode("notification_profile_id") is { } nullNodeNotificationProfileId && nullNodeNotificationProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationProfileId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,15 +31,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The destination associated with the channel type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChannelDestination { get => _explicitNullValueChannelDestination; set { _explicitNullValueChannelDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_destination"); else _explicitNullProperties?.Remove("channel_destination"); } }
+        public string? ChannelDestination { get => _explicitNullValueChannelDestination; set { _explicitNullValueChannelDestination = value; AdditionalData?.Remove("channel_destination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_destination"); else _explicitNullProperties?.Remove("channel_destination"); } }
         private string? _explicitNullValueChannelDestination = default!;
 #nullable restore
 #else
-        public string ChannelDestination { get => _explicitNullValueChannelDestination; set { _explicitNullValueChannelDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_destination"); else _explicitNullProperties?.Remove("channel_destination"); } }
+        public string ChannelDestination { get => _explicitNullValueChannelDestination; set { _explicitNullValueChannelDestination = value; AdditionalData?.Remove("channel_destination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_destination"); else _explicitNullProperties?.Remove("channel_destination"); } }
         private string _explicitNullValueChannelDestination = default!;
 #endif
         /// <summary>A Channel Type ID</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId? ChannelTypeId { get => _explicitNullValueChannelTypeId; set { _explicitNullValueChannelTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_type_id"); else _explicitNullProperties?.Remove("channel_type_id"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId? ChannelTypeId { get => _explicitNullValueChannelTypeId; set { _explicitNullValueChannelTypeId = value; AdditionalData?.Remove("channel_type_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_type_id"); else _explicitNullProperties?.Remove("channel_type_id"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId? _explicitNullValueChannelTypeId = default!;
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
@@ -51,11 +54,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A UUID reference to the associated Notification Profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
+        public string? NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; AdditionalData?.Remove("notification_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
         private string? _explicitNullValueNotificationProfileId = default!;
 #nullable restore
 #else
-        public string NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
+        public string NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; AdditionalData?.Remove("notification_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
         private string _explicitNullValueNotificationProfileId = default!;
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -86,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "channel_destination", n => { ChannelDestination = n.GetStringValue(); } },
-                { "channel_type_id", n => { ChannelTypeId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId>(); } },
+                { "channel_type_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChannelTypeId = default; _explicitNullProperties?.Remove("channel_type_id"); AdditionalData["channel_type_id"] = unknown; } else { ChannelTypeId = parsed; AdditionalData.Remove("channel_type_id"); } } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "notification_profile_id", n => { NotificationProfileId = n.GetStringValue(); } },

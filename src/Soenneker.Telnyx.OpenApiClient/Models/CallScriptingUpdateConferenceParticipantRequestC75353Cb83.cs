@@ -17,80 +17,91 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("AnnounceMethod") is { } nullNodeAnnounceMethod && nullNodeAnnounceMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnounceMethod = null;
-            if (parseNode.GetChildNode("AnnounceUrl") is { } nullNodeAnnounceUrl && nullNodeAnnounceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnounceUrl = null;
-            if (parseNode.GetChildNode("BeepOnExit") is { } nullNodeBeepOnExit && nullNodeBeepOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepOnExit = null;
-            if (parseNode.GetChildNode("CallSidToCoach") is { } nullNodeCallSidToCoach && nullNodeCallSidToCoach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidToCoach = null;
-            if (parseNode.GetChildNode("Coaching") is { } nullNodeCoaching && nullNodeCoaching.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Coaching = null;
-            if (parseNode.GetChildNode("EndConferenceOnExit") is { } nullNodeEndConferenceOnExit && nullNodeEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndConferenceOnExit = null;
-            if (parseNode.GetChildNode("Hold") is { } nullNodeHold && nullNodeHold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hold = null;
-            if (parseNode.GetChildNode("HoldMethod") is { } nullNodeHoldMethod && nullNodeHoldMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldMethod = null;
-            if (parseNode.GetChildNode("HoldUrl") is { } nullNodeHoldUrl && nullNodeHoldUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldUrl = null;
-            if (parseNode.GetChildNode("Muted") is { } nullNodeMuted && nullNodeMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Muted = null;
-            if (parseNode.GetChildNode("WaitUrl") is { } nullNodeWaitUrl && nullNodeWaitUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitUrl = null;
+            if (parseNode.GetChildNode("AnnounceMethod") is null) { _explicitNullValueAnnounceMethod = default!; _explicitNullProperties?.Remove("AnnounceMethod"); }
+            else if (parseNode.GetChildNode("AnnounceMethod") is { } nullNodeAnnounceMethod && nullNodeAnnounceMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnounceMethod = null;
+            if (parseNode.GetChildNode("AnnounceUrl") is null) { _explicitNullValueAnnounceUrl = default!; _explicitNullProperties?.Remove("AnnounceUrl"); }
+            else if (parseNode.GetChildNode("AnnounceUrl") is { } nullNodeAnnounceUrl && nullNodeAnnounceUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnounceUrl = null;
+            if (parseNode.GetChildNode("BeepOnExit") is null) { _explicitNullValueBeepOnExit = default!; _explicitNullProperties?.Remove("BeepOnExit"); }
+            else if (parseNode.GetChildNode("BeepOnExit") is { } nullNodeBeepOnExit && nullNodeBeepOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeepOnExit = null;
+            if (parseNode.GetChildNode("CallSidToCoach") is null) { _explicitNullValueCallSidToCoach = default!; _explicitNullProperties?.Remove("CallSidToCoach"); }
+            else if (parseNode.GetChildNode("CallSidToCoach") is { } nullNodeCallSidToCoach && nullNodeCallSidToCoach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidToCoach = null;
+            if (parseNode.GetChildNode("Coaching") is null) { _explicitNullValueCoaching = default!; _explicitNullProperties?.Remove("Coaching"); }
+            else if (parseNode.GetChildNode("Coaching") is { } nullNodeCoaching && nullNodeCoaching.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Coaching = null;
+            if (parseNode.GetChildNode("EndConferenceOnExit") is null) { _explicitNullValueEndConferenceOnExit = default!; _explicitNullProperties?.Remove("EndConferenceOnExit"); }
+            else if (parseNode.GetChildNode("EndConferenceOnExit") is { } nullNodeEndConferenceOnExit && nullNodeEndConferenceOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndConferenceOnExit = null;
+            if (parseNode.GetChildNode("Hold") is null) { _explicitNullValueHold = default!; _explicitNullProperties?.Remove("Hold"); }
+            else if (parseNode.GetChildNode("Hold") is { } nullNodeHold && nullNodeHold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hold = null;
+            if (parseNode.GetChildNode("HoldMethod") is null) { _explicitNullValueHoldMethod = default!; _explicitNullProperties?.Remove("HoldMethod"); }
+            else if (parseNode.GetChildNode("HoldMethod") is { } nullNodeHoldMethod && nullNodeHoldMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldMethod = null;
+            if (parseNode.GetChildNode("HoldUrl") is null) { _explicitNullValueHoldUrl = default!; _explicitNullProperties?.Remove("HoldUrl"); }
+            else if (parseNode.GetChildNode("HoldUrl") is { } nullNodeHoldUrl && nullNodeHoldUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoldUrl = null;
+            if (parseNode.GetChildNode("Muted") is null) { _explicitNullValueMuted = default!; _explicitNullProperties?.Remove("Muted"); }
+            else if (parseNode.GetChildNode("Muted") is { } nullNodeMuted && nullNodeMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Muted = null;
+            if (parseNode.GetChildNode("WaitUrl") is null) { _explicitNullValueWaitUrl = default!; _explicitNullProperties?.Remove("WaitUrl"); }
+            else if (parseNode.GetChildNode("WaitUrl") is { } nullNodeWaitUrl && nullNodeWaitUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83AnnounceMethod? AnnounceMethod { get => _explicitNullValueAnnounceMethod; set { _explicitNullValueAnnounceMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnnounceMethod"); else _explicitNullProperties?.Remove("AnnounceMethod"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83AnnounceMethod? AnnounceMethod { get => _explicitNullValueAnnounceMethod; set { _explicitNullValueAnnounceMethod = value; AdditionalData?.Remove("AnnounceMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnnounceMethod"); else _explicitNullProperties?.Remove("AnnounceMethod"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83AnnounceMethod? _explicitNullValueAnnounceMethod = default!;
         /// <summary>The URL to call to announce something to the participant. The URL may return an MP3 fileo a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnnounceUrl { get => _explicitNullValueAnnounceUrl; set { _explicitNullValueAnnounceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnnounceUrl"); else _explicitNullProperties?.Remove("AnnounceUrl"); } }
+        public string? AnnounceUrl { get => _explicitNullValueAnnounceUrl; set { _explicitNullValueAnnounceUrl = value; AdditionalData?.Remove("AnnounceUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnnounceUrl"); else _explicitNullProperties?.Remove("AnnounceUrl"); } }
         private string? _explicitNullValueAnnounceUrl = default!;
 #nullable restore
 #else
-        public string AnnounceUrl { get => _explicitNullValueAnnounceUrl; set { _explicitNullValueAnnounceUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnnounceUrl"); else _explicitNullProperties?.Remove("AnnounceUrl"); } }
+        public string AnnounceUrl { get => _explicitNullValueAnnounceUrl; set { _explicitNullValueAnnounceUrl = value; AdditionalData?.Remove("AnnounceUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AnnounceUrl"); else _explicitNullProperties?.Remove("AnnounceUrl"); } }
         private string _explicitNullValueAnnounceUrl = default!;
 #endif
         /// <summary>Whether to play a notification beep to the conference when the participant exits.</summary>
-        public bool? BeepOnExit { get => _explicitNullValueBeepOnExit; set { _explicitNullValueBeepOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BeepOnExit"); else _explicitNullProperties?.Remove("BeepOnExit"); } }
+        public bool? BeepOnExit { get => _explicitNullValueBeepOnExit; set { _explicitNullValueBeepOnExit = value; AdditionalData?.Remove("BeepOnExit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BeepOnExit"); else _explicitNullProperties?.Remove("BeepOnExit"); } }
         private bool? _explicitNullValueBeepOnExit = default!;
         /// <summary>The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidToCoach { get => _explicitNullValueCallSidToCoach; set { _explicitNullValueCallSidToCoach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidToCoach"); else _explicitNullProperties?.Remove("CallSidToCoach"); } }
+        public string? CallSidToCoach { get => _explicitNullValueCallSidToCoach; set { _explicitNullValueCallSidToCoach = value; AdditionalData?.Remove("CallSidToCoach"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidToCoach"); else _explicitNullProperties?.Remove("CallSidToCoach"); } }
         private string? _explicitNullValueCallSidToCoach = default!;
 #nullable restore
 #else
-        public string CallSidToCoach { get => _explicitNullValueCallSidToCoach; set { _explicitNullValueCallSidToCoach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidToCoach"); else _explicitNullProperties?.Remove("CallSidToCoach"); } }
+        public string CallSidToCoach { get => _explicitNullValueCallSidToCoach; set { _explicitNullValueCallSidToCoach = value; AdditionalData?.Remove("CallSidToCoach"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidToCoach"); else _explicitNullProperties?.Remove("CallSidToCoach"); } }
         private string _explicitNullValueCallSidToCoach = default!;
 #endif
         /// <summary>Whether the participant is coaching another call. When `true`, `CallSidToCoach` has to be given.</summary>
-        public bool? Coaching { get => _explicitNullValueCoaching; set { _explicitNullValueCoaching = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Coaching"); else _explicitNullProperties?.Remove("Coaching"); } }
+        public bool? Coaching { get => _explicitNullValueCoaching; set { _explicitNullValueCoaching = value; AdditionalData?.Remove("Coaching"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Coaching"); else _explicitNullProperties?.Remove("Coaching"); } }
         private bool? _explicitNullValueCoaching = default!;
         /// <summary>Whether to end the conference when the participant leaves.</summary>
-        public bool? EndConferenceOnExit { get => _explicitNullValueEndConferenceOnExit; set { _explicitNullValueEndConferenceOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("EndConferenceOnExit"); else _explicitNullProperties?.Remove("EndConferenceOnExit"); } }
+        public bool? EndConferenceOnExit { get => _explicitNullValueEndConferenceOnExit; set { _explicitNullValueEndConferenceOnExit = value; AdditionalData?.Remove("EndConferenceOnExit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("EndConferenceOnExit"); else _explicitNullProperties?.Remove("EndConferenceOnExit"); } }
         private bool? _explicitNullValueEndConferenceOnExit = default!;
         /// <summary>Whether the participant should be on hold.</summary>
-        public bool? Hold { get => _explicitNullValueHold; set { _explicitNullValueHold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Hold"); else _explicitNullProperties?.Remove("Hold"); } }
+        public bool? Hold { get => _explicitNullValueHold; set { _explicitNullValueHold = value; AdditionalData?.Remove("Hold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Hold"); else _explicitNullProperties?.Remove("Hold"); } }
         private bool? _explicitNullValueHold = default!;
         /// <summary>The HTTP method to use when calling the `HoldUrl`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83HoldMethod? HoldMethod { get => _explicitNullValueHoldMethod; set { _explicitNullValueHoldMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("HoldMethod"); else _explicitNullProperties?.Remove("HoldMethod"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83HoldMethod? HoldMethod { get => _explicitNullValueHoldMethod; set { _explicitNullValueHoldMethod = value; AdditionalData?.Remove("HoldMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("HoldMethod"); else _explicitNullProperties?.Remove("HoldMethod"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83HoldMethod? _explicitNullValueHoldMethod = default!;
         /// <summary>The URL to be called using the `HoldMethod` for music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoldUrl { get => _explicitNullValueHoldUrl; set { _explicitNullValueHoldUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("HoldUrl"); else _explicitNullProperties?.Remove("HoldUrl"); } }
+        public string? HoldUrl { get => _explicitNullValueHoldUrl; set { _explicitNullValueHoldUrl = value; AdditionalData?.Remove("HoldUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("HoldUrl"); else _explicitNullProperties?.Remove("HoldUrl"); } }
         private string? _explicitNullValueHoldUrl = default!;
 #nullable restore
 #else
-        public string HoldUrl { get => _explicitNullValueHoldUrl; set { _explicitNullValueHoldUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("HoldUrl"); else _explicitNullProperties?.Remove("HoldUrl"); } }
+        public string HoldUrl { get => _explicitNullValueHoldUrl; set { _explicitNullValueHoldUrl = value; AdditionalData?.Remove("HoldUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("HoldUrl"); else _explicitNullProperties?.Remove("HoldUrl"); } }
         private string _explicitNullValueHoldUrl = default!;
 #endif
         /// <summary>Whether the participant should be muted.</summary>
-        public bool? Muted { get => _explicitNullValueMuted; set { _explicitNullValueMuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Muted"); else _explicitNullProperties?.Remove("Muted"); } }
+        public bool? Muted { get => _explicitNullValueMuted; set { _explicitNullValueMuted = value; AdditionalData?.Remove("Muted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Muted"); else _explicitNullProperties?.Remove("Muted"); } }
         private bool? _explicitNullValueMuted = default!;
         /// <summary>The URL to call for an audio file to play while the participant is waiting for the conference to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WaitUrl { get => _explicitNullValueWaitUrl; set { _explicitNullValueWaitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WaitUrl"); else _explicitNullProperties?.Remove("WaitUrl"); } }
+        public string? WaitUrl { get => _explicitNullValueWaitUrl; set { _explicitNullValueWaitUrl = value; AdditionalData?.Remove("WaitUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WaitUrl"); else _explicitNullProperties?.Remove("WaitUrl"); } }
         private string? _explicitNullValueWaitUrl = default!;
 #nullable restore
 #else
-        public string WaitUrl { get => _explicitNullValueWaitUrl; set { _explicitNullValueWaitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WaitUrl"); else _explicitNullProperties?.Remove("WaitUrl"); } }
+        public string WaitUrl { get => _explicitNullValueWaitUrl; set { _explicitNullValueWaitUrl = value; AdditionalData?.Remove("WaitUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WaitUrl"); else _explicitNullProperties?.Remove("WaitUrl"); } }
         private string _explicitNullValueWaitUrl = default!;
 #endif
         /// <summary>
@@ -118,14 +129,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83AnnounceMethod>(); } },
+                { "AnnounceMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83AnnounceMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnnounceMethod = default; _explicitNullProperties?.Remove("AnnounceMethod"); AdditionalData["AnnounceMethod"] = unknown; } else { AnnounceMethod = parsed; AdditionalData.Remove("AnnounceMethod"); } } },
                 { "AnnounceUrl", n => { AnnounceUrl = n.GetStringValue(); } },
                 { "BeepOnExit", n => { BeepOnExit = n.GetBoolValue(); } },
                 { "CallSidToCoach", n => { CallSidToCoach = n.GetStringValue(); } },
                 { "Coaching", n => { Coaching = n.GetBoolValue(); } },
                 { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "Hold", n => { Hold = n.GetBoolValue(); } },
-                { "HoldMethod", n => { HoldMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83HoldMethod>(); } },
+                { "HoldMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateConferenceParticipantRequestC75353Cb83HoldMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHoldMethod = default; _explicitNullProperties?.Remove("HoldMethod"); AdditionalData["HoldMethod"] = unknown; } else { HoldMethod = parsed; AdditionalData.Remove("HoldMethod"); } } },
                 { "HoldUrl", n => { HoldUrl = n.GetStringValue(); } },
                 { "Muted", n => { Muted = n.GetBoolValue(); } },
                 { "WaitUrl", n => { WaitUrl = n.GetStringValue(); } },

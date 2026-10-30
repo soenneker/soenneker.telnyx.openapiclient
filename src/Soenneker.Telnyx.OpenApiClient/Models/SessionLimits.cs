@@ -17,17 +17,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("idle_timeout_s") is { } nullNodeIdleTimeoutS && nullNodeIdleTimeoutS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutS = null;
-            if (parseNode.GetChildNode("lifetime_s") is { } nullNodeLifetimeS && nullNodeLifetimeS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LifetimeS = null;
+            if (parseNode.GetChildNode("idle_timeout_s") is null) { _explicitNullValueIdleTimeoutS = default!; _explicitNullProperties?.Remove("idle_timeout_s"); }
+            else if (parseNode.GetChildNode("idle_timeout_s") is { } nullNodeIdleTimeoutS && nullNodeIdleTimeoutS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutS = null;
+            if (parseNode.GetChildNode("lifetime_s") is null) { _explicitNullValueLifetimeS = default!; _explicitNullProperties?.Remove("lifetime_s"); }
+            else if (parseNode.GetChildNode("lifetime_s") is { } nullNodeLifetimeS && nullNodeLifetimeS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LifetimeS = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The idle_timeout_s property</summary>
-        public int? IdleTimeoutS { get => _explicitNullValueIdleTimeoutS; set { _explicitNullValueIdleTimeoutS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_s"); else _explicitNullProperties?.Remove("idle_timeout_s"); } }
+        public int? IdleTimeoutS { get => _explicitNullValueIdleTimeoutS; set { _explicitNullValueIdleTimeoutS = value; AdditionalData?.Remove("idle_timeout_s"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_s"); else _explicitNullProperties?.Remove("idle_timeout_s"); } }
         private int? _explicitNullValueIdleTimeoutS = default!;
         /// <summary>The lifetime_s property</summary>
-        public int? LifetimeS { get => _explicitNullValueLifetimeS; set { _explicitNullValueLifetimeS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lifetime_s"); else _explicitNullProperties?.Remove("lifetime_s"); } }
+        public int? LifetimeS { get => _explicitNullValueLifetimeS; set { _explicitNullValueLifetimeS = value; AdditionalData?.Remove("lifetime_s"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lifetime_s"); else _explicitNullProperties?.Remove("lifetime_s"); } }
         private int? _explicitNullValueLifetimeS = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SessionLimits"/> and sets the default values.

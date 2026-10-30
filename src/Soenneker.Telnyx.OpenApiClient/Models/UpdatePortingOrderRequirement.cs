@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("field_value") is { } nullNodeFieldValue && nullNodeFieldValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldValue = null;
-            if (parseNode.GetChildNode("requirement_type_id") is { } nullNodeRequirementTypeId && nullNodeRequirementTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementTypeId = null;
+            if (parseNode.GetChildNode("field_value") is null) { _explicitNullValueFieldValue = default!; _explicitNullProperties?.Remove("field_value"); }
+            else if (parseNode.GetChildNode("field_value") is { } nullNodeFieldValue && nullNodeFieldValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldValue = null;
+            if (parseNode.GetChildNode("requirement_type_id") is null) { _explicitNullValueRequirementTypeId = default!; _explicitNullProperties?.Remove("requirement_type_id"); }
+            else if (parseNode.GetChildNode("requirement_type_id") is { } nullNodeRequirementTypeId && nullNodeRequirementTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequirementTypeId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>identifies the document or provides the text value that satisfies this requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_value"); else _explicitNullProperties?.Remove("field_value"); } }
+        public string? FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; AdditionalData?.Remove("field_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_value"); else _explicitNullProperties?.Remove("field_value"); } }
         private string? _explicitNullValueFieldValue = default!;
 #nullable restore
 #else
-        public string FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_value"); else _explicitNullProperties?.Remove("field_value"); } }
+        public string FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; AdditionalData?.Remove("field_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_value"); else _explicitNullProperties?.Remove("field_value"); } }
         private string _explicitNullValueFieldValue = default!;
 #endif
         /// <summary>Identifies the requirement type that the `field_value` fulfills</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequirementTypeId { get => _explicitNullValueRequirementTypeId; set { _explicitNullValueRequirementTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_id"); else _explicitNullProperties?.Remove("requirement_type_id"); } }
+        public string? RequirementTypeId { get => _explicitNullValueRequirementTypeId; set { _explicitNullValueRequirementTypeId = value; AdditionalData?.Remove("requirement_type_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_id"); else _explicitNullProperties?.Remove("requirement_type_id"); } }
         private string? _explicitNullValueRequirementTypeId = default!;
 #nullable restore
 #else
-        public string RequirementTypeId { get => _explicitNullValueRequirementTypeId; set { _explicitNullValueRequirementTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_id"); else _explicitNullProperties?.Remove("requirement_type_id"); } }
+        public string RequirementTypeId { get => _explicitNullValueRequirementTypeId; set { _explicitNullValueRequirementTypeId = value; AdditionalData?.Remove("requirement_type_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requirement_type_id"); else _explicitNullProperties?.Remove("requirement_type_id"); } }
         private string _explicitNullValueRequirementTypeId = default!;
 #endif
         /// <summary>

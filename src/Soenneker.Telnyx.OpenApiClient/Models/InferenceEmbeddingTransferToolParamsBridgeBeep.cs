@@ -18,17 +18,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("target_legs") is { } nullNodeTargetLegs && nullNodeTargetLegs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetLegs = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("target_legs") is null) { _explicitNullValueTargetLegs = default!; _explicitNullProperties?.Remove("target_legs"); }
+            else if (parseNode.GetChildNode("target_legs") is { } nullNodeTargetLegs && nullNodeTargetLegs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetLegs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to play the beep when the calls are bridged.</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Who hears the beep. `self` plays it to the transfer destination only; `both` plays it to the destination and the original caller.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeepTargetLegs? TargetLegs { get => _explicitNullValueTargetLegs; set { _explicitNullValueTargetLegs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_legs"); else _explicitNullProperties?.Remove("target_legs"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeepTargetLegs? TargetLegs { get => _explicitNullValueTargetLegs; set { _explicitNullValueTargetLegs = value; AdditionalData?.Remove("target_legs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_legs"); else _explicitNullProperties?.Remove("target_legs"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeepTargetLegs? _explicitNullValueTargetLegs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeep"/> and sets the default values.
@@ -57,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "target_legs", n => { TargetLegs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeepTargetLegs>(); } },
+                { "target_legs", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsBridgeBeepTargetLegs>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTargetLegs = default; _explicitNullProperties?.Remove("target_legs"); AdditionalData["target_legs"] = unknown; } else { TargetLegs = parsed; AdditionalData.Remove("target_legs"); } } },
             };
         }
         /// <summary>

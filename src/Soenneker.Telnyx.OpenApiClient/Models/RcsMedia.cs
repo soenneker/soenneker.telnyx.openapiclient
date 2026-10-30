@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("content_info") is { } nullNodeContentInfo && nullNodeContentInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContentInfo = null;
-            if (parseNode.GetChildNode("height") is { } nullNodeHeight && nullNodeHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Height = null;
+            if (parseNode.GetChildNode("content_info") is null) { _explicitNullValueContentInfo = default!; _explicitNullProperties?.Remove("content_info"); }
+            else if (parseNode.GetChildNode("content_info") is { } nullNodeContentInfo && nullNodeContentInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContentInfo = null;
+            if (parseNode.GetChildNode("height") is null) { _explicitNullValueHeight = default!; _explicitNullProperties?.Remove("height"); }
+            else if (parseNode.GetChildNode("height") is { } nullNodeHeight && nullNodeHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Height = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The content_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo? ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo? ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; AdditionalData?.Remove("content_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo? _explicitNullValueContentInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo ContentInfo { get => _explicitNullValueContentInfo; set { _explicitNullValueContentInfo = value; AdditionalData?.Remove("content_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content_info"); else _explicitNullProperties?.Remove("content_info"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo _explicitNullValueContentInfo = default!;
 #endif
         /// <summary>The height of the media within a rich card with a vertical layout. For a standalone card with horizontal layout, height is not customizable, and this field is ignored.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsMediaHeight? Height { get => _explicitNullValueHeight; set { _explicitNullValueHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("height"); else _explicitNullProperties?.Remove("height"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsMediaHeight? Height { get => _explicitNullValueHeight; set { _explicitNullValueHeight = value; AdditionalData?.Remove("height"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("height"); else _explicitNullProperties?.Remove("height"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsMediaHeight? _explicitNullValueHeight = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsMedia"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content_info", n => { ContentInfo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo.CreateFromDiscriminatorValue); } },
-                { "height", n => { Height = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsMediaHeight>(); } },
+                { "height", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsMediaHeight>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHeight = default; _explicitNullProperties?.Remove("height"); AdditionalData["height"] = unknown; } else { Height = parsed; AdditionalData.Remove("height"); } } },
             };
         }
         /// <summary>

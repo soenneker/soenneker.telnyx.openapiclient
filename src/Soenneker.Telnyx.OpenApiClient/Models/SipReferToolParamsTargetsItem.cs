@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("sip_address") is { } nullNodeSipAddress && nullNodeSipAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAddress = null;
-            if (parseNode.GetChildNode("sip_auth_password") is { } nullNodeSipAuthPassword && nullNodeSipAuthPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuthPassword = null;
-            if (parseNode.GetChildNode("sip_auth_username") is { } nullNodeSipAuthUsername && nullNodeSipAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuthUsername = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("sip_address") is null) { _explicitNullValueSipAddress = default!; _explicitNullProperties?.Remove("sip_address"); }
+            else if (parseNode.GetChildNode("sip_address") is { } nullNodeSipAddress && nullNodeSipAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAddress = null;
+            if (parseNode.GetChildNode("sip_auth_password") is null) { _explicitNullValueSipAuthPassword = default!; _explicitNullProperties?.Remove("sip_auth_password"); }
+            else if (parseNode.GetChildNode("sip_auth_password") is { } nullNodeSipAuthPassword && nullNodeSipAuthPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuthPassword = null;
+            if (parseNode.GetChildNode("sip_auth_username") is null) { _explicitNullValueSipAuthUsername = default!; _explicitNullProperties?.Remove("sip_auth_username"); }
+            else if (parseNode.GetChildNode("sip_auth_username") is { } nullNodeSipAuthUsername && nullNodeSipAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipAuthUsername = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The name of the target.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The SIP URI to which the call will be referred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipAddress { get => _explicitNullValueSipAddress; set { _explicitNullValueSipAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_address"); else _explicitNullProperties?.Remove("sip_address"); } }
+        public string? SipAddress { get => _explicitNullValueSipAddress; set { _explicitNullValueSipAddress = value; AdditionalData?.Remove("sip_address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_address"); else _explicitNullProperties?.Remove("sip_address"); } }
         private string? _explicitNullValueSipAddress = default!;
 #nullable restore
 #else
-        public string SipAddress { get => _explicitNullValueSipAddress; set { _explicitNullValueSipAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_address"); else _explicitNullProperties?.Remove("sip_address"); } }
+        public string SipAddress { get => _explicitNullValueSipAddress; set { _explicitNullValueSipAddress = value; AdditionalData?.Remove("sip_address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_address"); else _explicitNullProperties?.Remove("sip_address"); } }
         private string _explicitNullValueSipAddress = default!;
 #endif
         /// <summary>SIP Authentication password used for SIP challenges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipAuthPassword { get => _explicitNullValueSipAuthPassword; set { _explicitNullValueSipAuthPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_password"); else _explicitNullProperties?.Remove("sip_auth_password"); } }
+        public string? SipAuthPassword { get => _explicitNullValueSipAuthPassword; set { _explicitNullValueSipAuthPassword = value; AdditionalData?.Remove("sip_auth_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_password"); else _explicitNullProperties?.Remove("sip_auth_password"); } }
         private string? _explicitNullValueSipAuthPassword = default!;
 #nullable restore
 #else
-        public string SipAuthPassword { get => _explicitNullValueSipAuthPassword; set { _explicitNullValueSipAuthPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_password"); else _explicitNullProperties?.Remove("sip_auth_password"); } }
+        public string SipAuthPassword { get => _explicitNullValueSipAuthPassword; set { _explicitNullValueSipAuthPassword = value; AdditionalData?.Remove("sip_auth_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_password"); else _explicitNullProperties?.Remove("sip_auth_password"); } }
         private string _explicitNullValueSipAuthPassword = default!;
 #endif
         /// <summary>SIP Authentication username used for SIP challenges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipAuthUsername { get => _explicitNullValueSipAuthUsername; set { _explicitNullValueSipAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_username"); else _explicitNullProperties?.Remove("sip_auth_username"); } }
+        public string? SipAuthUsername { get => _explicitNullValueSipAuthUsername; set { _explicitNullValueSipAuthUsername = value; AdditionalData?.Remove("sip_auth_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_username"); else _explicitNullProperties?.Remove("sip_auth_username"); } }
         private string? _explicitNullValueSipAuthUsername = default!;
 #nullable restore
 #else
-        public string SipAuthUsername { get => _explicitNullValueSipAuthUsername; set { _explicitNullValueSipAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_username"); else _explicitNullProperties?.Remove("sip_auth_username"); } }
+        public string SipAuthUsername { get => _explicitNullValueSipAuthUsername; set { _explicitNullValueSipAuthUsername = value; AdditionalData?.Remove("sip_auth_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_auth_username"); else _explicitNullProperties?.Remove("sip_auth_username"); } }
         private string _explicitNullValueSipAuthUsername = default!;
 #endif
         /// <summary>

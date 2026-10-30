@@ -17,76 +17,84 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("country") is { } nullNodeCountry && nullNodeCountry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Country = null;
-            if (parseNode.GetChildNode("exclude_domains") is { } nullNodeExcludeDomains && nullNodeExcludeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeDomains = null;
-            if (parseNode.GetChildNode("freshness") is { } nullNodeFreshness && nullNodeFreshness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Freshness = null;
-            if (parseNode.GetChildNode("include_domains") is { } nullNodeIncludeDomains && nullNodeIncludeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDomains = null;
-            if (parseNode.GetChildNode("livecrawl") is { } nullNodeLivecrawl && nullNodeLivecrawl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Livecrawl = null;
-            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
-            if (parseNode.GetChildNode("safesearch") is { } nullNodeSafesearch && nullNodeSafesearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Safesearch = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("country") is null) { _explicitNullValueCountry = default!; _explicitNullProperties?.Remove("country"); }
+            else if (parseNode.GetChildNode("country") is { } nullNodeCountry && nullNodeCountry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Country = null;
+            if (parseNode.GetChildNode("exclude_domains") is null) { _explicitNullValueExcludeDomains = default!; _explicitNullProperties?.Remove("exclude_domains"); }
+            else if (parseNode.GetChildNode("exclude_domains") is { } nullNodeExcludeDomains && nullNodeExcludeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeDomains = null;
+            if (parseNode.GetChildNode("freshness") is null) { _explicitNullValueFreshness = default!; _explicitNullProperties?.Remove("freshness"); }
+            else if (parseNode.GetChildNode("freshness") is { } nullNodeFreshness && nullNodeFreshness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Freshness = null;
+            if (parseNode.GetChildNode("include_domains") is null) { _explicitNullValueIncludeDomains = default!; _explicitNullProperties?.Remove("include_domains"); }
+            else if (parseNode.GetChildNode("include_domains") is { } nullNodeIncludeDomains && nullNodeIncludeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDomains = null;
+            if (parseNode.GetChildNode("livecrawl") is null) { _explicitNullValueLivecrawl = default!; _explicitNullProperties?.Remove("livecrawl"); }
+            else if (parseNode.GetChildNode("livecrawl") is { } nullNodeLivecrawl && nullNodeLivecrawl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Livecrawl = null;
+            if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
+            else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("safesearch") is null) { _explicitNullValueSafesearch = default!; _explicitNullProperties?.Remove("safesearch"); }
+            else if (parseNode.GetChildNode("safesearch") is { } nullNodeSafesearch && nullNodeSafesearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Safesearch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of results to return (1-100).</summary>
-        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
         /// <summary>Two-letter country code (ISO 3166-1 alpha-2) to bias results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Country { get => _explicitNullValueCountry; set { _explicitNullValueCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country"); else _explicitNullProperties?.Remove("country"); } }
+        public string? Country { get => _explicitNullValueCountry; set { _explicitNullValueCountry = value; AdditionalData?.Remove("country"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country"); else _explicitNullProperties?.Remove("country"); } }
         private string? _explicitNullValueCountry = default!;
 #nullable restore
 #else
-        public string Country { get => _explicitNullValueCountry; set { _explicitNullValueCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country"); else _explicitNullProperties?.Remove("country"); } }
+        public string Country { get => _explicitNullValueCountry; set { _explicitNullValueCountry = value; AdditionalData?.Remove("country"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country"); else _explicitNullProperties?.Remove("country"); } }
         private string _explicitNullValueCountry = default!;
 #endif
         /// <summary>Exclude results from these domains (bare hostnames, e.g. `pinterest.com`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeDomains { get => _explicitNullValueExcludeDomains; set { _explicitNullValueExcludeDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_domains"); else _explicitNullProperties?.Remove("exclude_domains"); } }
+        public List<string>? ExcludeDomains { get => _explicitNullValueExcludeDomains; set { _explicitNullValueExcludeDomains = value; AdditionalData?.Remove("exclude_domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_domains"); else _explicitNullProperties?.Remove("exclude_domains"); } }
         private List<string>? _explicitNullValueExcludeDomains = default!;
 #nullable restore
 #else
-        public List<string> ExcludeDomains { get => _explicitNullValueExcludeDomains; set { _explicitNullValueExcludeDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_domains"); else _explicitNullProperties?.Remove("exclude_domains"); } }
+        public List<string> ExcludeDomains { get => _explicitNullValueExcludeDomains; set { _explicitNullValueExcludeDomains = value; AdditionalData?.Remove("exclude_domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_domains"); else _explicitNullProperties?.Remove("exclude_domains"); } }
         private List<string> _explicitNullValueExcludeDomains = default!;
 #endif
         /// <summary>Time-based filter for results. Common values: `day`, `week`, `month`, `year`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Freshness { get => _explicitNullValueFreshness; set { _explicitNullValueFreshness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("freshness"); else _explicitNullProperties?.Remove("freshness"); } }
+        public string? Freshness { get => _explicitNullValueFreshness; set { _explicitNullValueFreshness = value; AdditionalData?.Remove("freshness"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("freshness"); else _explicitNullProperties?.Remove("freshness"); } }
         private string? _explicitNullValueFreshness = default!;
 #nullable restore
 #else
-        public string Freshness { get => _explicitNullValueFreshness; set { _explicitNullValueFreshness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("freshness"); else _explicitNullProperties?.Remove("freshness"); } }
+        public string Freshness { get => _explicitNullValueFreshness; set { _explicitNullValueFreshness = value; AdditionalData?.Remove("freshness"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("freshness"); else _explicitNullProperties?.Remove("freshness"); } }
         private string _explicitNullValueFreshness = default!;
 #endif
         /// <summary>Restrict results to these domains (bare hostnames, e.g. `arxiv.org`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludeDomains { get => _explicitNullValueIncludeDomains; set { _explicitNullValueIncludeDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_domains"); else _explicitNullProperties?.Remove("include_domains"); } }
+        public List<string>? IncludeDomains { get => _explicitNullValueIncludeDomains; set { _explicitNullValueIncludeDomains = value; AdditionalData?.Remove("include_domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_domains"); else _explicitNullProperties?.Remove("include_domains"); } }
         private List<string>? _explicitNullValueIncludeDomains = default!;
 #nullable restore
 #else
-        public List<string> IncludeDomains { get => _explicitNullValueIncludeDomains; set { _explicitNullValueIncludeDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_domains"); else _explicitNullProperties?.Remove("include_domains"); } }
+        public List<string> IncludeDomains { get => _explicitNullValueIncludeDomains; set { _explicitNullValueIncludeDomains = value; AdditionalData?.Remove("include_domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_domains"); else _explicitNullProperties?.Remove("include_domains"); } }
         private List<string> _explicitNullValueIncludeDomains = default!;
 #endif
         /// <summary>When true, the provider crawls pages in real-time for fresh content. The boolean is translated to the provider&apos;s internal enum internally; callers always pass `true` or `false`.</summary>
-        public bool? Livecrawl { get => _explicitNullValueLivecrawl; set { _explicitNullValueLivecrawl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("livecrawl"); else _explicitNullProperties?.Remove("livecrawl"); } }
+        public bool? Livecrawl { get => _explicitNullValueLivecrawl; set { _explicitNullValueLivecrawl = value; AdditionalData?.Remove("livecrawl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("livecrawl"); else _explicitNullProperties?.Remove("livecrawl"); } }
         private bool? _explicitNullValueLivecrawl = default!;
         /// <summary>The search query text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string _explicitNullValueQuery = default!;
 #endif
         /// <summary>Safe search filter level.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchRequestSafesearch? Safesearch { get => _explicitNullValueSafesearch; set { _explicitNullValueSafesearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("safesearch"); else _explicitNullProperties?.Remove("safesearch"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchRequestSafesearch? Safesearch { get => _explicitNullValueSafesearch; set { _explicitNullValueSafesearch = value; AdditionalData?.Remove("safesearch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("safesearch"); else _explicitNullProperties?.Remove("safesearch"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchRequestSafesearch? _explicitNullValueSafesearch = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchRequest"/> and sets the default values.
@@ -120,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "include_domains", n => { IncludeDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "livecrawl", n => { Livecrawl = n.GetBoolValue(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
-                { "safesearch", n => { Safesearch = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchRequestSafesearch>(); } },
+                { "safesearch", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchRequestSafesearch>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSafesearch = default; _explicitNullProperties?.Remove("safesearch"); AdditionalData["safesearch"] = unknown; } else { Safesearch = parsed; AdditionalData.Remove("safesearch"); } } },
             };
         }
         /// <summary>

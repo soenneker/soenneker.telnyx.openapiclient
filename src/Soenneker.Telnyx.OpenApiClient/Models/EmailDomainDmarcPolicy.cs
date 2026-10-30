@@ -18,32 +18,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("p") is { } nullNodeP && nullNodeP.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P = null;
-            if (parseNode.GetChildNode("pct") is { } nullNodePct && nullNodePct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pct = null;
-            if (parseNode.GetChildNode("rua") is { } nullNodeRua && nullNodeRua.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rua = null;
-            if (parseNode.GetChildNode("sp") is { } nullNodeSp && nullNodeSp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sp = null;
+            if (parseNode.GetChildNode("p") is null) { _explicitNullValueP = default!; _explicitNullProperties?.Remove("p"); }
+            else if (parseNode.GetChildNode("p") is { } nullNodeP && nullNodeP.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P = null;
+            if (parseNode.GetChildNode("pct") is null) { _explicitNullValuePct = default!; _explicitNullProperties?.Remove("pct"); }
+            else if (parseNode.GetChildNode("pct") is { } nullNodePct && nullNodePct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pct = null;
+            if (parseNode.GetChildNode("rua") is null) { _explicitNullValueRua = default!; _explicitNullProperties?.Remove("rua"); }
+            else if (parseNode.GetChildNode("rua") is { } nullNodeRua && nullNodeRua.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rua = null;
+            if (parseNode.GetChildNode("sp") is null) { _explicitNullValueSp = default!; _explicitNullProperties?.Remove("sp"); }
+            else if (parseNode.GetChildNode("sp") is { } nullNodeSp && nullNodeSp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Policy applied to messages that fail alignment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP? P { get => _explicitNullValueP; set { _explicitNullValueP = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p"); else _explicitNullProperties?.Remove("p"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP? P { get => _explicitNullValueP; set { _explicitNullValueP = value; AdditionalData?.Remove("p"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p"); else _explicitNullProperties?.Remove("p"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP? _explicitNullValueP = default!;
         /// <summary>Percentage of messages the policy applies to. Omitted from the record when 100.</summary>
-        public int? Pct { get => _explicitNullValuePct; set { _explicitNullValuePct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pct"); else _explicitNullProperties?.Remove("pct"); } }
+        public int? Pct { get => _explicitNullValuePct; set { _explicitNullValuePct = value; AdditionalData?.Remove("pct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pct"); else _explicitNullProperties?.Remove("pct"); } }
         private int? _explicitNullValuePct = default!;
         /// <summary>URI for aggregate reports. Defaults to the Telnyx address when absent; null omits it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rua { get => _explicitNullValueRua; set { _explicitNullValueRua = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rua"); else _explicitNullProperties?.Remove("rua"); } }
+        public string? Rua { get => _explicitNullValueRua; set { _explicitNullValueRua = value; AdditionalData?.Remove("rua"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rua"); else _explicitNullProperties?.Remove("rua"); } }
         private string? _explicitNullValueRua = default!;
 #nullable restore
 #else
-        public string Rua { get => _explicitNullValueRua; set { _explicitNullValueRua = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rua"); else _explicitNullProperties?.Remove("rua"); } }
+        public string Rua { get => _explicitNullValueRua; set { _explicitNullValueRua = value; AdditionalData?.Remove("rua"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rua"); else _explicitNullProperties?.Remove("rua"); } }
         private string _explicitNullValueRua = default!;
 #endif
         /// <summary>Policy for subdomains. Omitted from the record when null.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp? Sp { get => _explicitNullValueSp; set { _explicitNullValueSp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp"); else _explicitNullProperties?.Remove("sp"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp? Sp { get => _explicitNullValueSp; set { _explicitNullValueSp = value; AdditionalData?.Remove("sp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp"); else _explicitNullProperties?.Remove("sp"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp? _explicitNullValueSp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainDmarcPolicy"/> and sets the default values.
@@ -71,10 +75,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "p", n => { P = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP>(); } },
+                { "p", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueP = default; _explicitNullProperties?.Remove("p"); AdditionalData["p"] = unknown; } else { P = parsed; AdditionalData.Remove("p"); } } },
                 { "pct", n => { Pct = n.GetIntValue(); } },
                 { "rua", n => { Rua = n.GetStringValue(); } },
-                { "sp", n => { Sp = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp>(); } },
+                { "sp", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicySp>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSp = default; _explicitNullProperties?.Remove("sp"); AdditionalData["sp"] = unknown; } else { Sp = parsed; AdditionalData.Remove("sp"); } } },
             };
         }
         /// <summary>

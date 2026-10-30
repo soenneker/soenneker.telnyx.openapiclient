@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mrc") is { } nullNodeMrc && nullNodeMrc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mrc = null;
-            if (parseNode.GetChildNode("otc") is { } nullNodeOtc && nullNodeOtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Otc = null;
-            if (parseNode.GetChildNode("quantity") is { } nullNodeQuantity && nullNodeQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quantity = null;
+            if (parseNode.GetChildNode("mrc") is null) { _explicitNullValueMrc = default!; _explicitNullProperties?.Remove("mrc"); }
+            else if (parseNode.GetChildNode("mrc") is { } nullNodeMrc && nullNodeMrc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mrc = null;
+            if (parseNode.GetChildNode("otc") is null) { _explicitNullValueOtc = default!; _explicitNullProperties?.Remove("otc"); }
+            else if (parseNode.GetChildNode("otc") is { } nullNodeOtc && nullNodeOtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Otc = null;
+            if (parseNode.GetChildNode("quantity") is null) { _explicitNullValueQuantity = default!; _explicitNullProperties?.Remove("quantity"); }
+            else if (parseNode.GetChildNode("quantity") is { } nullNodeQuantity && nullNodeQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quantity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Monthly recurring charge amount as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mrc { get => _explicitNullValueMrc; set { _explicitNullValueMrc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrc"); else _explicitNullProperties?.Remove("mrc"); } }
+        public string? Mrc { get => _explicitNullValueMrc; set { _explicitNullValueMrc = value; AdditionalData?.Remove("mrc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrc"); else _explicitNullProperties?.Remove("mrc"); } }
         private string? _explicitNullValueMrc = default!;
 #nullable restore
 #else
-        public string Mrc { get => _explicitNullValueMrc; set { _explicitNullValueMrc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrc"); else _explicitNullProperties?.Remove("mrc"); } }
+        public string Mrc { get => _explicitNullValueMrc; set { _explicitNullValueMrc = value; AdditionalData?.Remove("mrc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrc"); else _explicitNullProperties?.Remove("mrc"); } }
         private string _explicitNullValueMrc = default!;
 #endif
         /// <summary>One-time charge amount as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Otc { get => _explicitNullValueOtc; set { _explicitNullValueOtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otc"); else _explicitNullProperties?.Remove("otc"); } }
+        public string? Otc { get => _explicitNullValueOtc; set { _explicitNullValueOtc = value; AdditionalData?.Remove("otc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otc"); else _explicitNullProperties?.Remove("otc"); } }
         private string? _explicitNullValueOtc = default!;
 #nullable restore
 #else
-        public string Otc { get => _explicitNullValueOtc; set { _explicitNullValueOtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otc"); else _explicitNullProperties?.Remove("otc"); } }
+        public string Otc { get => _explicitNullValueOtc; set { _explicitNullValueOtc = value; AdditionalData?.Remove("otc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otc"); else _explicitNullProperties?.Remove("otc"); } }
         private string _explicitNullValueOtc = default!;
 #endif
         /// <summary>Number of items</summary>
-        public int? Quantity { get => _explicitNullValueQuantity; set { _explicitNullValueQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quantity"); else _explicitNullProperties?.Remove("quantity"); } }
+        public int? Quantity { get => _explicitNullValueQuantity; set { _explicitNullValueQuantity = value; AdditionalData?.Remove("quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quantity"); else _explicitNullProperties?.Remove("quantity"); } }
         private int? _explicitNullValueQuantity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail"/> and sets the default values.

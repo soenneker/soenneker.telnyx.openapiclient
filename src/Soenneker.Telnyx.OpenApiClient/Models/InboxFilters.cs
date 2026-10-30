@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowlist") is { } nullNodeAllowlist && nullNodeAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Allowlist = null;
-            if (parseNode.GetChildNode("blocklist") is { } nullNodeBlocklist && nullNodeBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocklist = null;
-            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("allowlist") is null) { _explicitNullValueAllowlist = default!; _explicitNullProperties?.Remove("allowlist"); }
+            else if (parseNode.GetChildNode("allowlist") is { } nullNodeAllowlist && nullNodeAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Allowlist = null;
+            if (parseNode.GetChildNode("blocklist") is null) { _explicitNullValueBlocklist = default!; _explicitNullProperties?.Remove("blocklist"); }
+            else if (parseNode.GetChildNode("blocklist") is { } nullNodeBlocklist && nullNodeBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocklist = null;
+            if (parseNode.GetChildNode("record_type") is null) { _explicitNullValueRecordType = default!; _explicitNullProperties?.Remove("record_type"); }
+            else if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The allowlist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Allowlist { get => _explicitNullValueAllowlist; set { _explicitNullValueAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowlist"); else _explicitNullProperties?.Remove("allowlist"); } }
+        public List<string>? Allowlist { get => _explicitNullValueAllowlist; set { _explicitNullValueAllowlist = value; AdditionalData?.Remove("allowlist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowlist"); else _explicitNullProperties?.Remove("allowlist"); } }
         private List<string>? _explicitNullValueAllowlist = default!;
 #nullable restore
 #else
-        public List<string> Allowlist { get => _explicitNullValueAllowlist; set { _explicitNullValueAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowlist"); else _explicitNullProperties?.Remove("allowlist"); } }
+        public List<string> Allowlist { get => _explicitNullValueAllowlist; set { _explicitNullValueAllowlist = value; AdditionalData?.Remove("allowlist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowlist"); else _explicitNullProperties?.Remove("allowlist"); } }
         private List<string> _explicitNullValueAllowlist = default!;
 #endif
         /// <summary>The blocklist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Blocklist { get => _explicitNullValueBlocklist; set { _explicitNullValueBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist"); else _explicitNullProperties?.Remove("blocklist"); } }
+        public List<string>? Blocklist { get => _explicitNullValueBlocklist; set { _explicitNullValueBlocklist = value; AdditionalData?.Remove("blocklist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist"); else _explicitNullProperties?.Remove("blocklist"); } }
         private List<string>? _explicitNullValueBlocklist = default!;
 #nullable restore
 #else
-        public List<string> Blocklist { get => _explicitNullValueBlocklist; set { _explicitNullValueBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist"); else _explicitNullProperties?.Remove("blocklist"); } }
+        public List<string> Blocklist { get => _explicitNullValueBlocklist; set { _explicitNullValueBlocklist = value; AdditionalData?.Remove("blocklist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist"); else _explicitNullProperties?.Remove("blocklist"); } }
         private List<string> _explicitNullValueBlocklist = default!;
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType? _explicitNullValueRecordType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboxFilters"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "allowlist", n => { Allowlist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "blocklist", n => { Blocklist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType>(); } },
+                { "record_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailInboxFiltersRecordType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordType = default; _explicitNullProperties?.Remove("record_type"); AdditionalData["record_type"] = unknown; } else { RecordType = parsed; AdditionalData.Remove("record_type"); } } },
             };
         }
         /// <summary>

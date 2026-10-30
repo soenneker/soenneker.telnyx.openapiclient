@@ -17,16 +17,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("claimant_contact") is { } nullNodeClaimantContact && nullNodeClaimantContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimantContact = null;
-            if (parseNode.GetChildNode("claimant_name") is { } nullNodeClaimantName && nullNodeClaimantName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimantName = null;
-            if (parseNode.GetChildNode("claim_description") is { } nullNodeClaimDescription && nullNodeClaimDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimDescription = null;
-            if (parseNode.GetChildNode("claim_type") is { } nullNodeClaimType && nullNodeClaimType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimType = null;
-            if (parseNode.GetChildNode("contest_documents") is { } nullNodeContestDocuments && nullNodeContestDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContestDocuments = null;
-            if (parseNode.GetChildNode("dir") is { } nullNodeDir && nullNodeDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dir = null;
-            if (parseNode.GetChildNode("dir_id") is { } nullNodeDirId && nullNodeDirId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DirId = null;
-            if (parseNode.GetChildNode("enterprise_id") is { } nullNodeEnterpriseId && nullNodeEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseId = null;
-            if (parseNode.GetChildNode("resolution") is { } nullNodeResolution && nullNodeResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resolution = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("claimant_contact") is null) { _explicitNullValueClaimantContact = default!; _explicitNullProperties?.Remove("claimant_contact"); }
+            else if (parseNode.GetChildNode("claimant_contact") is { } nullNodeClaimantContact && nullNodeClaimantContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimantContact = null;
+            if (parseNode.GetChildNode("claimant_name") is null) { _explicitNullValueClaimantName = default!; _explicitNullProperties?.Remove("claimant_name"); }
+            else if (parseNode.GetChildNode("claimant_name") is { } nullNodeClaimantName && nullNodeClaimantName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimantName = null;
+            if (parseNode.GetChildNode("claim_description") is null) { _explicitNullValueClaimDescription = default!; _explicitNullProperties?.Remove("claim_description"); }
+            else if (parseNode.GetChildNode("claim_description") is { } nullNodeClaimDescription && nullNodeClaimDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimDescription = null;
+            if (parseNode.GetChildNode("claim_type") is null) { _explicitNullValueClaimType = default!; _explicitNullProperties?.Remove("claim_type"); }
+            else if (parseNode.GetChildNode("claim_type") is { } nullNodeClaimType && nullNodeClaimType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimType = null;
+            if (parseNode.GetChildNode("contest_documents") is null) { _explicitNullValueContestDocuments = default!; _explicitNullProperties?.Remove("contest_documents"); }
+            else if (parseNode.GetChildNode("contest_documents") is { } nullNodeContestDocuments && nullNodeContestDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContestDocuments = null;
+            if (parseNode.GetChildNode("dir") is null) { _explicitNullValueDir = default!; _explicitNullProperties?.Remove("dir"); }
+            else if (parseNode.GetChildNode("dir") is { } nullNodeDir && nullNodeDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dir = null;
+            if (parseNode.GetChildNode("dir_id") is null) { _explicitNullValueDirId = default!; _explicitNullProperties?.Remove("dir_id"); }
+            else if (parseNode.GetChildNode("dir_id") is { } nullNodeDirId && nullNodeDirId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DirId = null;
+            if (parseNode.GetChildNode("enterprise_id") is null) { _explicitNullValueEnterpriseId = default!; _explicitNullProperties?.Remove("enterprise_id"); }
+            else if (parseNode.GetChildNode("enterprise_id") is { } nullNodeEnterpriseId && nullNodeEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseId = null;
+            if (parseNode.GetChildNode("resolution") is null) { _explicitNullValueResolution = default!; _explicitNullProperties?.Remove("resolution"); }
+            else if (parseNode.GetChildNode("resolution") is { } nullNodeResolution && nullNodeResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resolution = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,21 +44,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The claimant_contact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimantContact { get => _explicitNullValueClaimantContact; set { _explicitNullValueClaimantContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_contact"); else _explicitNullProperties?.Remove("claimant_contact"); } }
+        public string? ClaimantContact { get => _explicitNullValueClaimantContact; set { _explicitNullValueClaimantContact = value; AdditionalData?.Remove("claimant_contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_contact"); else _explicitNullProperties?.Remove("claimant_contact"); } }
         private string? _explicitNullValueClaimantContact = default!;
 #nullable restore
 #else
-        public string ClaimantContact { get => _explicitNullValueClaimantContact; set { _explicitNullValueClaimantContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_contact"); else _explicitNullProperties?.Remove("claimant_contact"); } }
+        public string ClaimantContact { get => _explicitNullValueClaimantContact; set { _explicitNullValueClaimantContact = value; AdditionalData?.Remove("claimant_contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_contact"); else _explicitNullProperties?.Remove("claimant_contact"); } }
         private string _explicitNullValueClaimantContact = default!;
 #endif
         /// <summary>The claimant_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimantName { get => _explicitNullValueClaimantName; set { _explicitNullValueClaimantName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_name"); else _explicitNullProperties?.Remove("claimant_name"); } }
+        public string? ClaimantName { get => _explicitNullValueClaimantName; set { _explicitNullValueClaimantName = value; AdditionalData?.Remove("claimant_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_name"); else _explicitNullProperties?.Remove("claimant_name"); } }
         private string? _explicitNullValueClaimantName = default!;
 #nullable restore
 #else
-        public string ClaimantName { get => _explicitNullValueClaimantName; set { _explicitNullValueClaimantName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_name"); else _explicitNullProperties?.Remove("claimant_name"); } }
+        public string ClaimantName { get => _explicitNullValueClaimantName; set { _explicitNullValueClaimantName = value; AdditionalData?.Remove("claimant_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimant_name"); else _explicitNullProperties?.Remove("claimant_name"); } }
         private string _explicitNullValueClaimantName = default!;
 #endif
         /// <summary>When the claim was filed (set by the claimant&apos;s representative at file time).</summary>
@@ -56,24 +66,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The claim_description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimDescription { get => _explicitNullValueClaimDescription; set { _explicitNullValueClaimDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim_description"); else _explicitNullProperties?.Remove("claim_description"); } }
+        public string? ClaimDescription { get => _explicitNullValueClaimDescription; set { _explicitNullValueClaimDescription = value; AdditionalData?.Remove("claim_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim_description"); else _explicitNullProperties?.Remove("claim_description"); } }
         private string? _explicitNullValueClaimDescription = default!;
 #nullable restore
 #else
-        public string ClaimDescription { get => _explicitNullValueClaimDescription; set { _explicitNullValueClaimDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim_description"); else _explicitNullProperties?.Remove("claim_description"); } }
+        public string ClaimDescription { get => _explicitNullValueClaimDescription; set { _explicitNullValueClaimDescription = value; AdditionalData?.Remove("claim_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim_description"); else _explicitNullProperties?.Remove("claim_description"); } }
         private string _explicitNullValueClaimDescription = default!;
 #endif
         /// <summary>Category of infringement being claimed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimType? ClaimType { get => _explicitNullValueClaimType; set { _explicitNullValueClaimType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim_type"); else _explicitNullProperties?.Remove("claim_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimType? ClaimType { get => _explicitNullValueClaimType; set { _explicitNullValueClaimType = value; AdditionalData?.Remove("claim_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim_type"); else _explicitNullProperties?.Remove("claim_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimType? _explicitNullValueClaimType = default!;
         /// <summary>Aggregated across all customer contest submissions on this claim.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? ContestDocuments { get => _explicitNullValueContestDocuments; set { _explicitNullValueContestDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contest_documents"); else _explicitNullProperties?.Remove("contest_documents"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? ContestDocuments { get => _explicitNullValueContestDocuments; set { _explicitNullValueContestDocuments = value; AdditionalData?.Remove("contest_documents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contest_documents"); else _explicitNullProperties?.Remove("contest_documents"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.Document>? _explicitNullValueContestDocuments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> ContestDocuments { get => _explicitNullValueContestDocuments; set { _explicitNullValueContestDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contest_documents"); else _explicitNullProperties?.Remove("contest_documents"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> ContestDocuments { get => _explicitNullValueContestDocuments; set { _explicitNullValueContestDocuments = value; AdditionalData?.Remove("contest_documents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contest_documents"); else _explicitNullProperties?.Remove("contest_documents"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.Document> _explicitNullValueContestDocuments = default!;
 #endif
         /// <summary>Per-round submission audit trail. Each entry records one `POST /infringement_claims/{id}/contest` call (notes, timestamp, document count). Aggregated documents live on `contest_documents`.</summary>
@@ -89,23 +99,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Snapshot of the DIR the claim is filed against, embedded for convenience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimDirRef? Dir { get => _explicitNullValueDir; set { _explicitNullValueDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dir"); else _explicitNullProperties?.Remove("dir"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimDirRef? Dir { get => _explicitNullValueDir; set { _explicitNullValueDir = value; AdditionalData?.Remove("dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dir"); else _explicitNullProperties?.Remove("dir"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimDirRef? _explicitNullValueDir = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimDirRef Dir { get => _explicitNullValueDir; set { _explicitNullValueDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dir"); else _explicitNullProperties?.Remove("dir"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimDirRef Dir { get => _explicitNullValueDir; set { _explicitNullValueDir = value; AdditionalData?.Remove("dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dir"); else _explicitNullProperties?.Remove("dir"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimDirRef _explicitNullValueDir = default!;
 #endif
         /// <summary>The dir_id property</summary>
-        public Guid? DirId { get => _explicitNullValueDirId; set { _explicitNullValueDirId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dir_id"); else _explicitNullProperties?.Remove("dir_id"); } }
+        public Guid? DirId { get => _explicitNullValueDirId; set { _explicitNullValueDirId = value; AdditionalData?.Remove("dir_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dir_id"); else _explicitNullProperties?.Remove("dir_id"); } }
         private Guid? _explicitNullValueDirId = default!;
         /// <summary>The enterprise_id property</summary>
-        public Guid? EnterpriseId { get => _explicitNullValueEnterpriseId; set { _explicitNullValueEnterpriseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_id"); else _explicitNullProperties?.Remove("enterprise_id"); } }
+        public Guid? EnterpriseId { get => _explicitNullValueEnterpriseId; set { _explicitNullValueEnterpriseId = value; AdditionalData?.Remove("enterprise_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_id"); else _explicitNullProperties?.Remove("enterprise_id"); } }
         private Guid? _explicitNullValueEnterpriseId = default!;
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>Set only when `status` is `resolved`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimResolution? Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimResolution? Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; AdditionalData?.Remove("resolution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimResolution? _explicitNullValueResolution = default!;
         /// <summary>The resolution_date property</summary>
         public DateTimeOffset? ResolutionDate { get; private set; }
@@ -118,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ResolutionNotes { get; private set; }
 #endif
         /// <summary>Lifecycle status. `pending` - newly filed; the DIR is auto-suspended. `contested` - you have submitted contest evidence; awaiting Telnyx review. `resolved` - final.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimStatus? _explicitNullValueStatus = default!;
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
@@ -149,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "claim_date", n => { ClaimDate = n.GetDateTimeOffsetValue(); } },
                 { "claim_description", n => { ClaimDescription = n.GetStringValue(); } },
-                { "claim_type", n => { ClaimType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimType>(); } },
+                { "claim_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueClaimType = default; _explicitNullProperties?.Remove("claim_type"); AdditionalData["claim_type"] = unknown; } else { ClaimType = parsed; AdditionalData.Remove("claim_type"); } } },
                 { "claimant_contact", n => { ClaimantContact = n.GetStringValue(); } },
                 { "claimant_name", n => { ClaimantName = n.GetStringValue(); } },
                 { "contest_documents", n => { ContestDocuments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Document>(global::Soenneker.Telnyx.OpenApiClient.Models.Document.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -159,10 +169,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "dir_id", n => { DirId = n.GetGuidValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "resolution", n => { Resolution = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimResolution>(); } },
+                { "resolution", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimResolution>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResolution = default; _explicitNullProperties?.Remove("resolution"); AdditionalData["resolution"] = unknown; } else { Resolution = parsed; AdditionalData.Remove("resolution"); } } },
                 { "resolution_date", n => { ResolutionDate = n.GetDateTimeOffsetValue(); } },
                 { "resolution_notes", n => { ResolutionNotes = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InfringementClaimStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

@@ -17,17 +17,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("call_forwarding") is { } nullNodeCallForwarding && nullNodeCallForwarding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallForwarding = null;
-            if (parseNode.GetChildNode("call_recording") is { } nullNodeCallRecording && nullNodeCallRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecording = null;
-            if (parseNode.GetChildNode("cnam_listing") is { } nullNodeCnamListing && nullNodeCnamListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListing = null;
-            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
-            if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
-            if (parseNode.GetChildNode("emergency") is { } nullNodeEmergency && nullNodeEmergency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emergency = null;
-            if (parseNode.GetChildNode("inbound_call_screening") is { } nullNodeInboundCallScreening && nullNodeInboundCallScreening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallScreening = null;
-            if (parseNode.GetChildNode("media_features") is { } nullNodeMediaFeatures && nullNodeMediaFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaFeatures = null;
-            if (parseNode.GetChildNode("tech_prefix_enabled") is { } nullNodeTechPrefixEnabled && nullNodeTechPrefixEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TechPrefixEnabled = null;
-            if (parseNode.GetChildNode("translated_number") is { } nullNodeTranslatedNumber && nullNodeTranslatedNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranslatedNumber = null;
-            if (parseNode.GetChildNode("usage_payment_method") is { } nullNodeUsagePaymentMethod && nullNodeUsagePaymentMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsagePaymentMethod = null;
+            if (parseNode.GetChildNode("call_forwarding") is null) { _explicitNullValueCallForwarding = default!; _explicitNullProperties?.Remove("call_forwarding"); }
+            else if (parseNode.GetChildNode("call_forwarding") is { } nullNodeCallForwarding && nullNodeCallForwarding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallForwarding = null;
+            if (parseNode.GetChildNode("call_recording") is null) { _explicitNullValueCallRecording = default!; _explicitNullProperties?.Remove("call_recording"); }
+            else if (parseNode.GetChildNode("call_recording") is { } nullNodeCallRecording && nullNodeCallRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallRecording = null;
+            if (parseNode.GetChildNode("cnam_listing") is null) { _explicitNullValueCnamListing = default!; _explicitNullProperties?.Remove("cnam_listing"); }
+            else if (parseNode.GetChildNode("cnam_listing") is { } nullNodeCnamListing && nullNodeCnamListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CnamListing = null;
+            if (parseNode.GetChildNode("connection_id") is null) { _explicitNullValueConnectionId = default!; _explicitNullProperties?.Remove("connection_id"); }
+            else if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("customer_reference") is null) { _explicitNullValueCustomerReference = default!; _explicitNullProperties?.Remove("customer_reference"); }
+            else if (parseNode.GetChildNode("customer_reference") is { } nullNodeCustomerReference && nullNodeCustomerReference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReference = null;
+            if (parseNode.GetChildNode("emergency") is null) { _explicitNullValueEmergency = default!; _explicitNullProperties?.Remove("emergency"); }
+            else if (parseNode.GetChildNode("emergency") is { } nullNodeEmergency && nullNodeEmergency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emergency = null;
+            if (parseNode.GetChildNode("inbound_call_screening") is null) { _explicitNullValueInboundCallScreening = default!; _explicitNullProperties?.Remove("inbound_call_screening"); }
+            else if (parseNode.GetChildNode("inbound_call_screening") is { } nullNodeInboundCallScreening && nullNodeInboundCallScreening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboundCallScreening = null;
+            if (parseNode.GetChildNode("media_features") is null) { _explicitNullValueMediaFeatures = default!; _explicitNullProperties?.Remove("media_features"); }
+            else if (parseNode.GetChildNode("media_features") is { } nullNodeMediaFeatures && nullNodeMediaFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaFeatures = null;
+            if (parseNode.GetChildNode("tech_prefix_enabled") is null) { _explicitNullValueTechPrefixEnabled = default!; _explicitNullProperties?.Remove("tech_prefix_enabled"); }
+            else if (parseNode.GetChildNode("tech_prefix_enabled") is { } nullNodeTechPrefixEnabled && nullNodeTechPrefixEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TechPrefixEnabled = null;
+            if (parseNode.GetChildNode("translated_number") is null) { _explicitNullValueTranslatedNumber = default!; _explicitNullProperties?.Remove("translated_number"); }
+            else if (parseNode.GetChildNode("translated_number") is { } nullNodeTranslatedNumber && nullNodeTranslatedNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranslatedNumber = null;
+            if (parseNode.GetChildNode("usage_payment_method") is null) { _explicitNullValueUsagePaymentMethod = default!; _explicitNullProperties?.Remove("usage_payment_method"); }
+            else if (parseNode.GetChildNode("usage_payment_method") is { } nullNodeUsagePaymentMethod && nullNodeUsagePaymentMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsagePaymentMethod = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -35,61 +46,61 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The call forwarding settings for a phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding? CallForwarding { get => _explicitNullValueCallForwarding; set { _explicitNullValueCallForwarding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding"); else _explicitNullProperties?.Remove("call_forwarding"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding? CallForwarding { get => _explicitNullValueCallForwarding; set { _explicitNullValueCallForwarding = value; AdditionalData?.Remove("call_forwarding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding"); else _explicitNullProperties?.Remove("call_forwarding"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding? _explicitNullValueCallForwarding = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding CallForwarding { get => _explicitNullValueCallForwarding; set { _explicitNullValueCallForwarding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding"); else _explicitNullProperties?.Remove("call_forwarding"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding CallForwarding { get => _explicitNullValueCallForwarding; set { _explicitNullValueCallForwarding = value; AdditionalData?.Remove("call_forwarding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_forwarding"); else _explicitNullProperties?.Remove("call_forwarding"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding _explicitNullValueCallForwarding = default!;
 #endif
         /// <summary>The call recording settings for a phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording? CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording? CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; AdditionalData?.Remove("call_recording"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording? _explicitNullValueCallRecording = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording CallRecording { get => _explicitNullValueCallRecording; set { _explicitNullValueCallRecording = value; AdditionalData?.Remove("call_recording"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_recording"); else _explicitNullProperties?.Remove("call_recording"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording _explicitNullValueCallRecording = default!;
 #endif
         /// <summary>The CNAM listing settings for a phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing? CnamListing { get => _explicitNullValueCnamListing; set { _explicitNullValueCnamListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing"); else _explicitNullProperties?.Remove("cnam_listing"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing? CnamListing { get => _explicitNullValueCnamListing; set { _explicitNullValueCnamListing = value; AdditionalData?.Remove("cnam_listing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing"); else _explicitNullProperties?.Remove("cnam_listing"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing? _explicitNullValueCnamListing = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing CnamListing { get => _explicitNullValueCnamListing; set { _explicitNullValueCnamListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing"); else _explicitNullProperties?.Remove("cnam_listing"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing CnamListing { get => _explicitNullValueCnamListing; set { _explicitNullValueCnamListing = value; AdditionalData?.Remove("cnam_listing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cnam_listing"); else _explicitNullProperties?.Remove("cnam_listing"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CnamListing _explicitNullValueCnamListing = default!;
 #endif
         /// <summary>Identifies the connection associated with this phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
         private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
         private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>A customer reference string for customer look ups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        public string? CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; AdditionalData?.Remove("customer_reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
         private string? _explicitNullValueCustomerReference = default!;
 #nullable restore
 #else
-        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
+        public string CustomerReference { get => _explicitNullValueCustomerReference; set { _explicitNullValueCustomerReference = value; AdditionalData?.Remove("customer_reference"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference"); else _explicitNullProperties?.Remove("customer_reference"); } }
         private string _explicitNullValueCustomerReference = default!;
 #endif
         /// <summary>The emergency services settings for a phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings? Emergency { get => _explicitNullValueEmergency; set { _explicitNullValueEmergency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency"); else _explicitNullProperties?.Remove("emergency"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings? Emergency { get => _explicitNullValueEmergency; set { _explicitNullValueEmergency = value; AdditionalData?.Remove("emergency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency"); else _explicitNullProperties?.Remove("emergency"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings? _explicitNullValueEmergency = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings Emergency { get => _explicitNullValueEmergency; set { _explicitNullValueEmergency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency"); else _explicitNullProperties?.Remove("emergency"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings Emergency { get => _explicitNullValueEmergency; set { _explicitNullValueEmergency = value; AdditionalData?.Remove("emergency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency"); else _explicitNullProperties?.Remove("emergency"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings _explicitNullValueEmergency = default!;
 #endif
         /// <summary>Identifies the type of resource.</summary>
@@ -101,16 +112,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsInboundCallScreening? InboundCallScreening { get => _explicitNullValueInboundCallScreening; set { _explicitNullValueInboundCallScreening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_screening"); else _explicitNullProperties?.Remove("inbound_call_screening"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsInboundCallScreening? InboundCallScreening { get => _explicitNullValueInboundCallScreening; set { _explicitNullValueInboundCallScreening = value; AdditionalData?.Remove("inbound_call_screening"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_call_screening"); else _explicitNullProperties?.Remove("inbound_call_screening"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsInboundCallScreening? _explicitNullValueInboundCallScreening = default!;
         /// <summary>The media features settings for a phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures? MediaFeatures { get => _explicitNullValueMediaFeatures; set { _explicitNullValueMediaFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_features"); else _explicitNullProperties?.Remove("media_features"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures? MediaFeatures { get => _explicitNullValueMediaFeatures; set { _explicitNullValueMediaFeatures = value; AdditionalData?.Remove("media_features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_features"); else _explicitNullProperties?.Remove("media_features"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures? _explicitNullValueMediaFeatures = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures MediaFeatures { get => _explicitNullValueMediaFeatures; set { _explicitNullValueMediaFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_features"); else _explicitNullProperties?.Remove("media_features"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures MediaFeatures { get => _explicitNullValueMediaFeatures; set { _explicitNullValueMediaFeatures = value; AdditionalData?.Remove("media_features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_features"); else _explicitNullProperties?.Remove("media_features"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures _explicitNullValueMediaFeatures = default!;
 #endif
         /// <summary>The phone number in +E164 format.</summary>
@@ -130,20 +141,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Controls whether a tech prefix is enabled for this phone number.</summary>
-        public bool? TechPrefixEnabled { get => _explicitNullValueTechPrefixEnabled; set { _explicitNullValueTechPrefixEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tech_prefix_enabled"); else _explicitNullProperties?.Remove("tech_prefix_enabled"); } }
+        public bool? TechPrefixEnabled { get => _explicitNullValueTechPrefixEnabled; set { _explicitNullValueTechPrefixEnabled = value; AdditionalData?.Remove("tech_prefix_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tech_prefix_enabled"); else _explicitNullProperties?.Remove("tech_prefix_enabled"); } }
         private bool? _explicitNullValueTechPrefixEnabled = default!;
         /// <summary>This field allows you to rewrite the destination number of an inbound call before the call is routed to you. The value of this field may be any alphanumeric value, and the value will replace the number originally dialed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TranslatedNumber { get => _explicitNullValueTranslatedNumber; set { _explicitNullValueTranslatedNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("translated_number"); else _explicitNullProperties?.Remove("translated_number"); } }
+        public string? TranslatedNumber { get => _explicitNullValueTranslatedNumber; set { _explicitNullValueTranslatedNumber = value; AdditionalData?.Remove("translated_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("translated_number"); else _explicitNullProperties?.Remove("translated_number"); } }
         private string? _explicitNullValueTranslatedNumber = default!;
 #nullable restore
 #else
-        public string TranslatedNumber { get => _explicitNullValueTranslatedNumber; set { _explicitNullValueTranslatedNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("translated_number"); else _explicitNullProperties?.Remove("translated_number"); } }
+        public string TranslatedNumber { get => _explicitNullValueTranslatedNumber; set { _explicitNullValueTranslatedNumber = value; AdditionalData?.Remove("translated_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("translated_number"); else _explicitNullProperties?.Remove("translated_number"); } }
         private string _explicitNullValueTranslatedNumber = default!;
 #endif
         /// <summary>Controls whether a number is billed per minute or uses your concurrent channels.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsUsagePaymentMethod? UsagePaymentMethod { get => _explicitNullValueUsagePaymentMethod; set { _explicitNullValueUsagePaymentMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_payment_method"); else _explicitNullProperties?.Remove("usage_payment_method"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsUsagePaymentMethod? UsagePaymentMethod { get => _explicitNullValueUsagePaymentMethod; set { _explicitNullValueUsagePaymentMethod = value; AdditionalData?.Remove("usage_payment_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_payment_method"); else _explicitNullProperties?.Remove("usage_payment_method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsUsagePaymentMethod? _explicitNullValueUsagePaymentMethod = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings"/> and sets the default values.
@@ -178,13 +189,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "emergency", n => { Emergency = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsInboundCallScreening>(); } },
+                { "inbound_call_screening", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsInboundCallScreening>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInboundCallScreening = default; _explicitNullProperties?.Remove("inbound_call_screening"); AdditionalData["inbound_call_screening"] = unknown; } else { InboundCallScreening = parsed; AdditionalData.Remove("inbound_call_screening"); } } },
                 { "media_features", n => { MediaFeatures = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures>(global::Soenneker.Telnyx.OpenApiClient.Models.MediaFeatures.CreateFromDiscriminatorValue); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "tech_prefix_enabled", n => { TechPrefixEnabled = n.GetBoolValue(); } },
                 { "translated_number", n => { TranslatedNumber = n.GetStringValue(); } },
-                { "usage_payment_method", n => { UsagePaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsUsagePaymentMethod>(); } },
+                { "usage_payment_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettingsUsagePaymentMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueUsagePaymentMethod = default; _explicitNullProperties?.Remove("usage_payment_method"); AdditionalData["usage_payment_method"] = unknown; } else { UsagePaymentMethod = parsed; AdditionalData.Remove("usage_payment_method"); } } },
             };
         }
         /// <summary>

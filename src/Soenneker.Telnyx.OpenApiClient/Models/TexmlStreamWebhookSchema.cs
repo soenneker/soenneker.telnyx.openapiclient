@@ -18,24 +18,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
-            if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
-            if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
-            if (parseNode.GetChildNode("StreamError") is { } nullNodeStreamError && nullNodeStreamError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamError = null;
-            if (parseNode.GetChildNode("StreamEvent") is { } nullNodeStreamEvent && nullNodeStreamEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamEvent = null;
-            if (parseNode.GetChildNode("StreamName") is { } nullNodeStreamName && nullNodeStreamName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamName = null;
-            if (parseNode.GetChildNode("StreamSid") is { } nullNodeStreamSid && nullNodeStreamSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamSid = null;
-            if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("AccountSid") is null) { _explicitNullValueAccountSid = default!; _explicitNullProperties?.Remove("AccountSid"); }
+            else if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("CallSid") is null) { _explicitNullValueCallSid = default!; _explicitNullProperties?.Remove("CallSid"); }
+            else if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("CallSidLegacy") is null) { _explicitNullValueCallSidLegacy = default!; _explicitNullProperties?.Remove("CallSidLegacy"); }
+            else if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
+            if (parseNode.GetChildNode("StreamError") is null) { _explicitNullValueStreamError = default!; _explicitNullProperties?.Remove("StreamError"); }
+            else if (parseNode.GetChildNode("StreamError") is { } nullNodeStreamError && nullNodeStreamError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamError = null;
+            if (parseNode.GetChildNode("StreamEvent") is null) { _explicitNullValueStreamEvent = default!; _explicitNullProperties?.Remove("StreamEvent"); }
+            else if (parseNode.GetChildNode("StreamEvent") is { } nullNodeStreamEvent && nullNodeStreamEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamEvent = null;
+            if (parseNode.GetChildNode("StreamName") is null) { _explicitNullValueStreamName = default!; _explicitNullProperties?.Remove("StreamName"); }
+            else if (parseNode.GetChildNode("StreamName") is { } nullNodeStreamName && nullNodeStreamName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamName = null;
+            if (parseNode.GetChildNode("StreamSid") is null) { _explicitNullValueStreamSid = default!; _explicitNullProperties?.Remove("StreamSid"); }
+            else if (parseNode.GetChildNode("StreamSid") is { } nullNodeStreamSid && nullNodeStreamSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamSid = null;
+            if (parseNode.GetChildNode("Timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("Timestamp"); }
+            else if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
         }
 
         /// <summary>The unique identifier of the account (user_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; AdditionalData?.Remove("AccountSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
         private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; AdditionalData?.Remove("AccountSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
         private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -43,58 +51,58 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The unique identifier of the call (call_control_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; AdditionalData?.Remove("CallSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
         private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; AdditionalData?.Remove("CallSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
         private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Legacy call identifier, same as CallSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; AdditionalData?.Remove("CallSidLegacy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
         private string? _explicitNullValueCallSidLegacy = default!;
 #nullable restore
 #else
-        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; AdditionalData?.Remove("CallSidLegacy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
         private string _explicitNullValueCallSidLegacy = default!;
 #endif
         /// <summary>Error message if the stream failed (conditional, only present when StreamEvent is stream-error).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamError { get => _explicitNullValueStreamError; set { _explicitNullValueStreamError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamError"); else _explicitNullProperties?.Remove("StreamError"); } }
+        public string? StreamError { get => _explicitNullValueStreamError; set { _explicitNullValueStreamError = value; AdditionalData?.Remove("StreamError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamError"); else _explicitNullProperties?.Remove("StreamError"); } }
         private string? _explicitNullValueStreamError = default!;
 #nullable restore
 #else
-        public string StreamError { get => _explicitNullValueStreamError; set { _explicitNullValueStreamError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamError"); else _explicitNullProperties?.Remove("StreamError"); } }
+        public string StreamError { get => _explicitNullValueStreamError; set { _explicitNullValueStreamError = value; AdditionalData?.Remove("StreamError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamError"); else _explicitNullProperties?.Remove("StreamError"); } }
         private string _explicitNullValueStreamError = default!;
 #endif
         /// <summary>The event type for the media stream.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStreamWebhookSchemaStreamEvent? StreamEvent { get => _explicitNullValueStreamEvent; set { _explicitNullValueStreamEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamEvent"); else _explicitNullProperties?.Remove("StreamEvent"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStreamWebhookSchemaStreamEvent? StreamEvent { get => _explicitNullValueStreamEvent; set { _explicitNullValueStreamEvent = value; AdditionalData?.Remove("StreamEvent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamEvent"); else _explicitNullProperties?.Remove("StreamEvent"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStreamWebhookSchemaStreamEvent? _explicitNullValueStreamEvent = default!;
         /// <summary>The name of the stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamName { get => _explicitNullValueStreamName; set { _explicitNullValueStreamName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamName"); else _explicitNullProperties?.Remove("StreamName"); } }
+        public string? StreamName { get => _explicitNullValueStreamName; set { _explicitNullValueStreamName = value; AdditionalData?.Remove("StreamName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamName"); else _explicitNullProperties?.Remove("StreamName"); } }
         private string? _explicitNullValueStreamName = default!;
 #nullable restore
 #else
-        public string StreamName { get => _explicitNullValueStreamName; set { _explicitNullValueStreamName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamName"); else _explicitNullProperties?.Remove("StreamName"); } }
+        public string StreamName { get => _explicitNullValueStreamName; set { _explicitNullValueStreamName = value; AdditionalData?.Remove("StreamName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamName"); else _explicitNullProperties?.Remove("StreamName"); } }
         private string _explicitNullValueStreamName = default!;
 #endif
         /// <summary>A unique identifier for the stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StreamSid { get => _explicitNullValueStreamSid; set { _explicitNullValueStreamSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamSid"); else _explicitNullProperties?.Remove("StreamSid"); } }
+        public string? StreamSid { get => _explicitNullValueStreamSid; set { _explicitNullValueStreamSid = value; AdditionalData?.Remove("StreamSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamSid"); else _explicitNullProperties?.Remove("StreamSid"); } }
         private string? _explicitNullValueStreamSid = default!;
 #nullable restore
 #else
-        public string StreamSid { get => _explicitNullValueStreamSid; set { _explicitNullValueStreamSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamSid"); else _explicitNullProperties?.Remove("StreamSid"); } }
+        public string StreamSid { get => _explicitNullValueStreamSid; set { _explicitNullValueStreamSid = value; AdditionalData?.Remove("StreamSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamSid"); else _explicitNullProperties?.Remove("StreamSid"); } }
         private string _explicitNullValueStreamSid = default!;
 #endif
         /// <summary>The timestamp when the event occurred.</summary>
-        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("Timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
         private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStreamWebhookSchema"/> and sets the default values.
@@ -125,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "CallSid", n => { CallSid = n.GetStringValue(); } },
                 { "CallSidLegacy", n => { CallSidLegacy = n.GetStringValue(); } },
                 { "StreamError", n => { StreamError = n.GetStringValue(); } },
-                { "StreamEvent", n => { StreamEvent = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStreamWebhookSchemaStreamEvent>(); } },
+                { "StreamEvent", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStreamWebhookSchemaStreamEvent>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamEvent = default; _explicitNullProperties?.Remove("StreamEvent"); AdditionalData["StreamEvent"] = unknown; } else { StreamEvent = parsed; AdditionalData.Remove("StreamEvent"); } } },
                 { "StreamName", n => { StreamName = n.GetStringValue(); } },
                 { "StreamSid", n => { StreamSid = n.GetStringValue(); } },
                 { "Timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },

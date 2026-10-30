@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bot_name") is { } nullNodeBotName && nullNodeBotName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotName = null;
-            if (parseNode.GetChildNode("join_at") is { } nullNodeJoinAt && nullNodeJoinAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinAt = null;
+            if (parseNode.GetChildNode("bot_name") is null) { _explicitNullValueBotName = default!; _explicitNullProperties?.Remove("bot_name"); }
+            else if (parseNode.GetChildNode("bot_name") is { } nullNodeBotName && nullNodeBotName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotName = null;
+            if (parseNode.GetChildNode("join_at") is null) { _explicitNullValueJoinAt = default!; _explicitNullProperties?.Remove("join_at"); }
+            else if (parseNode.GetChildNode("join_at") is { } nullNodeJoinAt && nullNodeJoinAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinAt = null;
         }
 
         /// <summary>Updated display name for the bot.</summary>

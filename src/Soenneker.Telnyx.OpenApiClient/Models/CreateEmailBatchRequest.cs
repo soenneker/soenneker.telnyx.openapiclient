@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("messages") is { } nullNodeMessages && nullNodeMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messages = null;
-            if (parseNode.GetChildNode("sandbox_mode") is { } nullNodeSandboxMode && nullNodeSandboxMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxMode = null;
+            if (parseNode.GetChildNode("messages") is null) { _explicitNullValueMessages = default!; _explicitNullProperties?.Remove("messages"); }
+            else if (parseNode.GetChildNode("messages") is { } nullNodeMessages && nullNodeMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messages = null;
+            if (parseNode.GetChildNode("sandbox_mode") is null) { _explicitNullValueSandboxMode = default!; _explicitNullProperties?.Remove("sandbox_mode"); }
+            else if (parseNode.GetChildNode("sandbox_mode") is { } nullNodeSandboxMode && nullNodeSandboxMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxMode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Array of email messages to send. Up to 1,000 messages per batch request. Each message is validated and sent independently; per-message failures do not affect other messages in the batch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest>? Messages { get => _explicitNullValueMessages; set { _explicitNullValueMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messages"); else _explicitNullProperties?.Remove("messages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest>? Messages { get => _explicitNullValueMessages; set { _explicitNullValueMessages = value; AdditionalData?.Remove("messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messages"); else _explicitNullProperties?.Remove("messages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest>? _explicitNullValueMessages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest> Messages { get => _explicitNullValueMessages; set { _explicitNullValueMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messages"); else _explicitNullProperties?.Remove("messages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest> Messages { get => _explicitNullValueMessages; set { _explicitNullValueMessages = value; AdditionalData?.Remove("messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messages"); else _explicitNullProperties?.Remove("messages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchItemRequest> _explicitNullValueMessages = default!;
 #endif
         /// <summary>Applies sandbox mode to all messages in the batch and overrides any per-message `sandbox_mode` value — each message&apos;s effective `sandbox_mode` is exactly this envelope value. Reserved recipients at `test.telnyx.com` produce the deterministic event chains documented on CreateEmailRequest.sandbox_mode; no batch item is injected into the MTA or outbound Kafka path. Sandbox batch items are non-billable, consume no daily-send-limit quota, and feed no delivery-reputation signals.</summary>
-        public bool? SandboxMode { get => _explicitNullValueSandboxMode; set { _explicitNullValueSandboxMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mode"); else _explicitNullProperties?.Remove("sandbox_mode"); } }
+        public bool? SandboxMode { get => _explicitNullValueSandboxMode; set { _explicitNullValueSandboxMode = value; AdditionalData?.Remove("sandbox_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mode"); else _explicitNullProperties?.Remove("sandbox_mode"); } }
         private bool? _explicitNullValueSandboxMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateEmailBatchRequest"/> and sets the default values.

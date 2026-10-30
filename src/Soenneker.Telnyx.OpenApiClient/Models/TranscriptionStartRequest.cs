@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
-            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
-            if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
-            if (parseNode.GetChildNode("transcription_engine_config") is { } nullNodeTranscriptionEngineConfig && nullNodeTranscriptionEngineConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngineConfig = null;
-            if (parseNode.GetChildNode("transcription_tracks") is { } nullNodeTranscriptionTracks && nullNodeTranscriptionTracks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionTracks = null;
+            if (parseNode.GetChildNode("client_state") is null) { _explicitNullValueClientState = default!; _explicitNullProperties?.Remove("client_state"); }
+            else if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is null) { _explicitNullValueCommandId = default!; _explicitNullProperties?.Remove("command_id"); }
+            else if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("transcription_engine") is null) { _explicitNullValueTranscriptionEngine = default!; _explicitNullProperties?.Remove("transcription_engine"); }
+            else if (parseNode.GetChildNode("transcription_engine") is { } nullNodeTranscriptionEngine && nullNodeTranscriptionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngine = null;
+            if (parseNode.GetChildNode("transcription_engine_config") is null) { _explicitNullValueTranscriptionEngineConfig = default!; _explicitNullProperties?.Remove("transcription_engine_config"); }
+            else if (parseNode.GetChildNode("transcription_engine_config") is { } nullNodeTranscriptionEngineConfig && nullNodeTranscriptionEngineConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionEngineConfig = null;
+            if (parseNode.GetChildNode("transcription_tracks") is null) { _explicitNullValueTranscriptionTracks = default!; _explicitNullProperties?.Remove("transcription_tracks"); }
+            else if (parseNode.GetChildNode("transcription_tracks") is { } nullNodeTranscriptionTracks && nullNodeTranscriptionTracks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionTracks = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; AdditionalData?.Remove("transcription_engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>The transcription_engine_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig? TranscriptionEngineConfig { get => _explicitNullValueTranscriptionEngineConfig; set { _explicitNullValueTranscriptionEngineConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine_config"); else _explicitNullProperties?.Remove("transcription_engine_config"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig? TranscriptionEngineConfig { get => _explicitNullValueTranscriptionEngineConfig; set { _explicitNullValueTranscriptionEngineConfig = value; AdditionalData?.Remove("transcription_engine_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine_config"); else _explicitNullProperties?.Remove("transcription_engine_config"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig? _explicitNullValueTranscriptionEngineConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig TranscriptionEngineConfig { get => _explicitNullValueTranscriptionEngineConfig; set { _explicitNullValueTranscriptionEngineConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine_config"); else _explicitNullProperties?.Remove("transcription_engine_config"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig TranscriptionEngineConfig { get => _explicitNullValueTranscriptionEngineConfig; set { _explicitNullValueTranscriptionEngineConfig = value; AdditionalData?.Remove("transcription_engine_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine_config"); else _explicitNullProperties?.Remove("transcription_engine_config"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig _explicitNullValueTranscriptionEngineConfig = default!;
 #endif
         /// <summary>Indicates which leg of the call will be transcribed. Use `inbound` for the leg that requested the transcription, `outbound` for the other leg, and `both` for both legs of the call. Will default to `inbound`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TranscriptionTracks { get => _explicitNullValueTranscriptionTracks; set { _explicitNullValueTranscriptionTracks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_tracks"); else _explicitNullProperties?.Remove("transcription_tracks"); } }
+        public string? TranscriptionTracks { get => _explicitNullValueTranscriptionTracks; set { _explicitNullValueTranscriptionTracks = value; AdditionalData?.Remove("transcription_tracks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_tracks"); else _explicitNullProperties?.Remove("transcription_tracks"); } }
         private string? _explicitNullValueTranscriptionTracks = default!;
 #nullable restore
 #else
-        public string TranscriptionTracks { get => _explicitNullValueTranscriptionTracks; set { _explicitNullValueTranscriptionTracks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_tracks"); else _explicitNullProperties?.Remove("transcription_tracks"); } }
+        public string TranscriptionTracks { get => _explicitNullValueTranscriptionTracks; set { _explicitNullValueTranscriptionTracks = value; AdditionalData?.Remove("transcription_tracks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_tracks"); else _explicitNullProperties?.Remove("transcription_tracks"); } }
         private string _explicitNullValueTranscriptionTracks = default!;
 #endif
         /// <summary>
@@ -97,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngine>(); } },
+                { "transcription_engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTranscriptionEngine = default; _explicitNullProperties?.Remove("transcription_engine"); AdditionalData["transcription_engine"] = unknown; } else { TranscriptionEngine = parsed; AdditionalData.Remove("transcription_engine"); } } },
                 { "transcription_engine_config", n => { TranscriptionEngineConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequestTranscriptionEngineConfig.CreateFromDiscriminatorValue); } },
                 { "transcription_tracks", n => { TranscriptionTracks = n.GetStringValue(); } },
             };

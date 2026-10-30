@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
-            if (parseNode.GetChildNode("thumbnail") is { } nullNodeThumbnail && nullNodeThumbnail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thumbnail = null;
+            if (parseNode.GetChildNode("payload") is null) { _explicitNullValuePayload = default!; _explicitNullProperties?.Remove("payload"); }
+            else if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
+            if (parseNode.GetChildNode("thumbnail") is null) { _explicitNullValueThumbnail = default!; _explicitNullProperties?.Remove("thumbnail"); }
+            else if (parseNode.GetChildNode("thumbnail") is { } nullNodeThumbnail && nullNodeThumbnail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thumbnail = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; AdditionalData?.Remove("payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload? _explicitNullValuePayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; AdditionalData?.Remove("payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFilePayload _explicitNullValuePayload = default!;
 #endif
         /// <summary>The thumbnail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail? Thumbnail { get => _explicitNullValueThumbnail; set { _explicitNullValueThumbnail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail"); else _explicitNullProperties?.Remove("thumbnail"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail? Thumbnail { get => _explicitNullValueThumbnail; set { _explicitNullValueThumbnail = value; AdditionalData?.Remove("thumbnail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail"); else _explicitNullProperties?.Remove("thumbnail"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail? _explicitNullValueThumbnail = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail Thumbnail { get => _explicitNullValueThumbnail; set { _explicitNullValueThumbnail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail"); else _explicitNullProperties?.Remove("thumbnail"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail Thumbnail { get => _explicitNullValueThumbnail; set { _explicitNullValueThumbnail = value; AdditionalData?.Remove("thumbnail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thumbnail"); else _explicitNullProperties?.Remove("thumbnail"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingInboundMessagePayloadBodyUserFileThumbnail _explicitNullValueThumbnail = default!;
 #endif
         /// <summary>

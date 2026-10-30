@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("taxExemptStatus") is { } nullNodeTaxExemptStatus && nullNodeTaxExemptStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaxExemptStatus = null;
+            if (parseNode.GetChildNode("taxExemptStatus") is null) { _explicitNullValueTaxExemptStatus = default!; _explicitNullProperties?.Remove("taxExemptStatus"); }
+            else if (parseNode.GetChildNode("taxExemptStatus") is { } nullNodeTaxExemptStatus && nullNodeTaxExemptStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaxExemptStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The tax exempt status of the brand</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaxExemptStatus { get => _explicitNullValueTaxExemptStatus; set { _explicitNullValueTaxExemptStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taxExemptStatus"); else _explicitNullProperties?.Remove("taxExemptStatus"); } }
+        public string? TaxExemptStatus { get => _explicitNullValueTaxExemptStatus; set { _explicitNullValueTaxExemptStatus = value; AdditionalData?.Remove("taxExemptStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taxExemptStatus"); else _explicitNullProperties?.Remove("taxExemptStatus"); } }
         private string? _explicitNullValueTaxExemptStatus = default!;
 #nullable restore
 #else
-        public string TaxExemptStatus { get => _explicitNullValueTaxExemptStatus; set { _explicitNullValueTaxExemptStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taxExemptStatus"); else _explicitNullProperties?.Remove("taxExemptStatus"); } }
+        public string TaxExemptStatus { get => _explicitNullValueTaxExemptStatus; set { _explicitNullValueTaxExemptStatus = value; AdditionalData?.Remove("taxExemptStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taxExemptStatus"); else _explicitNullProperties?.Remove("taxExemptStatus"); } }
         private string _explicitNullValueTaxExemptStatus = default!;
 #endif
         /// <summary>

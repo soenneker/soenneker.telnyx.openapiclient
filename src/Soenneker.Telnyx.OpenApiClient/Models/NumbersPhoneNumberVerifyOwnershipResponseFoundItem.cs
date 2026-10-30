@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("number_val_e164") is { } nullNodeNumberValE164 && nullNodeNumberValE164.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValE164 = null;
+            if (parseNode.GetChildNode("number_val_e164") is null) { _explicitNullValueNumberValE164 = default!; _explicitNullProperties?.Remove("number_val_e164"); }
+            else if (parseNode.GetChildNode("number_val_e164") is { } nullNodeNumberValE164 && nullNodeNumberValE164.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberValE164 = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,11 +34,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone number in E.164 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NumberValE164 { get => _explicitNullValueNumberValE164; set { _explicitNullValueNumberValE164 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_val_e164"); else _explicitNullProperties?.Remove("number_val_e164"); } }
+        public string? NumberValE164 { get => _explicitNullValueNumberValE164; set { _explicitNullValueNumberValE164 = value; AdditionalData?.Remove("number_val_e164"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_val_e164"); else _explicitNullProperties?.Remove("number_val_e164"); } }
         private string? _explicitNullValueNumberValE164 = default!;
 #nullable restore
 #else
-        public string NumberValE164 { get => _explicitNullValueNumberValE164; set { _explicitNullValueNumberValE164 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_val_e164"); else _explicitNullProperties?.Remove("number_val_e164"); } }
+        public string NumberValE164 { get => _explicitNullValueNumberValE164; set { _explicitNullValueNumberValE164 = value; AdditionalData?.Remove("number_val_e164"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_val_e164"); else _explicitNullProperties?.Remove("number_val_e164"); } }
         private string _explicitNullValueNumberValE164 = default!;
 #endif
         /// <summary>

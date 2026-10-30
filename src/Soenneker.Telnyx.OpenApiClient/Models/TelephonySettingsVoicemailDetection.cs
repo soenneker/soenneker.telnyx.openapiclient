@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("on_voicemail_detected") is { } nullNodeOnVoicemailDetected && nullNodeOnVoicemailDetected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnVoicemailDetected = null;
+            if (parseNode.GetChildNode("on_voicemail_detected") is null) { _explicitNullValueOnVoicemailDetected = default!; _explicitNullProperties?.Remove("on_voicemail_detected"); }
+            else if (parseNode.GetChildNode("on_voicemail_detected") is { } nullNodeOnVoicemailDetected && nullNodeOnVoicemailDetected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnVoicemailDetected = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Action to take when voicemail is detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected? OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected? OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; AdditionalData?.Remove("on_voicemail_detected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected? _explicitNullValueOnVoicemailDetected = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected OnVoicemailDetected { get => _explicitNullValueOnVoicemailDetected; set { _explicitNullValueOnVoicemailDetected = value; AdditionalData?.Remove("on_voicemail_detected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_voicemail_detected"); else _explicitNullProperties?.Remove("on_voicemail_detected"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetectionOnVoicemailDetected _explicitNullValueOnVoicemailDetected = default!;
 #endif
         /// <summary>

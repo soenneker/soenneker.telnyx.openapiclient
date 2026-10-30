@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("import_id") is { } nullNodeImportId && nullNodeImportId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportId = null;
-            if (parseNode.GetChildNode("import_provider") is { } nullNodeImportProvider && nullNodeImportProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportProvider = null;
+            if (parseNode.GetChildNode("import_id") is null) { _explicitNullValueImportId = default!; _explicitNullProperties?.Remove("import_id"); }
+            else if (parseNode.GetChildNode("import_id") is { } nullNodeImportId && nullNodeImportId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportId = null;
+            if (parseNode.GetChildNode("import_provider") is null) { _explicitNullValueImportProvider = default!; _explicitNullProperties?.Remove("import_provider"); }
+            else if (parseNode.GetChildNode("import_provider") is { } nullNodeImportProvider && nullNodeImportProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportProvider = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>ID of the assistant in the provider&apos;s system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImportId { get => _explicitNullValueImportId; set { _explicitNullValueImportId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_id"); else _explicitNullProperties?.Remove("import_id"); } }
+        public string? ImportId { get => _explicitNullValueImportId; set { _explicitNullValueImportId = value; AdditionalData?.Remove("import_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_id"); else _explicitNullProperties?.Remove("import_id"); } }
         private string? _explicitNullValueImportId = default!;
 #nullable restore
 #else
-        public string ImportId { get => _explicitNullValueImportId; set { _explicitNullValueImportId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_id"); else _explicitNullProperties?.Remove("import_id"); } }
+        public string ImportId { get => _explicitNullValueImportId; set { _explicitNullValueImportId = value; AdditionalData?.Remove("import_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_id"); else _explicitNullProperties?.Remove("import_id"); } }
         private string _explicitNullValueImportId = default!;
 #endif
         /// <summary>Provider the assistant was imported from.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider? ImportProvider { get => _explicitNullValueImportProvider; set { _explicitNullValueImportProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_provider"); else _explicitNullProperties?.Remove("import_provider"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider? ImportProvider { get => _explicitNullValueImportProvider; set { _explicitNullValueImportProvider = value; AdditionalData?.Remove("import_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("import_provider"); else _explicitNullProperties?.Remove("import_provider"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider? _explicitNullValueImportProvider = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "import_id", n => { ImportId = n.GetStringValue(); } },
-                { "import_provider", n => { ImportProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider>(); } },
+                { "import_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadataImportProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueImportProvider = default; _explicitNullProperties?.Remove("import_provider"); AdditionalData["import_provider"] = unknown; } else { ImportProvider = parsed; AdditionalData.Remove("import_provider"); } } },
             };
         }
         /// <summary>

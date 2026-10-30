@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("additional_usages") is { } nullNodeAdditionalUsages && nullNodeAdditionalUsages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalUsages = null;
-            if (parseNode.GetChildNode("civic_address_id") is { } nullNodeCivicAddressId && nullNodeCivicAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CivicAddressId = null;
-            if (parseNode.GetChildNode("location_id") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
-            if (parseNode.GetChildNode("number_ids") is { } nullNodeNumberIds && nullNodeNumberIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberIds = null;
-            if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
+            if (parseNode.GetChildNode("additional_usages") is null) { _explicitNullValueAdditionalUsages = default!; _explicitNullProperties?.Remove("additional_usages"); }
+            else if (parseNode.GetChildNode("additional_usages") is { } nullNodeAdditionalUsages && nullNodeAdditionalUsages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalUsages = null;
+            if (parseNode.GetChildNode("civic_address_id") is null) { _explicitNullValueCivicAddressId = default!; _explicitNullProperties?.Remove("civic_address_id"); }
+            else if (parseNode.GetChildNode("civic_address_id") is { } nullNodeCivicAddressId && nullNodeCivicAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CivicAddressId = null;
+            if (parseNode.GetChildNode("location_id") is null) { _explicitNullValueLocationId = default!; _explicitNullProperties?.Remove("location_id"); }
+            else if (parseNode.GetChildNode("location_id") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
+            if (parseNode.GetChildNode("number_ids") is null) { _explicitNullValueNumberIds = default!; _explicitNullProperties?.Remove("number_ids"); }
+            else if (parseNode.GetChildNode("number_ids") is { } nullNodeNumberIds && nullNodeNumberIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberIds = null;
+            if (parseNode.GetChildNode("usage") is null) { _explicitNullValueUsage = default!; _explicitNullProperties?.Remove("usage"); }
+            else if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,31 +34,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The additional_usages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?>? AdditionalUsages { get => _explicitNullValueAdditionalUsages; set { _explicitNullValueAdditionalUsages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_usages"); else _explicitNullProperties?.Remove("additional_usages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?>? AdditionalUsages { get => _explicitNullValueAdditionalUsages; set { _explicitNullValueAdditionalUsages = value; AdditionalData?.Remove("additional_usages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_usages"); else _explicitNullProperties?.Remove("additional_usages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?>? _explicitNullValueAdditionalUsages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?> AdditionalUsages { get => _explicitNullValueAdditionalUsages; set { _explicitNullValueAdditionalUsages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_usages"); else _explicitNullProperties?.Remove("additional_usages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?> AdditionalUsages { get => _explicitNullValueAdditionalUsages; set { _explicitNullValueAdditionalUsages = value; AdditionalData?.Remove("additional_usages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_usages"); else _explicitNullProperties?.Remove("additional_usages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestAdditionalUsagesItem?> _explicitNullValueAdditionalUsages = default!;
 #endif
         /// <summary>Identifies the civic address to assign all phone numbers to.</summary>
-        public Guid? CivicAddressId { get => _explicitNullValueCivicAddressId; set { _explicitNullValueCivicAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("civic_address_id"); else _explicitNullProperties?.Remove("civic_address_id"); } }
+        public Guid? CivicAddressId { get => _explicitNullValueCivicAddressId; set { _explicitNullValueCivicAddressId = value; AdditionalData?.Remove("civic_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("civic_address_id"); else _explicitNullProperties?.Remove("civic_address_id"); } }
         private Guid? _explicitNullValueCivicAddressId = default!;
         /// <summary>Identifies the location to assign all phone numbers to.</summary>
-        public Guid? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_id"); else _explicitNullProperties?.Remove("location_id"); } }
+        public Guid? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("location_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_id"); else _explicitNullProperties?.Remove("location_id"); } }
         private Guid? _explicitNullValueLocationId = default!;
         /// <summary>The number_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NumberIds { get => _explicitNullValueNumberIds; set { _explicitNullValueNumberIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_ids"); else _explicitNullProperties?.Remove("number_ids"); } }
+        public List<string>? NumberIds { get => _explicitNullValueNumberIds; set { _explicitNullValueNumberIds = value; AdditionalData?.Remove("number_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_ids"); else _explicitNullProperties?.Remove("number_ids"); } }
         private List<string>? _explicitNullValueNumberIds = default!;
 #nullable restore
 #else
-        public List<string> NumberIds { get => _explicitNullValueNumberIds; set { _explicitNullValueNumberIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_ids"); else _explicitNullProperties?.Remove("number_ids"); } }
+        public List<string> NumberIds { get => _explicitNullValueNumberIds; set { _explicitNullValueNumberIds = value; AdditionalData?.Remove("number_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_ids"); else _explicitNullProperties?.Remove("number_ids"); } }
         private List<string> _explicitNullValueNumberIds = default!;
 #endif
         /// <summary>The use case of the upload request. NOTE: `calling_user_assignment` is not supported for toll free numbers.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; AdditionalData?.Remove("usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage? _explicitNullValueUsage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest"/> and sets the default values.
@@ -84,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "civic_address_id", n => { CivicAddressId = n.GetGuidValue(); } },
                 { "location_id", n => { LocationId = n.GetGuidValue(); } },
                 { "number_ids", n => { NumberIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "usage", n => { Usage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage>(); } },
+                { "usage", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequestUsage>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueUsage = default; _explicitNullProperties?.Remove("usage"); AdditionalData["usage"] = unknown; } else { Usage = parsed; AdditionalData.Remove("usage"); } } },
             };
         }
         /// <summary>

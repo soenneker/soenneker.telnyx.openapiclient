@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("10999") is { } nullNodeOneZeroNineNineNine && nullNodeOneZeroNineNineNine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneZeroNineNineNine = null;
+            if (parseNode.GetChildNode("10999") is null) { _explicitNullValueOneZeroNineNineNine = default!; _explicitNullProperties?.Remove("10999"); }
+            else if (parseNode.GetChildNode("10999") is { } nullNodeOneZeroNineNineNine && nullNodeOneZeroNineNineNine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneZeroNineNineNine = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The OneZeroNineNineNine property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem? OneZeroNineNineNine { get => _explicitNullValueOneZeroNineNineNine; set { _explicitNullValueOneZeroNineNineNine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("10999"); else _explicitNullProperties?.Remove("10999"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem? OneZeroNineNineNine { get => _explicitNullValueOneZeroNineNineNine; set { _explicitNullValueOneZeroNineNineNine = value; AdditionalData?.Remove("10999"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("10999"); else _explicitNullProperties?.Remove("10999"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem? _explicitNullValueOneZeroNineNineNine = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem OneZeroNineNineNine { get => _explicitNullValueOneZeroNineNineNine; set { _explicitNullValueOneZeroNineNineNine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("10999"); else _explicitNullProperties?.Remove("10999"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem OneZeroNineNineNine { get => _explicitNullValueOneZeroNineNineNine; set { _explicitNullValueOneZeroNineNineNine = value; AdditionalData?.Remove("10999"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("10999"); else _explicitNullProperties?.Remove("10999"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MnoMetadataItem _explicitNullValueOneZeroNineNineNine = default!;
 #endif
         /// <summary>

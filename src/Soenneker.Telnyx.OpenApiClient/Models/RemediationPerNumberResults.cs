@@ -18,11 +18,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ineligible") is { } nullNodeIneligible && nullNodeIneligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ineligible = null;
-            if (parseNode.GetChildNode("not_flagged") is { } nullNodeNotFlagged && nullNodeNotFlagged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotFlagged = null;
-            if (parseNode.GetChildNode("refused") is { } nullNodeRefused && nullNodeRefused.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refused = null;
-            if (parseNode.GetChildNode("remediated") is { } nullNodeRemediated && nullNodeRemediated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remediated = null;
-            if (parseNode.GetChildNode("requires_review") is { } nullNodeRequiresReview && nullNodeRequiresReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresReview = null;
+            if (parseNode.GetChildNode("ineligible") is null) { _explicitNullValueIneligible = default!; _explicitNullProperties?.Remove("ineligible"); }
+            else if (parseNode.GetChildNode("ineligible") is { } nullNodeIneligible && nullNodeIneligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ineligible = null;
+            if (parseNode.GetChildNode("not_flagged") is null) { _explicitNullValueNotFlagged = default!; _explicitNullProperties?.Remove("not_flagged"); }
+            else if (parseNode.GetChildNode("not_flagged") is { } nullNodeNotFlagged && nullNodeNotFlagged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotFlagged = null;
+            if (parseNode.GetChildNode("refused") is null) { _explicitNullValueRefused = default!; _explicitNullProperties?.Remove("refused"); }
+            else if (parseNode.GetChildNode("refused") is { } nullNodeRefused && nullNodeRefused.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refused = null;
+            if (parseNode.GetChildNode("remediated") is null) { _explicitNullValueRemediated = default!; _explicitNullProperties?.Remove("remediated"); }
+            else if (parseNode.GetChildNode("remediated") is { } nullNodeRemediated && nullNodeRemediated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remediated = null;
+            if (parseNode.GetChildNode("requires_review") is null) { _explicitNullValueRequiresReview = default!; _explicitNullProperties?.Remove("requires_review"); }
+            else if (parseNode.GetChildNode("requires_review") is { } nullNodeRequiresReview && nullNodeRequiresReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresReview = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The ineligible property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Ineligible { get => _explicitNullValueIneligible; set { _explicitNullValueIneligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligible"); else _explicitNullProperties?.Remove("ineligible"); } }
+        public List<string>? Ineligible { get => _explicitNullValueIneligible; set { _explicitNullValueIneligible = value; AdditionalData?.Remove("ineligible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligible"); else _explicitNullProperties?.Remove("ineligible"); } }
         private List<string>? _explicitNullValueIneligible = default!;
 #nullable restore
 #else
-        public List<string> Ineligible { get => _explicitNullValueIneligible; set { _explicitNullValueIneligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligible"); else _explicitNullProperties?.Remove("ineligible"); } }
+        public List<string> Ineligible { get => _explicitNullValueIneligible; set { _explicitNullValueIneligible = value; AdditionalData?.Remove("ineligible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligible"); else _explicitNullProperties?.Remove("ineligible"); } }
         private List<string> _explicitNullValueIneligible = default!;
 #endif
         /// <summary>The not_flagged property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NotFlagged { get => _explicitNullValueNotFlagged; set { _explicitNullValueNotFlagged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_flagged"); else _explicitNullProperties?.Remove("not_flagged"); } }
+        public List<string>? NotFlagged { get => _explicitNullValueNotFlagged; set { _explicitNullValueNotFlagged = value; AdditionalData?.Remove("not_flagged"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_flagged"); else _explicitNullProperties?.Remove("not_flagged"); } }
         private List<string>? _explicitNullValueNotFlagged = default!;
 #nullable restore
 #else
-        public List<string> NotFlagged { get => _explicitNullValueNotFlagged; set { _explicitNullValueNotFlagged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_flagged"); else _explicitNullProperties?.Remove("not_flagged"); } }
+        public List<string> NotFlagged { get => _explicitNullValueNotFlagged; set { _explicitNullValueNotFlagged = value; AdditionalData?.Remove("not_flagged"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_flagged"); else _explicitNullProperties?.Remove("not_flagged"); } }
         private List<string> _explicitNullValueNotFlagged = default!;
 #endif
         /// <summary>The refused property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Refused { get => _explicitNullValueRefused; set { _explicitNullValueRefused = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refused"); else _explicitNullProperties?.Remove("refused"); } }
+        public List<string>? Refused { get => _explicitNullValueRefused; set { _explicitNullValueRefused = value; AdditionalData?.Remove("refused"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refused"); else _explicitNullProperties?.Remove("refused"); } }
         private List<string>? _explicitNullValueRefused = default!;
 #nullable restore
 #else
-        public List<string> Refused { get => _explicitNullValueRefused; set { _explicitNullValueRefused = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refused"); else _explicitNullProperties?.Remove("refused"); } }
+        public List<string> Refused { get => _explicitNullValueRefused; set { _explicitNullValueRefused = value; AdditionalData?.Remove("refused"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refused"); else _explicitNullProperties?.Remove("refused"); } }
         private List<string> _explicitNullValueRefused = default!;
 #endif
         /// <summary>The remediated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Remediated { get => _explicitNullValueRemediated; set { _explicitNullValueRemediated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediated"); else _explicitNullProperties?.Remove("remediated"); } }
+        public List<string>? Remediated { get => _explicitNullValueRemediated; set { _explicitNullValueRemediated = value; AdditionalData?.Remove("remediated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediated"); else _explicitNullProperties?.Remove("remediated"); } }
         private List<string>? _explicitNullValueRemediated = default!;
 #nullable restore
 #else
-        public List<string> Remediated { get => _explicitNullValueRemediated; set { _explicitNullValueRemediated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediated"); else _explicitNullProperties?.Remove("remediated"); } }
+        public List<string> Remediated { get => _explicitNullValueRemediated; set { _explicitNullValueRemediated = value; AdditionalData?.Remove("remediated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediated"); else _explicitNullProperties?.Remove("remediated"); } }
         private List<string> _explicitNullValueRemediated = default!;
 #endif
         /// <summary>The requires_review property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RequiresReview { get => _explicitNullValueRequiresReview; set { _explicitNullValueRequiresReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_review"); else _explicitNullProperties?.Remove("requires_review"); } }
+        public List<string>? RequiresReview { get => _explicitNullValueRequiresReview; set { _explicitNullValueRequiresReview = value; AdditionalData?.Remove("requires_review"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_review"); else _explicitNullProperties?.Remove("requires_review"); } }
         private List<string>? _explicitNullValueRequiresReview = default!;
 #nullable restore
 #else
-        public List<string> RequiresReview { get => _explicitNullValueRequiresReview; set { _explicitNullValueRequiresReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_review"); else _explicitNullProperties?.Remove("requires_review"); } }
+        public List<string> RequiresReview { get => _explicitNullValueRequiresReview; set { _explicitNullValueRequiresReview = value; AdditionalData?.Remove("requires_review"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_review"); else _explicitNullProperties?.Remove("requires_review"); } }
         private List<string> _explicitNullValueRequiresReview = default!;
 #endif
         /// <summary>

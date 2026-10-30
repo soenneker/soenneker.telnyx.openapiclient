@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ai_assistants") is { } nullNodeAiAssistants && nullNodeAiAssistants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiAssistants = null;
-            if (parseNode.GetChildNode("voice_mode") is { } nullNodeVoiceMode && nullNodeVoiceMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceMode = null;
+            if (parseNode.GetChildNode("ai_assistants") is null) { _explicitNullValueAiAssistants = default!; _explicitNullProperties?.Remove("ai_assistants"); }
+            else if (parseNode.GetChildNode("ai_assistants") is { } nullNodeAiAssistants && nullNodeAiAssistants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiAssistants = null;
+            if (parseNode.GetChildNode("voice_mode") is null) { _explicitNullValueVoiceMode = default!; _explicitNullProperties?.Remove("voice_mode"); }
+            else if (parseNode.GetChildNode("voice_mode") is { } nullNodeVoiceMode && nullNodeVoiceMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceMode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of possible assistants that can receive a handoff.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? AiAssistants { get => _explicitNullValueAiAssistants; set { _explicitNullValueAiAssistants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistants"); else _explicitNullProperties?.Remove("ai_assistants"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? AiAssistants { get => _explicitNullValueAiAssistants; set { _explicitNullValueAiAssistants = value; AdditionalData?.Remove("ai_assistants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistants"); else _explicitNullProperties?.Remove("ai_assistants"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>? _explicitNullValueAiAssistants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> AiAssistants { get => _explicitNullValueAiAssistants; set { _explicitNullValueAiAssistants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistants"); else _explicitNullProperties?.Remove("ai_assistants"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> AiAssistants { get => _explicitNullValueAiAssistants; set { _explicitNullValueAiAssistants = value; AdditionalData?.Remove("ai_assistants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistants"); else _explicitNullProperties?.Remove("ai_assistants"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem> _explicitNullValueAiAssistants = default!;
 #endif
         /// <summary>With the unified voice mode all assistants share the same voice, making the handoff transparent to the user. With the distinct voice mode all assistants retain their voice configuration, providing the experience of a conference call with a team of assistants.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? VoiceMode { get => _explicitNullValueVoiceMode; set { _explicitNullValueVoiceMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_mode"); else _explicitNullProperties?.Remove("voice_mode"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? VoiceMode { get => _explicitNullValueVoiceMode; set { _explicitNullValueVoiceMode = value; AdditionalData?.Remove("voice_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_mode"); else _explicitNullProperties?.Remove("voice_mode"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode? _explicitNullValueVoiceMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ai_assistants", n => { AiAssistants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsAiAssistantsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "voice_mode", n => { VoiceMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode>(); } },
+                { "voice_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParamsVoiceMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVoiceMode = default; _explicitNullProperties?.Remove("voice_mode"); AdditionalData["voice_mode"] = unknown; } else { VoiceMode = parsed; AdditionalData.Remove("voice_mode"); } } },
             };
         }
         /// <summary>

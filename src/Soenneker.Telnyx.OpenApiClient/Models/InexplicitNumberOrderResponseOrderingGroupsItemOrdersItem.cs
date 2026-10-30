@@ -17,23 +17,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("number_order_id") is { } nullNodeNumberOrderId && nullNodeNumberOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOrderId = null;
-            if (parseNode.GetChildNode("sub_number_order_ids") is { } nullNodeSubNumberOrderIds && nullNodeSubNumberOrderIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubNumberOrderIds = null;
+            if (parseNode.GetChildNode("number_order_id") is null) { _explicitNullValueNumberOrderId = default!; _explicitNullProperties?.Remove("number_order_id"); }
+            else if (parseNode.GetChildNode("number_order_id") is { } nullNodeNumberOrderId && nullNodeNumberOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOrderId = null;
+            if (parseNode.GetChildNode("sub_number_order_ids") is null) { _explicitNullValueSubNumberOrderIds = default!; _explicitNullProperties?.Remove("sub_number_order_ids"); }
+            else if (parseNode.GetChildNode("sub_number_order_ids") is { } nullNodeSubNumberOrderIds && nullNodeSubNumberOrderIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubNumberOrderIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ID of the main number order</summary>
-        public Guid? NumberOrderId { get => _explicitNullValueNumberOrderId; set { _explicitNullValueNumberOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_order_id"); else _explicitNullProperties?.Remove("number_order_id"); } }
+        public Guid? NumberOrderId { get => _explicitNullValueNumberOrderId; set { _explicitNullValueNumberOrderId = value; AdditionalData?.Remove("number_order_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_order_id"); else _explicitNullProperties?.Remove("number_order_id"); } }
         private Guid? _explicitNullValueNumberOrderId = default!;
         /// <summary>Array of sub number order IDs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? SubNumberOrderIds { get => _explicitNullValueSubNumberOrderIds; set { _explicitNullValueSubNumberOrderIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_number_order_ids"); else _explicitNullProperties?.Remove("sub_number_order_ids"); } }
+        public List<Guid?>? SubNumberOrderIds { get => _explicitNullValueSubNumberOrderIds; set { _explicitNullValueSubNumberOrderIds = value; AdditionalData?.Remove("sub_number_order_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_number_order_ids"); else _explicitNullProperties?.Remove("sub_number_order_ids"); } }
         private List<Guid?>? _explicitNullValueSubNumberOrderIds = default!;
 #nullable restore
 #else
-        public List<Guid?> SubNumberOrderIds { get => _explicitNullValueSubNumberOrderIds; set { _explicitNullValueSubNumberOrderIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_number_order_ids"); else _explicitNullProperties?.Remove("sub_number_order_ids"); } }
+        public List<Guid?> SubNumberOrderIds { get => _explicitNullValueSubNumberOrderIds; set { _explicitNullValueSubNumberOrderIds = value; AdditionalData?.Remove("sub_number_order_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_number_order_ids"); else _explicitNullProperties?.Remove("sub_number_order_ids"); } }
         private List<Guid?> _explicitNullValueSubNumberOrderIds = default!;
 #endif
         /// <summary>

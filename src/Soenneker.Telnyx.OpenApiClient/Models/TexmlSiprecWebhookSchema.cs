@@ -18,22 +18,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
-            if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
-            if (parseNode.GetChildNode("SiprecError") is { } nullNodeSiprecError && nullNodeSiprecError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecError = null;
-            if (parseNode.GetChildNode("SiprecEvent") is { } nullNodeSiprecEvent && nullNodeSiprecEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecEvent = null;
-            if (parseNode.GetChildNode("SiprecSid") is { } nullNodeSiprecSid && nullNodeSiprecSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecSid = null;
-            if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("AccountSid") is null) { _explicitNullValueAccountSid = default!; _explicitNullProperties?.Remove("AccountSid"); }
+            else if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("CallSid") is null) { _explicitNullValueCallSid = default!; _explicitNullProperties?.Remove("CallSid"); }
+            else if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("SiprecError") is null) { _explicitNullValueSiprecError = default!; _explicitNullProperties?.Remove("SiprecError"); }
+            else if (parseNode.GetChildNode("SiprecError") is { } nullNodeSiprecError && nullNodeSiprecError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecError = null;
+            if (parseNode.GetChildNode("SiprecEvent") is null) { _explicitNullValueSiprecEvent = default!; _explicitNullProperties?.Remove("SiprecEvent"); }
+            else if (parseNode.GetChildNode("SiprecEvent") is { } nullNodeSiprecEvent && nullNodeSiprecEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecEvent = null;
+            if (parseNode.GetChildNode("SiprecSid") is null) { _explicitNullValueSiprecSid = default!; _explicitNullProperties?.Remove("SiprecSid"); }
+            else if (parseNode.GetChildNode("SiprecSid") is { } nullNodeSiprecSid && nullNodeSiprecSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiprecSid = null;
+            if (parseNode.GetChildNode("Timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("Timestamp"); }
+            else if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
         }
 
         /// <summary>The unique identifier of the account (user_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; AdditionalData?.Remove("AccountSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
         private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; AdditionalData?.Remove("AccountSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
         private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -41,38 +47,38 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The unique identifier of the call (call_control_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; AdditionalData?.Remove("CallSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
         private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; AdditionalData?.Remove("CallSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
         private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Error detail if the SIPREC session failed (conditional, only present when SiprecEvent is siprec-failed).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SiprecError { get => _explicitNullValueSiprecError; set { _explicitNullValueSiprecError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecError"); else _explicitNullProperties?.Remove("SiprecError"); } }
+        public string? SiprecError { get => _explicitNullValueSiprecError; set { _explicitNullValueSiprecError = value; AdditionalData?.Remove("SiprecError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecError"); else _explicitNullProperties?.Remove("SiprecError"); } }
         private string? _explicitNullValueSiprecError = default!;
 #nullable restore
 #else
-        public string SiprecError { get => _explicitNullValueSiprecError; set { _explicitNullValueSiprecError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecError"); else _explicitNullProperties?.Remove("SiprecError"); } }
+        public string SiprecError { get => _explicitNullValueSiprecError; set { _explicitNullValueSiprecError = value; AdditionalData?.Remove("SiprecError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecError"); else _explicitNullProperties?.Remove("SiprecError"); } }
         private string _explicitNullValueSiprecError = default!;
 #endif
         /// <summary>The event type for the SIPREC session.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlSiprecWebhookSchemaSiprecEvent? SiprecEvent { get => _explicitNullValueSiprecEvent; set { _explicitNullValueSiprecEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecEvent"); else _explicitNullProperties?.Remove("SiprecEvent"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlSiprecWebhookSchemaSiprecEvent? SiprecEvent { get => _explicitNullValueSiprecEvent; set { _explicitNullValueSiprecEvent = value; AdditionalData?.Remove("SiprecEvent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecEvent"); else _explicitNullProperties?.Remove("SiprecEvent"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlSiprecWebhookSchemaSiprecEvent? _explicitNullValueSiprecEvent = default!;
         /// <summary>A unique identifier for the SIPREC session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SiprecSid { get => _explicitNullValueSiprecSid; set { _explicitNullValueSiprecSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecSid"); else _explicitNullProperties?.Remove("SiprecSid"); } }
+        public string? SiprecSid { get => _explicitNullValueSiprecSid; set { _explicitNullValueSiprecSid = value; AdditionalData?.Remove("SiprecSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecSid"); else _explicitNullProperties?.Remove("SiprecSid"); } }
         private string? _explicitNullValueSiprecSid = default!;
 #nullable restore
 #else
-        public string SiprecSid { get => _explicitNullValueSiprecSid; set { _explicitNullValueSiprecSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecSid"); else _explicitNullProperties?.Remove("SiprecSid"); } }
+        public string SiprecSid { get => _explicitNullValueSiprecSid; set { _explicitNullValueSiprecSid = value; AdditionalData?.Remove("SiprecSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SiprecSid"); else _explicitNullProperties?.Remove("SiprecSid"); } }
         private string _explicitNullValueSiprecSid = default!;
 #endif
         /// <summary>The timestamp when the event occurred.</summary>
-        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("Timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
         private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlSiprecWebhookSchema"/> and sets the default values.
@@ -102,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "AccountSid", n => { AccountSid = n.GetStringValue(); } },
                 { "CallSid", n => { CallSid = n.GetStringValue(); } },
                 { "SiprecError", n => { SiprecError = n.GetStringValue(); } },
-                { "SiprecEvent", n => { SiprecEvent = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlSiprecWebhookSchemaSiprecEvent>(); } },
+                { "SiprecEvent", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlSiprecWebhookSchemaSiprecEvent>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSiprecEvent = default; _explicitNullProperties?.Remove("SiprecEvent"); AdditionalData["SiprecEvent"] = unknown; } else { SiprecEvent = parsed; AdditionalData.Remove("SiprecEvent"); } } },
                 { "SiprecSid", n => { SiprecSid = n.GetStringValue(); } },
                 { "Timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };

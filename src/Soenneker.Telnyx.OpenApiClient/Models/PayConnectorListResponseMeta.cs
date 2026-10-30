@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("end_cursor") is { } nullNodeEndCursor && nullNodeEndCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndCursor = null;
-            if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
-            if (parseNode.GetChildNode("start_cursor") is { } nullNodeStartCursor && nullNodeStartCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartCursor = null;
+            if (parseNode.GetChildNode("end_cursor") is null) { _explicitNullValueEndCursor = default!; _explicitNullProperties?.Remove("end_cursor"); }
+            else if (parseNode.GetChildNode("end_cursor") is { } nullNodeEndCursor && nullNodeEndCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndCursor = null;
+            if (parseNode.GetChildNode("page_size") is null) { _explicitNullValuePageSize = default!; _explicitNullProperties?.Remove("page_size"); }
+            else if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
+            if (parseNode.GetChildNode("start_cursor") is null) { _explicitNullValueStartCursor = default!; _explicitNullProperties?.Remove("start_cursor"); }
+            else if (parseNode.GetChildNode("start_cursor") is { } nullNodeStartCursor && nullNodeStartCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartCursor = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Cursor for requesting the following page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
+        public string? EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; AdditionalData?.Remove("end_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
         private string? _explicitNullValueEndCursor = default!;
 #nullable restore
 #else
-        public string EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
+        public string EndCursor { get => _explicitNullValueEndCursor; set { _explicitNullValueEndCursor = value; AdditionalData?.Remove("end_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_cursor"); else _explicitNullProperties?.Remove("end_cursor"); } }
         private string _explicitNullValueEndCursor = default!;
 #endif
         /// <summary>Page size.</summary>
-        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
+        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; AdditionalData?.Remove("page_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
         private int? _explicitNullValuePageSize = default!;
         /// <summary>Cursor for requesting the preceding page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartCursor { get => _explicitNullValueStartCursor; set { _explicitNullValueStartCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_cursor"); else _explicitNullProperties?.Remove("start_cursor"); } }
+        public string? StartCursor { get => _explicitNullValueStartCursor; set { _explicitNullValueStartCursor = value; AdditionalData?.Remove("start_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_cursor"); else _explicitNullProperties?.Remove("start_cursor"); } }
         private string? _explicitNullValueStartCursor = default!;
 #nullable restore
 #else
-        public string StartCursor { get => _explicitNullValueStartCursor; set { _explicitNullValueStartCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_cursor"); else _explicitNullProperties?.Remove("start_cursor"); } }
+        public string StartCursor { get => _explicitNullValueStartCursor; set { _explicitNullValueStartCursor = value; AdditionalData?.Remove("start_cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_cursor"); else _explicitNullProperties?.Remove("start_cursor"); } }
         private string _explicitNullValueStartCursor = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("interception_app_id") is { } nullNodeInterceptionAppId && nullNodeInterceptionAppId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterceptionAppId = null;
+            if (parseNode.GetChildNode("interception_app_id") is null) { _explicitNullValueInterceptionAppId = default!; _explicitNullProperties?.Remove("interception_app_id"); }
+            else if (parseNode.GetChildNode("interception_app_id") is { } nullNodeInterceptionAppId && nullNodeInterceptionAppId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterceptionAppId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The ID of the CallControl or TeXML Application that will intercept outbound calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InterceptionAppId { get => _explicitNullValueInterceptionAppId; set { _explicitNullValueInterceptionAppId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interception_app_id"); else _explicitNullProperties?.Remove("interception_app_id"); } }
+        public string? InterceptionAppId { get => _explicitNullValueInterceptionAppId; set { _explicitNullValueInterceptionAppId = value; AdditionalData?.Remove("interception_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interception_app_id"); else _explicitNullProperties?.Remove("interception_app_id"); } }
         private string? _explicitNullValueInterceptionAppId = default!;
 #nullable restore
 #else
-        public string InterceptionAppId { get => _explicitNullValueInterceptionAppId; set { _explicitNullValueInterceptionAppId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interception_app_id"); else _explicitNullProperties?.Remove("interception_app_id"); } }
+        public string InterceptionAppId { get => _explicitNullValueInterceptionAppId; set { _explicitNullValueInterceptionAppId = value; AdditionalData?.Remove("interception_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interception_app_id"); else _explicitNullProperties?.Remove("interception_app_id"); } }
         private string _explicitNullValueInterceptionAppId = default!;
 #endif
         /// <summary>

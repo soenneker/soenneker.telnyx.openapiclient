@@ -17,21 +17,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("click_tracking") is { } nullNodeClickTracking && nullNodeClickTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClickTracking = null;
-            if (parseNode.GetChildNode("open_tracking") is { } nullNodeOpenTracking && nullNodeOpenTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenTracking = null;
-            if (parseNode.GetChildNode("unsubscribe_tracking") is { } nullNodeUnsubscribeTracking && nullNodeUnsubscribeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnsubscribeTracking = null;
+            if (parseNode.GetChildNode("click_tracking") is null) { _explicitNullValueClickTracking = default!; _explicitNullProperties?.Remove("click_tracking"); }
+            else if (parseNode.GetChildNode("click_tracking") is { } nullNodeClickTracking && nullNodeClickTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClickTracking = null;
+            if (parseNode.GetChildNode("open_tracking") is null) { _explicitNullValueOpenTracking = default!; _explicitNullProperties?.Remove("open_tracking"); }
+            else if (parseNode.GetChildNode("open_tracking") is { } nullNodeOpenTracking && nullNodeOpenTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenTracking = null;
+            if (parseNode.GetChildNode("unsubscribe_tracking") is null) { _explicitNullValueUnsubscribeTracking = default!; _explicitNullProperties?.Remove("unsubscribe_tracking"); }
+            else if (parseNode.GetChildNode("unsubscribe_tracking") is { } nullNodeUnsubscribeTracking && nullNodeUnsubscribeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnsubscribeTracking = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Rewrite HTML links through a tracking redirect to record click events.</summary>
-        public bool? ClickTracking { get => _explicitNullValueClickTracking; set { _explicitNullValueClickTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("click_tracking"); else _explicitNullProperties?.Remove("click_tracking"); } }
+        public bool? ClickTracking { get => _explicitNullValueClickTracking; set { _explicitNullValueClickTracking = value; AdditionalData?.Remove("click_tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("click_tracking"); else _explicitNullProperties?.Remove("click_tracking"); } }
         private bool? _explicitNullValueClickTracking = default!;
         /// <summary>Inject a tracking pixel into HTML messages to record open events.</summary>
-        public bool? OpenTracking { get => _explicitNullValueOpenTracking; set { _explicitNullValueOpenTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_tracking"); else _explicitNullProperties?.Remove("open_tracking"); } }
+        public bool? OpenTracking { get => _explicitNullValueOpenTracking; set { _explicitNullValueOpenTracking = value; AdditionalData?.Remove("open_tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_tracking"); else _explicitNullProperties?.Remove("open_tracking"); } }
         private bool? _explicitNullValueOpenTracking = default!;
         /// <summary>Add RFC 8058 List-Unsubscribe headers with a signed one-click unsubscribe URL. Enabled by default; Gmail/Yahoo bulk-sender rules require one-click unsubscribe support.</summary>
-        public bool? UnsubscribeTracking { get => _explicitNullValueUnsubscribeTracking; set { _explicitNullValueUnsubscribeTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unsubscribe_tracking"); else _explicitNullProperties?.Remove("unsubscribe_tracking"); } }
+        public bool? UnsubscribeTracking { get => _explicitNullValueUnsubscribeTracking; set { _explicitNullValueUnsubscribeTracking = value; AdditionalData?.Remove("unsubscribe_tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unsubscribe_tracking"); else _explicitNullProperties?.Remove("unsubscribe_tracking"); } }
         private bool? _explicitNullValueUnsubscribeTracking = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DomainsTrackingSettings"/> and sets the default values.

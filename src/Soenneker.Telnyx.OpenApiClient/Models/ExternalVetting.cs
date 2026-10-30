@@ -17,13 +17,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("createDate") is { } nullNodeCreateDate && nullNodeCreateDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateDate = null;
-            if (parseNode.GetChildNode("evpId") is { } nullNodeEvpId && nullNodeEvpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvpId = null;
-            if (parseNode.GetChildNode("vettedDate") is { } nullNodeVettedDate && nullNodeVettedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettedDate = null;
-            if (parseNode.GetChildNode("vettingClass") is { } nullNodeVettingClass && nullNodeVettingClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingClass = null;
-            if (parseNode.GetChildNode("vettingId") is { } nullNodeVettingId && nullNodeVettingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingId = null;
-            if (parseNode.GetChildNode("vettingScore") is { } nullNodeVettingScore && nullNodeVettingScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingScore = null;
-            if (parseNode.GetChildNode("vettingToken") is { } nullNodeVettingToken && nullNodeVettingToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingToken = null;
+            if (parseNode.GetChildNode("createDate") is null) { _explicitNullValueCreateDate = default!; _explicitNullProperties?.Remove("createDate"); }
+            else if (parseNode.GetChildNode("createDate") is { } nullNodeCreateDate && nullNodeCreateDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateDate = null;
+            if (parseNode.GetChildNode("evpId") is null) { _explicitNullValueEvpId = default!; _explicitNullProperties?.Remove("evpId"); }
+            else if (parseNode.GetChildNode("evpId") is { } nullNodeEvpId && nullNodeEvpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvpId = null;
+            if (parseNode.GetChildNode("vettedDate") is null) { _explicitNullValueVettedDate = default!; _explicitNullProperties?.Remove("vettedDate"); }
+            else if (parseNode.GetChildNode("vettedDate") is { } nullNodeVettedDate && nullNodeVettedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettedDate = null;
+            if (parseNode.GetChildNode("vettingClass") is null) { _explicitNullValueVettingClass = default!; _explicitNullProperties?.Remove("vettingClass"); }
+            else if (parseNode.GetChildNode("vettingClass") is { } nullNodeVettingClass && nullNodeVettingClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingClass = null;
+            if (parseNode.GetChildNode("vettingId") is null) { _explicitNullValueVettingId = default!; _explicitNullProperties?.Remove("vettingId"); }
+            else if (parseNode.GetChildNode("vettingId") is { } nullNodeVettingId && nullNodeVettingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingId = null;
+            if (parseNode.GetChildNode("vettingScore") is null) { _explicitNullValueVettingScore = default!; _explicitNullProperties?.Remove("vettingScore"); }
+            else if (parseNode.GetChildNode("vettingScore") is { } nullNodeVettingScore && nullNodeVettingScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingScore = null;
+            if (parseNode.GetChildNode("vettingToken") is null) { _explicitNullValueVettingToken = default!; _explicitNullProperties?.Remove("vettingToken"); }
+            else if (parseNode.GetChildNode("vettingToken") is { } nullNodeVettingToken && nullNodeVettingToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,64 +38,64 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Vetting submission date. This is the date when the vetting request is generated in ISO 8601 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreateDate { get => _explicitNullValueCreateDate; set { _explicitNullValueCreateDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createDate"); else _explicitNullProperties?.Remove("createDate"); } }
+        public string? CreateDate { get => _explicitNullValueCreateDate; set { _explicitNullValueCreateDate = value; AdditionalData?.Remove("createDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createDate"); else _explicitNullProperties?.Remove("createDate"); } }
         private string? _explicitNullValueCreateDate = default!;
 #nullable restore
 #else
-        public string CreateDate { get => _explicitNullValueCreateDate; set { _explicitNullValueCreateDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createDate"); else _explicitNullProperties?.Remove("createDate"); } }
+        public string CreateDate { get => _explicitNullValueCreateDate; set { _explicitNullValueCreateDate = value; AdditionalData?.Remove("createDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createDate"); else _explicitNullProperties?.Remove("createDate"); } }
         private string _explicitNullValueCreateDate = default!;
 #endif
         /// <summary>External vetting provider ID for the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
+        public string? EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; AdditionalData?.Remove("evpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
         private string? _explicitNullValueEvpId = default!;
 #nullable restore
 #else
-        public string EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
+        public string EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; AdditionalData?.Remove("evpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
         private string _explicitNullValueEvpId = default!;
 #endif
         /// <summary>Vetting effective date. This is the date when vetting was completed, or the starting effective date in ISO 8601 format. If this date is missing, then the vetting was not complete or not valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettedDate { get => _explicitNullValueVettedDate; set { _explicitNullValueVettedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettedDate"); else _explicitNullProperties?.Remove("vettedDate"); } }
+        public string? VettedDate { get => _explicitNullValueVettedDate; set { _explicitNullValueVettedDate = value; AdditionalData?.Remove("vettedDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettedDate"); else _explicitNullProperties?.Remove("vettedDate"); } }
         private string? _explicitNullValueVettedDate = default!;
 #nullable restore
 #else
-        public string VettedDate { get => _explicitNullValueVettedDate; set { _explicitNullValueVettedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettedDate"); else _explicitNullProperties?.Remove("vettedDate"); } }
+        public string VettedDate { get => _explicitNullValueVettedDate; set { _explicitNullValueVettedDate = value; AdditionalData?.Remove("vettedDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettedDate"); else _explicitNullProperties?.Remove("vettedDate"); } }
         private string _explicitNullValueVettedDate = default!;
 #endif
         /// <summary>Identifies the vetting classification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
+        public string? VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; AdditionalData?.Remove("vettingClass"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
         private string? _explicitNullValueVettingClass = default!;
 #nullable restore
 #else
-        public string VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
+        public string VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; AdditionalData?.Remove("vettingClass"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
         private string _explicitNullValueVettingClass = default!;
 #endif
         /// <summary>Unique ID that identifies a vetting transaction performed by a vetting provider. This ID is provided by the vetting provider at time of vetting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettingId { get => _explicitNullValueVettingId; set { _explicitNullValueVettingId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingId"); else _explicitNullProperties?.Remove("vettingId"); } }
+        public string? VettingId { get => _explicitNullValueVettingId; set { _explicitNullValueVettingId = value; AdditionalData?.Remove("vettingId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingId"); else _explicitNullProperties?.Remove("vettingId"); } }
         private string? _explicitNullValueVettingId = default!;
 #nullable restore
 #else
-        public string VettingId { get => _explicitNullValueVettingId; set { _explicitNullValueVettingId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingId"); else _explicitNullProperties?.Remove("vettingId"); } }
+        public string VettingId { get => _explicitNullValueVettingId; set { _explicitNullValueVettingId = value; AdditionalData?.Remove("vettingId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingId"); else _explicitNullProperties?.Remove("vettingId"); } }
         private string _explicitNullValueVettingId = default!;
 #endif
         /// <summary>Vetting score ranging from 0-100.</summary>
-        public int? VettingScore { get => _explicitNullValueVettingScore; set { _explicitNullValueVettingScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingScore"); else _explicitNullProperties?.Remove("vettingScore"); } }
+        public int? VettingScore { get => _explicitNullValueVettingScore; set { _explicitNullValueVettingScore = value; AdditionalData?.Remove("vettingScore"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingScore"); else _explicitNullProperties?.Remove("vettingScore"); } }
         private int? _explicitNullValueVettingScore = default!;
         /// <summary>Required by some providers for vetting record confirmation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettingToken { get => _explicitNullValueVettingToken; set { _explicitNullValueVettingToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingToken"); else _explicitNullProperties?.Remove("vettingToken"); } }
+        public string? VettingToken { get => _explicitNullValueVettingToken; set { _explicitNullValueVettingToken = value; AdditionalData?.Remove("vettingToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingToken"); else _explicitNullProperties?.Remove("vettingToken"); } }
         private string? _explicitNullValueVettingToken = default!;
 #nullable restore
 #else
-        public string VettingToken { get => _explicitNullValueVettingToken; set { _explicitNullValueVettingToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingToken"); else _explicitNullProperties?.Remove("vettingToken"); } }
+        public string VettingToken { get => _explicitNullValueVettingToken; set { _explicitNullValueVettingToken = value; AdditionalData?.Remove("vettingToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingToken"); else _explicitNullProperties?.Remove("vettingToken"); } }
         private string _explicitNullValueVettingToken = default!;
 #endif
         /// <summary>

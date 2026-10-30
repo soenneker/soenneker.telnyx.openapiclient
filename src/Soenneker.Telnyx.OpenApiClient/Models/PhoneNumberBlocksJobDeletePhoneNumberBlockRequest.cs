@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("phone_number_block_id") is { } nullNodePhoneNumberBlockId && nullNodePhoneNumberBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberBlockId = null;
+            if (parseNode.GetChildNode("phone_number_block_id") is null) { _explicitNullValuePhoneNumberBlockId = default!; _explicitNullProperties?.Remove("phone_number_block_id"); }
+            else if (parseNode.GetChildNode("phone_number_block_id") is { } nullNodePhoneNumberBlockId && nullNodePhoneNumberBlockId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumberBlockId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_number_block_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumberBlockId { get => _explicitNullValuePhoneNumberBlockId; set { _explicitNullValuePhoneNumberBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_block_id"); else _explicitNullProperties?.Remove("phone_number_block_id"); } }
+        public string? PhoneNumberBlockId { get => _explicitNullValuePhoneNumberBlockId; set { _explicitNullValuePhoneNumberBlockId = value; AdditionalData?.Remove("phone_number_block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_block_id"); else _explicitNullProperties?.Remove("phone_number_block_id"); } }
         private string? _explicitNullValuePhoneNumberBlockId = default!;
 #nullable restore
 #else
-        public string PhoneNumberBlockId { get => _explicitNullValuePhoneNumberBlockId; set { _explicitNullValuePhoneNumberBlockId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_block_id"); else _explicitNullProperties?.Remove("phone_number_block_id"); } }
+        public string PhoneNumberBlockId { get => _explicitNullValuePhoneNumberBlockId; set { _explicitNullValuePhoneNumberBlockId = value; AdditionalData?.Remove("phone_number_block_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number_block_id"); else _explicitNullProperties?.Remove("phone_number_block_id"); } }
         private string _explicitNullValuePhoneNumberBlockId = default!;
 #endif
         /// <summary>

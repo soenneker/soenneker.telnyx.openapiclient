@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("external_llm") is { } nullNodeExternalLlm && nullNodeExternalLlm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalLlm = null;
-            if (parseNode.GetChildNode("llm_api_key_ref") is { } nullNodeLlmApiKeyRef && nullNodeLlmApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeyRef = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("external_llm") is null) { _explicitNullValueExternalLlm = default!; _explicitNullProperties?.Remove("external_llm"); }
+            else if (parseNode.GetChildNode("external_llm") is { } nullNodeExternalLlm && nullNodeExternalLlm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalLlm = null;
+            if (parseNode.GetChildNode("llm_api_key_ref") is null) { _explicitNullValueLlmApiKeyRef = default!; _explicitNullProperties?.Remove("llm_api_key_ref"); }
+            else if (parseNode.GetChildNode("llm_api_key_ref") is { } nullNodeLlmApiKeyRef && nullNodeLlmApiKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeyRef = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The external_llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm? ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm? ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; AdditionalData?.Remove("external_llm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm? _explicitNullValueExternalLlm = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm ExternalLlm { get => _explicitNullValueExternalLlm; set { _explicitNullValueExternalLlm = value; AdditionalData?.Remove("external_llm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_llm"); else _explicitNullProperties?.Remove("external_llm"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlm _explicitNullValueExternalLlm = default!;
 #endif
         /// <summary>Integration secret identifier for the fallback model API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        public string? LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; AdditionalData?.Remove("llm_api_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
         private string? _explicitNullValueLlmApiKeyRef = default!;
 #nullable restore
 #else
-        public string LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
+        public string LlmApiKeyRef { get => _explicitNullValueLlmApiKeyRef; set { _explicitNullValueLlmApiKeyRef = value; AdditionalData?.Remove("llm_api_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_ref"); else _explicitNullProperties?.Remove("llm_api_key_ref"); } }
         private string _explicitNullValueLlmApiKeyRef = default!;
 #endif
         /// <summary>Fallback Telnyx-hosted model to use when the primary LLM provider is unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string _explicitNullValueModel = default!;
 #endif
         /// <summary>

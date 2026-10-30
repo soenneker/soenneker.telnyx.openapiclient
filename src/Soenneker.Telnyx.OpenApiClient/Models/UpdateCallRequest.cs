@@ -17,75 +17,83 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("FallbackMethod") is { } nullNodeFallbackMethod && nullNodeFallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackMethod = null;
-            if (parseNode.GetChildNode("FallbackUrl") is { } nullNodeFallbackUrl && nullNodeFallbackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackUrl = null;
-            if (parseNode.GetChildNode("Method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
-            if (parseNode.GetChildNode("Status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("StatusCallback") is { } nullNodeStatusCallback && nullNodeStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallback = null;
-            if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
-            if (parseNode.GetChildNode("Texml") is { } nullNodeTexml && nullNodeTexml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Texml = null;
-            if (parseNode.GetChildNode("Url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("FallbackMethod") is null) { _explicitNullValueFallbackMethod = default!; _explicitNullProperties?.Remove("FallbackMethod"); }
+            else if (parseNode.GetChildNode("FallbackMethod") is { } nullNodeFallbackMethod && nullNodeFallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackMethod = null;
+            if (parseNode.GetChildNode("FallbackUrl") is null) { _explicitNullValueFallbackUrl = default!; _explicitNullProperties?.Remove("FallbackUrl"); }
+            else if (parseNode.GetChildNode("FallbackUrl") is { } nullNodeFallbackUrl && nullNodeFallbackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackUrl = null;
+            if (parseNode.GetChildNode("Method") is null) { _explicitNullValueMethod = default!; _explicitNullProperties?.Remove("Method"); }
+            else if (parseNode.GetChildNode("Method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("Status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("Status"); }
+            else if (parseNode.GetChildNode("Status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("StatusCallback") is null) { _explicitNullValueStatusCallback = default!; _explicitNullProperties?.Remove("StatusCallback"); }
+            else if (parseNode.GetChildNode("StatusCallback") is { } nullNodeStatusCallback && nullNodeStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallback = null;
+            if (parseNode.GetChildNode("StatusCallbackMethod") is null) { _explicitNullValueStatusCallbackMethod = default!; _explicitNullProperties?.Remove("StatusCallbackMethod"); }
+            else if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
+            if (parseNode.GetChildNode("Texml") is null) { _explicitNullValueTexml = default!; _explicitNullProperties?.Remove("Texml"); }
+            else if (parseNode.GetChildNode("Texml") is { } nullNodeTexml && nullNodeTexml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Texml = null;
+            if (parseNode.GetChildNode("Url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("Url"); }
+            else if (parseNode.GetChildNode("Url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HTTP request type used for `FallbackUrl`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod? FallbackMethod { get => _explicitNullValueFallbackMethod; set { _explicitNullValueFallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("FallbackMethod"); else _explicitNullProperties?.Remove("FallbackMethod"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod? FallbackMethod { get => _explicitNullValueFallbackMethod; set { _explicitNullValueFallbackMethod = value; AdditionalData?.Remove("FallbackMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("FallbackMethod"); else _explicitNullProperties?.Remove("FallbackMethod"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod? _explicitNullValueFallbackMethod = default!;
         /// <summary>A failover URL for which Telnyx will retrieve the TeXML call instructions if the Url is not responding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FallbackUrl { get => _explicitNullValueFallbackUrl; set { _explicitNullValueFallbackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("FallbackUrl"); else _explicitNullProperties?.Remove("FallbackUrl"); } }
+        public string? FallbackUrl { get => _explicitNullValueFallbackUrl; set { _explicitNullValueFallbackUrl = value; AdditionalData?.Remove("FallbackUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("FallbackUrl"); else _explicitNullProperties?.Remove("FallbackUrl"); } }
         private string? _explicitNullValueFallbackUrl = default!;
 #nullable restore
 #else
-        public string FallbackUrl { get => _explicitNullValueFallbackUrl; set { _explicitNullValueFallbackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("FallbackUrl"); else _explicitNullProperties?.Remove("FallbackUrl"); } }
+        public string FallbackUrl { get => _explicitNullValueFallbackUrl; set { _explicitNullValueFallbackUrl = value; AdditionalData?.Remove("FallbackUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("FallbackUrl"); else _explicitNullProperties?.Remove("FallbackUrl"); } }
         private string _explicitNullValueFallbackUrl = default!;
 #endif
         /// <summary>HTTP request type used for `Url`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Method"); else _explicitNullProperties?.Remove("Method"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("Method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Method"); else _explicitNullProperties?.Remove("Method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod? _explicitNullValueMethod = default!;
         /// <summary>The value to set the call status to. Setting the status to completed ends the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Status"); else _explicitNullProperties?.Remove("Status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("Status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Status"); else _explicitNullProperties?.Remove("Status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Status"); else _explicitNullProperties?.Remove("Status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("Status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Status"); else _explicitNullProperties?.Remove("Status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>URL destination for Telnyx to send status callback events to for the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        public string? StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; AdditionalData?.Remove("StatusCallback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
         private string? _explicitNullValueStatusCallback = default!;
 #nullable restore
 #else
-        public string StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        public string StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; AdditionalData?.Remove("StatusCallback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
         private string _explicitNullValueStatusCallback = default!;
 #endif
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; AdditionalData?.Remove("StatusCallbackMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod? _explicitNullValueStatusCallbackMethod = default!;
         /// <summary>TeXML to replace the current one with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
+        public string? Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; AdditionalData?.Remove("Texml"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
         private string? _explicitNullValueTexml = default!;
 #nullable restore
 #else
-        public string Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
+        public string Texml { get => _explicitNullValueTexml; set { _explicitNullValueTexml = value; AdditionalData?.Remove("Texml"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Texml"); else _explicitNullProperties?.Remove("Texml"); } }
         private string _explicitNullValueTexml = default!;
 #endif
         /// <summary>The URL where TeXML will make a request to retrieve a new set of TeXML instructions to continue the call flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("Url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("Url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
@@ -113,12 +121,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "FallbackMethod", n => { FallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod>(); } },
+                { "FallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFallbackMethod = default; _explicitNullProperties?.Remove("FallbackMethod"); AdditionalData["FallbackMethod"] = unknown; } else { FallbackMethod = parsed; AdditionalData.Remove("FallbackMethod"); } } },
                 { "FallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
-                { "Method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod>(); } },
+                { "Method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMethod = default; _explicitNullProperties?.Remove("Method"); AdditionalData["Method"] = unknown; } else { Method = parsed; AdditionalData.Remove("Method"); } } },
                 { "Status", n => { Status = n.GetStringValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod>(); } },
+                { "StatusCallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestStatusCallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatusCallbackMethod = default; _explicitNullProperties?.Remove("StatusCallbackMethod"); AdditionalData["StatusCallbackMethod"] = unknown; } else { StatusCallbackMethod = parsed; AdditionalData.Remove("StatusCallbackMethod"); } } },
                 { "Texml", n => { Texml = n.GetStringValue(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
             };

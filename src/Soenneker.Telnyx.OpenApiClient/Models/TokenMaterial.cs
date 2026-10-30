@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("kid") is { } nullNodeKid && nullNodeKid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kid = null;
-            if (parseNode.GetChildNode("signing_secret") is { } nullNodeSigningSecret && nullNodeSigningSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecret = null;
-            if (parseNode.GetChildNode("tel_token") is { } nullNodeTelToken && nullNodeTelToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelToken = null;
+            if (parseNode.GetChildNode("kid") is null) { _explicitNullValueKid = default!; _explicitNullProperties?.Remove("kid"); }
+            else if (parseNode.GetChildNode("kid") is { } nullNodeKid && nullNodeKid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kid = null;
+            if (parseNode.GetChildNode("signing_secret") is null) { _explicitNullValueSigningSecret = default!; _explicitNullProperties?.Remove("signing_secret"); }
+            else if (parseNode.GetChildNode("signing_secret") is { } nullNodeSigningSecret && nullNodeSigningSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecret = null;
+            if (parseNode.GetChildNode("tel_token") is null) { _explicitNullValueTelToken = default!; _explicitNullProperties?.Remove("tel_token"); }
+            else if (parseNode.GetChildNode("tel_token") is { } nullNodeTelToken && nullNodeTelToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the Telnyx signing key the `signing_secret` was derived with. Goes in the token header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Kid { get => _explicitNullValueKid; set { _explicitNullValueKid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kid"); else _explicitNullProperties?.Remove("kid"); } }
+        public string? Kid { get => _explicitNullValueKid; set { _explicitNullValueKid = value; AdditionalData?.Remove("kid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kid"); else _explicitNullProperties?.Remove("kid"); } }
         private string? _explicitNullValueKid = default!;
 #nullable restore
 #else
-        public string Kid { get => _explicitNullValueKid; set { _explicitNullValueKid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kid"); else _explicitNullProperties?.Remove("kid"); } }
+        public string Kid { get => _explicitNullValueKid; set { _explicitNullValueKid = value; AdditionalData?.Remove("kid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kid"); else _explicitNullProperties?.Remove("kid"); } }
         private string _explicitNullValueKid = default!;
 #endif
         /// <summary>The HMAC-SHA256 key the token is signed with, base64url without padding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SigningSecret { get => _explicitNullValueSigningSecret; set { _explicitNullValueSigningSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret"); else _explicitNullProperties?.Remove("signing_secret"); } }
+        public string? SigningSecret { get => _explicitNullValueSigningSecret; set { _explicitNullValueSigningSecret = value; AdditionalData?.Remove("signing_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret"); else _explicitNullProperties?.Remove("signing_secret"); } }
         private string? _explicitNullValueSigningSecret = default!;
 #nullable restore
 #else
-        public string SigningSecret { get => _explicitNullValueSigningSecret; set { _explicitNullValueSigningSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret"); else _explicitNullProperties?.Remove("signing_secret"); } }
+        public string SigningSecret { get => _explicitNullValueSigningSecret; set { _explicitNullValueSigningSecret = value; AdditionalData?.Remove("signing_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret"); else _explicitNullProperties?.Remove("signing_secret"); } }
         private string _explicitNullValueSigningSecret = default!;
 #endif
         /// <summary>Opaque value Telnyx uses to resolve the credential. Carried in the token&apos;s `tel_token` claim as is.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelToken { get => _explicitNullValueTelToken; set { _explicitNullValueTelToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tel_token"); else _explicitNullProperties?.Remove("tel_token"); } }
+        public string? TelToken { get => _explicitNullValueTelToken; set { _explicitNullValueTelToken = value; AdditionalData?.Remove("tel_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tel_token"); else _explicitNullProperties?.Remove("tel_token"); } }
         private string? _explicitNullValueTelToken = default!;
 #nullable restore
 #else
-        public string TelToken { get => _explicitNullValueTelToken; set { _explicitNullValueTelToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tel_token"); else _explicitNullProperties?.Remove("tel_token"); } }
+        public string TelToken { get => _explicitNullValueTelToken; set { _explicitNullValueTelToken = value; AdditionalData?.Remove("tel_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tel_token"); else _explicitNullProperties?.Remove("tel_token"); } }
         private string _explicitNullValueTelToken = default!;
 #endif
         /// <summary>

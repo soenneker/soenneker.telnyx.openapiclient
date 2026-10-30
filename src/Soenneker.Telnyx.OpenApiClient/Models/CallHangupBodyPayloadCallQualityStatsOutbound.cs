@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("packet_count") is { } nullNodePacketCount && nullNodePacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PacketCount = null;
-            if (parseNode.GetChildNode("skip_packet_count") is { } nullNodeSkipPacketCount && nullNodeSkipPacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPacketCount = null;
+            if (parseNode.GetChildNode("packet_count") is null) { _explicitNullValuePacketCount = default!; _explicitNullProperties?.Remove("packet_count"); }
+            else if (parseNode.GetChildNode("packet_count") is { } nullNodePacketCount && nullNodePacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PacketCount = null;
+            if (parseNode.GetChildNode("skip_packet_count") is null) { _explicitNullValueSkipPacketCount = default!; _explicitNullProperties?.Remove("skip_packet_count"); }
+            else if (parseNode.GetChildNode("skip_packet_count") is { } nullNodeSkipPacketCount && nullNodeSkipPacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPacketCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Total number of outbound audio packets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
+        public string? PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; AdditionalData?.Remove("packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
         private string? _explicitNullValuePacketCount = default!;
 #nullable restore
 #else
-        public string PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
+        public string PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; AdditionalData?.Remove("packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
         private string _explicitNullValuePacketCount = default!;
 #endif
         /// <summary>Number of skipped outbound packets (packet loss).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
+        public string? SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; AdditionalData?.Remove("skip_packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
         private string? _explicitNullValueSkipPacketCount = default!;
 #nullable restore
 #else
-        public string SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
+        public string SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; AdditionalData?.Remove("skip_packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
         private string _explicitNullValueSkipPacketCount = default!;
 #endif
         /// <summary>

@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evpId") is { } nullNodeEvpId && nullNodeEvpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvpId = null;
-            if (parseNode.GetChildNode("vettingClass") is { } nullNodeVettingClass && nullNodeVettingClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingClass = null;
+            if (parseNode.GetChildNode("evpId") is null) { _explicitNullValueEvpId = default!; _explicitNullProperties?.Remove("evpId"); }
+            else if (parseNode.GetChildNode("evpId") is { } nullNodeEvpId && nullNodeEvpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvpId = null;
+            if (parseNode.GetChildNode("vettingClass") is null) { _explicitNullValueVettingClass = default!; _explicitNullProperties?.Remove("vettingClass"); }
+            else if (parseNode.GetChildNode("vettingClass") is { } nullNodeVettingClass && nullNodeVettingClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VettingClass = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>External vetting provider ID for the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
+        public string? EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; AdditionalData?.Remove("evpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
         private string? _explicitNullValueEvpId = default!;
 #nullable restore
 #else
-        public string EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
+        public string EvpId { get => _explicitNullValueEvpId; set { _explicitNullValueEvpId = value; AdditionalData?.Remove("evpId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evpId"); else _explicitNullProperties?.Remove("evpId"); } }
         private string _explicitNullValueEvpId = default!;
 #endif
         /// <summary>Identifies the vetting classification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
+        public string? VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; AdditionalData?.Remove("vettingClass"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
         private string? _explicitNullValueVettingClass = default!;
 #nullable restore
 #else
-        public string VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
+        public string VettingClass { get => _explicitNullValueVettingClass; set { _explicitNullValueVettingClass = value; AdditionalData?.Remove("vettingClass"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vettingClass"); else _explicitNullProperties?.Remove("vettingClass"); } }
         private string _explicitNullValueVettingClass = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("progress_id") is { } nullNodeProgressId && nullNodeProgressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProgressId = null;
+            if (parseNode.GetChildNode("progress_id") is null) { _explicitNullValueProgressId = default!; _explicitNullProperties?.Remove("progress_id"); }
+            else if (parseNode.GetChildNode("progress_id") is { } nullNodeProgressId && nullNodeProgressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProgressId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifier to poll generation progress with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProgressId { get => _explicitNullValueProgressId; set { _explicitNullValueProgressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress_id"); else _explicitNullProperties?.Remove("progress_id"); } }
+        public string? ProgressId { get => _explicitNullValueProgressId; set { _explicitNullValueProgressId = value; AdditionalData?.Remove("progress_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress_id"); else _explicitNullProperties?.Remove("progress_id"); } }
         private string? _explicitNullValueProgressId = default!;
 #nullable restore
 #else
-        public string ProgressId { get => _explicitNullValueProgressId; set { _explicitNullValueProgressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress_id"); else _explicitNullProperties?.Remove("progress_id"); } }
+        public string ProgressId { get => _explicitNullValueProgressId; set { _explicitNullValueProgressId = value; AdditionalData?.Remove("progress_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress_id"); else _explicitNullProperties?.Remove("progress_id"); } }
         private string _explicitNullValueProgressId = default!;
 #endif
         /// <summary>

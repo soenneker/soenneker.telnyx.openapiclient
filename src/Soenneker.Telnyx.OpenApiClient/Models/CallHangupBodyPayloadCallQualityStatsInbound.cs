@@ -18,11 +18,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("jitter_max_variance") is { } nullNodeJitterMaxVariance && nullNodeJitterMaxVariance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JitterMaxVariance = null;
-            if (parseNode.GetChildNode("jitter_packet_count") is { } nullNodeJitterPacketCount && nullNodeJitterPacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JitterPacketCount = null;
-            if (parseNode.GetChildNode("mos") is { } nullNodeMos && nullNodeMos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mos = null;
-            if (parseNode.GetChildNode("packet_count") is { } nullNodePacketCount && nullNodePacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PacketCount = null;
-            if (parseNode.GetChildNode("skip_packet_count") is { } nullNodeSkipPacketCount && nullNodeSkipPacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPacketCount = null;
+            if (parseNode.GetChildNode("jitter_max_variance") is null) { _explicitNullValueJitterMaxVariance = default!; _explicitNullProperties?.Remove("jitter_max_variance"); }
+            else if (parseNode.GetChildNode("jitter_max_variance") is { } nullNodeJitterMaxVariance && nullNodeJitterMaxVariance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JitterMaxVariance = null;
+            if (parseNode.GetChildNode("jitter_packet_count") is null) { _explicitNullValueJitterPacketCount = default!; _explicitNullProperties?.Remove("jitter_packet_count"); }
+            else if (parseNode.GetChildNode("jitter_packet_count") is { } nullNodeJitterPacketCount && nullNodeJitterPacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JitterPacketCount = null;
+            if (parseNode.GetChildNode("mos") is null) { _explicitNullValueMos = default!; _explicitNullProperties?.Remove("mos"); }
+            else if (parseNode.GetChildNode("mos") is { } nullNodeMos && nullNodeMos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mos = null;
+            if (parseNode.GetChildNode("packet_count") is null) { _explicitNullValuePacketCount = default!; _explicitNullProperties?.Remove("packet_count"); }
+            else if (parseNode.GetChildNode("packet_count") is { } nullNodePacketCount && nullNodePacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PacketCount = null;
+            if (parseNode.GetChildNode("skip_packet_count") is null) { _explicitNullValueSkipPacketCount = default!; _explicitNullProperties?.Remove("skip_packet_count"); }
+            else if (parseNode.GetChildNode("skip_packet_count") is { } nullNodeSkipPacketCount && nullNodeSkipPacketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPacketCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Maximum jitter variance for inbound audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JitterMaxVariance { get => _explicitNullValueJitterMaxVariance; set { _explicitNullValueJitterMaxVariance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_max_variance"); else _explicitNullProperties?.Remove("jitter_max_variance"); } }
+        public string? JitterMaxVariance { get => _explicitNullValueJitterMaxVariance; set { _explicitNullValueJitterMaxVariance = value; AdditionalData?.Remove("jitter_max_variance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_max_variance"); else _explicitNullProperties?.Remove("jitter_max_variance"); } }
         private string? _explicitNullValueJitterMaxVariance = default!;
 #nullable restore
 #else
-        public string JitterMaxVariance { get => _explicitNullValueJitterMaxVariance; set { _explicitNullValueJitterMaxVariance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_max_variance"); else _explicitNullProperties?.Remove("jitter_max_variance"); } }
+        public string JitterMaxVariance { get => _explicitNullValueJitterMaxVariance; set { _explicitNullValueJitterMaxVariance = value; AdditionalData?.Remove("jitter_max_variance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_max_variance"); else _explicitNullProperties?.Remove("jitter_max_variance"); } }
         private string _explicitNullValueJitterMaxVariance = default!;
 #endif
         /// <summary>Number of packets used for jitter calculation on inbound audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JitterPacketCount { get => _explicitNullValueJitterPacketCount; set { _explicitNullValueJitterPacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_packet_count"); else _explicitNullProperties?.Remove("jitter_packet_count"); } }
+        public string? JitterPacketCount { get => _explicitNullValueJitterPacketCount; set { _explicitNullValueJitterPacketCount = value; AdditionalData?.Remove("jitter_packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_packet_count"); else _explicitNullProperties?.Remove("jitter_packet_count"); } }
         private string? _explicitNullValueJitterPacketCount = default!;
 #nullable restore
 #else
-        public string JitterPacketCount { get => _explicitNullValueJitterPacketCount; set { _explicitNullValueJitterPacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_packet_count"); else _explicitNullProperties?.Remove("jitter_packet_count"); } }
+        public string JitterPacketCount { get => _explicitNullValueJitterPacketCount; set { _explicitNullValueJitterPacketCount = value; AdditionalData?.Remove("jitter_packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jitter_packet_count"); else _explicitNullProperties?.Remove("jitter_packet_count"); } }
         private string _explicitNullValueJitterPacketCount = default!;
 #endif
         /// <summary>Mean Opinion Score (MOS) for inbound audio quality.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mos { get => _explicitNullValueMos; set { _explicitNullValueMos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mos"); else _explicitNullProperties?.Remove("mos"); } }
+        public string? Mos { get => _explicitNullValueMos; set { _explicitNullValueMos = value; AdditionalData?.Remove("mos"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mos"); else _explicitNullProperties?.Remove("mos"); } }
         private string? _explicitNullValueMos = default!;
 #nullable restore
 #else
-        public string Mos { get => _explicitNullValueMos; set { _explicitNullValueMos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mos"); else _explicitNullProperties?.Remove("mos"); } }
+        public string Mos { get => _explicitNullValueMos; set { _explicitNullValueMos = value; AdditionalData?.Remove("mos"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mos"); else _explicitNullProperties?.Remove("mos"); } }
         private string _explicitNullValueMos = default!;
 #endif
         /// <summary>Total number of inbound audio packets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
+        public string? PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; AdditionalData?.Remove("packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
         private string? _explicitNullValuePacketCount = default!;
 #nullable restore
 #else
-        public string PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
+        public string PacketCount { get => _explicitNullValuePacketCount; set { _explicitNullValuePacketCount = value; AdditionalData?.Remove("packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packet_count"); else _explicitNullProperties?.Remove("packet_count"); } }
         private string _explicitNullValuePacketCount = default!;
 #endif
         /// <summary>Number of skipped inbound packets (packet loss).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
+        public string? SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; AdditionalData?.Remove("skip_packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
         private string? _explicitNullValueSkipPacketCount = default!;
 #nullable restore
 #else
-        public string SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
+        public string SkipPacketCount { get => _explicitNullValueSkipPacketCount; set { _explicitNullValueSkipPacketCount = value; AdditionalData?.Remove("skip_packet_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_packet_count"); else _explicitNullProperties?.Remove("skip_packet_count"); } }
         private string _explicitNullValueSkipPacketCount = default!;
 #endif
         /// <summary>

@@ -18,42 +18,47 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dtmf_detection") is { } nullNodeDtmfDetection && nullNodeDtmfDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DtmfDetection = null;
-            if (parseNode.GetChildNode("interruptible") is { } nullNodeInterruptible && nullNodeInterruptible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interruptible = null;
-            if (parseNode.GetChildNode("interruptible_greeting") is { } nullNodeInterruptibleGreeting && nullNodeInterruptibleGreeting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptibleGreeting = null;
-            if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("dtmf_detection") is null) { _explicitNullValueDtmfDetection = default!; _explicitNullProperties?.Remove("dtmf_detection"); }
+            else if (parseNode.GetChildNode("dtmf_detection") is { } nullNodeDtmfDetection && nullNodeDtmfDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DtmfDetection = null;
+            if (parseNode.GetChildNode("interruptible") is null) { _explicitNullValueInterruptible = default!; _explicitNullProperties?.Remove("interruptible"); }
+            else if (parseNode.GetChildNode("interruptible") is { } nullNodeInterruptible && nullNodeInterruptible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interruptible = null;
+            if (parseNode.GetChildNode("interruptible_greeting") is null) { _explicitNullValueInterruptibleGreeting = default!; _explicitNullProperties?.Remove("interruptible_greeting"); }
+            else if (parseNode.GetChildNode("interruptible_greeting") is { } nullNodeInterruptibleGreeting && nullNodeInterruptibleGreeting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptibleGreeting = null;
+            if (parseNode.GetChildNode("languages") is null) { _explicitNullValueLanguages = default!; _explicitNullProperties?.Remove("languages"); }
+            else if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to enable DTMF detection during the relay session.</summary>
-        public bool? DtmfDetection { get => _explicitNullValueDtmfDetection; set { _explicitNullValueDtmfDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dtmf_detection"); else _explicitNullProperties?.Remove("dtmf_detection"); } }
+        public bool? DtmfDetection { get => _explicitNullValueDtmfDetection; set { _explicitNullValueDtmfDetection = value; AdditionalData?.Remove("dtmf_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dtmf_detection"); else _explicitNullProperties?.Remove("dtmf_detection"); } }
         private bool? _explicitNullValueDtmfDetection = default!;
         /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? Interruptible { get => _explicitNullValueInterruptible; set { _explicitNullValueInterruptible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruptible"); else _explicitNullProperties?.Remove("interruptible"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? Interruptible { get => _explicitNullValueInterruptible; set { _explicitNullValueInterruptible = value; AdditionalData?.Remove("interruptible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruptible"); else _explicitNullProperties?.Remove("interruptible"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? _explicitNullValueInterruptible = default!;
         /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? InterruptibleGreeting { get => _explicitNullValueInterruptibleGreeting; set { _explicitNullValueInterruptibleGreeting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruptible_greeting"); else _explicitNullProperties?.Remove("interruptible_greeting"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? InterruptibleGreeting { get => _explicitNullValueInterruptibleGreeting; set { _explicitNullValueInterruptibleGreeting = value; AdditionalData?.Remove("interruptible_greeting"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruptible_greeting"); else _explicitNullProperties?.Remove("interruptible_greeting"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? _explicitNullValueInterruptibleGreeting = default!;
         /// <summary>Language-specific TTS and transcription settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>? _explicitNullValueLanguages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage> _explicitNullValueLanguages = default!;
 #endif
         /// <summary>WebSocket URL for your Conversation Relay server. Must start with `ws://` or `wss://`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
@@ -83,8 +88,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "dtmf_detection", n => { DtmfDetection = n.GetBoolValue(); } },
-                { "interruptible", n => { Interruptible = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); } },
-                { "interruptible_greeting", n => { InterruptibleGreeting = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); } },
+                { "interruptible", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterruptible = default; _explicitNullProperties?.Remove("interruptible"); AdditionalData["interruptible"] = unknown; } else { Interruptible = parsed; AdditionalData.Remove("interruptible"); } } },
+                { "interruptible_greeting", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterruptibleGreeting = default; _explicitNullProperties?.Remove("interruptible_greeting"); AdditionalData["interruptible_greeting"] = unknown; } else { InterruptibleGreeting = parsed; AdditionalData.Remove("interruptible_greeting"); } } },
                 { "languages", n => { Languages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };

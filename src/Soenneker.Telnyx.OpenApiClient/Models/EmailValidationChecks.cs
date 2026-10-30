@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("disposable") is { } nullNodeDisposable && nullNodeDisposable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disposable = null;
-            if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
-            if (parseNode.GetChildNode("role_based") is { } nullNodeRoleBased && nullNodeRoleBased.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleBased = null;
-            if (parseNode.GetChildNode("syntax") is { } nullNodeSyntax && nullNodeSyntax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Syntax = null;
-            if (parseNode.GetChildNode("typo") is { } nullNodeTypo && nullNodeTypo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Typo = null;
+            if (parseNode.GetChildNode("disposable") is null) { _explicitNullValueDisposable = default!; _explicitNullProperties?.Remove("disposable"); }
+            else if (parseNode.GetChildNode("disposable") is { } nullNodeDisposable && nullNodeDisposable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disposable = null;
+            if (parseNode.GetChildNode("mx") is null) { _explicitNullValueMx = default!; _explicitNullProperties?.Remove("mx"); }
+            else if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
+            if (parseNode.GetChildNode("role_based") is null) { _explicitNullValueRoleBased = default!; _explicitNullProperties?.Remove("role_based"); }
+            else if (parseNode.GetChildNode("role_based") is { } nullNodeRoleBased && nullNodeRoleBased.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleBased = null;
+            if (parseNode.GetChildNode("syntax") is null) { _explicitNullValueSyntax = default!; _explicitNullProperties?.Remove("syntax"); }
+            else if (parseNode.GetChildNode("syntax") is { } nullNodeSyntax && nullNodeSyntax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Syntax = null;
+            if (parseNode.GetChildNode("typo") is null) { _explicitNullValueTypo = default!; _explicitNullProperties?.Remove("typo"); }
+            else if (parseNode.GetChildNode("typo") is { } nullNodeTypo && nullNodeTypo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Typo = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The disposable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Disposable { get => _explicitNullValueDisposable; set { _explicitNullValueDisposable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disposable"); else _explicitNullProperties?.Remove("disposable"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Disposable { get => _explicitNullValueDisposable; set { _explicitNullValueDisposable = value; AdditionalData?.Remove("disposable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disposable"); else _explicitNullProperties?.Remove("disposable"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueDisposable = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Disposable { get => _explicitNullValueDisposable; set { _explicitNullValueDisposable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disposable"); else _explicitNullProperties?.Remove("disposable"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Disposable { get => _explicitNullValueDisposable; set { _explicitNullValueDisposable = value; AdditionalData?.Remove("disposable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disposable"); else _explicitNullProperties?.Remove("disposable"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueDisposable = default!;
 #endif
         /// <summary>The mx property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; AdditionalData?.Remove("mx"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueMx = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; AdditionalData?.Remove("mx"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueMx = default!;
 #endif
         /// <summary>The role_based property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? RoleBased { get => _explicitNullValueRoleBased; set { _explicitNullValueRoleBased = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_based"); else _explicitNullProperties?.Remove("role_based"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? RoleBased { get => _explicitNullValueRoleBased; set { _explicitNullValueRoleBased = value; AdditionalData?.Remove("role_based"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_based"); else _explicitNullProperties?.Remove("role_based"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueRoleBased = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck RoleBased { get => _explicitNullValueRoleBased; set { _explicitNullValueRoleBased = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_based"); else _explicitNullProperties?.Remove("role_based"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck RoleBased { get => _explicitNullValueRoleBased; set { _explicitNullValueRoleBased = value; AdditionalData?.Remove("role_based"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_based"); else _explicitNullProperties?.Remove("role_based"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueRoleBased = default!;
 #endif
         /// <summary>The syntax property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; AdditionalData?.Remove("syntax"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck? _explicitNullValueSyntax = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; AdditionalData?.Remove("syntax"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationCheck _explicitNullValueSyntax = default!;
 #endif
         /// <summary>The typo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck? Typo { get => _explicitNullValueTypo; set { _explicitNullValueTypo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typo"); else _explicitNullProperties?.Remove("typo"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck? Typo { get => _explicitNullValueTypo; set { _explicitNullValueTypo = value; AdditionalData?.Remove("typo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typo"); else _explicitNullProperties?.Remove("typo"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck? _explicitNullValueTypo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck Typo { get => _explicitNullValueTypo; set { _explicitNullValueTypo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typo"); else _explicitNullProperties?.Remove("typo"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck Typo { get => _explicitNullValueTypo; set { _explicitNullValueTypo = value; AdditionalData?.Remove("typo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typo"); else _explicitNullProperties?.Remove("typo"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmailValidationTypoCheck _explicitNullValueTypo = default!;
 #endif
         /// <summary>

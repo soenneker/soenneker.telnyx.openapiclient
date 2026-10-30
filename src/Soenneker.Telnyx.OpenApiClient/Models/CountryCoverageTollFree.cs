@@ -17,12 +17,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
-            if (parseNode.GetChildNode("full_pstn_replacement") is { } nullNodeFullPstnReplacement && nullNodeFullPstnReplacement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullPstnReplacement = null;
-            if (parseNode.GetChildNode("international_sms") is { } nullNodeInternationalSms && nullNodeInternationalSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternationalSms = null;
-            if (parseNode.GetChildNode("p2p") is { } nullNodeP2p && nullNodeP2p.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P2p = null;
-            if (parseNode.GetChildNode("quickship") is { } nullNodeQuickship && nullNodeQuickship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quickship = null;
-            if (parseNode.GetChildNode("reservable") is { } nullNodeReservable && nullNodeReservable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reservable = null;
+            if (parseNode.GetChildNode("features") is null) { _explicitNullValueFeatures = default!; _explicitNullProperties?.Remove("features"); }
+            else if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
+            if (parseNode.GetChildNode("full_pstn_replacement") is null) { _explicitNullValueFullPstnReplacement = default!; _explicitNullProperties?.Remove("full_pstn_replacement"); }
+            else if (parseNode.GetChildNode("full_pstn_replacement") is { } nullNodeFullPstnReplacement && nullNodeFullPstnReplacement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullPstnReplacement = null;
+            if (parseNode.GetChildNode("international_sms") is null) { _explicitNullValueInternationalSms = default!; _explicitNullProperties?.Remove("international_sms"); }
+            else if (parseNode.GetChildNode("international_sms") is { } nullNodeInternationalSms && nullNodeInternationalSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternationalSms = null;
+            if (parseNode.GetChildNode("p2p") is null) { _explicitNullValueP2p = default!; _explicitNullProperties?.Remove("p2p"); }
+            else if (parseNode.GetChildNode("p2p") is { } nullNodeP2p && nullNodeP2p.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) P2p = null;
+            if (parseNode.GetChildNode("quickship") is null) { _explicitNullValueQuickship = default!; _explicitNullProperties?.Remove("quickship"); }
+            else if (parseNode.GetChildNode("quickship") is { } nullNodeQuickship && nullNodeQuickship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quickship = null;
+            if (parseNode.GetChildNode("reservable") is null) { _explicitNullValueReservable = default!; _explicitNullProperties?.Remove("reservable"); }
+            else if (parseNode.GetChildNode("reservable") is { } nullNodeReservable && nullNodeReservable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reservable = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,27 +36,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public List<string>? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private List<string>? _explicitNullValueFeatures = default!;
 #nullable restore
 #else
-        public List<string> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public List<string> Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private List<string> _explicitNullValueFeatures = default!;
 #endif
         /// <summary>The full_pstn_replacement property</summary>
-        public bool? FullPstnReplacement { get => _explicitNullValueFullPstnReplacement; set { _explicitNullValueFullPstnReplacement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_pstn_replacement"); else _explicitNullProperties?.Remove("full_pstn_replacement"); } }
+        public bool? FullPstnReplacement { get => _explicitNullValueFullPstnReplacement; set { _explicitNullValueFullPstnReplacement = value; AdditionalData?.Remove("full_pstn_replacement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_pstn_replacement"); else _explicitNullProperties?.Remove("full_pstn_replacement"); } }
         private bool? _explicitNullValueFullPstnReplacement = default!;
         /// <summary>The international_sms property</summary>
-        public bool? InternationalSms { get => _explicitNullValueInternationalSms; set { _explicitNullValueInternationalSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("international_sms"); else _explicitNullProperties?.Remove("international_sms"); } }
+        public bool? InternationalSms { get => _explicitNullValueInternationalSms; set { _explicitNullValueInternationalSms = value; AdditionalData?.Remove("international_sms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("international_sms"); else _explicitNullProperties?.Remove("international_sms"); } }
         private bool? _explicitNullValueInternationalSms = default!;
         /// <summary>The p2p property</summary>
-        public bool? P2p { get => _explicitNullValueP2p; set { _explicitNullValueP2p = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p2p"); else _explicitNullProperties?.Remove("p2p"); } }
+        public bool? P2p { get => _explicitNullValueP2p; set { _explicitNullValueP2p = value; AdditionalData?.Remove("p2p"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("p2p"); else _explicitNullProperties?.Remove("p2p"); } }
         private bool? _explicitNullValueP2p = default!;
         /// <summary>The quickship property</summary>
-        public bool? Quickship { get => _explicitNullValueQuickship; set { _explicitNullValueQuickship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quickship"); else _explicitNullProperties?.Remove("quickship"); } }
+        public bool? Quickship { get => _explicitNullValueQuickship; set { _explicitNullValueQuickship = value; AdditionalData?.Remove("quickship"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quickship"); else _explicitNullProperties?.Remove("quickship"); } }
         private bool? _explicitNullValueQuickship = default!;
         /// <summary>The reservable property</summary>
-        public bool? Reservable { get => _explicitNullValueReservable; set { _explicitNullValueReservable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservable"); else _explicitNullProperties?.Remove("reservable"); } }
+        public bool? Reservable { get => _explicitNullValueReservable; set { _explicitNullValueReservable = value; AdditionalData?.Remove("reservable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservable"); else _explicitNullProperties?.Remove("reservable"); } }
         private bool? _explicitNullValueReservable = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree"/> and sets the default values.

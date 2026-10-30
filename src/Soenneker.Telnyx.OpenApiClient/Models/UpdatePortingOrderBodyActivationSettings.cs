@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("foc_datetime_requested") is { } nullNodeFocDatetimeRequested && nullNodeFocDatetimeRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FocDatetimeRequested = null;
+            if (parseNode.GetChildNode("foc_datetime_requested") is null) { _explicitNullValueFocDatetimeRequested = default!; _explicitNullProperties?.Remove("foc_datetime_requested"); }
+            else if (parseNode.GetChildNode("foc_datetime_requested") is { } nullNodeFocDatetimeRequested && nullNodeFocDatetimeRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FocDatetimeRequested = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted Date/Time requested for the FOC date</summary>
-        public DateTimeOffset? FocDatetimeRequested { get => _explicitNullValueFocDatetimeRequested; set { _explicitNullValueFocDatetimeRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foc_datetime_requested"); else _explicitNullProperties?.Remove("foc_datetime_requested"); } }
+        public DateTimeOffset? FocDatetimeRequested { get => _explicitNullValueFocDatetimeRequested; set { _explicitNullValueFocDatetimeRequested = value; AdditionalData?.Remove("foc_datetime_requested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foc_datetime_requested"); else _explicitNullProperties?.Remove("foc_datetime_requested"); } }
         private DateTimeOffset? _explicitNullValueFocDatetimeRequested = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrderBodyActivationSettings"/> and sets the default values.

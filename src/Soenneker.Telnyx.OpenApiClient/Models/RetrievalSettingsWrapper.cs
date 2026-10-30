@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("retrieval") is { } nullNodeRetrieval && nullNodeRetrieval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retrieval = null;
+            if (parseNode.GetChildNode("retrieval") is null) { _explicitNullValueRetrieval = default!; _explicitNullProperties?.Remove("retrieval"); }
+            else if (parseNode.GetChildNode("retrieval") is { } nullNodeRetrieval && nullNodeRetrieval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retrieval = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,11 +34,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>How documents are retrieved when searching the collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings? Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings? Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; AdditionalData?.Remove("retrieval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings? _explicitNullValueRetrieval = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; AdditionalData?.Remove("retrieval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings _explicitNullValueRetrieval = default!;
 #endif
         /// <summary>

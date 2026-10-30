@@ -17,15 +17,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("assistant") is { } nullNodeAssistant && nullNodeAssistant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assistant = null;
-            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
-            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
-            if (parseNode.GetChildNode("greeting") is { } nullNodeGreeting && nullNodeGreeting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Greeting = null;
-            if (parseNode.GetChildNode("interruption_settings") is { } nullNodeInterruptionSettings && nullNodeInterruptionSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptionSettings = null;
-            if (parseNode.GetChildNode("message_history") is { } nullNodeMessageHistory && nullNodeMessageHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageHistory = null;
-            if (parseNode.GetChildNode("participants") is { } nullNodeParticipants && nullNodeParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Participants = null;
-            if (parseNode.GetChildNode("send_message_history_updates") is { } nullNodeSendMessageHistoryUpdates && nullNodeSendMessageHistoryUpdates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendMessageHistoryUpdates = null;
-            if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
+            if (parseNode.GetChildNode("assistant") is null) { _explicitNullValueAssistant = default!; _explicitNullProperties?.Remove("assistant"); }
+            else if (parseNode.GetChildNode("assistant") is { } nullNodeAssistant && nullNodeAssistant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assistant = null;
+            if (parseNode.GetChildNode("client_state") is null) { _explicitNullValueClientState = default!; _explicitNullProperties?.Remove("client_state"); }
+            else if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is null) { _explicitNullValueCommandId = default!; _explicitNullProperties?.Remove("command_id"); }
+            else if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("greeting") is null) { _explicitNullValueGreeting = default!; _explicitNullProperties?.Remove("greeting"); }
+            else if (parseNode.GetChildNode("greeting") is { } nullNodeGreeting && nullNodeGreeting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Greeting = null;
+            if (parseNode.GetChildNode("interruption_settings") is null) { _explicitNullValueInterruptionSettings = default!; _explicitNullProperties?.Remove("interruption_settings"); }
+            else if (parseNode.GetChildNode("interruption_settings") is { } nullNodeInterruptionSettings && nullNodeInterruptionSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptionSettings = null;
+            if (parseNode.GetChildNode("message_history") is null) { _explicitNullValueMessageHistory = default!; _explicitNullProperties?.Remove("message_history"); }
+            else if (parseNode.GetChildNode("message_history") is { } nullNodeMessageHistory && nullNodeMessageHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageHistory = null;
+            if (parseNode.GetChildNode("participants") is null) { _explicitNullValueParticipants = default!; _explicitNullProperties?.Remove("participants"); }
+            else if (parseNode.GetChildNode("participants") is { } nullNodeParticipants && nullNodeParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Participants = null;
+            if (parseNode.GetChildNode("send_message_history_updates") is null) { _explicitNullValueSendMessageHistoryUpdates = default!; _explicitNullProperties?.Remove("send_message_history_updates"); }
+            else if (parseNode.GetChildNode("send_message_history_updates") is { } nullNodeSendMessageHistoryUpdates && nullNodeSendMessageHistoryUpdates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendMessageHistoryUpdates = null;
+            if (parseNode.GetChildNode("transcription") is null) { _explicitNullValueTranscription = default!; _explicitNullProperties?.Remove("transcription"); }
+            else if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,84 +42,84 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>AI Assistant configuration and per-call overrides. All fields except `id` are optional. Omitted assistant fields use the stored configuration. Supplied `voice_settings` and `transcription` objects replace their stored objects rather than merging individual settings; include every setting you want to retain. `dynamic_variables` are merged, with request values taking precedence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; AdditionalData?.Remove("assistant"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? _explicitNullValueAssistant = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; AdditionalData?.Remove("assistant"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest _explicitNullValueAssistant = default!;
 #endif
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>Text that will be played when the assistant starts, if none then nothing will be played when the assistant starts. The greeting can be text for any voice or SSML for `AWS.Polly.&lt;voice_id&gt;` voices. There is a 3,000 character limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Greeting { get => _explicitNullValueGreeting; set { _explicitNullValueGreeting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting"); else _explicitNullProperties?.Remove("greeting"); } }
+        public string? Greeting { get => _explicitNullValueGreeting; set { _explicitNullValueGreeting = value; AdditionalData?.Remove("greeting"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting"); else _explicitNullProperties?.Remove("greeting"); } }
         private string? _explicitNullValueGreeting = default!;
 #nullable restore
 #else
-        public string Greeting { get => _explicitNullValueGreeting; set { _explicitNullValueGreeting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting"); else _explicitNullProperties?.Remove("greeting"); } }
+        public string Greeting { get => _explicitNullValueGreeting; set { _explicitNullValueGreeting = value; AdditionalData?.Remove("greeting"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("greeting"); else _explicitNullProperties?.Remove("greeting"); } }
         private string _explicitNullValueGreeting = default!;
 #endif
         /// <summary>Settings for handling user interruptions during assistant speech</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings? InterruptionSettings { get => _explicitNullValueInterruptionSettings; set { _explicitNullValueInterruptionSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_settings"); else _explicitNullProperties?.Remove("interruption_settings"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings? InterruptionSettings { get => _explicitNullValueInterruptionSettings; set { _explicitNullValueInterruptionSettings = value; AdditionalData?.Remove("interruption_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_settings"); else _explicitNullProperties?.Remove("interruption_settings"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings? _explicitNullValueInterruptionSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings InterruptionSettings { get => _explicitNullValueInterruptionSettings; set { _explicitNullValueInterruptionSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_settings"); else _explicitNullProperties?.Remove("interruption_settings"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings InterruptionSettings { get => _explicitNullValueInterruptionSettings; set { _explicitNullValueInterruptionSettings = value; AdditionalData?.Remove("interruption_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interruption_settings"); else _explicitNullProperties?.Remove("interruption_settings"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings _explicitNullValueInterruptionSettings = default!;
 #endif
         /// <summary>A list of messages to seed the conversation history before the assistant starts. Follows the same message format as the `ai_assistant_add_messages` command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem>? MessageHistory { get => _explicitNullValueMessageHistory; set { _explicitNullValueMessageHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_history"); else _explicitNullProperties?.Remove("message_history"); } }
-        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem>? _explicitNullValueMessageHistory = default!;
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem>? MessageHistory { get => _explicitNullValueMessageHistory; set { _explicitNullValueMessageHistory = value; AdditionalData?.Remove("message_history"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_history"); else _explicitNullProperties?.Remove("message_history"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem>? _explicitNullValueMessageHistory = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem> MessageHistory { get => _explicitNullValueMessageHistory; set { _explicitNullValueMessageHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_history"); else _explicitNullProperties?.Remove("message_history"); } }
-        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem> _explicitNullValueMessageHistory = default!;
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem> MessageHistory { get => _explicitNullValueMessageHistory; set { _explicitNullValueMessageHistory = value; AdditionalData?.Remove("message_history"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_history"); else _explicitNullProperties?.Remove("message_history"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem> _explicitNullValueMessageHistory = default!;
 #endif
         /// <summary>A list of participants to add to the conversation when it starts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant>? Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant>? Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; AdditionalData?.Remove("participants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant>? _explicitNullValueParticipants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant> Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant> Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; AdditionalData?.Remove("participants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant> _explicitNullValueParticipants = default!;
 #endif
         /// <summary>When `true`, a `call.ai_gather.message_history_updated` webhook carrying the full message history is sent each time the conversation message history is updated. The assistant&apos;s own `telephony_settings.send_message_history_updates` overrides this value when it is set.</summary>
-        public bool? SendMessageHistoryUpdates { get => _explicitNullValueSendMessageHistoryUpdates; set { _explicitNullValueSendMessageHistoryUpdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_message_history_updates"); else _explicitNullProperties?.Remove("send_message_history_updates"); } }
+        public bool? SendMessageHistoryUpdates { get => _explicitNullValueSendMessageHistoryUpdates; set { _explicitNullValueSendMessageHistoryUpdates = value; AdditionalData?.Remove("send_message_history_updates"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_message_history_updates"); else _explicitNullProperties?.Remove("send_message_history_updates"); } }
         private bool? _explicitNullValueSendMessageHistoryUpdates = default!;
         /// <summary>The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. `fixie-ai/ultravox-v0_4`) will ignore this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig? _explicitNullValueTranscription = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig _explicitNullValueTranscription = default!;
 #endif
         /// <summary>
@@ -144,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "interruption_settings", n => { InterruptionSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings.CreateFromDiscriminatorValue); } },
-                { "message_history", n => { MessageHistory = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem>(global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "message_history", n => { MessageHistory = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant>(global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "send_message_history_updates", n => { SendMessageHistoryUpdates = n.GetBoolValue(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig.CreateFromDiscriminatorValue); } },
@@ -162,7 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>("interruption_settings", InterruptionSettings);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantStartRequestMessageHistoryItem>("message_history", MessageHistory);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantAddMessagesRequestMessagesItem>("message_history", MessageHistory);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AiAssistantJoinParticipant>("participants", Participants);
             writer.WriteBoolValue("send_message_history_updates", SendMessageHistoryUpdates);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>("transcription", Transcription);

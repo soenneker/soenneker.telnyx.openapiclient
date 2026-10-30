@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destination_uri") is { } nullNodeDestinationUri && nullNodeDestinationUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationUri = null;
+            if (parseNode.GetChildNode("destination_uri") is null) { _explicitNullValueDestinationUri = default!; _explicitNullProperties?.Remove("destination_uri"); }
+            else if (parseNode.GetChildNode("destination_uri") is { } nullNodeDestinationUri && nullNodeDestinationUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationUri = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The SIP URI that Telnyx will call when handling an inbound request from the external peer. Do not include a `sip:` prefix. The value must be in the format `userinfo@&lt;subdomain.&gt;sip.telnyx.com` or `userinfo@&lt;subdomain.&gt;sipdev.telnyx.com`; the userinfo portion may contain only letters, digits, hyphens, and underscores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationUri { get => _explicitNullValueDestinationUri; set { _explicitNullValueDestinationUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_uri"); else _explicitNullProperties?.Remove("destination_uri"); } }
+        public string? DestinationUri { get => _explicitNullValueDestinationUri; set { _explicitNullValueDestinationUri = value; AdditionalData?.Remove("destination_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_uri"); else _explicitNullProperties?.Remove("destination_uri"); } }
         private string? _explicitNullValueDestinationUri = default!;
 #nullable restore
 #else
-        public string DestinationUri { get => _explicitNullValueDestinationUri; set { _explicitNullValueDestinationUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_uri"); else _explicitNullProperties?.Remove("destination_uri"); } }
+        public string DestinationUri { get => _explicitNullValueDestinationUri; set { _explicitNullValueDestinationUri = value; AdditionalData?.Remove("destination_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_uri"); else _explicitNullProperties?.Remove("destination_uri"); } }
         private string _explicitNullValueDestinationUri = default!;
 #endif
         /// <summary>

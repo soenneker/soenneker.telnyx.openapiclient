@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cumulative_cost") is { } nullNodeCumulativeCost && nullNodeCumulativeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CumulativeCost = null;
-            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
-            if (parseNode.GetChildNode("event_cost") is { } nullNodeEventCost && nullNodeEventCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventCost = null;
+            if (parseNode.GetChildNode("cumulative_cost") is null) { _explicitNullValueCumulativeCost = default!; _explicitNullProperties?.Remove("cumulative_cost"); }
+            else if (parseNode.GetChildNode("cumulative_cost") is { } nullNodeCumulativeCost && nullNodeCumulativeCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CumulativeCost = null;
+            if (parseNode.GetChildNode("currency") is null) { _explicitNullValueCurrency = default!; _explicitNullProperties?.Remove("currency"); }
+            else if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("event_cost") is null) { _explicitNullValueEventCost = default!; _explicitNullProperties?.Remove("event_cost"); }
+            else if (parseNode.GetChildNode("event_cost") is { } nullNodeEventCost && nullNodeEventCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventCost = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Cumulative cost including all descendants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CumulativeCost { get => _explicitNullValueCumulativeCost; set { _explicitNullValueCumulativeCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cumulative_cost"); else _explicitNullProperties?.Remove("cumulative_cost"); } }
+        public string? CumulativeCost { get => _explicitNullValueCumulativeCost; set { _explicitNullValueCumulativeCost = value; AdditionalData?.Remove("cumulative_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cumulative_cost"); else _explicitNullProperties?.Remove("cumulative_cost"); } }
         private string? _explicitNullValueCumulativeCost = default!;
 #nullable restore
 #else
-        public string CumulativeCost { get => _explicitNullValueCumulativeCost; set { _explicitNullValueCumulativeCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cumulative_cost"); else _explicitNullProperties?.Remove("cumulative_cost"); } }
+        public string CumulativeCost { get => _explicitNullValueCumulativeCost; set { _explicitNullValueCumulativeCost = value; AdditionalData?.Remove("cumulative_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cumulative_cost"); else _explicitNullProperties?.Remove("cumulative_cost"); } }
         private string _explicitNullValueCumulativeCost = default!;
 #endif
         /// <summary>ISO 4217 currency code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>Cost of this individual event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventCost { get => _explicitNullValueEventCost; set { _explicitNullValueEventCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_cost"); else _explicitNullProperties?.Remove("event_cost"); } }
+        public string? EventCost { get => _explicitNullValueEventCost; set { _explicitNullValueEventCost = value; AdditionalData?.Remove("event_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_cost"); else _explicitNullProperties?.Remove("event_cost"); } }
         private string? _explicitNullValueEventCost = default!;
 #nullable restore
 #else
-        public string EventCost { get => _explicitNullValueEventCost; set { _explicitNullValueEventCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_cost"); else _explicitNullProperties?.Remove("event_cost"); } }
+        public string EventCost { get => _explicitNullValueEventCost; set { _explicitNullValueEventCost = value; AdditionalData?.Remove("event_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_cost"); else _explicitNullProperties?.Remove("event_cost"); } }
         private string _explicitNullValueEventCost = default!;
 #endif
         /// <summary>

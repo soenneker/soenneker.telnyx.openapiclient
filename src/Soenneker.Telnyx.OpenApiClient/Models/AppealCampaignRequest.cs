@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("appeal_reason") is { } nullNodeAppealReason && nullNodeAppealReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppealReason = null;
+            if (parseNode.GetChildNode("appeal_reason") is null) { _explicitNullValueAppealReason = default!; _explicitNullProperties?.Remove("appeal_reason"); }
+            else if (parseNode.GetChildNode("appeal_reason") is { } nullNodeAppealReason && nullNodeAppealReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppealReason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Detailed explanation of why the campaign should be reconsidered and what changes have been made to address the rejection reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppealReason { get => _explicitNullValueAppealReason; set { _explicitNullValueAppealReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appeal_reason"); else _explicitNullProperties?.Remove("appeal_reason"); } }
+        public string? AppealReason { get => _explicitNullValueAppealReason; set { _explicitNullValueAppealReason = value; AdditionalData?.Remove("appeal_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appeal_reason"); else _explicitNullProperties?.Remove("appeal_reason"); } }
         private string? _explicitNullValueAppealReason = default!;
 #nullable restore
 #else
-        public string AppealReason { get => _explicitNullValueAppealReason; set { _explicitNullValueAppealReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appeal_reason"); else _explicitNullProperties?.Remove("appeal_reason"); } }
+        public string AppealReason { get => _explicitNullValueAppealReason; set { _explicitNullValueAppealReason = value; AdditionalData?.Remove("appeal_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appeal_reason"); else _explicitNullProperties?.Remove("appeal_reason"); } }
         private string _explicitNullValueAppealReason = default!;
 #endif
         /// <summary>

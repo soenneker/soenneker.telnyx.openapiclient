@@ -17,14 +17,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
-            if (parseNode.GetChildNode("prompt_label") is { } nullNodePromptLabel && nullNodePromptLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptLabel = null;
-            if (parseNode.GetChildNode("prompt_name") is { } nullNodePromptName && nullNodePromptName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptName = null;
-            if (parseNode.GetChildNode("prompt_sync") is { } nullNodePromptSync && nullNodePromptSync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptSync = null;
-            if (parseNode.GetChildNode("prompt_version") is { } nullNodePromptVersion && nullNodePromptVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptVersion = null;
-            if (parseNode.GetChildNode("public_key_ref") is { } nullNodePublicKeyRef && nullNodePublicKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicKeyRef = null;
-            if (parseNode.GetChildNode("secret_key_ref") is { } nullNodeSecretKeyRef && nullNodeSecretKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretKeyRef = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("host") is null) { _explicitNullValueHost = default!; _explicitNullProperties?.Remove("host"); }
+            else if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
+            if (parseNode.GetChildNode("prompt_label") is null) { _explicitNullValuePromptLabel = default!; _explicitNullProperties?.Remove("prompt_label"); }
+            else if (parseNode.GetChildNode("prompt_label") is { } nullNodePromptLabel && nullNodePromptLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptLabel = null;
+            if (parseNode.GetChildNode("prompt_name") is null) { _explicitNullValuePromptName = default!; _explicitNullProperties?.Remove("prompt_name"); }
+            else if (parseNode.GetChildNode("prompt_name") is { } nullNodePromptName && nullNodePromptName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptName = null;
+            if (parseNode.GetChildNode("prompt_sync") is null) { _explicitNullValuePromptSync = default!; _explicitNullProperties?.Remove("prompt_sync"); }
+            else if (parseNode.GetChildNode("prompt_sync") is { } nullNodePromptSync && nullNodePromptSync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptSync = null;
+            if (parseNode.GetChildNode("prompt_version") is null) { _explicitNullValuePromptVersion = default!; _explicitNullProperties?.Remove("prompt_version"); }
+            else if (parseNode.GetChildNode("prompt_version") is { } nullNodePromptVersion && nullNodePromptVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptVersion = null;
+            if (parseNode.GetChildNode("public_key_ref") is null) { _explicitNullValuePublicKeyRef = default!; _explicitNullProperties?.Remove("public_key_ref"); }
+            else if (parseNode.GetChildNode("public_key_ref") is { } nullNodePublicKeyRef && nullNodePublicKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicKeyRef = null;
+            if (parseNode.GetChildNode("secret_key_ref") is null) { _explicitNullValueSecretKeyRef = default!; _explicitNullProperties?.Remove("secret_key_ref"); }
+            else if (parseNode.GetChildNode("secret_key_ref") is { } nullNodeSecretKeyRef && nullNodeSecretKeyRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretKeyRef = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,61 +40,61 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The host property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public string? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private string? _explicitNullValueHost = default!;
 #nullable restore
 #else
-        public string Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public string Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private string _explicitNullValueHost = default!;
 #endif
         /// <summary>The prompt_label property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptLabel { get => _explicitNullValuePromptLabel; set { _explicitNullValuePromptLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_label"); else _explicitNullProperties?.Remove("prompt_label"); } }
+        public string? PromptLabel { get => _explicitNullValuePromptLabel; set { _explicitNullValuePromptLabel = value; AdditionalData?.Remove("prompt_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_label"); else _explicitNullProperties?.Remove("prompt_label"); } }
         private string? _explicitNullValuePromptLabel = default!;
 #nullable restore
 #else
-        public string PromptLabel { get => _explicitNullValuePromptLabel; set { _explicitNullValuePromptLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_label"); else _explicitNullProperties?.Remove("prompt_label"); } }
+        public string PromptLabel { get => _explicitNullValuePromptLabel; set { _explicitNullValuePromptLabel = value; AdditionalData?.Remove("prompt_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_label"); else _explicitNullProperties?.Remove("prompt_label"); } }
         private string _explicitNullValuePromptLabel = default!;
 #endif
         /// <summary>The prompt_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptName { get => _explicitNullValuePromptName; set { _explicitNullValuePromptName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_name"); else _explicitNullProperties?.Remove("prompt_name"); } }
+        public string? PromptName { get => _explicitNullValuePromptName; set { _explicitNullValuePromptName = value; AdditionalData?.Remove("prompt_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_name"); else _explicitNullProperties?.Remove("prompt_name"); } }
         private string? _explicitNullValuePromptName = default!;
 #nullable restore
 #else
-        public string PromptName { get => _explicitNullValuePromptName; set { _explicitNullValuePromptName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_name"); else _explicitNullProperties?.Remove("prompt_name"); } }
+        public string PromptName { get => _explicitNullValuePromptName; set { _explicitNullValuePromptName = value; AdditionalData?.Remove("prompt_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_name"); else _explicitNullProperties?.Remove("prompt_name"); } }
         private string _explicitNullValuePromptName = default!;
 #endif
         /// <summary>Whether to auto-publish the assistant&apos;s instructions as a Langfuse prompt.When ENABLED + prompt_name set, every assistant create/update pushes`instructions` to Langfuse via create_prompt and stores the returnedversion in prompt_version.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus? PromptSync { get => _explicitNullValuePromptSync; set { _explicitNullValuePromptSync = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_sync"); else _explicitNullProperties?.Remove("prompt_sync"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus? PromptSync { get => _explicitNullValuePromptSync; set { _explicitNullValuePromptSync = value; AdditionalData?.Remove("prompt_sync"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_sync"); else _explicitNullProperties?.Remove("prompt_sync"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus? _explicitNullValuePromptSync = default!;
         /// <summary>The prompt_version property</summary>
-        public int? PromptVersion { get => _explicitNullValuePromptVersion; set { _explicitNullValuePromptVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_version"); else _explicitNullProperties?.Remove("prompt_version"); } }
+        public int? PromptVersion { get => _explicitNullValuePromptVersion; set { _explicitNullValuePromptVersion = value; AdditionalData?.Remove("prompt_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_version"); else _explicitNullProperties?.Remove("prompt_version"); } }
         private int? _explicitNullValuePromptVersion = default!;
         /// <summary>The public_key_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PublicKeyRef { get => _explicitNullValuePublicKeyRef; set { _explicitNullValuePublicKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_key_ref"); else _explicitNullProperties?.Remove("public_key_ref"); } }
+        public string? PublicKeyRef { get => _explicitNullValuePublicKeyRef; set { _explicitNullValuePublicKeyRef = value; AdditionalData?.Remove("public_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_key_ref"); else _explicitNullProperties?.Remove("public_key_ref"); } }
         private string? _explicitNullValuePublicKeyRef = default!;
 #nullable restore
 #else
-        public string PublicKeyRef { get => _explicitNullValuePublicKeyRef; set { _explicitNullValuePublicKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_key_ref"); else _explicitNullProperties?.Remove("public_key_ref"); } }
+        public string PublicKeyRef { get => _explicitNullValuePublicKeyRef; set { _explicitNullValuePublicKeyRef = value; AdditionalData?.Remove("public_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_key_ref"); else _explicitNullProperties?.Remove("public_key_ref"); } }
         private string _explicitNullValuePublicKeyRef = default!;
 #endif
         /// <summary>The secret_key_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecretKeyRef { get => _explicitNullValueSecretKeyRef; set { _explicitNullValueSecretKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_key_ref"); else _explicitNullProperties?.Remove("secret_key_ref"); } }
+        public string? SecretKeyRef { get => _explicitNullValueSecretKeyRef; set { _explicitNullValueSecretKeyRef = value; AdditionalData?.Remove("secret_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_key_ref"); else _explicitNullProperties?.Remove("secret_key_ref"); } }
         private string? _explicitNullValueSecretKeyRef = default!;
 #nullable restore
 #else
-        public string SecretKeyRef { get => _explicitNullValueSecretKeyRef; set { _explicitNullValueSecretKeyRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_key_ref"); else _explicitNullProperties?.Remove("secret_key_ref"); } }
+        public string SecretKeyRef { get => _explicitNullValueSecretKeyRef; set { _explicitNullValueSecretKeyRef = value; AdditionalData?.Remove("secret_key_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_key_ref"); else _explicitNullProperties?.Remove("secret_key_ref"); } }
         private string _explicitNullValueSecretKeyRef = default!;
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Observability"/> and sets the default values.
@@ -118,11 +126,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "host", n => { Host = n.GetStringValue(); } },
                 { "prompt_label", n => { PromptLabel = n.GetStringValue(); } },
                 { "prompt_name", n => { PromptName = n.GetStringValue(); } },
-                { "prompt_sync", n => { PromptSync = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus>(); } },
+                { "prompt_sync", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePromptSync = default; _explicitNullProperties?.Remove("prompt_sync"); AdditionalData["prompt_sync"] = unknown; } else { PromptSync = parsed; AdditionalData.Remove("prompt_sync"); } } },
                 { "prompt_version", n => { PromptVersion = n.GetIntValue(); } },
                 { "public_key_ref", n => { PublicKeyRef = n.GetStringValue(); } },
                 { "secret_key_ref", n => { SecretKeyRef = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>

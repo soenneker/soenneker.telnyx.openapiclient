@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_bandwidth") is { } nullNodeAvailableBandwidth && nullNodeAvailableBandwidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableBandwidth = null;
-            if (parseNode.GetChildNode("cloud_provider") is { } nullNodeCloudProvider && nullNodeCloudProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudProvider = null;
-            if (parseNode.GetChildNode("cloud_provider_region") is { } nullNodeCloudProviderRegion && nullNodeCloudProviderRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudProviderRegion = null;
-            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("available_bandwidth") is null) { _explicitNullValueAvailableBandwidth = default!; _explicitNullProperties?.Remove("available_bandwidth"); }
+            else if (parseNode.GetChildNode("available_bandwidth") is { } nullNodeAvailableBandwidth && nullNodeAvailableBandwidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableBandwidth = null;
+            if (parseNode.GetChildNode("cloud_provider") is null) { _explicitNullValueCloudProvider = default!; _explicitNullProperties?.Remove("cloud_provider"); }
+            else if (parseNode.GetChildNode("cloud_provider") is { } nullNodeCloudProvider && nullNodeCloudProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudProvider = null;
+            if (parseNode.GetChildNode("cloud_provider_region") is null) { _explicitNullValueCloudProviderRegion = default!; _explicitNullProperties?.Remove("cloud_provider_region"); }
+            else if (parseNode.GetChildNode("cloud_provider_region") is { } nullNodeCloudProviderRegion && nullNodeCloudProviderRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudProviderRegion = null;
+            if (parseNode.GetChildNode("location") is null) { _explicitNullValueLocation = default!; _explicitNullProperties?.Remove("location"); }
+            else if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The available throughput in Megabits per Second (Mbps) for your Virtual Cross Connect.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? AvailableBandwidth { get => _explicitNullValueAvailableBandwidth; set { _explicitNullValueAvailableBandwidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_bandwidth"); else _explicitNullProperties?.Remove("available_bandwidth"); } }
+        public List<double?>? AvailableBandwidth { get => _explicitNullValueAvailableBandwidth; set { _explicitNullValueAvailableBandwidth = value; AdditionalData?.Remove("available_bandwidth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_bandwidth"); else _explicitNullProperties?.Remove("available_bandwidth"); } }
         private List<double?>? _explicitNullValueAvailableBandwidth = default!;
 #nullable restore
 #else
-        public List<double?> AvailableBandwidth { get => _explicitNullValueAvailableBandwidth; set { _explicitNullValueAvailableBandwidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_bandwidth"); else _explicitNullProperties?.Remove("available_bandwidth"); } }
+        public List<double?> AvailableBandwidth { get => _explicitNullValueAvailableBandwidth; set { _explicitNullValueAvailableBandwidth = value; AdditionalData?.Remove("available_bandwidth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_bandwidth"); else _explicitNullProperties?.Remove("available_bandwidth"); } }
         private List<double?> _explicitNullValueAvailableBandwidth = default!;
 #endif
         /// <summary>The Virtual Private Cloud with which you would like to establish a cross connect.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsVirtualCrossConnectCoverageCloudProvider? CloudProvider { get => _explicitNullValueCloudProvider; set { _explicitNullValueCloudProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider"); else _explicitNullProperties?.Remove("cloud_provider"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsVirtualCrossConnectCoverageCloudProvider? CloudProvider { get => _explicitNullValueCloudProvider; set { _explicitNullValueCloudProvider = value; AdditionalData?.Remove("cloud_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider"); else _explicitNullProperties?.Remove("cloud_provider"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetappsVirtualCrossConnectCoverageCloudProvider? _explicitNullValueCloudProvider = default!;
         /// <summary>The region where your Virtual Private Cloud hosts are located. Should be identical to how the cloud provider names region, i.e. us-east-1 for AWS but Frankfurt for Azure</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CloudProviderRegion { get => _explicitNullValueCloudProviderRegion; set { _explicitNullValueCloudProviderRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider_region"); else _explicitNullProperties?.Remove("cloud_provider_region"); } }
+        public string? CloudProviderRegion { get => _explicitNullValueCloudProviderRegion; set { _explicitNullValueCloudProviderRegion = value; AdditionalData?.Remove("cloud_provider_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider_region"); else _explicitNullProperties?.Remove("cloud_provider_region"); } }
         private string? _explicitNullValueCloudProviderRegion = default!;
 #nullable restore
 #else
-        public string CloudProviderRegion { get => _explicitNullValueCloudProviderRegion; set { _explicitNullValueCloudProviderRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider_region"); else _explicitNullProperties?.Remove("cloud_provider_region"); } }
+        public string CloudProviderRegion { get => _explicitNullValueCloudProviderRegion; set { _explicitNullValueCloudProviderRegion = value; AdditionalData?.Remove("cloud_provider_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloud_provider_region"); else _explicitNullProperties?.Remove("cloud_provider_region"); } }
         private string _explicitNullValueCloudProviderRegion = default!;
 #endif
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc _explicitNullValueLocation = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>
@@ -92,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_bandwidth", n => { AvailableBandwidth = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "cloud_provider", n => { CloudProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsVirtualCrossConnectCoverageCloudProvider>(); } },
+                { "cloud_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsVirtualCrossConnectCoverageCloudProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCloudProvider = default; _explicitNullProperties?.Remove("cloud_provider"); AdditionalData["cloud_provider"] = unknown; } else { CloudProvider = parsed; AdditionalData.Remove("cloud_provider"); } } },
                 { "cloud_provider_region", n => { CloudProviderRegion = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc>(global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },

@@ -17,65 +17,72 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("acquired_capabilities") is { } nullNodeAcquiredCapabilities && nullNodeAcquiredCapabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcquiredCapabilities = null;
-            if (parseNode.GetChildNode("civic_address_id") is { } nullNodeCivicAddressId && nullNodeCivicAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CivicAddressId = null;
-            if (parseNode.GetChildNode("displayed_country_code") is { } nullNodeDisplayedCountryCode && nullNodeDisplayedCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayedCountryCode = null;
-            if (parseNode.GetChildNode("location_id") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
-            if (parseNode.GetChildNode("number_id") is { } nullNodeNumberId && nullNodeNumberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberId = null;
-            if (parseNode.GetChildNode("telephone_number") is { } nullNodeTelephoneNumber && nullNodeTelephoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelephoneNumber = null;
-            if (parseNode.GetChildNode("ticket_id") is { } nullNodeTicketId && nullNodeTicketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TicketId = null;
+            if (parseNode.GetChildNode("acquired_capabilities") is null) { _explicitNullValueAcquiredCapabilities = default!; _explicitNullProperties?.Remove("acquired_capabilities"); }
+            else if (parseNode.GetChildNode("acquired_capabilities") is { } nullNodeAcquiredCapabilities && nullNodeAcquiredCapabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcquiredCapabilities = null;
+            if (parseNode.GetChildNode("civic_address_id") is null) { _explicitNullValueCivicAddressId = default!; _explicitNullProperties?.Remove("civic_address_id"); }
+            else if (parseNode.GetChildNode("civic_address_id") is { } nullNodeCivicAddressId && nullNodeCivicAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CivicAddressId = null;
+            if (parseNode.GetChildNode("displayed_country_code") is null) { _explicitNullValueDisplayedCountryCode = default!; _explicitNullProperties?.Remove("displayed_country_code"); }
+            else if (parseNode.GetChildNode("displayed_country_code") is { } nullNodeDisplayedCountryCode && nullNodeDisplayedCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayedCountryCode = null;
+            if (parseNode.GetChildNode("location_id") is null) { _explicitNullValueLocationId = default!; _explicitNullProperties?.Remove("location_id"); }
+            else if (parseNode.GetChildNode("location_id") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
+            if (parseNode.GetChildNode("number_id") is null) { _explicitNullValueNumberId = default!; _explicitNullProperties?.Remove("number_id"); }
+            else if (parseNode.GetChildNode("number_id") is { } nullNodeNumberId && nullNodeNumberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberId = null;
+            if (parseNode.GetChildNode("telephone_number") is null) { _explicitNullValueTelephoneNumber = default!; _explicitNullProperties?.Remove("telephone_number"); }
+            else if (parseNode.GetChildNode("telephone_number") is { } nullNodeTelephoneNumber && nullNodeTelephoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelephoneNumber = null;
+            if (parseNode.GetChildNode("ticket_id") is null) { _explicitNullValueTicketId = default!; _explicitNullProperties?.Remove("ticket_id"); }
+            else if (parseNode.GetChildNode("ticket_id") is { } nullNodeTicketId && nullNodeTicketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TicketId = null;
         }
 
         /// <summary>The acquired_capabilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?>? AcquiredCapabilities { get => _explicitNullValueAcquiredCapabilities; set { _explicitNullValueAcquiredCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acquired_capabilities"); else _explicitNullProperties?.Remove("acquired_capabilities"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?>? AcquiredCapabilities { get => _explicitNullValueAcquiredCapabilities; set { _explicitNullValueAcquiredCapabilities = value; AdditionalData?.Remove("acquired_capabilities"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acquired_capabilities"); else _explicitNullProperties?.Remove("acquired_capabilities"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?>? _explicitNullValueAcquiredCapabilities = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?> AcquiredCapabilities { get => _explicitNullValueAcquiredCapabilities; set { _explicitNullValueAcquiredCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acquired_capabilities"); else _explicitNullProperties?.Remove("acquired_capabilities"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?> AcquiredCapabilities { get => _explicitNullValueAcquiredCapabilities; set { _explicitNullValueAcquiredCapabilities = value; AdditionalData?.Remove("acquired_capabilities"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acquired_capabilities"); else _explicitNullProperties?.Remove("acquired_capabilities"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem?> _explicitNullValueAcquiredCapabilities = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the civic address assigned to the phone number.</summary>
-        public Guid? CivicAddressId { get => _explicitNullValueCivicAddressId; set { _explicitNullValueCivicAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("civic_address_id"); else _explicitNullProperties?.Remove("civic_address_id"); } }
+        public Guid? CivicAddressId { get => _explicitNullValueCivicAddressId; set { _explicitNullValueCivicAddressId = value; AdditionalData?.Remove("civic_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("civic_address_id"); else _explicitNullProperties?.Remove("civic_address_id"); } }
         private Guid? _explicitNullValueCivicAddressId = default!;
         /// <summary>The iso country code that will be displayed to the user when they receive a call from this phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayedCountryCode { get => _explicitNullValueDisplayedCountryCode; set { _explicitNullValueDisplayedCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayed_country_code"); else _explicitNullProperties?.Remove("displayed_country_code"); } }
+        public string? DisplayedCountryCode { get => _explicitNullValueDisplayedCountryCode; set { _explicitNullValueDisplayedCountryCode = value; AdditionalData?.Remove("displayed_country_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayed_country_code"); else _explicitNullProperties?.Remove("displayed_country_code"); } }
         private string? _explicitNullValueDisplayedCountryCode = default!;
 #nullable restore
 #else
-        public string DisplayedCountryCode { get => _explicitNullValueDisplayedCountryCode; set { _explicitNullValueDisplayedCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayed_country_code"); else _explicitNullProperties?.Remove("displayed_country_code"); } }
+        public string DisplayedCountryCode { get => _explicitNullValueDisplayedCountryCode; set { _explicitNullValueDisplayedCountryCode = value; AdditionalData?.Remove("displayed_country_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayed_country_code"); else _explicitNullProperties?.Remove("displayed_country_code"); } }
         private string _explicitNullValueDisplayedCountryCode = default!;
 #endif
         /// <summary>Identifies the location assigned to the phone number.</summary>
-        public Guid? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_id"); else _explicitNullProperties?.Remove("location_id"); } }
+        public Guid? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("location_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_id"); else _explicitNullProperties?.Remove("location_id"); } }
         private Guid? _explicitNullValueLocationId = default!;
         /// <summary>Phone number ID from the Telnyx API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NumberId { get => _explicitNullValueNumberId; set { _explicitNullValueNumberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_id"); else _explicitNullProperties?.Remove("number_id"); } }
+        public string? NumberId { get => _explicitNullValueNumberId; set { _explicitNullValueNumberId = value; AdditionalData?.Remove("number_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_id"); else _explicitNullProperties?.Remove("number_id"); } }
         private string? _explicitNullValueNumberId = default!;
 #nullable restore
 #else
-        public string NumberId { get => _explicitNullValueNumberId; set { _explicitNullValueNumberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_id"); else _explicitNullProperties?.Remove("number_id"); } }
+        public string NumberId { get => _explicitNullValueNumberId; set { _explicitNullValueNumberId = value; AdditionalData?.Remove("number_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_id"); else _explicitNullProperties?.Remove("number_id"); } }
         private string _explicitNullValueNumberId = default!;
 #endif
         /// <summary>Phone number in E164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
+        public string? TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; AdditionalData?.Remove("telephone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
         private string? _explicitNullValueTelephoneNumber = default!;
 #nullable restore
 #else
-        public string TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
+        public string TelephoneNumber { get => _explicitNullValueTelephoneNumber; set { _explicitNullValueTelephoneNumber = value; AdditionalData?.Remove("telephone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telephone_number"); else _explicitNullProperties?.Remove("telephone_number"); } }
         private string _explicitNullValueTelephoneNumber = default!;
 #endif
         /// <summary>Uniquely identifies the resource.</summary>
-        public Guid? TicketId { get => _explicitNullValueTicketId; set { _explicitNullValueTicketId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ticket_id"); else _explicitNullProperties?.Remove("ticket_id"); } }
+        public Guid? TicketId { get => _explicitNullValueTicketId; set { _explicitNullValueTicketId = value; AdditionalData?.Remove("ticket_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ticket_id"); else _explicitNullProperties?.Remove("ticket_id"); } }
         private Guid? _explicitNullValueTicketId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber"/> and sets the default values.

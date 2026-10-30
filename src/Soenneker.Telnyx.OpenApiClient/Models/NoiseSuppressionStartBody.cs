@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
-            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
-            if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
-            if (parseNode.GetChildNode("noise_suppression_engine") is { } nullNodeNoiseSuppressionEngine && nullNodeNoiseSuppressionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseSuppressionEngine = null;
-            if (parseNode.GetChildNode("noise_suppression_engine_config") is { } nullNodeNoiseSuppressionEngineConfig && nullNodeNoiseSuppressionEngineConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseSuppressionEngineConfig = null;
+            if (parseNode.GetChildNode("client_state") is null) { _explicitNullValueClientState = default!; _explicitNullProperties?.Remove("client_state"); }
+            else if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is null) { _explicitNullValueCommandId = default!; _explicitNullProperties?.Remove("command_id"); }
+            else if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("direction") is null) { _explicitNullValueDirection = default!; _explicitNullProperties?.Remove("direction"); }
+            else if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
+            if (parseNode.GetChildNode("noise_suppression_engine") is null) { _explicitNullValueNoiseSuppressionEngine = default!; _explicitNullProperties?.Remove("noise_suppression_engine"); }
+            else if (parseNode.GetChildNode("noise_suppression_engine") is { } nullNodeNoiseSuppressionEngine && nullNodeNoiseSuppressionEngine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseSuppressionEngine = null;
+            if (parseNode.GetChildNode("noise_suppression_engine_config") is null) { _explicitNullValueNoiseSuppressionEngineConfig = default!; _explicitNullProperties?.Remove("noise_suppression_engine_config"); }
+            else if (parseNode.GetChildNode("noise_suppression_engine_config") is { } nullNodeNoiseSuppressionEngineConfig && nullNodeNoiseSuppressionEngineConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseSuppressionEngineConfig = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,37 +34,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>The direction of the audio stream to be noise suppressed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; AdditionalData?.Remove("direction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? _explicitNullValueDirection = default!;
         /// <summary>The engine to use for noise suppression.For backward compatibility, engines A, B, C, and D are also supported, but are deprecated: A - Denoiser B - DeepFilterNet C - Krisp D - AiCoustics</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine? NoiseSuppressionEngine { get => _explicitNullValueNoiseSuppressionEngine; set { _explicitNullValueNoiseSuppressionEngine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression_engine"); else _explicitNullProperties?.Remove("noise_suppression_engine"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine? NoiseSuppressionEngine { get => _explicitNullValueNoiseSuppressionEngine; set { _explicitNullValueNoiseSuppressionEngine = value; AdditionalData?.Remove("noise_suppression_engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression_engine"); else _explicitNullProperties?.Remove("noise_suppression_engine"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine? _explicitNullValueNoiseSuppressionEngine = default!;
         /// <summary>Configuration parameters for noise suppression engines. Different engines support different parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig? NoiseSuppressionEngineConfig { get => _explicitNullValueNoiseSuppressionEngineConfig; set { _explicitNullValueNoiseSuppressionEngineConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression_engine_config"); else _explicitNullProperties?.Remove("noise_suppression_engine_config"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig? NoiseSuppressionEngineConfig { get => _explicitNullValueNoiseSuppressionEngineConfig; set { _explicitNullValueNoiseSuppressionEngineConfig = value; AdditionalData?.Remove("noise_suppression_engine_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression_engine_config"); else _explicitNullProperties?.Remove("noise_suppression_engine_config"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig? _explicitNullValueNoiseSuppressionEngineConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig NoiseSuppressionEngineConfig { get => _explicitNullValueNoiseSuppressionEngineConfig; set { _explicitNullValueNoiseSuppressionEngineConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression_engine_config"); else _explicitNullProperties?.Remove("noise_suppression_engine_config"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig NoiseSuppressionEngineConfig { get => _explicitNullValueNoiseSuppressionEngineConfig; set { _explicitNullValueNoiseSuppressionEngineConfig = value; AdditionalData?.Remove("noise_suppression_engine_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_suppression_engine_config"); else _explicitNullProperties?.Remove("noise_suppression_engine_config"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig _explicitNullValueNoiseSuppressionEngineConfig = default!;
 #endif
         /// <summary>
@@ -89,8 +94,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>(); } },
-                { "noise_suppression_engine", n => { NoiseSuppressionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine>(); } },
+                { "direction", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDirection = default; _explicitNullProperties?.Remove("direction"); AdditionalData["direction"] = unknown; } else { Direction = parsed; AdditionalData.Remove("direction"); } } },
+                { "noise_suppression_engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNoiseSuppressionEngine = default; _explicitNullProperties?.Remove("noise_suppression_engine"); AdditionalData["noise_suppression_engine"] = unknown; } else { NoiseSuppressionEngine = parsed; AdditionalData.Remove("noise_suppression_engine"); } } },
                 { "noise_suppression_engine_config", n => { NoiseSuppressionEngineConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig.CreateFromDiscriminatorValue); } },
             };
         }

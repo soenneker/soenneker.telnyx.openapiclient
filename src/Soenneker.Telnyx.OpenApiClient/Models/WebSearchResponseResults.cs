@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("news") is { } nullNodeNews && nullNodeNews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) News = null;
-            if (parseNode.GetChildNode("web") is { } nullNodeWeb && nullNodeWeb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Web = null;
+            if (parseNode.GetChildNode("news") is null) { _explicitNullValueNews = default!; _explicitNullProperties?.Remove("news"); }
+            else if (parseNode.GetChildNode("news") is { } nullNodeNews && nullNodeNews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) News = null;
+            if (parseNode.GetChildNode("web") is null) { _explicitNullValueWeb = default!; _explicitNullProperties?.Remove("web"); }
+            else if (parseNode.GetChildNode("web") is { } nullNodeWeb && nullNodeWeb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Web = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>News search results. Present only when the query surfaces news results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult>? News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult>? News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; AdditionalData?.Remove("news"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult>? _explicitNullValueNews = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult> News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult> News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; AdditionalData?.Remove("news"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult> _explicitNullValueNews = default!;
 #endif
         /// <summary>Web search results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult>? Web { get => _explicitNullValueWeb; set { _explicitNullValueWeb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web"); else _explicitNullProperties?.Remove("web"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult>? Web { get => _explicitNullValueWeb; set { _explicitNullValueWeb = value; AdditionalData?.Remove("web"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web"); else _explicitNullProperties?.Remove("web"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult>? _explicitNullValueWeb = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult> Web { get => _explicitNullValueWeb; set { _explicitNullValueWeb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web"); else _explicitNullProperties?.Remove("web"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult> Web { get => _explicitNullValueWeb; set { _explicitNullValueWeb = value; AdditionalData?.Remove("web"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web"); else _explicitNullProperties?.Remove("web"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.WebSearchResult> _explicitNullValueWeb = default!;
 #endif
         /// <summary>

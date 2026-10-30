@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("MaxSize") is { } nullNodeMaxSize && nullNodeMaxSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSize = null;
+            if (parseNode.GetChildNode("MaxSize") is null) { _explicitNullValueMaxSize = default!; _explicitNullProperties?.Remove("MaxSize"); }
+            else if (parseNode.GetChildNode("MaxSize") is { } nullNodeMaxSize && nullNodeMaxSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSize = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum size of the queue.</summary>
-        public int? MaxSize { get => _explicitNullValueMaxSize; set { _explicitNullValueMaxSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MaxSize"); else _explicitNullProperties?.Remove("MaxSize"); } }
+        public int? MaxSize { get => _explicitNullValueMaxSize; set { _explicitNullValueMaxSize = value; AdditionalData?.Remove("MaxSize"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MaxSize"); else _explicitNullProperties?.Remove("MaxSize"); } }
         private int? _explicitNullValueMaxSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallScriptingUpdateQueueRequestC75353Cb83"/> and sets the default values.

@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pinSms") is { } nullNodePinSms && nullNodePinSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinSms = null;
-            if (parseNode.GetChildNode("successSms") is { } nullNodeSuccessSms && nullNodeSuccessSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessSms = null;
+            if (parseNode.GetChildNode("pinSms") is null) { _explicitNullValuePinSms = default!; _explicitNullProperties?.Remove("pinSms"); }
+            else if (parseNode.GetChildNode("pinSms") is { } nullNodePinSms && nullNodePinSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinSms = null;
+            if (parseNode.GetChildNode("successSms") is null) { _explicitNullValueSuccessSms = default!; _explicitNullProperties?.Remove("successSms"); }
+            else if (parseNode.GetChildNode("successSms") is { } nullNodeSuccessSms && nullNodeSuccessSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessSms = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>SMS message template to send the OTP. Must include `@OTP_PIN@` placeholder which will be replaced with the actual PIN</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PinSms { get => _explicitNullValuePinSms; set { _explicitNullValuePinSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinSms"); else _explicitNullProperties?.Remove("pinSms"); } }
+        public string? PinSms { get => _explicitNullValuePinSms; set { _explicitNullValuePinSms = value; AdditionalData?.Remove("pinSms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinSms"); else _explicitNullProperties?.Remove("pinSms"); } }
         private string? _explicitNullValuePinSms = default!;
 #nullable restore
 #else
-        public string PinSms { get => _explicitNullValuePinSms; set { _explicitNullValuePinSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinSms"); else _explicitNullProperties?.Remove("pinSms"); } }
+        public string PinSms { get => _explicitNullValuePinSms; set { _explicitNullValuePinSms = value; AdditionalData?.Remove("pinSms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinSms"); else _explicitNullProperties?.Remove("pinSms"); } }
         private string _explicitNullValuePinSms = default!;
 #endif
         /// <summary>SMS message to send upon successful OTP verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SuccessSms { get => _explicitNullValueSuccessSms; set { _explicitNullValueSuccessSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successSms"); else _explicitNullProperties?.Remove("successSms"); } }
+        public string? SuccessSms { get => _explicitNullValueSuccessSms; set { _explicitNullValueSuccessSms = value; AdditionalData?.Remove("successSms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successSms"); else _explicitNullProperties?.Remove("successSms"); } }
         private string? _explicitNullValueSuccessSms = default!;
 #nullable restore
 #else
-        public string SuccessSms { get => _explicitNullValueSuccessSms; set { _explicitNullValueSuccessSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successSms"); else _explicitNullProperties?.Remove("successSms"); } }
+        public string SuccessSms { get => _explicitNullValueSuccessSms; set { _explicitNullValueSuccessSms = value; AdditionalData?.Remove("successSms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successSms"); else _explicitNullProperties?.Remove("successSms"); } }
         private string _explicitNullValueSuccessSms = default!;
 #endif
         /// <summary>

@@ -17,15 +17,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("call_to_action") is { } nullNodeCallToAction && nullNodeCallToAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallToAction = null;
-            if (parseNode.GetChildNode("call_to_action_media_url") is { } nullNodeCallToActionMediaUrl && nullNodeCallToActionMediaUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallToActionMediaUrl = null;
-            if (parseNode.GetChildNode("call_to_action_url") is { } nullNodeCallToActionUrl && nullNodeCallToActionUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallToActionUrl = null;
-            if (parseNode.GetChildNode("double_opt_in") is { } nullNodeDoubleOptIn && nullNodeDoubleOptIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoubleOptIn = null;
-            if (parseNode.GetChildNode("double_opt_in_message") is { } nullNodeDoubleOptInMessage && nullNodeDoubleOptInMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoubleOptInMessage = null;
-            if (parseNode.GetChildNode("help_response") is { } nullNodeHelpResponse && nullNodeHelpResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HelpResponse = null;
-            if (parseNode.GetChildNode("opt_in_message") is { } nullNodeOptInMessage && nullNodeOptInMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInMessage = null;
-            if (parseNode.GetChildNode("opt_in_methods") is { } nullNodeOptInMethods && nullNodeOptInMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInMethods = null;
-            if (parseNode.GetChildNode("opt_out_response") is { } nullNodeOptOutResponse && nullNodeOptOutResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutResponse = null;
+            if (parseNode.GetChildNode("call_to_action") is null) { _explicitNullValueCallToAction = default!; _explicitNullProperties?.Remove("call_to_action"); }
+            else if (parseNode.GetChildNode("call_to_action") is { } nullNodeCallToAction && nullNodeCallToAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallToAction = null;
+            if (parseNode.GetChildNode("call_to_action_media_url") is null) { _explicitNullValueCallToActionMediaUrl = default!; _explicitNullProperties?.Remove("call_to_action_media_url"); }
+            else if (parseNode.GetChildNode("call_to_action_media_url") is { } nullNodeCallToActionMediaUrl && nullNodeCallToActionMediaUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallToActionMediaUrl = null;
+            if (parseNode.GetChildNode("call_to_action_url") is null) { _explicitNullValueCallToActionUrl = default!; _explicitNullProperties?.Remove("call_to_action_url"); }
+            else if (parseNode.GetChildNode("call_to_action_url") is { } nullNodeCallToActionUrl && nullNodeCallToActionUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallToActionUrl = null;
+            if (parseNode.GetChildNode("double_opt_in") is null) { _explicitNullValueDoubleOptIn = default!; _explicitNullProperties?.Remove("double_opt_in"); }
+            else if (parseNode.GetChildNode("double_opt_in") is { } nullNodeDoubleOptIn && nullNodeDoubleOptIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoubleOptIn = null;
+            if (parseNode.GetChildNode("double_opt_in_message") is null) { _explicitNullValueDoubleOptInMessage = default!; _explicitNullProperties?.Remove("double_opt_in_message"); }
+            else if (parseNode.GetChildNode("double_opt_in_message") is { } nullNodeDoubleOptInMessage && nullNodeDoubleOptInMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoubleOptInMessage = null;
+            if (parseNode.GetChildNode("help_response") is null) { _explicitNullValueHelpResponse = default!; _explicitNullProperties?.Remove("help_response"); }
+            else if (parseNode.GetChildNode("help_response") is { } nullNodeHelpResponse && nullNodeHelpResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HelpResponse = null;
+            if (parseNode.GetChildNode("opt_in_message") is null) { _explicitNullValueOptInMessage = default!; _explicitNullProperties?.Remove("opt_in_message"); }
+            else if (parseNode.GetChildNode("opt_in_message") is { } nullNodeOptInMessage && nullNodeOptInMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInMessage = null;
+            if (parseNode.GetChildNode("opt_in_methods") is null) { _explicitNullValueOptInMethods = default!; _explicitNullProperties?.Remove("opt_in_methods"); }
+            else if (parseNode.GetChildNode("opt_in_methods") is { } nullNodeOptInMethods && nullNodeOptInMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptInMethods = null;
+            if (parseNode.GetChildNode("opt_out_response") is null) { _explicitNullValueOptOutResponse = default!; _explicitNullProperties?.Remove("opt_out_response"); }
+            else if (parseNode.GetChildNode("opt_out_response") is { } nullNodeOptOutResponse && nullNodeOptOutResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutResponse = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,84 +42,84 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The call_to_action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallToAction { get => _explicitNullValueCallToAction; set { _explicitNullValueCallToAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action"); else _explicitNullProperties?.Remove("call_to_action"); } }
+        public string? CallToAction { get => _explicitNullValueCallToAction; set { _explicitNullValueCallToAction = value; AdditionalData?.Remove("call_to_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action"); else _explicitNullProperties?.Remove("call_to_action"); } }
         private string? _explicitNullValueCallToAction = default!;
 #nullable restore
 #else
-        public string CallToAction { get => _explicitNullValueCallToAction; set { _explicitNullValueCallToAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action"); else _explicitNullProperties?.Remove("call_to_action"); } }
+        public string CallToAction { get => _explicitNullValueCallToAction; set { _explicitNullValueCallToAction = value; AdditionalData?.Remove("call_to_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action"); else _explicitNullProperties?.Remove("call_to_action"); } }
         private string _explicitNullValueCallToAction = default!;
 #endif
         /// <summary>Required when an opt-in method is `WEBSITE` or `MOBILE_APP`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallToActionMediaUrl { get => _explicitNullValueCallToActionMediaUrl; set { _explicitNullValueCallToActionMediaUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_media_url"); else _explicitNullProperties?.Remove("call_to_action_media_url"); } }
+        public string? CallToActionMediaUrl { get => _explicitNullValueCallToActionMediaUrl; set { _explicitNullValueCallToActionMediaUrl = value; AdditionalData?.Remove("call_to_action_media_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_media_url"); else _explicitNullProperties?.Remove("call_to_action_media_url"); } }
         private string? _explicitNullValueCallToActionMediaUrl = default!;
 #nullable restore
 #else
-        public string CallToActionMediaUrl { get => _explicitNullValueCallToActionMediaUrl; set { _explicitNullValueCallToActionMediaUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_media_url"); else _explicitNullProperties?.Remove("call_to_action_media_url"); } }
+        public string CallToActionMediaUrl { get => _explicitNullValueCallToActionMediaUrl; set { _explicitNullValueCallToActionMediaUrl = value; AdditionalData?.Remove("call_to_action_media_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_media_url"); else _explicitNullProperties?.Remove("call_to_action_media_url"); } }
         private string _explicitNullValueCallToActionMediaUrl = default!;
 #endif
         /// <summary>Required when an opt-in method is `WEBSITE`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallToActionUrl { get => _explicitNullValueCallToActionUrl; set { _explicitNullValueCallToActionUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_url"); else _explicitNullProperties?.Remove("call_to_action_url"); } }
+        public string? CallToActionUrl { get => _explicitNullValueCallToActionUrl; set { _explicitNullValueCallToActionUrl = value; AdditionalData?.Remove("call_to_action_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_url"); else _explicitNullProperties?.Remove("call_to_action_url"); } }
         private string? _explicitNullValueCallToActionUrl = default!;
 #nullable restore
 #else
-        public string CallToActionUrl { get => _explicitNullValueCallToActionUrl; set { _explicitNullValueCallToActionUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_url"); else _explicitNullProperties?.Remove("call_to_action_url"); } }
+        public string CallToActionUrl { get => _explicitNullValueCallToActionUrl; set { _explicitNullValueCallToActionUrl = value; AdditionalData?.Remove("call_to_action_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_to_action_url"); else _explicitNullProperties?.Remove("call_to_action_url"); } }
         private string _explicitNullValueCallToActionUrl = default!;
 #endif
         /// <summary>The double_opt_in property</summary>
-        public bool? DoubleOptIn { get => _explicitNullValueDoubleOptIn; set { _explicitNullValueDoubleOptIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("double_opt_in"); else _explicitNullProperties?.Remove("double_opt_in"); } }
+        public bool? DoubleOptIn { get => _explicitNullValueDoubleOptIn; set { _explicitNullValueDoubleOptIn = value; AdditionalData?.Remove("double_opt_in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("double_opt_in"); else _explicitNullProperties?.Remove("double_opt_in"); } }
         private bool? _explicitNullValueDoubleOptIn = default!;
         /// <summary>Required when double_opt_in is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DoubleOptInMessage { get => _explicitNullValueDoubleOptInMessage; set { _explicitNullValueDoubleOptInMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("double_opt_in_message"); else _explicitNullProperties?.Remove("double_opt_in_message"); } }
+        public string? DoubleOptInMessage { get => _explicitNullValueDoubleOptInMessage; set { _explicitNullValueDoubleOptInMessage = value; AdditionalData?.Remove("double_opt_in_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("double_opt_in_message"); else _explicitNullProperties?.Remove("double_opt_in_message"); } }
         private string? _explicitNullValueDoubleOptInMessage = default!;
 #nullable restore
 #else
-        public string DoubleOptInMessage { get => _explicitNullValueDoubleOptInMessage; set { _explicitNullValueDoubleOptInMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("double_opt_in_message"); else _explicitNullProperties?.Remove("double_opt_in_message"); } }
+        public string DoubleOptInMessage { get => _explicitNullValueDoubleOptInMessage; set { _explicitNullValueDoubleOptInMessage = value; AdditionalData?.Remove("double_opt_in_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("double_opt_in_message"); else _explicitNullProperties?.Remove("double_opt_in_message"); } }
         private string _explicitNullValueDoubleOptInMessage = default!;
 #endif
         /// <summary>The help_response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HelpResponse { get => _explicitNullValueHelpResponse; set { _explicitNullValueHelpResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("help_response"); else _explicitNullProperties?.Remove("help_response"); } }
+        public string? HelpResponse { get => _explicitNullValueHelpResponse; set { _explicitNullValueHelpResponse = value; AdditionalData?.Remove("help_response"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("help_response"); else _explicitNullProperties?.Remove("help_response"); } }
         private string? _explicitNullValueHelpResponse = default!;
 #nullable restore
 #else
-        public string HelpResponse { get => _explicitNullValueHelpResponse; set { _explicitNullValueHelpResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("help_response"); else _explicitNullProperties?.Remove("help_response"); } }
+        public string HelpResponse { get => _explicitNullValueHelpResponse; set { _explicitNullValueHelpResponse = value; AdditionalData?.Remove("help_response"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("help_response"); else _explicitNullProperties?.Remove("help_response"); } }
         private string _explicitNullValueHelpResponse = default!;
 #endif
         /// <summary>The opt_in_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OptInMessage { get => _explicitNullValueOptInMessage; set { _explicitNullValueOptInMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_message"); else _explicitNullProperties?.Remove("opt_in_message"); } }
+        public string? OptInMessage { get => _explicitNullValueOptInMessage; set { _explicitNullValueOptInMessage = value; AdditionalData?.Remove("opt_in_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_message"); else _explicitNullProperties?.Remove("opt_in_message"); } }
         private string? _explicitNullValueOptInMessage = default!;
 #nullable restore
 #else
-        public string OptInMessage { get => _explicitNullValueOptInMessage; set { _explicitNullValueOptInMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_message"); else _explicitNullProperties?.Remove("opt_in_message"); } }
+        public string OptInMessage { get => _explicitNullValueOptInMessage; set { _explicitNullValueOptInMessage = value; AdditionalData?.Remove("opt_in_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_message"); else _explicitNullProperties?.Remove("opt_in_message"); } }
         private string _explicitNullValueOptInMessage = default!;
 #endif
         /// <summary>The opt_in_methods property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentOptInMethod>? OptInMethods { get => _explicitNullValueOptInMethods; set { _explicitNullValueOptInMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_methods"); else _explicitNullProperties?.Remove("opt_in_methods"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentOptInMethod>? OptInMethods { get => _explicitNullValueOptInMethods; set { _explicitNullValueOptInMethods = value; AdditionalData?.Remove("opt_in_methods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_methods"); else _explicitNullProperties?.Remove("opt_in_methods"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentOptInMethod>? _explicitNullValueOptInMethods = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentOptInMethod> OptInMethods { get => _explicitNullValueOptInMethods; set { _explicitNullValueOptInMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_methods"); else _explicitNullProperties?.Remove("opt_in_methods"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentOptInMethod> OptInMethods { get => _explicitNullValueOptInMethods; set { _explicitNullValueOptInMethods = value; AdditionalData?.Remove("opt_in_methods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_in_methods"); else _explicitNullProperties?.Remove("opt_in_methods"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.AgentOptInMethod> _explicitNullValueOptInMethods = default!;
 #endif
         /// <summary>The opt_out_response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OptOutResponse { get => _explicitNullValueOptOutResponse; set { _explicitNullValueOptOutResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_response"); else _explicitNullProperties?.Remove("opt_out_response"); } }
+        public string? OptOutResponse { get => _explicitNullValueOptOutResponse; set { _explicitNullValueOptOutResponse = value; AdditionalData?.Remove("opt_out_response"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_response"); else _explicitNullProperties?.Remove("opt_out_response"); } }
         private string? _explicitNullValueOptOutResponse = default!;
 #nullable restore
 #else
-        public string OptOutResponse { get => _explicitNullValueOptOutResponse; set { _explicitNullValueOptOutResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_response"); else _explicitNullProperties?.Remove("opt_out_response"); } }
+        public string OptOutResponse { get => _explicitNullValueOptOutResponse; set { _explicitNullValueOptOutResponse = value; AdditionalData?.Remove("opt_out_response"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_response"); else _explicitNullProperties?.Remove("opt_out_response"); } }
         private string _explicitNullValueOptOutResponse = default!;
 #endif
         /// <summary>

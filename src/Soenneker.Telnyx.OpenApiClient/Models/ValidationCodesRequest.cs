@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("verification_codes") is { } nullNodeVerificationCodes && nullNodeVerificationCodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationCodes = null;
+            if (parseNode.GetChildNode("verification_codes") is null) { _explicitNullValueVerificationCodes = default!; _explicitNullProperties?.Remove("verification_codes"); }
+            else if (parseNode.GetChildNode("verification_codes") is { } nullNodeVerificationCodes && nullNodeVerificationCodes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationCodes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The verification_codes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem>? VerificationCodes { get => _explicitNullValueVerificationCodes; set { _explicitNullValueVerificationCodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_codes"); else _explicitNullProperties?.Remove("verification_codes"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem>? VerificationCodes { get => _explicitNullValueVerificationCodes; set { _explicitNullValueVerificationCodes = value; AdditionalData?.Remove("verification_codes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_codes"); else _explicitNullProperties?.Remove("verification_codes"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem>? _explicitNullValueVerificationCodes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem> VerificationCodes { get => _explicitNullValueVerificationCodes; set { _explicitNullValueVerificationCodes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_codes"); else _explicitNullProperties?.Remove("verification_codes"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem> VerificationCodes { get => _explicitNullValueVerificationCodes; set { _explicitNullValueVerificationCodes = value; AdditionalData?.Remove("verification_codes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_codes"); else _explicitNullProperties?.Remove("verification_codes"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodesRequestVerificationCodesItem> _explicitNullValueVerificationCodes = default!;
 #endif
         /// <summary>

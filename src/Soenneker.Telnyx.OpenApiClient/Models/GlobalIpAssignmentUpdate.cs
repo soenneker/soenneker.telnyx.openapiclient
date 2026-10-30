@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_in_maintenance") is { } nullNodeIsInMaintenance && nullNodeIsInMaintenance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsInMaintenance = null;
+            if (parseNode.GetChildNode("is_in_maintenance") is null) { _explicitNullValueIsInMaintenance = default!; _explicitNullProperties?.Remove("is_in_maintenance"); }
+            else if (parseNode.GetChildNode("is_in_maintenance") is { } nullNodeIsInMaintenance && nullNodeIsInMaintenance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsInMaintenance = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Wireguard peer is connected.</summary>
         public bool? IsConnected { get; private set; }
         /// <summary>Enable/disable BGP announcement.</summary>
-        public bool? IsInMaintenance { get => _explicitNullValueIsInMaintenance; set { _explicitNullValueIsInMaintenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_in_maintenance"); else _explicitNullProperties?.Remove("is_in_maintenance"); } }
+        public bool? IsInMaintenance { get => _explicitNullValueIsInMaintenance; set { _explicitNullValueIsInMaintenance = value; AdditionalData?.Remove("is_in_maintenance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_in_maintenance"); else _explicitNullProperties?.Remove("is_in_maintenance"); } }
         private bool? _explicitNullValueIsInMaintenance = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

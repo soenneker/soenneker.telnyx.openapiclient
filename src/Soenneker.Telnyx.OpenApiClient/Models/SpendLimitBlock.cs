@@ -19,38 +19,42 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blocked_until") is { } nullNodeBlockedUntil && nullNodeBlockedUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedUntil = null;
-            if (parseNode.GetChildNode("detected_at") is { } nullNodeDetectedAt && nullNodeDetectedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetectedAt = null;
-            if (parseNode.GetChildNode("limit_usd") is { } nullNodeLimitUsd && nullNodeLimitUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUsd = null;
-            if (parseNode.GetChildNode("spend_usd") is { } nullNodeSpendUsd && nullNodeSpendUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendUsd = null;
+            if (parseNode.GetChildNode("blocked_until") is null) { _explicitNullValueBlockedUntil = default!; _explicitNullProperties?.Remove("blocked_until"); }
+            else if (parseNode.GetChildNode("blocked_until") is { } nullNodeBlockedUntil && nullNodeBlockedUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedUntil = null;
+            if (parseNode.GetChildNode("detected_at") is null) { _explicitNullValueDetectedAt = default!; _explicitNullProperties?.Remove("detected_at"); }
+            else if (parseNode.GetChildNode("detected_at") is { } nullNodeDetectedAt && nullNodeDetectedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetectedAt = null;
+            if (parseNode.GetChildNode("limit_usd") is null) { _explicitNullValueLimitUsd = default!; _explicitNullProperties?.Remove("limit_usd"); }
+            else if (parseNode.GetChildNode("limit_usd") is { } nullNodeLimitUsd && nullNodeLimitUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUsd = null;
+            if (parseNode.GetChildNode("spend_usd") is null) { _explicitNullValueSpendUsd = default!; _explicitNullProperties?.Remove("spend_usd"); }
+            else if (parseNode.GetChildNode("spend_usd") is { } nullNodeSpendUsd && nullNodeSpendUsd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendUsd = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Exclusive end of the block: it is lifted at 00:00 UTC on this date at the latest.</summary>
-        public Date? BlockedUntil { get => _explicitNullValueBlockedUntil; set { _explicitNullValueBlockedUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_until"); else _explicitNullProperties?.Remove("blocked_until"); } }
+        public Date? BlockedUntil { get => _explicitNullValueBlockedUntil; set { _explicitNullValueBlockedUntil = value; AdditionalData?.Remove("blocked_until"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_until"); else _explicitNullProperties?.Remove("blocked_until"); } }
         private Date? _explicitNullValueBlockedUntil = default!;
         /// <summary>When the block started.</summary>
-        public DateTimeOffset? DetectedAt { get => _explicitNullValueDetectedAt; set { _explicitNullValueDetectedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detected_at"); else _explicitNullProperties?.Remove("detected_at"); } }
+        public DateTimeOffset? DetectedAt { get => _explicitNullValueDetectedAt; set { _explicitNullValueDetectedAt = value; AdditionalData?.Remove("detected_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detected_at"); else _explicitNullProperties?.Remove("detected_at"); } }
         private DateTimeOffset? _explicitNullValueDetectedAt = default!;
         /// <summary>The limit in USD that the spend went above, as a decimal string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LimitUsd { get => _explicitNullValueLimitUsd; set { _explicitNullValueLimitUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_usd"); else _explicitNullProperties?.Remove("limit_usd"); } }
+        public string? LimitUsd { get => _explicitNullValueLimitUsd; set { _explicitNullValueLimitUsd = value; AdditionalData?.Remove("limit_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_usd"); else _explicitNullProperties?.Remove("limit_usd"); } }
         private string? _explicitNullValueLimitUsd = default!;
 #nullable restore
 #else
-        public string LimitUsd { get => _explicitNullValueLimitUsd; set { _explicitNullValueLimitUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_usd"); else _explicitNullProperties?.Remove("limit_usd"); } }
+        public string LimitUsd { get => _explicitNullValueLimitUsd; set { _explicitNullValueLimitUsd = value; AdditionalData?.Remove("limit_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_usd"); else _explicitNullProperties?.Remove("limit_usd"); } }
         private string _explicitNullValueLimitUsd = default!;
 #endif
         /// <summary>Spend in USD when the block started, as a decimal string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        public string? SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; AdditionalData?.Remove("spend_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
         private string? _explicitNullValueSpendUsd = default!;
 #nullable restore
 #else
-        public string SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
+        public string SpendUsd { get => _explicitNullValueSpendUsd; set { _explicitNullValueSpendUsd = value; AdditionalData?.Remove("spend_usd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_usd"); else _explicitNullProperties?.Remove("spend_usd"); } }
         private string _explicitNullValueSpendUsd = default!;
 #endif
         /// <summary>

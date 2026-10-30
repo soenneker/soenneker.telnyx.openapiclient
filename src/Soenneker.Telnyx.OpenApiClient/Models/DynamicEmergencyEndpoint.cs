@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("callback_number") is { } nullNodeCallbackNumber && nullNodeCallbackNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallbackNumber = null;
-            if (parseNode.GetChildNode("caller_name") is { } nullNodeCallerName && nullNodeCallerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerName = null;
-            if (parseNode.GetChildNode("dynamic_emergency_address_id") is { } nullNodeDynamicEmergencyAddressId && nullNodeDynamicEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicEmergencyAddressId = null;
+            if (parseNode.GetChildNode("callback_number") is null) { _explicitNullValueCallbackNumber = default!; _explicitNullProperties?.Remove("callback_number"); }
+            else if (parseNode.GetChildNode("callback_number") is { } nullNodeCallbackNumber && nullNodeCallbackNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallbackNumber = null;
+            if (parseNode.GetChildNode("caller_name") is null) { _explicitNullValueCallerName = default!; _explicitNullProperties?.Remove("caller_name"); }
+            else if (parseNode.GetChildNode("caller_name") is { } nullNodeCallerName && nullNodeCallerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerName = null;
+            if (parseNode.GetChildNode("dynamic_emergency_address_id") is null) { _explicitNullValueDynamicEmergencyAddressId = default!; _explicitNullProperties?.Remove("dynamic_emergency_address_id"); }
+            else if (parseNode.GetChildNode("dynamic_emergency_address_id") is { } nullNodeDynamicEmergencyAddressId && nullNodeDynamicEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicEmergencyAddressId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +30,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The callback_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallbackNumber { get => _explicitNullValueCallbackNumber; set { _explicitNullValueCallbackNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callback_number"); else _explicitNullProperties?.Remove("callback_number"); } }
+        public string? CallbackNumber { get => _explicitNullValueCallbackNumber; set { _explicitNullValueCallbackNumber = value; AdditionalData?.Remove("callback_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callback_number"); else _explicitNullProperties?.Remove("callback_number"); } }
         private string? _explicitNullValueCallbackNumber = default!;
 #nullable restore
 #else
-        public string CallbackNumber { get => _explicitNullValueCallbackNumber; set { _explicitNullValueCallbackNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callback_number"); else _explicitNullProperties?.Remove("callback_number"); } }
+        public string CallbackNumber { get => _explicitNullValueCallbackNumber; set { _explicitNullValueCallbackNumber = value; AdditionalData?.Remove("callback_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callback_number"); else _explicitNullProperties?.Remove("callback_number"); } }
         private string _explicitNullValueCallbackNumber = default!;
 #endif
         /// <summary>The caller_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
+        public string? CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; AdditionalData?.Remove("caller_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
         private string? _explicitNullValueCallerName = default!;
 #nullable restore
 #else
-        public string CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
+        public string CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; AdditionalData?.Remove("caller_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
         private string _explicitNullValueCallerName = default!;
 #endif
         /// <summary>ISO 8601 formatted date of when the resource was created</summary>
@@ -55,11 +58,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>An id of a currently active dynamic emergency location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DynamicEmergencyAddressId { get => _explicitNullValueDynamicEmergencyAddressId; set { _explicitNullValueDynamicEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_emergency_address_id"); else _explicitNullProperties?.Remove("dynamic_emergency_address_id"); } }
+        public string? DynamicEmergencyAddressId { get => _explicitNullValueDynamicEmergencyAddressId; set { _explicitNullValueDynamicEmergencyAddressId = value; AdditionalData?.Remove("dynamic_emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_emergency_address_id"); else _explicitNullProperties?.Remove("dynamic_emergency_address_id"); } }
         private string? _explicitNullValueDynamicEmergencyAddressId = default!;
 #nullable restore
 #else
-        public string DynamicEmergencyAddressId { get => _explicitNullValueDynamicEmergencyAddressId; set { _explicitNullValueDynamicEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_emergency_address_id"); else _explicitNullProperties?.Remove("dynamic_emergency_address_id"); } }
+        public string DynamicEmergencyAddressId { get => _explicitNullValueDynamicEmergencyAddressId; set { _explicitNullValueDynamicEmergencyAddressId = value; AdditionalData?.Remove("dynamic_emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_emergency_address_id"); else _explicitNullProperties?.Remove("dynamic_emergency_address_id"); } }
         private string _explicitNullValueDynamicEmergencyAddressId = default!;
 #endif
         /// <summary>The id property</summary>

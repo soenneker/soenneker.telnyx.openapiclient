@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_ip_id") is { } nullNodeGlobalIpId && nullNodeGlobalIpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpId = null;
-            if (parseNode.GetChildNode("health_check_params") is { } nullNodeHealthCheckParams && nullNodeHealthCheckParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckParams = null;
-            if (parseNode.GetChildNode("health_check_type") is { } nullNodeHealthCheckType && nullNodeHealthCheckType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckType = null;
+            if (parseNode.GetChildNode("global_ip_id") is null) { _explicitNullValueGlobalIpId = default!; _explicitNullProperties?.Remove("global_ip_id"); }
+            else if (parseNode.GetChildNode("global_ip_id") is { } nullNodeGlobalIpId && nullNodeGlobalIpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpId = null;
+            if (parseNode.GetChildNode("health_check_params") is null) { _explicitNullValueHealthCheckParams = default!; _explicitNullProperties?.Remove("health_check_params"); }
+            else if (parseNode.GetChildNode("health_check_params") is { } nullNodeHealthCheckParams && nullNodeHealthCheckParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckParams = null;
+            if (parseNode.GetChildNode("health_check_type") is null) { _explicitNullValueHealthCheckType = default!; _explicitNullProperties?.Remove("health_check_type"); }
+            else if (parseNode.GetChildNode("health_check_type") is { } nullNodeHealthCheckType && nullNodeHealthCheckType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,26 +36,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CreatedAt { get; private set; }
 #endif
         /// <summary>Global IP ID.</summary>
-        public Guid? GlobalIpId { get => _explicitNullValueGlobalIpId; set { _explicitNullValueGlobalIpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_id"); else _explicitNullProperties?.Remove("global_ip_id"); } }
+        public Guid? GlobalIpId { get => _explicitNullValueGlobalIpId; set { _explicitNullValueGlobalIpId = value; AdditionalData?.Remove("global_ip_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_id"); else _explicitNullProperties?.Remove("global_ip_id"); } }
         private Guid? _explicitNullValueGlobalIpId = default!;
         /// <summary>A Global IP health check params.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckHealthCheckParams? HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckHealthCheckParams? HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; AdditionalData?.Remove("health_check_params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckHealthCheckParams? _explicitNullValueHealthCheckParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckHealthCheckParams HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckHealthCheckParams HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; AdditionalData?.Remove("health_check_params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckHealthCheckParams _explicitNullValueHealthCheckParams = default!;
 #endif
         /// <summary>The Global IP health check type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
+        public string? HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; AdditionalData?.Remove("health_check_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
         private string? _explicitNullValueHealthCheckType = default!;
 #nullable restore
 #else
-        public string HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
+        public string HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; AdditionalData?.Remove("health_check_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
         private string _explicitNullValueHealthCheckType = default!;
 #endif
         /// <summary>Identifies the resource.</summary>

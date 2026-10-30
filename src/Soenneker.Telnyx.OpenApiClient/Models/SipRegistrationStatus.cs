@@ -17,14 +17,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
-            if (parseNode.GetChildNode("connection_name") is { } nullNodeConnectionName && nullNodeConnectionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionName = null;
-            if (parseNode.GetChildNode("credential_type") is { } nullNodeCredentialType && nullNodeCredentialType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialType = null;
-            if (parseNode.GetChildNode("credential_username") is { } nullNodeCredentialUsername && nullNodeCredentialUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialUsername = null;
-            if (parseNode.GetChildNode("last_registration_response") is { } nullNodeLastRegistrationResponse && nullNodeLastRegistrationResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRegistrationResponse = null;
-            if (parseNode.GetChildNode("registered") is { } nullNodeRegistered && nullNodeRegistered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Registered = null;
-            if (parseNode.GetChildNode("sip_registration_details") is { } nullNodeSipRegistrationDetails && nullNodeSipRegistrationDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegistrationDetails = null;
-            if (parseNode.GetChildNode("sip_registration_status") is { } nullNodeSipRegistrationStatusProp && nullNodeSipRegistrationStatusProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegistrationStatusProp = null;
+            if (parseNode.GetChildNode("connection_id") is null) { _explicitNullValueConnectionId = default!; _explicitNullProperties?.Remove("connection_id"); }
+            else if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("connection_name") is null) { _explicitNullValueConnectionName = default!; _explicitNullProperties?.Remove("connection_name"); }
+            else if (parseNode.GetChildNode("connection_name") is { } nullNodeConnectionName && nullNodeConnectionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionName = null;
+            if (parseNode.GetChildNode("credential_type") is null) { _explicitNullValueCredentialType = default!; _explicitNullProperties?.Remove("credential_type"); }
+            else if (parseNode.GetChildNode("credential_type") is { } nullNodeCredentialType && nullNodeCredentialType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialType = null;
+            if (parseNode.GetChildNode("credential_username") is null) { _explicitNullValueCredentialUsername = default!; _explicitNullProperties?.Remove("credential_username"); }
+            else if (parseNode.GetChildNode("credential_username") is { } nullNodeCredentialUsername && nullNodeCredentialUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialUsername = null;
+            if (parseNode.GetChildNode("last_registration_response") is null) { _explicitNullValueLastRegistrationResponse = default!; _explicitNullProperties?.Remove("last_registration_response"); }
+            else if (parseNode.GetChildNode("last_registration_response") is { } nullNodeLastRegistrationResponse && nullNodeLastRegistrationResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRegistrationResponse = null;
+            if (parseNode.GetChildNode("registered") is null) { _explicitNullValueRegistered = default!; _explicitNullProperties?.Remove("registered"); }
+            else if (parseNode.GetChildNode("registered") is { } nullNodeRegistered && nullNodeRegistered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Registered = null;
+            if (parseNode.GetChildNode("sip_registration_details") is null) { _explicitNullValueSipRegistrationDetails = default!; _explicitNullProperties?.Remove("sip_registration_details"); }
+            else if (parseNode.GetChildNode("sip_registration_details") is { } nullNodeSipRegistrationDetails && nullNodeSipRegistrationDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegistrationDetails = null;
+            if (parseNode.GetChildNode("sip_registration_status") is null) { _explicitNullValueSipRegistrationStatusProp = default!; _explicitNullProperties?.Remove("sip_registration_status"); }
+            else if (parseNode.GetChildNode("sip_registration_status") is { } nullNodeSipRegistrationStatusProp && nullNodeSipRegistrationStatusProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipRegistrationStatusProp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,61 +40,61 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifier of the connection associated with the credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
         private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connection_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
         private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>Human-readable connection name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionName { get => _explicitNullValueConnectionName; set { _explicitNullValueConnectionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_name"); else _explicitNullProperties?.Remove("connection_name"); } }
+        public string? ConnectionName { get => _explicitNullValueConnectionName; set { _explicitNullValueConnectionName = value; AdditionalData?.Remove("connection_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_name"); else _explicitNullProperties?.Remove("connection_name"); } }
         private string? _explicitNullValueConnectionName = default!;
 #nullable restore
 #else
-        public string ConnectionName { get => _explicitNullValueConnectionName; set { _explicitNullValueConnectionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_name"); else _explicitNullProperties?.Remove("connection_name"); } }
+        public string ConnectionName { get => _explicitNullValueConnectionName; set { _explicitNullValueConnectionName = value; AdditionalData?.Remove("connection_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_name"); else _explicitNullProperties?.Remove("connection_name"); } }
         private string _explicitNullValueConnectionName = default!;
 #endif
         /// <summary>The credential type that was looked up.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType? CredentialType { get => _explicitNullValueCredentialType; set { _explicitNullValueCredentialType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_type"); else _explicitNullProperties?.Remove("credential_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType? CredentialType { get => _explicitNullValueCredentialType; set { _explicitNullValueCredentialType = value; AdditionalData?.Remove("credential_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_type"); else _explicitNullProperties?.Remove("credential_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType? _explicitNullValueCredentialType = default!;
         /// <summary>SIP username used for the registration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialUsername { get => _explicitNullValueCredentialUsername; set { _explicitNullValueCredentialUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_username"); else _explicitNullProperties?.Remove("credential_username"); } }
+        public string? CredentialUsername { get => _explicitNullValueCredentialUsername; set { _explicitNullValueCredentialUsername = value; AdditionalData?.Remove("credential_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_username"); else _explicitNullProperties?.Remove("credential_username"); } }
         private string? _explicitNullValueCredentialUsername = default!;
 #nullable restore
 #else
-        public string CredentialUsername { get => _explicitNullValueCredentialUsername; set { _explicitNullValueCredentialUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_username"); else _explicitNullProperties?.Remove("credential_username"); } }
+        public string CredentialUsername { get => _explicitNullValueCredentialUsername; set { _explicitNullValueCredentialUsername = value; AdditionalData?.Remove("credential_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_username"); else _explicitNullProperties?.Remove("credential_username"); } }
         private string _explicitNullValueCredentialUsername = default!;
 #endif
         /// <summary>SIP response from the last registration attempt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRegistrationResponse { get => _explicitNullValueLastRegistrationResponse; set { _explicitNullValueLastRegistrationResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_registration_response"); else _explicitNullProperties?.Remove("last_registration_response"); } }
+        public string? LastRegistrationResponse { get => _explicitNullValueLastRegistrationResponse; set { _explicitNullValueLastRegistrationResponse = value; AdditionalData?.Remove("last_registration_response"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_registration_response"); else _explicitNullProperties?.Remove("last_registration_response"); } }
         private string? _explicitNullValueLastRegistrationResponse = default!;
 #nullable restore
 #else
-        public string LastRegistrationResponse { get => _explicitNullValueLastRegistrationResponse; set { _explicitNullValueLastRegistrationResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_registration_response"); else _explicitNullProperties?.Remove("last_registration_response"); } }
+        public string LastRegistrationResponse { get => _explicitNullValueLastRegistrationResponse; set { _explicitNullValueLastRegistrationResponse = value; AdditionalData?.Remove("last_registration_response"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_registration_response"); else _explicitNullProperties?.Remove("last_registration_response"); } }
         private string _explicitNullValueLastRegistrationResponse = default!;
 #endif
         /// <summary>True if the endpoint is currently registered.</summary>
-        public bool? Registered { get => _explicitNullValueRegistered; set { _explicitNullValueRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered"); else _explicitNullProperties?.Remove("registered"); } }
+        public bool? Registered { get => _explicitNullValueRegistered; set { _explicitNullValueRegistered = value; AdditionalData?.Remove("registered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered"); else _explicitNullProperties?.Remove("registered"); } }
         private bool? _explicitNullValueRegistered = default!;
         /// <summary>Detailed registration information reported by the registrar. The populated fields depend on `credential_type`: UAC external credentials report `auth_retries`, `uptime`, `next_action_at`, `failures`, and `sip_uri_user_host`; telephony credentials and SIP credential connections report `ua_ip`, `ua_port`, `transport`, and `last_modified`. All types report `expires`, but its unit differs by `credential_type` — see that field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails? SipRegistrationDetails { get => _explicitNullValueSipRegistrationDetails; set { _explicitNullValueSipRegistrationDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_registration_details"); else _explicitNullProperties?.Remove("sip_registration_details"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails? SipRegistrationDetails { get => _explicitNullValueSipRegistrationDetails; set { _explicitNullValueSipRegistrationDetails = value; AdditionalData?.Remove("sip_registration_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_registration_details"); else _explicitNullProperties?.Remove("sip_registration_details"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails? _explicitNullValueSipRegistrationDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails SipRegistrationDetails { get => _explicitNullValueSipRegistrationDetails; set { _explicitNullValueSipRegistrationDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_registration_details"); else _explicitNullProperties?.Remove("sip_registration_details"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails SipRegistrationDetails { get => _explicitNullValueSipRegistrationDetails; set { _explicitNullValueSipRegistrationDetails = value; AdditionalData?.Remove("sip_registration_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_registration_details"); else _explicitNullProperties?.Remove("sip_registration_details"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails _explicitNullValueSipRegistrationDetails = default!;
 #endif
         /// <summary>Human-readable registration status derived from the registrar state.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus? SipRegistrationStatusProp { get => _explicitNullValueSipRegistrationStatusProp; set { _explicitNullValueSipRegistrationStatusProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_registration_status"); else _explicitNullProperties?.Remove("sip_registration_status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus? SipRegistrationStatusProp { get => _explicitNullValueSipRegistrationStatusProp; set { _explicitNullValueSipRegistrationStatusProp = value; AdditionalData?.Remove("sip_registration_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_registration_status"); else _explicitNullProperties?.Remove("sip_registration_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus? _explicitNullValueSipRegistrationStatusProp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatus"/> and sets the default values.
@@ -115,12 +123,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
-                { "credential_type", n => { CredentialType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType>(); } },
+                { "credential_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusCredentialType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCredentialType = default; _explicitNullProperties?.Remove("credential_type"); AdditionalData["credential_type"] = unknown; } else { CredentialType = parsed; AdditionalData.Remove("credential_type"); } } },
                 { "credential_username", n => { CredentialUsername = n.GetStringValue(); } },
                 { "last_registration_response", n => { LastRegistrationResponse = n.GetStringValue(); } },
                 { "registered", n => { Registered = n.GetBoolValue(); } },
                 { "sip_registration_details", n => { SipRegistrationDetails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails.CreateFromDiscriminatorValue); } },
-                { "sip_registration_status", n => { SipRegistrationStatusProp = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus>(); } },
+                { "sip_registration_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSipRegistrationStatusProp = default; _explicitNullProperties?.Remove("sip_registration_status"); AdditionalData["sip_registration_status"] = unknown; } else { SipRegistrationStatusProp = parsed; AdditionalData.Remove("sip_registration_status"); } } },
             };
         }
         /// <summary>

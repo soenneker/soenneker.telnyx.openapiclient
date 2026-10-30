@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("voices") is { } nullNodeVoices && nullNodeVoices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voices = null;
+            if (parseNode.GetChildNode("voices") is null) { _explicitNullValueVoices = default!; _explicitNullProperties?.Remove("voices"); }
+            else if (parseNode.GetChildNode("voices") is { } nullNodeVoices && nullNodeVoices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voices = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The voices property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice>? Voices { get => _explicitNullValueVoices; set { _explicitNullValueVoices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voices"); else _explicitNullProperties?.Remove("voices"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice>? Voices { get => _explicitNullValueVoices; set { _explicitNullValueVoices = value; AdditionalData?.Remove("voices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voices"); else _explicitNullProperties?.Remove("voices"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice>? _explicitNullValueVoices = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice> Voices { get => _explicitNullValueVoices; set { _explicitNullValueVoices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voices"); else _explicitNullProperties?.Remove("voices"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice> Voices { get => _explicitNullValueVoices; set { _explicitNullValueVoices = value; AdditionalData?.Remove("voices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voices"); else _explicitNullProperties?.Remove("voices"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice> _explicitNullValueVoices = default!;
 #endif
         /// <summary>

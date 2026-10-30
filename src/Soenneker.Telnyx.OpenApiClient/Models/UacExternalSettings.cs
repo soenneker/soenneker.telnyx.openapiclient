@@ -18,15 +18,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth_username") is { } nullNodeAuthUsername && nullNodeAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthUsername = null;
-            if (parseNode.GetChildNode("expiration_sec") is { } nullNodeExpirationSec && nullNodeExpirationSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationSec = null;
-            if (parseNode.GetChildNode("from_user") is { } nullNodeFromUser && nullNodeFromUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromUser = null;
-            if (parseNode.GetChildNode("outbound_proxy") is { } nullNodeOutboundProxy && nullNodeOutboundProxy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundProxy = null;
-            if (parseNode.GetChildNode("password") is { } nullNodePassword && nullNodePassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Password = null;
-            if (parseNode.GetChildNode("proxy") is { } nullNodeProxy && nullNodeProxy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Proxy = null;
-            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
-            if (parseNode.GetChildNode("user_agent") is { } nullNodeUserAgent && nullNodeUserAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAgent = null;
-            if (parseNode.GetChildNode("username") is { } nullNodeUsername && nullNodeUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Username = null;
+            if (parseNode.GetChildNode("auth_username") is null) { _explicitNullValueAuthUsername = default!; _explicitNullProperties?.Remove("auth_username"); }
+            else if (parseNode.GetChildNode("auth_username") is { } nullNodeAuthUsername && nullNodeAuthUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthUsername = null;
+            if (parseNode.GetChildNode("expiration_sec") is null) { _explicitNullValueExpirationSec = default!; _explicitNullProperties?.Remove("expiration_sec"); }
+            else if (parseNode.GetChildNode("expiration_sec") is { } nullNodeExpirationSec && nullNodeExpirationSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationSec = null;
+            if (parseNode.GetChildNode("from_user") is null) { _explicitNullValueFromUser = default!; _explicitNullProperties?.Remove("from_user"); }
+            else if (parseNode.GetChildNode("from_user") is { } nullNodeFromUser && nullNodeFromUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromUser = null;
+            if (parseNode.GetChildNode("outbound_proxy") is null) { _explicitNullValueOutboundProxy = default!; _explicitNullProperties?.Remove("outbound_proxy"); }
+            else if (parseNode.GetChildNode("outbound_proxy") is { } nullNodeOutboundProxy && nullNodeOutboundProxy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundProxy = null;
+            if (parseNode.GetChildNode("password") is null) { _explicitNullValuePassword = default!; _explicitNullProperties?.Remove("password"); }
+            else if (parseNode.GetChildNode("password") is { } nullNodePassword && nullNodePassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Password = null;
+            if (parseNode.GetChildNode("proxy") is null) { _explicitNullValueProxy = default!; _explicitNullProperties?.Remove("proxy"); }
+            else if (parseNode.GetChildNode("proxy") is { } nullNodeProxy && nullNodeProxy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Proxy = null;
+            if (parseNode.GetChildNode("transport") is null) { _explicitNullValueTransport = default!; _explicitNullProperties?.Remove("transport"); }
+            else if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+            if (parseNode.GetChildNode("user_agent") is null) { _explicitNullValueUserAgent = default!; _explicitNullProperties?.Remove("user_agent"); }
+            else if (parseNode.GetChildNode("user_agent") is { } nullNodeUserAgent && nullNodeUserAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAgent = null;
+            if (parseNode.GetChildNode("username") is null) { _explicitNullValueUsername = default!; _explicitNullProperties?.Remove("username"); }
+            else if (parseNode.GetChildNode("username") is { } nullNodeUsername && nullNodeUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Username = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,77 +43,77 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The authentication username used in SIP digest authentication. If not set, the Username value will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthUsername { get => _explicitNullValueAuthUsername; set { _explicitNullValueAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_username"); else _explicitNullProperties?.Remove("auth_username"); } }
+        public string? AuthUsername { get => _explicitNullValueAuthUsername; set { _explicitNullValueAuthUsername = value; AdditionalData?.Remove("auth_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_username"); else _explicitNullProperties?.Remove("auth_username"); } }
         private string? _explicitNullValueAuthUsername = default!;
 #nullable restore
 #else
-        public string AuthUsername { get => _explicitNullValueAuthUsername; set { _explicitNullValueAuthUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_username"); else _explicitNullProperties?.Remove("auth_username"); } }
+        public string AuthUsername { get => _explicitNullValueAuthUsername; set { _explicitNullValueAuthUsername = value; AdditionalData?.Remove("auth_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_username"); else _explicitNullProperties?.Remove("auth_username"); } }
         private string _explicitNullValueAuthUsername = default!;
 #endif
         /// <summary>The registration interval, in seconds, indicating how often the system refreshes the SIP registration with the external SIP peer.</summary>
-        public int? ExpirationSec { get => _explicitNullValueExpirationSec; set { _explicitNullValueExpirationSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration_sec"); else _explicitNullProperties?.Remove("expiration_sec"); } }
+        public int? ExpirationSec { get => _explicitNullValueExpirationSec; set { _explicitNullValueExpirationSec = value; AdditionalData?.Remove("expiration_sec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration_sec"); else _explicitNullProperties?.Remove("expiration_sec"); } }
         private int? _explicitNullValueExpirationSec = default!;
         /// <summary>The user portion of the SIP From header used in outbound requests. This controls the caller identity presented to the external SIP peer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromUser { get => _explicitNullValueFromUser; set { _explicitNullValueFromUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_user"); else _explicitNullProperties?.Remove("from_user"); } }
+        public string? FromUser { get => _explicitNullValueFromUser; set { _explicitNullValueFromUser = value; AdditionalData?.Remove("from_user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_user"); else _explicitNullProperties?.Remove("from_user"); } }
         private string? _explicitNullValueFromUser = default!;
 #nullable restore
 #else
-        public string FromUser { get => _explicitNullValueFromUser; set { _explicitNullValueFromUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_user"); else _explicitNullProperties?.Remove("from_user"); } }
+        public string FromUser { get => _explicitNullValueFromUser; set { _explicitNullValueFromUser = value; AdditionalData?.Remove("from_user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_user"); else _explicitNullProperties?.Remove("from_user"); } }
         private string _explicitNullValueFromUser = default!;
 #endif
         /// <summary>An optional SIP proxy used to route outbound requests before reaching the external SIP peer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutboundProxy { get => _explicitNullValueOutboundProxy; set { _explicitNullValueOutboundProxy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_proxy"); else _explicitNullProperties?.Remove("outbound_proxy"); } }
+        public string? OutboundProxy { get => _explicitNullValueOutboundProxy; set { _explicitNullValueOutboundProxy = value; AdditionalData?.Remove("outbound_proxy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_proxy"); else _explicitNullProperties?.Remove("outbound_proxy"); } }
         private string? _explicitNullValueOutboundProxy = default!;
 #nullable restore
 #else
-        public string OutboundProxy { get => _explicitNullValueOutboundProxy; set { _explicitNullValueOutboundProxy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_proxy"); else _explicitNullProperties?.Remove("outbound_proxy"); } }
+        public string OutboundProxy { get => _explicitNullValueOutboundProxy; set { _explicitNullValueOutboundProxy = value; AdditionalData?.Remove("outbound_proxy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_proxy"); else _explicitNullProperties?.Remove("outbound_proxy"); } }
         private string _explicitNullValueOutboundProxy = default!;
 #endif
         /// <summary>The SIP password used for digest authentication with the external SIP peer. For primary accounts created on or after September 8, 2026, this password is returned as `********`. The password is returned in full on create, and on update only when that update changed the password. Accounts created before September 8, 2026 are unaffected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
+        public string? Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; AdditionalData?.Remove("password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
         private string? _explicitNullValuePassword = default!;
 #nullable restore
 #else
-        public string Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
+        public string Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; AdditionalData?.Remove("password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
         private string _explicitNullValuePassword = default!;
 #endif
         /// <summary>The SIP proxy address of the external SIP peer used for registrations and outbound call routing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Proxy { get => _explicitNullValueProxy; set { _explicitNullValueProxy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy"); else _explicitNullProperties?.Remove("proxy"); } }
+        public string? Proxy { get => _explicitNullValueProxy; set { _explicitNullValueProxy = value; AdditionalData?.Remove("proxy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy"); else _explicitNullProperties?.Remove("proxy"); } }
         private string? _explicitNullValueProxy = default!;
 #nullable restore
 #else
-        public string Proxy { get => _explicitNullValueProxy; set { _explicitNullValueProxy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy"); else _explicitNullProperties?.Remove("proxy"); } }
+        public string Proxy { get => _explicitNullValueProxy; set { _explicitNullValueProxy = value; AdditionalData?.Remove("proxy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy"); else _explicitNullProperties?.Remove("proxy"); } }
         private string _explicitNullValueProxy = default!;
 #endif
         /// <summary>The transport protocol used for SIP signaling when communicating with the external SIP peer. One of UDP, TLS, or TCP.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? _explicitNullValueTransport = default!;
         /// <summary>Custom SIP User-Agent header value that Telnyx uses on outbound REGISTER and INVITE messages. Set to null to use Telnyx&apos;s default User-Agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
+        public string? UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; AdditionalData?.Remove("user_agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
         private string? _explicitNullValueUserAgent = default!;
 #nullable restore
 #else
-        public string UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
+        public string UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; AdditionalData?.Remove("user_agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
         private string _explicitNullValueUserAgent = default!;
 #endif
         /// <summary>The SIP username used to authenticate with the external SIP peer for registrations and outbound calls. Must start with a letter or number and contain only letters, numbers, hyphens, and underscores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
+        public string? Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; AdditionalData?.Remove("username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
         private string? _explicitNullValueUsername = default!;
 #nullable restore
 #else
-        public string Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
+        public string Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; AdditionalData?.Remove("username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
         private string _explicitNullValueUsername = default!;
 #endif
         /// <summary>
@@ -138,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound_proxy", n => { OutboundProxy = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetStringValue(); } },
-                { "transport", n => { Transport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>(); } },
+                { "transport", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTransport = default; _explicitNullProperties?.Remove("transport"); AdditionalData["transport"] = unknown; } else { Transport = parsed; AdditionalData.Remove("transport"); } } },
                 { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };

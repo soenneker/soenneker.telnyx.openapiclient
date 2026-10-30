@@ -17,23 +17,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activation_status") is { } nullNodeActivationStatus && nullNodeActivationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationStatus = null;
-            if (parseNode.GetChildNode("foc_datetime_actual") is { } nullNodeFocDatetimeActual && nullNodeFocDatetimeActual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FocDatetimeActual = null;
-            if (parseNode.GetChildNode("foc_datetime_requested") is { } nullNodeFocDatetimeRequested && nullNodeFocDatetimeRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FocDatetimeRequested = null;
+            if (parseNode.GetChildNode("activation_status") is null) { _explicitNullValueActivationStatus = default!; _explicitNullProperties?.Remove("activation_status"); }
+            else if (parseNode.GetChildNode("activation_status") is { } nullNodeActivationStatus && nullNodeActivationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationStatus = null;
+            if (parseNode.GetChildNode("foc_datetime_actual") is null) { _explicitNullValueFocDatetimeActual = default!; _explicitNullProperties?.Remove("foc_datetime_actual"); }
+            else if (parseNode.GetChildNode("foc_datetime_actual") is { } nullNodeFocDatetimeActual && nullNodeFocDatetimeActual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FocDatetimeActual = null;
+            if (parseNode.GetChildNode("foc_datetime_requested") is null) { _explicitNullValueFocDatetimeRequested = default!; _explicitNullProperties?.Remove("foc_datetime_requested"); }
+            else if (parseNode.GetChildNode("foc_datetime_requested") is { } nullNodeFocDatetimeRequested && nullNodeFocDatetimeRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FocDatetimeRequested = null;
         }
 
         /// <summary>The activation_status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? ActivationStatus { get => _explicitNullValueActivationStatus; set { _explicitNullValueActivationStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_status"); else _explicitNullProperties?.Remove("activation_status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? ActivationStatus { get => _explicitNullValueActivationStatus; set { _explicitNullValueActivationStatus = value; AdditionalData?.Remove("activation_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation_status"); else _explicitNullProperties?.Remove("activation_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? _explicitNullValueActivationStatus = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates whether this porting order is eligible for FastPort</summary>
         public bool? FastPortEligible { get; private set; }
         /// <summary>ISO 8601 formatted Date/Time of the FOC date</summary>
-        public DateTimeOffset? FocDatetimeActual { get => _explicitNullValueFocDatetimeActual; set { _explicitNullValueFocDatetimeActual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foc_datetime_actual"); else _explicitNullProperties?.Remove("foc_datetime_actual"); } }
+        public DateTimeOffset? FocDatetimeActual { get => _explicitNullValueFocDatetimeActual; set { _explicitNullValueFocDatetimeActual = value; AdditionalData?.Remove("foc_datetime_actual"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foc_datetime_actual"); else _explicitNullProperties?.Remove("foc_datetime_actual"); } }
         private DateTimeOffset? _explicitNullValueFocDatetimeActual = default!;
         /// <summary>ISO 8601 formatted Date/Time requested for the FOC date</summary>
-        public DateTimeOffset? FocDatetimeRequested { get => _explicitNullValueFocDatetimeRequested; set { _explicitNullValueFocDatetimeRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foc_datetime_requested"); else _explicitNullProperties?.Remove("foc_datetime_requested"); } }
+        public DateTimeOffset? FocDatetimeRequested { get => _explicitNullValueFocDatetimeRequested; set { _explicitNullValueFocDatetimeRequested = value; AdditionalData?.Remove("foc_datetime_requested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foc_datetime_requested"); else _explicitNullProperties?.Remove("foc_datetime_requested"); } }
         private DateTimeOffset? _explicitNullValueFocDatetimeRequested = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings"/> and sets the default values.
@@ -60,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activation_status", n => { ActivationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus>(); } },
+                { "activation_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueActivationStatus = default; _explicitNullProperties?.Remove("activation_status"); AdditionalData["activation_status"] = unknown; } else { ActivationStatus = parsed; AdditionalData.Remove("activation_status"); } } },
                 { "fast_port_eligible", n => { FastPortEligible = n.GetBoolValue(); } },
                 { "foc_datetime_actual", n => { FocDatetimeActual = n.GetDateTimeOffsetValue(); } },
                 { "foc_datetime_requested", n => { FocDatetimeRequested = n.GetDateTimeOffsetValue(); } },

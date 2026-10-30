@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("region_information") is { } nullNodeRegionInformation && nullNodeRegionInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionInformation = null;
-            if (parseNode.GetChildNode("regulatory_requirements") is { } nullNodeRegulatoryRequirements && nullNodeRegulatoryRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulatoryRequirements = null;
+            if (parseNode.GetChildNode("region_information") is null) { _explicitNullValueRegionInformation = default!; _explicitNullProperties?.Remove("region_information"); }
+            else if (parseNode.GetChildNode("region_information") is { } nullNodeRegionInformation && nullNodeRegionInformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionInformation = null;
+            if (parseNode.GetChildNode("regulatory_requirements") is null) { _explicitNullValueRegulatoryRequirements = default!; _explicitNullProperties?.Remove("regulatory_requirements"); }
+            else if (parseNode.GetChildNode("regulatory_requirements") is { } nullNodeRegulatoryRequirements && nullNodeRegulatoryRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulatoryRequirements = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -50,21 +52,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The region_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem>? RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem>? RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; AdditionalData?.Remove("region_information"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem>? _explicitNullValueRegionInformation = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem> RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem> RegionInformation { get => _explicitNullValueRegionInformation; set { _explicitNullValueRegionInformation = value; AdditionalData?.Remove("region_information"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_information"); else _explicitNullProperties?.Remove("region_information"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegionInformationItem> _explicitNullValueRegionInformation = default!;
 #endif
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem>? RegulatoryRequirements { get => _explicitNullValueRegulatoryRequirements; set { _explicitNullValueRegulatoryRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem>? RegulatoryRequirements { get => _explicitNullValueRegulatoryRequirements; set { _explicitNullValueRegulatoryRequirements = value; AdditionalData?.Remove("regulatory_requirements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem>? _explicitNullValueRegulatoryRequirements = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem> RegulatoryRequirements { get => _explicitNullValueRegulatoryRequirements; set { _explicitNullValueRegulatoryRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem> RegulatoryRequirements { get => _explicitNullValueRegulatoryRequirements; set { _explicitNullValueRegulatoryRequirements = value; AdditionalData?.Remove("regulatory_requirements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsPhoneNumbersRegulatoryRequirementsItem> _explicitNullValueRegulatoryRequirements = default!;
 #endif
         /// <summary>

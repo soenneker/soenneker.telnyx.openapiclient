@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("comment_type") is { } nullNodeCommentType && nullNodeCommentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommentType = null;
-            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("comment_type") is null) { _explicitNullValueCommentType = default!; _explicitNullProperties?.Remove("comment_type"); }
+            else if (parseNode.GetChildNode("comment_type") is { } nullNodeCommentType && nullNodeCommentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommentType = null;
+            if (parseNode.GetChildNode("content") is null) { _explicitNullValueContent = default!; _explicitNullProperties?.Remove("content"); }
+            else if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,16 +36,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Who wrote the comment. `admin` covers the Telnyx vetting team.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DirCommentAuthorRole? AuthorRole { get; private set; }
         /// <summary>Comment categorisation. Customers post `customer_inquiry`. The Telnyx team posts `vetting_comment`, `rejection_reason`, `notification`, `status_update`, or `admin_response`. `internal_note` is filtered out of customer-visible responses.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentType? CommentType { get => _explicitNullValueCommentType; set { _explicitNullValueCommentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment_type"); else _explicitNullProperties?.Remove("comment_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CommentType? CommentType { get => _explicitNullValueCommentType; set { _explicitNullValueCommentType = value; AdditionalData?.Remove("comment_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment_type"); else _explicitNullProperties?.Remove("comment_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CommentType? _explicitNullValueCommentType = default!;
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string _explicitNullValueContent = default!;
 #endif
         /// <summary>The created_at property</summary>
@@ -81,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "author_name", n => { AuthorName = n.GetStringValue(); } },
                 { "author_role", n => { AuthorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirCommentAuthorRole>(); } },
-                { "comment_type", n => { CommentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentType>(); } },
+                { "comment_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CommentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCommentType = default; _explicitNullProperties?.Remove("comment_type"); AdditionalData["comment_type"] = unknown; } else { CommentType = parsed; AdditionalData.Remove("comment_type"); } } },
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirEntityType>(); } },

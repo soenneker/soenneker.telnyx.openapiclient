@@ -17,16 +17,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("display_text") is { } nullNodeDisplayText && nullNodeDisplayText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayText = null;
-            if (parseNode.GetChildNode("flow_action") is { } nullNodeFlowAction && nullNodeFlowAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowAction = null;
-            if (parseNode.GetChildNode("flow_action_payload") is { } nullNodeFlowActionPayload && nullNodeFlowActionPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowActionPayload = null;
-            if (parseNode.GetChildNode("flow_cta") is { } nullNodeFlowCta && nullNodeFlowCta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowCta = null;
-            if (parseNode.GetChildNode("flow_id") is { } nullNodeFlowId && nullNodeFlowId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowId = null;
-            if (parseNode.GetChildNode("flow_message_version") is { } nullNodeFlowMessageVersion && nullNodeFlowMessageVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowMessageVersion = null;
-            if (parseNode.GetChildNode("flow_name") is { } nullNodeFlowName && nullNodeFlowName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowName = null;
-            if (parseNode.GetChildNode("flow_token") is { } nullNodeFlowToken && nullNodeFlowToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowToken = null;
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("display_text") is null) { _explicitNullValueDisplayText = default!; _explicitNullProperties?.Remove("display_text"); }
+            else if (parseNode.GetChildNode("display_text") is { } nullNodeDisplayText && nullNodeDisplayText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayText = null;
+            if (parseNode.GetChildNode("flow_action") is null) { _explicitNullValueFlowAction = default!; _explicitNullProperties?.Remove("flow_action"); }
+            else if (parseNode.GetChildNode("flow_action") is { } nullNodeFlowAction && nullNodeFlowAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowAction = null;
+            if (parseNode.GetChildNode("flow_action_payload") is null) { _explicitNullValueFlowActionPayload = default!; _explicitNullProperties?.Remove("flow_action_payload"); }
+            else if (parseNode.GetChildNode("flow_action_payload") is { } nullNodeFlowActionPayload && nullNodeFlowActionPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowActionPayload = null;
+            if (parseNode.GetChildNode("flow_cta") is null) { _explicitNullValueFlowCta = default!; _explicitNullProperties?.Remove("flow_cta"); }
+            else if (parseNode.GetChildNode("flow_cta") is { } nullNodeFlowCta && nullNodeFlowCta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowCta = null;
+            if (parseNode.GetChildNode("flow_id") is null) { _explicitNullValueFlowId = default!; _explicitNullProperties?.Remove("flow_id"); }
+            else if (parseNode.GetChildNode("flow_id") is { } nullNodeFlowId && nullNodeFlowId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowId = null;
+            if (parseNode.GetChildNode("flow_message_version") is null) { _explicitNullValueFlowMessageVersion = default!; _explicitNullProperties?.Remove("flow_message_version"); }
+            else if (parseNode.GetChildNode("flow_message_version") is { } nullNodeFlowMessageVersion && nullNodeFlowMessageVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowMessageVersion = null;
+            if (parseNode.GetChildNode("flow_name") is null) { _explicitNullValueFlowName = default!; _explicitNullProperties?.Remove("flow_name"); }
+            else if (parseNode.GetChildNode("flow_name") is { } nullNodeFlowName && nullNodeFlowName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowName = null;
+            if (parseNode.GetChildNode("flow_token") is null) { _explicitNullValueFlowToken = default!; _explicitNullProperties?.Remove("flow_token"); }
+            else if (parseNode.GetChildNode("flow_token") is { } nullNodeFlowToken && nullNodeFlowToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowToken = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,87 +44,87 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>button label text, 20 character maximum</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayText { get => _explicitNullValueDisplayText; set { _explicitNullValueDisplayText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_text"); else _explicitNullProperties?.Remove("display_text"); } }
+        public string? DisplayText { get => _explicitNullValueDisplayText; set { _explicitNullValueDisplayText = value; AdditionalData?.Remove("display_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_text"); else _explicitNullProperties?.Remove("display_text"); } }
         private string? _explicitNullValueDisplayText = default!;
 #nullable restore
 #else
-        public string DisplayText { get => _explicitNullValueDisplayText; set { _explicitNullValueDisplayText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_text"); else _explicitNullProperties?.Remove("display_text"); } }
+        public string DisplayText { get => _explicitNullValueDisplayText; set { _explicitNullValueDisplayText = value; AdditionalData?.Remove("display_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_text"); else _explicitNullProperties?.Remove("display_text"); } }
         private string _explicitNullValueDisplayText = default!;
 #endif
         /// <summary>how the flow starts. navigate opens the screen in flow_action_payload; data_exchange requests the first screen from the business&apos;s flow endpoint. Defaults to navigate</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction? FlowAction { get => _explicitNullValueFlowAction; set { _explicitNullValueFlowAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action"); else _explicitNullProperties?.Remove("flow_action"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction? FlowAction { get => _explicitNullValueFlowAction; set { _explicitNullValueFlowAction = value; AdditionalData?.Remove("flow_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action"); else _explicitNullProperties?.Remove("flow_action"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction? _explicitNullValueFlowAction = default!;
         /// <summary>optional initial screen and data. When omitted, the flow opens on its first entry screen. Must be omitted when flow_action is data_exchange</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload? FlowActionPayload { get => _explicitNullValueFlowActionPayload; set { _explicitNullValueFlowActionPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_payload"); else _explicitNullProperties?.Remove("flow_action_payload"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload? FlowActionPayload { get => _explicitNullValueFlowActionPayload; set { _explicitNullValueFlowActionPayload = value; AdditionalData?.Remove("flow_action_payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_payload"); else _explicitNullProperties?.Remove("flow_action_payload"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload? _explicitNullValueFlowActionPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload FlowActionPayload { get => _explicitNullValueFlowActionPayload; set { _explicitNullValueFlowActionPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_payload"); else _explicitNullProperties?.Remove("flow_action_payload"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload FlowActionPayload { get => _explicitNullValueFlowActionPayload; set { _explicitNullValueFlowActionPayload = value; AdditionalData?.Remove("flow_action_payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_payload"); else _explicitNullProperties?.Remove("flow_action_payload"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload _explicitNullValueFlowActionPayload = default!;
 #endif
         /// <summary>text of the button that opens the flow, 1-20 characters, no emoji. Required for flow messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowCta { get => _explicitNullValueFlowCta; set { _explicitNullValueFlowCta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_cta"); else _explicitNullProperties?.Remove("flow_cta"); } }
+        public string? FlowCta { get => _explicitNullValueFlowCta; set { _explicitNullValueFlowCta = value; AdditionalData?.Remove("flow_cta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_cta"); else _explicitNullProperties?.Remove("flow_cta"); } }
         private string? _explicitNullValueFlowCta = default!;
 #nullable restore
 #else
-        public string FlowCta { get => _explicitNullValueFlowCta; set { _explicitNullValueFlowCta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_cta"); else _explicitNullProperties?.Remove("flow_cta"); } }
+        public string FlowCta { get => _explicitNullValueFlowCta; set { _explicitNullValueFlowCta = value; AdditionalData?.Remove("flow_cta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_cta"); else _explicitNullProperties?.Remove("flow_cta"); } }
         private string _explicitNullValueFlowCta = default!;
 #endif
         /// <summary>ID of the flow to open. Provide exactly one of flow_id or flow_name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
+        public string? FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; AdditionalData?.Remove("flow_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
         private string? _explicitNullValueFlowId = default!;
 #nullable restore
 #else
-        public string FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
+        public string FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; AdditionalData?.Remove("flow_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
         private string _explicitNullValueFlowId = default!;
 #endif
         /// <summary>flow message version, must be 3. Required for flow messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowMessageVersion { get => _explicitNullValueFlowMessageVersion; set { _explicitNullValueFlowMessageVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_message_version"); else _explicitNullProperties?.Remove("flow_message_version"); } }
+        public string? FlowMessageVersion { get => _explicitNullValueFlowMessageVersion; set { _explicitNullValueFlowMessageVersion = value; AdditionalData?.Remove("flow_message_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_message_version"); else _explicitNullProperties?.Remove("flow_message_version"); } }
         private string? _explicitNullValueFlowMessageVersion = default!;
 #nullable restore
 #else
-        public string FlowMessageVersion { get => _explicitNullValueFlowMessageVersion; set { _explicitNullValueFlowMessageVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_message_version"); else _explicitNullProperties?.Remove("flow_message_version"); } }
+        public string FlowMessageVersion { get => _explicitNullValueFlowMessageVersion; set { _explicitNullValueFlowMessageVersion = value; AdditionalData?.Remove("flow_message_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_message_version"); else _explicitNullProperties?.Remove("flow_message_version"); } }
         private string _explicitNullValueFlowMessageVersion = default!;
 #endif
         /// <summary>name of the flow to open. Provide exactly one of flow_id or flow_name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowName { get => _explicitNullValueFlowName; set { _explicitNullValueFlowName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_name"); else _explicitNullProperties?.Remove("flow_name"); } }
+        public string? FlowName { get => _explicitNullValueFlowName; set { _explicitNullValueFlowName = value; AdditionalData?.Remove("flow_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_name"); else _explicitNullProperties?.Remove("flow_name"); } }
         private string? _explicitNullValueFlowName = default!;
 #nullable restore
 #else
-        public string FlowName { get => _explicitNullValueFlowName; set { _explicitNullValueFlowName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_name"); else _explicitNullProperties?.Remove("flow_name"); } }
+        public string FlowName { get => _explicitNullValueFlowName; set { _explicitNullValueFlowName = value; AdditionalData?.Remove("flow_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_name"); else _explicitNullProperties?.Remove("flow_name"); } }
         private string _explicitNullValueFlowName = default!;
 #endif
         /// <summary>business-generated identifier for the flow session. Returned in the flow response for correlation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
+        public string? FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; AdditionalData?.Remove("flow_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
         private string? _explicitNullValueFlowToken = default!;
 #nullable restore
 #else
-        public string FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
+        public string FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; AdditionalData?.Remove("flow_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
         private string _explicitNullValueFlowToken = default!;
 #endif
         /// <summary>use draft to test an unpublished flow. Defaults to published</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode? _explicitNullValueMode = default!;
         /// <summary>button URL to load when tapped by the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
@@ -143,14 +153,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "display_text", n => { DisplayText = n.GetStringValue(); } },
-                { "flow_action", n => { FlowAction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction>(); } },
+                { "flow_action", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFlowAction = default; _explicitNullProperties?.Remove("flow_action"); AdditionalData["flow_action"] = unknown; } else { FlowAction = parsed; AdditionalData.Remove("flow_action"); } } },
                 { "flow_action_payload", n => { FlowActionPayload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowActionPayload.CreateFromDiscriminatorValue); } },
                 { "flow_cta", n => { FlowCta = n.GetStringValue(); } },
                 { "flow_id", n => { FlowId = n.GetStringValue(); } },
                 { "flow_message_version", n => { FlowMessageVersion = n.GetStringValue(); } },
                 { "flow_name", n => { FlowName = n.GetStringValue(); } },
                 { "flow_token", n => { FlowToken = n.GetStringValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }

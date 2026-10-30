@@ -17,26 +17,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ai_assistant_id") is { } nullNodeAiAssistantId && nullNodeAiAssistantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiAssistantId = null;
-            if (parseNode.GetChildNode("alpha_sender") is { } nullNodeAlphaSender && nullNodeAlphaSender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlphaSender = null;
-            if (parseNode.GetChildNode("daily_spend_limit") is { } nullNodeDailySpendLimit && nullNodeDailySpendLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpendLimit = null;
-            if (parseNode.GetChildNode("daily_spend_limit_enabled") is { } nullNodeDailySpendLimitEnabled && nullNodeDailySpendLimitEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpendLimitEnabled = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
-            if (parseNode.GetChildNode("health_webhook_url") is { } nullNodeHealthWebhookUrl && nullNodeHealthWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthWebhookUrl = null;
-            if (parseNode.GetChildNode("mm7_metadata") is { } nullNodeMm7Metadata && nullNodeMm7Metadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mm7Metadata = null;
-            if (parseNode.GetChildNode("mms_fall_back_to_sms") is { } nullNodeMmsFallBackToSms && nullNodeMmsFallBackToSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MmsFallBackToSms = null;
-            if (parseNode.GetChildNode("mms_transcoding") is { } nullNodeMmsTranscoding && nullNodeMmsTranscoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MmsTranscoding = null;
-            if (parseNode.GetChildNode("mobile_only") is { } nullNodeMobileOnly && nullNodeMobileOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileOnly = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("number_pool_settings") is { } nullNodeNumberPoolSettings && nullNodeNumberPoolSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberPoolSettings = null;
-            if (parseNode.GetChildNode("resource_group_id") is { } nullNodeResourceGroupId && nullNodeResourceGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceGroupId = null;
-            if (parseNode.GetChildNode("smart_encoding") is { } nullNodeSmartEncoding && nullNodeSmartEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SmartEncoding = null;
-            if (parseNode.GetChildNode("url_shortener_settings") is { } nullNodeUrlShortenerSettings && nullNodeUrlShortenerSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlShortenerSettings = null;
-            if (parseNode.GetChildNode("webhook_api_version") is { } nullNodeWebhookApiVersion && nullNodeWebhookApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookApiVersion = null;
-            if (parseNode.GetChildNode("webhook_failover_url") is { } nullNodeWebhookFailoverUrl && nullNodeWebhookFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookFailoverUrl = null;
-            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
-            if (parseNode.GetChildNode("whitelisted_destinations") is { } nullNodeWhitelistedDestinations && nullNodeWhitelistedDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhitelistedDestinations = null;
+            if (parseNode.GetChildNode("ai_assistant_id") is null) { _explicitNullValueAiAssistantId = default!; _explicitNullProperties?.Remove("ai_assistant_id"); }
+            else if (parseNode.GetChildNode("ai_assistant_id") is { } nullNodeAiAssistantId && nullNodeAiAssistantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiAssistantId = null;
+            if (parseNode.GetChildNode("alpha_sender") is null) { _explicitNullValueAlphaSender = default!; _explicitNullProperties?.Remove("alpha_sender"); }
+            else if (parseNode.GetChildNode("alpha_sender") is { } nullNodeAlphaSender && nullNodeAlphaSender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlphaSender = null;
+            if (parseNode.GetChildNode("daily_spend_limit") is null) { _explicitNullValueDailySpendLimit = default!; _explicitNullProperties?.Remove("daily_spend_limit"); }
+            else if (parseNode.GetChildNode("daily_spend_limit") is { } nullNodeDailySpendLimit && nullNodeDailySpendLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpendLimit = null;
+            if (parseNode.GetChildNode("daily_spend_limit_enabled") is null) { _explicitNullValueDailySpendLimitEnabled = default!; _explicitNullProperties?.Remove("daily_spend_limit_enabled"); }
+            else if (parseNode.GetChildNode("daily_spend_limit_enabled") is { } nullNodeDailySpendLimitEnabled && nullNodeDailySpendLimitEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpendLimitEnabled = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("features") is null) { _explicitNullValueFeatures = default!; _explicitNullProperties?.Remove("features"); }
+            else if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
+            if (parseNode.GetChildNode("health_webhook_url") is null) { _explicitNullValueHealthWebhookUrl = default!; _explicitNullProperties?.Remove("health_webhook_url"); }
+            else if (parseNode.GetChildNode("health_webhook_url") is { } nullNodeHealthWebhookUrl && nullNodeHealthWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthWebhookUrl = null;
+            if (parseNode.GetChildNode("mm7_metadata") is null) { _explicitNullValueMm7Metadata = default!; _explicitNullProperties?.Remove("mm7_metadata"); }
+            else if (parseNode.GetChildNode("mm7_metadata") is { } nullNodeMm7Metadata && nullNodeMm7Metadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mm7Metadata = null;
+            if (parseNode.GetChildNode("mms_fall_back_to_sms") is null) { _explicitNullValueMmsFallBackToSms = default!; _explicitNullProperties?.Remove("mms_fall_back_to_sms"); }
+            else if (parseNode.GetChildNode("mms_fall_back_to_sms") is { } nullNodeMmsFallBackToSms && nullNodeMmsFallBackToSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MmsFallBackToSms = null;
+            if (parseNode.GetChildNode("mms_transcoding") is null) { _explicitNullValueMmsTranscoding = default!; _explicitNullProperties?.Remove("mms_transcoding"); }
+            else if (parseNode.GetChildNode("mms_transcoding") is { } nullNodeMmsTranscoding && nullNodeMmsTranscoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MmsTranscoding = null;
+            if (parseNode.GetChildNode("mobile_only") is null) { _explicitNullValueMobileOnly = default!; _explicitNullProperties?.Remove("mobile_only"); }
+            else if (parseNode.GetChildNode("mobile_only") is { } nullNodeMobileOnly && nullNodeMobileOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileOnly = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("number_pool_settings") is null) { _explicitNullValueNumberPoolSettings = default!; _explicitNullProperties?.Remove("number_pool_settings"); }
+            else if (parseNode.GetChildNode("number_pool_settings") is { } nullNodeNumberPoolSettings && nullNodeNumberPoolSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberPoolSettings = null;
+            if (parseNode.GetChildNode("resource_group_id") is null) { _explicitNullValueResourceGroupId = default!; _explicitNullProperties?.Remove("resource_group_id"); }
+            else if (parseNode.GetChildNode("resource_group_id") is { } nullNodeResourceGroupId && nullNodeResourceGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceGroupId = null;
+            if (parseNode.GetChildNode("smart_encoding") is null) { _explicitNullValueSmartEncoding = default!; _explicitNullProperties?.Remove("smart_encoding"); }
+            else if (parseNode.GetChildNode("smart_encoding") is { } nullNodeSmartEncoding && nullNodeSmartEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SmartEncoding = null;
+            if (parseNode.GetChildNode("url_shortener_settings") is null) { _explicitNullValueUrlShortenerSettings = default!; _explicitNullProperties?.Remove("url_shortener_settings"); }
+            else if (parseNode.GetChildNode("url_shortener_settings") is { } nullNodeUrlShortenerSettings && nullNodeUrlShortenerSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlShortenerSettings = null;
+            if (parseNode.GetChildNode("webhook_api_version") is null) { _explicitNullValueWebhookApiVersion = default!; _explicitNullProperties?.Remove("webhook_api_version"); }
+            else if (parseNode.GetChildNode("webhook_api_version") is { } nullNodeWebhookApiVersion && nullNodeWebhookApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookApiVersion = null;
+            if (parseNode.GetChildNode("webhook_failover_url") is null) { _explicitNullValueWebhookFailoverUrl = default!; _explicitNullProperties?.Remove("webhook_failover_url"); }
+            else if (parseNode.GetChildNode("webhook_failover_url") is { } nullNodeWebhookFailoverUrl && nullNodeWebhookFailoverUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookFailoverUrl = null;
+            if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
+            else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+            if (parseNode.GetChildNode("whitelisted_destinations") is null) { _explicitNullValueWhitelistedDestinations = default!; _explicitNullProperties?.Remove("whitelisted_destinations"); }
+            else if (parseNode.GetChildNode("whitelisted_destinations") is { } nullNodeWhitelistedDestinations && nullNodeWhitelistedDestinations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WhitelistedDestinations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,152 +64,152 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The AI assistant ID to associate with this messaging profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AiAssistantId { get => _explicitNullValueAiAssistantId; set { _explicitNullValueAiAssistantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistant_id"); else _explicitNullProperties?.Remove("ai_assistant_id"); } }
+        public string? AiAssistantId { get => _explicitNullValueAiAssistantId; set { _explicitNullValueAiAssistantId = value; AdditionalData?.Remove("ai_assistant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistant_id"); else _explicitNullProperties?.Remove("ai_assistant_id"); } }
         private string? _explicitNullValueAiAssistantId = default!;
 #nullable restore
 #else
-        public string AiAssistantId { get => _explicitNullValueAiAssistantId; set { _explicitNullValueAiAssistantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistant_id"); else _explicitNullProperties?.Remove("ai_assistant_id"); } }
+        public string AiAssistantId { get => _explicitNullValueAiAssistantId; set { _explicitNullValueAiAssistantId = value; AdditionalData?.Remove("ai_assistant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_assistant_id"); else _explicitNullProperties?.Remove("ai_assistant_id"); } }
         private string _explicitNullValueAiAssistantId = default!;
 #endif
         /// <summary>The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlphaSender { get => _explicitNullValueAlphaSender; set { _explicitNullValueAlphaSender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alpha_sender"); else _explicitNullProperties?.Remove("alpha_sender"); } }
+        public string? AlphaSender { get => _explicitNullValueAlphaSender; set { _explicitNullValueAlphaSender = value; AdditionalData?.Remove("alpha_sender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alpha_sender"); else _explicitNullProperties?.Remove("alpha_sender"); } }
         private string? _explicitNullValueAlphaSender = default!;
 #nullable restore
 #else
-        public string AlphaSender { get => _explicitNullValueAlphaSender; set { _explicitNullValueAlphaSender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alpha_sender"); else _explicitNullProperties?.Remove("alpha_sender"); } }
+        public string AlphaSender { get => _explicitNullValueAlphaSender; set { _explicitNullValueAlphaSender = value; AdditionalData?.Remove("alpha_sender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alpha_sender"); else _explicitNullProperties?.Remove("alpha_sender"); } }
         private string _explicitNullValueAlphaSender = default!;
 #endif
         /// <summary>The maximum amount of money (in USD) that can be spent by this profile before midnight UTC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DailySpendLimit { get => _explicitNullValueDailySpendLimit; set { _explicitNullValueDailySpendLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit"); else _explicitNullProperties?.Remove("daily_spend_limit"); } }
+        public string? DailySpendLimit { get => _explicitNullValueDailySpendLimit; set { _explicitNullValueDailySpendLimit = value; AdditionalData?.Remove("daily_spend_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit"); else _explicitNullProperties?.Remove("daily_spend_limit"); } }
         private string? _explicitNullValueDailySpendLimit = default!;
 #nullable restore
 #else
-        public string DailySpendLimit { get => _explicitNullValueDailySpendLimit; set { _explicitNullValueDailySpendLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit"); else _explicitNullProperties?.Remove("daily_spend_limit"); } }
+        public string DailySpendLimit { get => _explicitNullValueDailySpendLimit; set { _explicitNullValueDailySpendLimit = value; AdditionalData?.Remove("daily_spend_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit"); else _explicitNullProperties?.Remove("daily_spend_limit"); } }
         private string _explicitNullValueDailySpendLimit = default!;
 #endif
         /// <summary>Whether to enforce the value configured by `daily_spend_limit`.</summary>
-        public bool? DailySpendLimitEnabled { get => _explicitNullValueDailySpendLimitEnabled; set { _explicitNullValueDailySpendLimitEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit_enabled"); else _explicitNullProperties?.Remove("daily_spend_limit_enabled"); } }
+        public bool? DailySpendLimitEnabled { get => _explicitNullValueDailySpendLimitEnabled; set { _explicitNullValueDailySpendLimitEnabled = value; AdditionalData?.Remove("daily_spend_limit_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend_limit_enabled"); else _explicitNullProperties?.Remove("daily_spend_limit_enabled"); } }
         private bool? _explicitNullValueDailySpendLimitEnabled = default!;
         /// <summary>Specifies whether the messaging profile is enabled or not.</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Telnyx product features the messaging customer can enable on the messaging profile. Keys map to individual feature flags; unknown keys are accepted and preserved for forward compatibility with rolling deployments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures? _explicitNullValueFeatures = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileFeatures _explicitNullValueFeatures = default!;
 #endif
         /// <summary>A URL to receive health check webhooks for numbers in this profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HealthWebhookUrl { get => _explicitNullValueHealthWebhookUrl; set { _explicitNullValueHealthWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_webhook_url"); else _explicitNullProperties?.Remove("health_webhook_url"); } }
+        public string? HealthWebhookUrl { get => _explicitNullValueHealthWebhookUrl; set { _explicitNullValueHealthWebhookUrl = value; AdditionalData?.Remove("health_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_webhook_url"); else _explicitNullProperties?.Remove("health_webhook_url"); } }
         private string? _explicitNullValueHealthWebhookUrl = default!;
 #nullable restore
 #else
-        public string HealthWebhookUrl { get => _explicitNullValueHealthWebhookUrl; set { _explicitNullValueHealthWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_webhook_url"); else _explicitNullProperties?.Remove("health_webhook_url"); } }
+        public string HealthWebhookUrl { get => _explicitNullValueHealthWebhookUrl; set { _explicitNullValueHealthWebhookUrl = value; AdditionalData?.Remove("health_webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_webhook_url"); else _explicitNullProperties?.Remove("health_webhook_url"); } }
         private string _explicitNullValueHealthWebhookUrl = default!;
 #endif
         /// <summary>MM7 settings for inbound messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata? Mm7Metadata { get => _explicitNullValueMm7Metadata; set { _explicitNullValueMm7Metadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_metadata"); else _explicitNullProperties?.Remove("mm7_metadata"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata? Mm7Metadata { get => _explicitNullValueMm7Metadata; set { _explicitNullValueMm7Metadata = value; AdditionalData?.Remove("mm7_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_metadata"); else _explicitNullProperties?.Remove("mm7_metadata"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata? _explicitNullValueMm7Metadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata Mm7Metadata { get => _explicitNullValueMm7Metadata; set { _explicitNullValueMm7Metadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_metadata"); else _explicitNullProperties?.Remove("mm7_metadata"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata Mm7Metadata { get => _explicitNullValueMm7Metadata; set { _explicitNullValueMm7Metadata = value; AdditionalData?.Remove("mm7_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mm7_metadata"); else _explicitNullProperties?.Remove("mm7_metadata"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.Mm7Metadata _explicitNullValueMm7Metadata = default!;
 #endif
         /// <summary>enables SMS fallback for MMS messages.</summary>
-        public bool? MmsFallBackToSms { get => _explicitNullValueMmsFallBackToSms; set { _explicitNullValueMmsFallBackToSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mms_fall_back_to_sms"); else _explicitNullProperties?.Remove("mms_fall_back_to_sms"); } }
+        public bool? MmsFallBackToSms { get => _explicitNullValueMmsFallBackToSms; set { _explicitNullValueMmsFallBackToSms = value; AdditionalData?.Remove("mms_fall_back_to_sms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mms_fall_back_to_sms"); else _explicitNullProperties?.Remove("mms_fall_back_to_sms"); } }
         private bool? _explicitNullValueMmsFallBackToSms = default!;
         /// <summary>enables automated resizing of MMS media.</summary>
-        public bool? MmsTranscoding { get => _explicitNullValueMmsTranscoding; set { _explicitNullValueMmsTranscoding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mms_transcoding"); else _explicitNullProperties?.Remove("mms_transcoding"); } }
+        public bool? MmsTranscoding { get => _explicitNullValueMmsTranscoding; set { _explicitNullValueMmsTranscoding = value; AdditionalData?.Remove("mms_transcoding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mms_transcoding"); else _explicitNullProperties?.Remove("mms_transcoding"); } }
         private bool? _explicitNullValueMmsTranscoding = default!;
         /// <summary>Send messages only to mobile phone numbers.</summary>
-        public bool? MobileOnly { get => _explicitNullValueMobileOnly; set { _explicitNullValueMobileOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_only"); else _explicitNullProperties?.Remove("mobile_only"); } }
+        public bool? MobileOnly { get => _explicitNullValueMobileOnly; set { _explicitNullValueMobileOnly = value; AdditionalData?.Remove("mobile_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_only"); else _explicitNullProperties?.Remove("mobile_only"); } }
         private bool? _explicitNullValueMobileOnly = default!;
         /// <summary>A user friendly name for the messaging profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Number Pool allows you to send messages from a pool of numbers of different types, assigningweights to each type. The pool consists of all the long code and toll free numbersassigned to the messaging profile.To disable this feature, set the object field to `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings? NumberPoolSettings { get => _explicitNullValueNumberPoolSettings; set { _explicitNullValueNumberPoolSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_pool_settings"); else _explicitNullProperties?.Remove("number_pool_settings"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings? NumberPoolSettings { get => _explicitNullValueNumberPoolSettings; set { _explicitNullValueNumberPoolSettings = value; AdditionalData?.Remove("number_pool_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_pool_settings"); else _explicitNullProperties?.Remove("number_pool_settings"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings? _explicitNullValueNumberPoolSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings NumberPoolSettings { get => _explicitNullValueNumberPoolSettings; set { _explicitNullValueNumberPoolSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_pool_settings"); else _explicitNullProperties?.Remove("number_pool_settings"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings NumberPoolSettings { get => _explicitNullValueNumberPoolSettings; set { _explicitNullValueNumberPoolSettings = value; AdditionalData?.Remove("number_pool_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_pool_settings"); else _explicitNullProperties?.Remove("number_pool_settings"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings _explicitNullValueNumberPoolSettings = default!;
 #endif
         /// <summary>The resource group ID to associate with this messaging profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceGroupId { get => _explicitNullValueResourceGroupId; set { _explicitNullValueResourceGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_group_id"); else _explicitNullProperties?.Remove("resource_group_id"); } }
+        public string? ResourceGroupId { get => _explicitNullValueResourceGroupId; set { _explicitNullValueResourceGroupId = value; AdditionalData?.Remove("resource_group_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_group_id"); else _explicitNullProperties?.Remove("resource_group_id"); } }
         private string? _explicitNullValueResourceGroupId = default!;
 #nullable restore
 #else
-        public string ResourceGroupId { get => _explicitNullValueResourceGroupId; set { _explicitNullValueResourceGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_group_id"); else _explicitNullProperties?.Remove("resource_group_id"); } }
+        public string ResourceGroupId { get => _explicitNullValueResourceGroupId; set { _explicitNullValueResourceGroupId = value; AdditionalData?.Remove("resource_group_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_group_id"); else _explicitNullProperties?.Remove("resource_group_id"); } }
         private string _explicitNullValueResourceGroupId = default!;
 #endif
         /// <summary>Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.</summary>
-        public bool? SmartEncoding { get => _explicitNullValueSmartEncoding; set { _explicitNullValueSmartEncoding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smart_encoding"); else _explicitNullProperties?.Remove("smart_encoding"); } }
+        public bool? SmartEncoding { get => _explicitNullValueSmartEncoding; set { _explicitNullValueSmartEncoding = value; AdditionalData?.Remove("smart_encoding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smart_encoding"); else _explicitNullProperties?.Remove("smart_encoding"); } }
         private bool? _explicitNullValueSmartEncoding = default!;
         /// <summary>The URL shortener feature allows automatic replacement of URLs that were generated usinga public URL shortener service. Some examples include bit.do, bit.ly, goo.gl, ht.ly,is.gd, ow.ly, rebrand.ly, t.co, tiny.cc, and tinyurl.com. Such URLs are replaced withwith links generated by Telnyx. The use of custom links can improve branding and messagedeliverability.To disable this feature, set the object field to `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings? UrlShortenerSettings { get => _explicitNullValueUrlShortenerSettings; set { _explicitNullValueUrlShortenerSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_shortener_settings"); else _explicitNullProperties?.Remove("url_shortener_settings"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings? UrlShortenerSettings { get => _explicitNullValueUrlShortenerSettings; set { _explicitNullValueUrlShortenerSettings = value; AdditionalData?.Remove("url_shortener_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_shortener_settings"); else _explicitNullProperties?.Remove("url_shortener_settings"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings? _explicitNullValueUrlShortenerSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings UrlShortenerSettings { get => _explicitNullValueUrlShortenerSettings; set { _explicitNullValueUrlShortenerSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_shortener_settings"); else _explicitNullProperties?.Remove("url_shortener_settings"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings UrlShortenerSettings { get => _explicitNullValueUrlShortenerSettings; set { _explicitNullValueUrlShortenerSettings = value; AdditionalData?.Remove("url_shortener_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_shortener_settings"); else _explicitNullProperties?.Remove("url_shortener_settings"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings _explicitNullValueUrlShortenerSettings = default!;
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1, v2, or a legacy 2010-04-01 format.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingCreateMessagingProfileRequestWebhookApiVersion? WebhookApiVersion { get => _explicitNullValueWebhookApiVersion; set { _explicitNullValueWebhookApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_api_version"); else _explicitNullProperties?.Remove("webhook_api_version"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingCreateMessagingProfileRequestWebhookApiVersion? WebhookApiVersion { get => _explicitNullValueWebhookApiVersion; set { _explicitNullValueWebhookApiVersion = value; AdditionalData?.Remove("webhook_api_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_api_version"); else _explicitNullProperties?.Remove("webhook_api_version"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingCreateMessagingProfileRequestWebhookApiVersion? _explicitNullValueWebhookApiVersion = default!;
         /// <summary>The failover URL where webhooks related to this messaging profile will be sent if sending to the primary URL fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookFailoverUrl { get => _explicitNullValueWebhookFailoverUrl; set { _explicitNullValueWebhookFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_failover_url"); else _explicitNullProperties?.Remove("webhook_failover_url"); } }
+        public string? WebhookFailoverUrl { get => _explicitNullValueWebhookFailoverUrl; set { _explicitNullValueWebhookFailoverUrl = value; AdditionalData?.Remove("webhook_failover_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_failover_url"); else _explicitNullProperties?.Remove("webhook_failover_url"); } }
         private string? _explicitNullValueWebhookFailoverUrl = default!;
 #nullable restore
 #else
-        public string WebhookFailoverUrl { get => _explicitNullValueWebhookFailoverUrl; set { _explicitNullValueWebhookFailoverUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_failover_url"); else _explicitNullProperties?.Remove("webhook_failover_url"); } }
+        public string WebhookFailoverUrl { get => _explicitNullValueWebhookFailoverUrl; set { _explicitNullValueWebhookFailoverUrl = value; AdditionalData?.Remove("webhook_failover_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_failover_url"); else _explicitNullProperties?.Remove("webhook_failover_url"); } }
         private string _explicitNullValueWebhookFailoverUrl = default!;
 #endif
         /// <summary>The URL where webhooks related to this messaging profile will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>Destinations to which the messaging profile is allowed to send. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[&quot;*&quot;]` all destinations will be allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
+        public List<string>? WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; AdditionalData?.Remove("whitelisted_destinations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
         private List<string>? _explicitNullValueWhitelistedDestinations = default!;
 #nullable restore
 #else
-        public List<string> WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
+        public List<string> WhitelistedDestinations { get => _explicitNullValueWhitelistedDestinations; set { _explicitNullValueWhitelistedDestinations = value; AdditionalData?.Remove("whitelisted_destinations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("whitelisted_destinations"); else _explicitNullProperties?.Remove("whitelisted_destinations"); } }
         private List<string> _explicitNullValueWhitelistedDestinations = default!;
 #endif
         /// <summary>
@@ -238,7 +258,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "resource_group_id", n => { ResourceGroupId = n.GetStringValue(); } },
                 { "smart_encoding", n => { SmartEncoding = n.GetBoolValue(); } },
                 { "url_shortener_settings", n => { UrlShortenerSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings.CreateFromDiscriminatorValue); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingCreateMessagingProfileRequestWebhookApiVersion>(); } },
+                { "webhook_api_version", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingCreateMessagingProfileRequestWebhookApiVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWebhookApiVersion = default; _explicitNullProperties?.Remove("webhook_api_version"); AdditionalData["webhook_api_version"] = unknown; } else { WebhookApiVersion = parsed; AdditionalData.Remove("webhook_api_version"); } } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
                 { "whitelisted_destinations", n => { WhitelistedDestinations = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

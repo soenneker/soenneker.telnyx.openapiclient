@@ -64,6 +64,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(TestPersonalityStartSpeakingPlanMember1 != null || TestPersonalityStartSpeakingPlanMember2 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(TestPersonalityStartSpeakingPlanMember1, TestPersonalityStartSpeakingPlanMember2);
@@ -78,8 +80,12 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (Double == null && TestPersonalityStartSpeakingPlanMember1 == null && TestPersonalityStartSpeakingPlanMember2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (TestPersonalityStartSpeakingPlanMember1 != null && Double == null && TestPersonalityStartSpeakingPlanMember2 == null) { if (TestPersonalityStartSpeakingPlanMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TestPersonalityStartSpeakingPlanMember1); return; }
-            if (TestPersonalityStartSpeakingPlanMember2 != null && Double == null && TestPersonalityStartSpeakingPlanMember1 == null) { if (TestPersonalityStartSpeakingPlanMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TestPersonalityStartSpeakingPlanMember2); return; }
+            int selectedUnionBranches = 0;
+            if (Double != null) selectedUnionBranches++;
+            if (TestPersonalityStartSpeakingPlanMember1 != null) selectedUnionBranches++;
+            if (TestPersonalityStartSpeakingPlanMember2 != null) selectedUnionBranches++;
+            if (TestPersonalityStartSpeakingPlanMember1 != null && selectedUnionBranches == 1) { if (TestPersonalityStartSpeakingPlanMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TestPersonalityStartSpeakingPlanMember1); return; }
+            if (TestPersonalityStartSpeakingPlanMember2 != null && selectedUnionBranches == 1) { if (TestPersonalityStartSpeakingPlanMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TestPersonalityStartSpeakingPlanMember2); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(Double != null)

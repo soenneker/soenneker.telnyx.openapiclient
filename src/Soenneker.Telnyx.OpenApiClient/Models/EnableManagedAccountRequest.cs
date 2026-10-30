@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reenable_all_connections") is { } nullNodeReenableAllConnections && nullNodeReenableAllConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReenableAllConnections = null;
+            if (parseNode.GetChildNode("reenable_all_connections") is null) { _explicitNullValueReenableAllConnections = default!; _explicitNullProperties?.Remove("reenable_all_connections"); }
+            else if (parseNode.GetChildNode("reenable_all_connections") is { } nullNodeReenableAllConnections && nullNodeReenableAllConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReenableAllConnections = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.</summary>
-        public bool? ReenableAllConnections { get => _explicitNullValueReenableAllConnections; set { _explicitNullValueReenableAllConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reenable_all_connections"); else _explicitNullProperties?.Remove("reenable_all_connections"); } }
+        public bool? ReenableAllConnections { get => _explicitNullValueReenableAllConnections; set { _explicitNullValueReenableAllConnections = value; AdditionalData?.Remove("reenable_all_connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reenable_all_connections"); else _explicitNullProperties?.Remove("reenable_all_connections"); } }
         private bool? _explicitNullValueReenableAllConnections = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnableManagedAccountRequest"/> and sets the default values.

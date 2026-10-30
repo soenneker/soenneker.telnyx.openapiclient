@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("health_check_params") is { } nullNodeHealthCheckParams && nullNodeHealthCheckParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckParams = null;
-            if (parseNode.GetChildNode("health_check_type") is { } nullNodeHealthCheckType && nullNodeHealthCheckType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckType = null;
+            if (parseNode.GetChildNode("health_check_params") is null) { _explicitNullValueHealthCheckParams = default!; _explicitNullProperties?.Remove("health_check_params"); }
+            else if (parseNode.GetChildNode("health_check_params") is { } nullNodeHealthCheckParams && nullNodeHealthCheckParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckParams = null;
+            if (parseNode.GetChildNode("health_check_type") is null) { _explicitNullValueHealthCheckType = default!; _explicitNullProperties?.Remove("health_check_type"); }
+            else if (parseNode.GetChildNode("health_check_type") is { } nullNodeHealthCheckType && nullNodeHealthCheckType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthCheckType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Global IP Health check params.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams? HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams? HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; AdditionalData?.Remove("health_check_params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams? _explicitNullValueHealthCheckParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams HealthCheckParams { get => _explicitNullValueHealthCheckParams; set { _explicitNullValueHealthCheckParams = value; AdditionalData?.Remove("health_check_params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_params"); else _explicitNullProperties?.Remove("health_check_params"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckTypeHealthCheckParams _explicitNullValueHealthCheckParams = default!;
 #endif
         /// <summary>Global IP Health check type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
+        public string? HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; AdditionalData?.Remove("health_check_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
         private string? _explicitNullValueHealthCheckType = default!;
 #nullable restore
 #else
-        public string HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
+        public string HealthCheckType { get => _explicitNullValueHealthCheckType; set { _explicitNullValueHealthCheckType = value; AdditionalData?.Remove("health_check_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health_check_type"); else _explicitNullProperties?.Remove("health_check_type"); } }
         private string _explicitNullValueHealthCheckType = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>

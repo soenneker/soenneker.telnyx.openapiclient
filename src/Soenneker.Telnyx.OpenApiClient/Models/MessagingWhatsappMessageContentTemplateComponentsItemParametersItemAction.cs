@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("flow_action_data") is { } nullNodeFlowActionData && nullNodeFlowActionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowActionData = null;
-            if (parseNode.GetChildNode("flow_token") is { } nullNodeFlowToken && nullNodeFlowToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowToken = null;
+            if (parseNode.GetChildNode("flow_action_data") is null) { _explicitNullValueFlowActionData = default!; _explicitNullProperties?.Remove("flow_action_data"); }
+            else if (parseNode.GetChildNode("flow_action_data") is { } nullNodeFlowActionData && nullNodeFlowActionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowActionData = null;
+            if (parseNode.GetChildNode("flow_token") is null) { _explicitNullValueFlowToken = default!; _explicitNullProperties?.Remove("flow_token"); }
+            else if (parseNode.GetChildNode("flow_token") is { } nullNodeFlowToken && nullNodeFlowToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>input data for the first screen of the flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty? FlowActionData { get => _explicitNullValueFlowActionData; set { _explicitNullValueFlowActionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_data"); else _explicitNullProperties?.Remove("flow_action_data"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty? FlowActionData { get => _explicitNullValueFlowActionData; set { _explicitNullValueFlowActionData = value; AdditionalData?.Remove("flow_action_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_data"); else _explicitNullProperties?.Remove("flow_action_data"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty? _explicitNullValueFlowActionData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty FlowActionData { get => _explicitNullValueFlowActionData; set { _explicitNullValueFlowActionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_data"); else _explicitNullProperties?.Remove("flow_action_data"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty FlowActionData { get => _explicitNullValueFlowActionData; set { _explicitNullValueFlowActionData = value; AdditionalData?.Remove("flow_action_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action_data"); else _explicitNullProperties?.Remove("flow_action_data"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappMessageContentTemplateComponentsItemParametersItemActionFlowActionDataProperty _explicitNullValueFlowActionData = default!;
 #endif
         /// <summary>business-generated identifier for the flow session. Returned in the flow response for correlation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
+        public string? FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; AdditionalData?.Remove("flow_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
         private string? _explicitNullValueFlowToken = default!;
 #nullable restore
 #else
-        public string FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
+        public string FlowToken { get => _explicitNullValueFlowToken; set { _explicitNullValueFlowToken = value; AdditionalData?.Remove("flow_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_token"); else _explicitNullProperties?.Remove("flow_token"); } }
         private string _explicitNullValueFlowToken = default!;
 #endif
         /// <summary>

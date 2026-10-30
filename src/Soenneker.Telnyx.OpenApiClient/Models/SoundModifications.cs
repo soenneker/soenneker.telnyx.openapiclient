@@ -18,31 +18,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("octaves") is { } nullNodeOctaves && nullNodeOctaves.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Octaves = null;
-            if (parseNode.GetChildNode("pitch") is { } nullNodePitch && nullNodePitch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pitch = null;
-            if (parseNode.GetChildNode("semitone") is { } nullNodeSemitone && nullNodeSemitone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Semitone = null;
-            if (parseNode.GetChildNode("track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
+            if (parseNode.GetChildNode("octaves") is null) { _explicitNullValueOctaves = default!; _explicitNullProperties?.Remove("octaves"); }
+            else if (parseNode.GetChildNode("octaves") is { } nullNodeOctaves && nullNodeOctaves.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Octaves = null;
+            if (parseNode.GetChildNode("pitch") is null) { _explicitNullValuePitch = default!; _explicitNullProperties?.Remove("pitch"); }
+            else if (parseNode.GetChildNode("pitch") is { } nullNodePitch && nullNodePitch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pitch = null;
+            if (parseNode.GetChildNode("semitone") is null) { _explicitNullValueSemitone = default!; _explicitNullProperties?.Remove("semitone"); }
+            else if (parseNode.GetChildNode("semitone") is { } nullNodeSemitone && nullNodeSemitone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Semitone = null;
+            if (parseNode.GetChildNode("track") is null) { _explicitNullValueTrack = default!; _explicitNullProperties?.Remove("track"); }
+            else if (parseNode.GetChildNode("track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Adjust the pitch in octaves, values should be between -1 and 1, default 0</summary>
-        public float? Octaves { get => _explicitNullValueOctaves; set { _explicitNullValueOctaves = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("octaves"); else _explicitNullProperties?.Remove("octaves"); } }
+        public float? Octaves { get => _explicitNullValueOctaves; set { _explicitNullValueOctaves = value; AdditionalData?.Remove("octaves"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("octaves"); else _explicitNullProperties?.Remove("octaves"); } }
         private float? _explicitNullValueOctaves = default!;
         /// <summary>Set the pitch directly, value should be &gt; 0, default 1 (lower = lower tone)</summary>
-        public float? Pitch { get => _explicitNullValuePitch; set { _explicitNullValuePitch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pitch"); else _explicitNullProperties?.Remove("pitch"); } }
+        public float? Pitch { get => _explicitNullValuePitch; set { _explicitNullValuePitch = value; AdditionalData?.Remove("pitch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pitch"); else _explicitNullProperties?.Remove("pitch"); } }
         private float? _explicitNullValuePitch = default!;
         /// <summary>Adjust the pitch in semitones, values should be between -14 and 14, default 0</summary>
-        public float? Semitone { get => _explicitNullValueSemitone; set { _explicitNullValueSemitone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("semitone"); else _explicitNullProperties?.Remove("semitone"); } }
+        public float? Semitone { get => _explicitNullValueSemitone; set { _explicitNullValueSemitone = value; AdditionalData?.Remove("semitone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("semitone"); else _explicitNullProperties?.Remove("semitone"); } }
         private float? _explicitNullValueSemitone = default!;
         /// <summary>The track to which the sound modifications will be applied. Accepted values are `inbound` or `outbound`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        public string? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; AdditionalData?.Remove("track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
         private string? _explicitNullValueTrack = default!;
 #nullable restore
 #else
-        public string Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        public string Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; AdditionalData?.Remove("track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
         private string _explicitNullValueTrack = default!;
 #endif
         /// <summary>

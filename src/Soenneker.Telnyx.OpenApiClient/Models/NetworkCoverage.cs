@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_services") is { } nullNodeAvailableServices && nullNodeAvailableServices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableServices = null;
-            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("available_services") is null) { _explicitNullValueAvailableServices = default!; _explicitNullProperties?.Remove("available_services"); }
+            else if (parseNode.GetChildNode("available_services") is { } nullNodeAvailableServices && nullNodeAvailableServices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableServices = null;
+            if (parseNode.GetChildNode("location") is null) { _explicitNullValueLocation = default!; _explicitNullProperties?.Remove("location"); }
+            else if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of interface types supported in this region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem?>? AvailableServices { get => _explicitNullValueAvailableServices; set { _explicitNullValueAvailableServices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_services"); else _explicitNullProperties?.Remove("available_services"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem?>? AvailableServices { get => _explicitNullValueAvailableServices; set { _explicitNullValueAvailableServices = value; AdditionalData?.Remove("available_services"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_services"); else _explicitNullProperties?.Remove("available_services"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem?>? _explicitNullValueAvailableServices = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem?> AvailableServices { get => _explicitNullValueAvailableServices; set { _explicitNullValueAvailableServices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_services"); else _explicitNullProperties?.Remove("available_services"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem?> AvailableServices { get => _explicitNullValueAvailableServices; set { _explicitNullValueAvailableServices = value; AdditionalData?.Remove("available_services"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_services"); else _explicitNullProperties?.Remove("available_services"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkCoverageAvailableServicesItem?> _explicitNullValueAvailableServices = default!;
 #endif
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation17904Fcfbc _explicitNullValueLocation = default!;
 #endif
         /// <summary>Identifies the type of the resource.</summary>

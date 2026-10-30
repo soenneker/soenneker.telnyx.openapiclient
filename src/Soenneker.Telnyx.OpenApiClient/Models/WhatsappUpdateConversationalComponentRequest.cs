@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
-            if (parseNode.GetChildNode("ice_breakers") is { } nullNodeIceBreakers && nullNodeIceBreakers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IceBreakers = null;
+            if (parseNode.GetChildNode("commands") is null) { _explicitNullValueCommands = default!; _explicitNullProperties?.Remove("commands"); }
+            else if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
+            if (parseNode.GetChildNode("ice_breakers") is null) { _explicitNullValueIceBreakers = default!; _explicitNullProperties?.Remove("ice_breakers"); }
+            else if (parseNode.GetChildNode("ice_breakers") is { } nullNodeIceBreakers && nullNodeIceBreakers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IceBreakers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>List of commands</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; AdditionalData?.Remove("commands"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem>? _explicitNullValueCommands = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem> Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem> Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; AdditionalData?.Remove("commands"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappUpdateConversationalComponentRequestCommandsItem> _explicitNullValueCommands = default!;
 #endif
         /// <summary>List of ice breakers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IceBreakers { get => _explicitNullValueIceBreakers; set { _explicitNullValueIceBreakers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice_breakers"); else _explicitNullProperties?.Remove("ice_breakers"); } }
+        public List<string>? IceBreakers { get => _explicitNullValueIceBreakers; set { _explicitNullValueIceBreakers = value; AdditionalData?.Remove("ice_breakers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice_breakers"); else _explicitNullProperties?.Remove("ice_breakers"); } }
         private List<string>? _explicitNullValueIceBreakers = default!;
 #nullable restore
 #else
-        public List<string> IceBreakers { get => _explicitNullValueIceBreakers; set { _explicitNullValueIceBreakers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice_breakers"); else _explicitNullProperties?.Remove("ice_breakers"); } }
+        public List<string> IceBreakers { get => _explicitNullValueIceBreakers; set { _explicitNullValueIceBreakers = value; AdditionalData?.Remove("ice_breakers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ice_breakers"); else _explicitNullProperties?.Remove("ice_breakers"); } }
         private List<string> _explicitNullValueIceBreakers = default!;
 #endif
         /// <summary>

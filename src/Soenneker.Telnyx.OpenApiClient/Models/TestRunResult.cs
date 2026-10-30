@@ -17,180 +17,200 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
-            if (parseNode.GetChildNode("agent_inbound") is { } nullNodeAgentInbound && nullNodeAgentInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentInbound = null;
-            if (parseNode.GetChildNode("agent_name") is { } nullNodeAgentName && nullNodeAgentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentName = null;
-            if (parseNode.GetChildNode("completed_runs_count") is { } nullNodeCompletedRunsCount && nullNodeCompletedRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedRunsCount = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("failed_runs_count") is { } nullNodeFailedRunsCount && nullNodeFailedRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedRunsCount = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("is_cronjob") is { } nullNodeIsCronjob && nullNodeIsCronjob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCronjob = null;
-            if (parseNode.GetChildNode("met_expected_outcome_count") is { } nullNodeMetExpectedOutcomeCount && nullNodeMetExpectedOutcomeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetExpectedOutcomeCount = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("run_as_text") is { } nullNodeRunAsText && nullNodeRunAsText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunAsText = null;
-            if (parseNode.GetChildNode("runs") is { } nullNodeRuns && nullNodeRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runs = null;
-            if (parseNode.GetChildNode("run_type") is { } nullNodeRunType && nullNodeRunType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunType = null;
-            if (parseNode.GetChildNode("scenarios") is { } nullNodeScenarios && nullNodeScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scenarios = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("success_rate") is { } nullNodeSuccessRate && nullNodeSuccessRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRate = null;
-            if (parseNode.GetChildNode("success_runs_count") is { } nullNodeSuccessRunsCount && nullNodeSuccessRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRunsCount = null;
-            if (parseNode.GetChildNode("total_expected_outcome_count") is { } nullNodeTotalExpectedOutcomeCount && nullNodeTotalExpectedOutcomeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalExpectedOutcomeCount = null;
-            if (parseNode.GetChildNode("total_runs_count") is { } nullNodeTotalRunsCount && nullNodeTotalRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRunsCount = null;
-            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("agent") is null) { _explicitNullValueAgent = default!; _explicitNullProperties?.Remove("agent"); }
+            else if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("agent_inbound") is null) { _explicitNullValueAgentInbound = default!; _explicitNullProperties?.Remove("agent_inbound"); }
+            else if (parseNode.GetChildNode("agent_inbound") is { } nullNodeAgentInbound && nullNodeAgentInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentInbound = null;
+            if (parseNode.GetChildNode("agent_name") is null) { _explicitNullValueAgentName = default!; _explicitNullProperties?.Remove("agent_name"); }
+            else if (parseNode.GetChildNode("agent_name") is { } nullNodeAgentName && nullNodeAgentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentName = null;
+            if (parseNode.GetChildNode("completed_runs_count") is null) { _explicitNullValueCompletedRunsCount = default!; _explicitNullProperties?.Remove("completed_runs_count"); }
+            else if (parseNode.GetChildNode("completed_runs_count") is { } nullNodeCompletedRunsCount && nullNodeCompletedRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedRunsCount = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("failed_runs_count") is null) { _explicitNullValueFailedRunsCount = default!; _explicitNullProperties?.Remove("failed_runs_count"); }
+            else if (parseNode.GetChildNode("failed_runs_count") is { } nullNodeFailedRunsCount && nullNodeFailedRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedRunsCount = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_cronjob") is null) { _explicitNullValueIsCronjob = default!; _explicitNullProperties?.Remove("is_cronjob"); }
+            else if (parseNode.GetChildNode("is_cronjob") is { } nullNodeIsCronjob && nullNodeIsCronjob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCronjob = null;
+            if (parseNode.GetChildNode("met_expected_outcome_count") is null) { _explicitNullValueMetExpectedOutcomeCount = default!; _explicitNullProperties?.Remove("met_expected_outcome_count"); }
+            else if (parseNode.GetChildNode("met_expected_outcome_count") is { } nullNodeMetExpectedOutcomeCount && nullNodeMetExpectedOutcomeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetExpectedOutcomeCount = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("run_as_text") is null) { _explicitNullValueRunAsText = default!; _explicitNullProperties?.Remove("run_as_text"); }
+            else if (parseNode.GetChildNode("run_as_text") is { } nullNodeRunAsText && nullNodeRunAsText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunAsText = null;
+            if (parseNode.GetChildNode("runs") is null) { _explicitNullValueRuns = default!; _explicitNullProperties?.Remove("runs"); }
+            else if (parseNode.GetChildNode("runs") is { } nullNodeRuns && nullNodeRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runs = null;
+            if (parseNode.GetChildNode("run_type") is null) { _explicitNullValueRunType = default!; _explicitNullProperties?.Remove("run_type"); }
+            else if (parseNode.GetChildNode("run_type") is { } nullNodeRunType && nullNodeRunType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunType = null;
+            if (parseNode.GetChildNode("scenarios") is null) { _explicitNullValueScenarios = default!; _explicitNullProperties?.Remove("scenarios"); }
+            else if (parseNode.GetChildNode("scenarios") is { } nullNodeScenarios && nullNodeScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scenarios = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("success_rate") is null) { _explicitNullValueSuccessRate = default!; _explicitNullProperties?.Remove("success_rate"); }
+            else if (parseNode.GetChildNode("success_rate") is { } nullNodeSuccessRate && nullNodeSuccessRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRate = null;
+            if (parseNode.GetChildNode("success_runs_count") is null) { _explicitNullValueSuccessRunsCount = default!; _explicitNullProperties?.Remove("success_runs_count"); }
+            else if (parseNode.GetChildNode("success_runs_count") is { } nullNodeSuccessRunsCount && nullNodeSuccessRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRunsCount = null;
+            if (parseNode.GetChildNode("total_expected_outcome_count") is null) { _explicitNullValueTotalExpectedOutcomeCount = default!; _explicitNullProperties?.Remove("total_expected_outcome_count"); }
+            else if (parseNode.GetChildNode("total_expected_outcome_count") is { } nullNodeTotalExpectedOutcomeCount && nullNodeTotalExpectedOutcomeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalExpectedOutcomeCount = null;
+            if (parseNode.GetChildNode("total_runs_count") is null) { _explicitNullValueTotalRunsCount = default!; _explicitNullProperties?.Remove("total_runs_count"); }
+            else if (parseNode.GetChildNode("total_runs_count") is { } nullNodeTotalRunsCount && nullNodeTotalRunsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRunsCount = null;
+            if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
+            else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent property</summary>
-        public int? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public int? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private int? _explicitNullValueAgent = default!;
         /// <summary>The agent_inbound property</summary>
-        public bool? AgentInbound { get => _explicitNullValueAgentInbound; set { _explicitNullValueAgentInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_inbound"); else _explicitNullProperties?.Remove("agent_inbound"); } }
+        public bool? AgentInbound { get => _explicitNullValueAgentInbound; set { _explicitNullValueAgentInbound = value; AdditionalData?.Remove("agent_inbound"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_inbound"); else _explicitNullProperties?.Remove("agent_inbound"); } }
         private bool? _explicitNullValueAgentInbound = default!;
         /// <summary>The agent_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        public string? AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; AdditionalData?.Remove("agent_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
         private string? _explicitNullValueAgentName = default!;
 #nullable restore
 #else
-        public string AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        public string AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; AdditionalData?.Remove("agent_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
         private string _explicitNullValueAgentName = default!;
 #endif
         /// <summary>The completed_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? CompletedRunsCount { get => _explicitNullValueCompletedRunsCount; set { _explicitNullValueCompletedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_runs_count"); else _explicitNullProperties?.Remove("completed_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? CompletedRunsCount { get => _explicitNullValueCompletedRunsCount; set { _explicitNullValueCompletedRunsCount = value; AdditionalData?.Remove("completed_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_runs_count"); else _explicitNullProperties?.Remove("completed_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueCompletedRunsCount = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode CompletedRunsCount { get => _explicitNullValueCompletedRunsCount; set { _explicitNullValueCompletedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_runs_count"); else _explicitNullProperties?.Remove("completed_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode CompletedRunsCount { get => _explicitNullValueCompletedRunsCount; set { _explicitNullValueCompletedRunsCount = value; AdditionalData?.Remove("completed_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_runs_count"); else _explicitNullProperties?.Remove("completed_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueCompletedRunsCount = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The failed_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? FailedRunsCount { get => _explicitNullValueFailedRunsCount; set { _explicitNullValueFailedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_runs_count"); else _explicitNullProperties?.Remove("failed_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? FailedRunsCount { get => _explicitNullValueFailedRunsCount; set { _explicitNullValueFailedRunsCount = value; AdditionalData?.Remove("failed_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_runs_count"); else _explicitNullProperties?.Remove("failed_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueFailedRunsCount = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode FailedRunsCount { get => _explicitNullValueFailedRunsCount; set { _explicitNullValueFailedRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_runs_count"); else _explicitNullProperties?.Remove("failed_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode FailedRunsCount { get => _explicitNullValueFailedRunsCount; set { _explicitNullValueFailedRunsCount = value; AdditionalData?.Remove("failed_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_runs_count"); else _explicitNullProperties?.Remove("failed_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueFailedRunsCount = default!;
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private int? _explicitNullValueId = default!;
         /// <summary>Whether this batch was started by a scheduled job.</summary>
-        public bool? IsCronjob { get => _explicitNullValueIsCronjob; set { _explicitNullValueIsCronjob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cronjob"); else _explicitNullProperties?.Remove("is_cronjob"); } }
+        public bool? IsCronjob { get => _explicitNullValueIsCronjob; set { _explicitNullValueIsCronjob = value; AdditionalData?.Remove("is_cronjob"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cronjob"); else _explicitNullProperties?.Remove("is_cronjob"); } }
         private bool? _explicitNullValueIsCronjob = default!;
         /// <summary>The met_expected_outcome_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? MetExpectedOutcomeCount { get => _explicitNullValueMetExpectedOutcomeCount; set { _explicitNullValueMetExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("met_expected_outcome_count"); else _explicitNullProperties?.Remove("met_expected_outcome_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? MetExpectedOutcomeCount { get => _explicitNullValueMetExpectedOutcomeCount; set { _explicitNullValueMetExpectedOutcomeCount = value; AdditionalData?.Remove("met_expected_outcome_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("met_expected_outcome_count"); else _explicitNullProperties?.Remove("met_expected_outcome_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueMetExpectedOutcomeCount = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode MetExpectedOutcomeCount { get => _explicitNullValueMetExpectedOutcomeCount; set { _explicitNullValueMetExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("met_expected_outcome_count"); else _explicitNullProperties?.Remove("met_expected_outcome_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode MetExpectedOutcomeCount { get => _explicitNullValueMetExpectedOutcomeCount; set { _explicitNullValueMetExpectedOutcomeCount = value; AdditionalData?.Remove("met_expected_outcome_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("met_expected_outcome_count"); else _explicitNullProperties?.Remove("met_expected_outcome_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueMetExpectedOutcomeCount = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Whether the batch ran as text chat rather than voice calls.</summary>
-        public bool? RunAsText { get => _explicitNullValueRunAsText; set { _explicitNullValueRunAsText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_as_text"); else _explicitNullProperties?.Remove("run_as_text"); } }
+        public bool? RunAsText { get => _explicitNullValueRunAsText; set { _explicitNullValueRunAsText = value; AdditionalData?.Remove("run_as_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_as_text"); else _explicitNullProperties?.Remove("run_as_text"); } }
         private bool? _explicitNullValueRunAsText = default!;
         /// <summary>Per-run detail keyed by run ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultRunsProperty? Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultRunsProperty? Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; AdditionalData?.Remove("runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultRunsProperty? _explicitNullValueRuns = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultRunsProperty Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultRunsProperty Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; AdditionalData?.Remove("runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultRunsProperty _explicitNullValueRuns = default!;
 #endif
         /// <summary>The run_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunType { get => _explicitNullValueRunType; set { _explicitNullValueRunType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_type"); else _explicitNullProperties?.Remove("run_type"); } }
+        public string? RunType { get => _explicitNullValueRunType; set { _explicitNullValueRunType = value; AdditionalData?.Remove("run_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_type"); else _explicitNullProperties?.Remove("run_type"); } }
         private string? _explicitNullValueRunType = default!;
 #nullable restore
 #else
-        public string RunType { get => _explicitNullValueRunType; set { _explicitNullValueRunType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_type"); else _explicitNullProperties?.Remove("run_type"); } }
+        public string RunType { get => _explicitNullValueRunType; set { _explicitNullValueRunType = value; AdditionalData?.Remove("run_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_type"); else _explicitNullProperties?.Remove("run_type"); } }
         private string _explicitNullValueRunType = default!;
 #endif
         /// <summary>The scenarios property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultScenariosItem>? Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultScenariosItem>? Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; AdditionalData?.Remove("scenarios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultScenariosItem>? _explicitNullValueScenarios = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultScenariosItem> Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultScenariosItem> Scenarios { get => _explicitNullValueScenarios; set { _explicitNullValueScenarios = value; AdditionalData?.Remove("scenarios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios"); else _explicitNullProperties?.Remove("scenarios"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResultScenariosItem> _explicitNullValueScenarios = default!;
 #endif
         /// <summary>Run batch status: running, completed, failed, pending, in_progress, evaluating, in_queue, timeout, cancelled, or scaling_up.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>Share of runs judged successful.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; AdditionalData?.Remove("success_rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueSuccessRate = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; AdditionalData?.Remove("success_rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueSuccessRate = default!;
 #endif
         /// <summary>The success_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? SuccessRunsCount { get => _explicitNullValueSuccessRunsCount; set { _explicitNullValueSuccessRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_runs_count"); else _explicitNullProperties?.Remove("success_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? SuccessRunsCount { get => _explicitNullValueSuccessRunsCount; set { _explicitNullValueSuccessRunsCount = value; AdditionalData?.Remove("success_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_runs_count"); else _explicitNullProperties?.Remove("success_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueSuccessRunsCount = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode SuccessRunsCount { get => _explicitNullValueSuccessRunsCount; set { _explicitNullValueSuccessRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_runs_count"); else _explicitNullProperties?.Remove("success_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode SuccessRunsCount { get => _explicitNullValueSuccessRunsCount; set { _explicitNullValueSuccessRunsCount = value; AdditionalData?.Remove("success_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_runs_count"); else _explicitNullProperties?.Remove("success_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueSuccessRunsCount = default!;
 #endif
         /// <summary>The total_expected_outcome_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? TotalExpectedOutcomeCount { get => _explicitNullValueTotalExpectedOutcomeCount; set { _explicitNullValueTotalExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_expected_outcome_count"); else _explicitNullProperties?.Remove("total_expected_outcome_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? TotalExpectedOutcomeCount { get => _explicitNullValueTotalExpectedOutcomeCount; set { _explicitNullValueTotalExpectedOutcomeCount = value; AdditionalData?.Remove("total_expected_outcome_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_expected_outcome_count"); else _explicitNullProperties?.Remove("total_expected_outcome_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueTotalExpectedOutcomeCount = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode TotalExpectedOutcomeCount { get => _explicitNullValueTotalExpectedOutcomeCount; set { _explicitNullValueTotalExpectedOutcomeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_expected_outcome_count"); else _explicitNullProperties?.Remove("total_expected_outcome_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode TotalExpectedOutcomeCount { get => _explicitNullValueTotalExpectedOutcomeCount; set { _explicitNullValueTotalExpectedOutcomeCount = value; AdditionalData?.Remove("total_expected_outcome_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_expected_outcome_count"); else _explicitNullProperties?.Remove("total_expected_outcome_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueTotalExpectedOutcomeCount = default!;
 #endif
         /// <summary>The total_runs_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? TotalRunsCount { get => _explicitNullValueTotalRunsCount; set { _explicitNullValueTotalRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_runs_count"); else _explicitNullProperties?.Remove("total_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? TotalRunsCount { get => _explicitNullValueTotalRunsCount; set { _explicitNullValueTotalRunsCount = value; AdditionalData?.Remove("total_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_runs_count"); else _explicitNullProperties?.Remove("total_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueTotalRunsCount = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode TotalRunsCount { get => _explicitNullValueTotalRunsCount; set { _explicitNullValueTotalRunsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_runs_count"); else _explicitNullProperties?.Remove("total_runs_count"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode TotalRunsCount { get => _explicitNullValueTotalRunsCount; set { _explicitNullValueTotalRunsCount = value; AdditionalData?.Remove("total_runs_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_runs_count"); else _explicitNullProperties?.Remove("total_runs_count"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueTotalRunsCount = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResult"/> and sets the default values.

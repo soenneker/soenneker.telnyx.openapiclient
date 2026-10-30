@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sharedByMe") is { } nullNodeSharedByMe && nullNodeSharedByMe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedByMe = null;
-            if (parseNode.GetChildNode("sharedWithMe") is { } nullNodeSharedWithMe && nullNodeSharedWithMe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedWithMe = null;
+            if (parseNode.GetChildNode("sharedByMe") is null) { _explicitNullValueSharedByMe = default!; _explicitNullProperties?.Remove("sharedByMe"); }
+            else if (parseNode.GetChildNode("sharedByMe") is { } nullNodeSharedByMe && nullNodeSharedByMe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedByMe = null;
+            if (parseNode.GetChildNode("sharedWithMe") is null) { _explicitNullValueSharedWithMe = default!; _explicitNullProperties?.Remove("sharedWithMe"); }
+            else if (parseNode.GetChildNode("sharedWithMe") is { } nullNodeSharedWithMe && nullNodeSharedWithMe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedWithMe = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sharedByMe property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedByMe { get => _explicitNullValueSharedByMe; set { _explicitNullValueSharedByMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedByMe"); else _explicitNullProperties?.Remove("sharedByMe"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedByMe { get => _explicitNullValueSharedByMe; set { _explicitNullValueSharedByMe = value; AdditionalData?.Remove("sharedByMe"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedByMe"); else _explicitNullProperties?.Remove("sharedByMe"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? _explicitNullValueSharedByMe = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedByMe { get => _explicitNullValueSharedByMe; set { _explicitNullValueSharedByMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedByMe"); else _explicitNullProperties?.Remove("sharedByMe"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedByMe { get => _explicitNullValueSharedByMe; set { _explicitNullValueSharedByMe = value; AdditionalData?.Remove("sharedByMe"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedByMe"); else _explicitNullProperties?.Remove("sharedByMe"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus _explicitNullValueSharedByMe = default!;
 #endif
         /// <summary>The sharedWithMe property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedWithMe { get => _explicitNullValueSharedWithMe; set { _explicitNullValueSharedWithMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedWithMe"); else _explicitNullProperties?.Remove("sharedWithMe"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? SharedWithMe { get => _explicitNullValueSharedWithMe; set { _explicitNullValueSharedWithMe = value; AdditionalData?.Remove("sharedWithMe"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedWithMe"); else _explicitNullProperties?.Remove("sharedWithMe"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus? _explicitNullValueSharedWithMe = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedWithMe { get => _explicitNullValueSharedWithMe; set { _explicitNullValueSharedWithMe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedWithMe"); else _explicitNullProperties?.Remove("sharedWithMe"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus SharedWithMe { get => _explicitNullValueSharedWithMe; set { _explicitNullValueSharedWithMe = value; AdditionalData?.Remove("sharedWithMe"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sharedWithMe"); else _explicitNullProperties?.Remove("sharedWithMe"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CampaignSharingStatus _explicitNullValueSharedWithMe = default!;
 #endif
         /// <summary>

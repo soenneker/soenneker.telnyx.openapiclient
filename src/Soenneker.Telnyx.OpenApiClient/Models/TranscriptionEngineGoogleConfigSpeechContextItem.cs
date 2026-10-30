@@ -17,23 +17,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("boost") is { } nullNodeBoost && nullNodeBoost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Boost = null;
-            if (parseNode.GetChildNode("phrases") is { } nullNodePhrases && nullNodePhrases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phrases = null;
+            if (parseNode.GetChildNode("boost") is null) { _explicitNullValueBoost = default!; _explicitNullProperties?.Remove("boost"); }
+            else if (parseNode.GetChildNode("boost") is { } nullNodeBoost && nullNodeBoost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Boost = null;
+            if (parseNode.GetChildNode("phrases") is null) { _explicitNullValuePhrases = default!; _explicitNullProperties?.Remove("phrases"); }
+            else if (parseNode.GetChildNode("phrases") is { } nullNodePhrases && nullNodePhrases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phrases = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Boost factor for the speech context.</summary>
-        public double? Boost { get => _explicitNullValueBoost; set { _explicitNullValueBoost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("boost"); else _explicitNullProperties?.Remove("boost"); } }
+        public double? Boost { get => _explicitNullValueBoost; set { _explicitNullValueBoost = value; AdditionalData?.Remove("boost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("boost"); else _explicitNullProperties?.Remove("boost"); } }
         private double? _explicitNullValueBoost = default!;
         /// <summary>The phrases property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Phrases { get => _explicitNullValuePhrases; set { _explicitNullValuePhrases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phrases"); else _explicitNullProperties?.Remove("phrases"); } }
+        public List<string>? Phrases { get => _explicitNullValuePhrases; set { _explicitNullValuePhrases = value; AdditionalData?.Remove("phrases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phrases"); else _explicitNullProperties?.Remove("phrases"); } }
         private List<string>? _explicitNullValuePhrases = default!;
 #nullable restore
 #else
-        public List<string> Phrases { get => _explicitNullValuePhrases; set { _explicitNullValuePhrases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phrases"); else _explicitNullProperties?.Remove("phrases"); } }
+        public List<string> Phrases { get => _explicitNullValuePhrases; set { _explicitNullValuePhrases = value; AdditionalData?.Remove("phrases"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phrases"); else _explicitNullProperties?.Remove("phrases"); } }
         private List<string> _explicitNullValuePhrases = default!;
 #endif
         /// <summary>

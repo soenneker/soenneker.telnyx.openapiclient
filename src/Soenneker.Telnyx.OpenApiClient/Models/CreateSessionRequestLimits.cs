@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("idle_timeout_s") is { } nullNodeIdleTimeoutS && nullNodeIdleTimeoutS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutS = null;
-            if (parseNode.GetChildNode("lifetime_s") is { } nullNodeLifetimeS && nullNodeLifetimeS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LifetimeS = null;
+            if (parseNode.GetChildNode("idle_timeout_s") is null) { _explicitNullValueIdleTimeoutS = default!; _explicitNullProperties?.Remove("idle_timeout_s"); }
+            else if (parseNode.GetChildNode("idle_timeout_s") is { } nullNodeIdleTimeoutS && nullNodeIdleTimeoutS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutS = null;
+            if (parseNode.GetChildNode("lifetime_s") is null) { _explicitNullValueLifetimeS = default!; _explicitNullProperties?.Remove("lifetime_s"); }
+            else if (parseNode.GetChildNode("lifetime_s") is { } nullNodeLifetimeS && nullNodeLifetimeS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LifetimeS = null;
         }
 
         /// <summary>Idle timeout in seconds. Must not exceed lifetime_s.</summary>

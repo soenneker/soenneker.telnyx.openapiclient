@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("read_at") is { } nullNodeReadAt && nullNodeReadAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadAt = null;
+            if (parseNode.GetChildNode("read_at") is null) { _explicitNullValueReadAt = default!; _explicitNullProperties?.Remove("read_at"); }
+            else if (parseNode.GetChildNode("read_at") is { } nullNodeReadAt && nullNodeReadAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Set to `true` for server time, an ISO 8601 timestamp for an explicit read time, or `null` to mark unread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt? ReadAt { get => _explicitNullValueReadAt; set { _explicitNullValueReadAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_at"); else _explicitNullProperties?.Remove("read_at"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt? ReadAt { get => _explicitNullValueReadAt; set { _explicitNullValueReadAt = value; AdditionalData?.Remove("read_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_at"); else _explicitNullProperties?.Remove("read_at"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt? _explicitNullValueReadAt = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt ReadAt { get => _explicitNullValueReadAt; set { _explicitNullValueReadAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_at"); else _explicitNullProperties?.Remove("read_at"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt ReadAt { get => _explicitNullValueReadAt; set { _explicitNullValueReadAt = value; AdditionalData?.Remove("read_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_at"); else _explicitNullProperties?.Remove("read_at"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAt _explicitNullValueReadAt = default!;
 #endif
         /// <summary>

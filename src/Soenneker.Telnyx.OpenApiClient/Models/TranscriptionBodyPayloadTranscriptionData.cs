@@ -17,32 +17,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
-            if (parseNode.GetChildNode("is_final") is { } nullNodeIsFinal && nullNodeIsFinal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFinal = null;
-            if (parseNode.GetChildNode("transcript") is { } nullNodeTranscript && nullNodeTranscript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcript = null;
-            if (parseNode.GetChildNode("transcription_track") is { } nullNodeTranscriptionTrack && nullNodeTranscriptionTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionTrack = null;
+            if (parseNode.GetChildNode("confidence") is null) { _explicitNullValueConfidence = default!; _explicitNullProperties?.Remove("confidence"); }
+            else if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("is_final") is null) { _explicitNullValueIsFinal = default!; _explicitNullProperties?.Remove("is_final"); }
+            else if (parseNode.GetChildNode("is_final") is { } nullNodeIsFinal && nullNodeIsFinal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFinal = null;
+            if (parseNode.GetChildNode("transcript") is null) { _explicitNullValueTranscript = default!; _explicitNullProperties?.Remove("transcript"); }
+            else if (parseNode.GetChildNode("transcript") is { } nullNodeTranscript && nullNodeTranscript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcript = null;
+            if (parseNode.GetChildNode("transcription_track") is null) { _explicitNullValueTranscriptionTrack = default!; _explicitNullProperties?.Remove("transcription_track"); }
+            else if (parseNode.GetChildNode("transcription_track") is { } nullNodeTranscriptionTrack && nullNodeTranscriptionTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionTrack = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Speech recognition confidence level. `cohere/ar-stt` returns `null` here rather than omitting the field.</summary>
-        public float? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        public float? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; AdditionalData?.Remove("confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
         private float? _explicitNullValueConfidence = default!;
         /// <summary>When false, it means that this is an interim result.</summary>
-        public bool? IsFinal { get => _explicitNullValueIsFinal; set { _explicitNullValueIsFinal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_final"); else _explicitNullProperties?.Remove("is_final"); } }
+        public bool? IsFinal { get => _explicitNullValueIsFinal; set { _explicitNullValueIsFinal = value; AdditionalData?.Remove("is_final"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_final"); else _explicitNullProperties?.Remove("is_final"); } }
         private bool? _explicitNullValueIsFinal = default!;
         /// <summary>Recognized text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Transcript { get => _explicitNullValueTranscript; set { _explicitNullValueTranscript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript"); else _explicitNullProperties?.Remove("transcript"); } }
+        public string? Transcript { get => _explicitNullValueTranscript; set { _explicitNullValueTranscript = value; AdditionalData?.Remove("transcript"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript"); else _explicitNullProperties?.Remove("transcript"); } }
         private string? _explicitNullValueTranscript = default!;
 #nullable restore
 #else
-        public string Transcript { get => _explicitNullValueTranscript; set { _explicitNullValueTranscript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript"); else _explicitNullProperties?.Remove("transcript"); } }
+        public string Transcript { get => _explicitNullValueTranscript; set { _explicitNullValueTranscript = value; AdditionalData?.Remove("transcript"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript"); else _explicitNullProperties?.Remove("transcript"); } }
         private string _explicitNullValueTranscript = default!;
 #endif
         /// <summary>Indicates which leg of the call has been transcribed. This is only available when `transcription_engine` is set to `B`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionBodyPayloadTranscriptionDataTranscriptionTrack? TranscriptionTrack { get => _explicitNullValueTranscriptionTrack; set { _explicitNullValueTranscriptionTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_track"); else _explicitNullProperties?.Remove("transcription_track"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionBodyPayloadTranscriptionDataTranscriptionTrack? TranscriptionTrack { get => _explicitNullValueTranscriptionTrack; set { _explicitNullValueTranscriptionTrack = value; AdditionalData?.Remove("transcription_track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_track"); else _explicitNullProperties?.Remove("transcription_track"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionBodyPayloadTranscriptionDataTranscriptionTrack? _explicitNullValueTranscriptionTrack = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionBodyPayloadTranscriptionData"/> and sets the default values.
@@ -72,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "confidence", n => { Confidence = n.GetFloatValue(); } },
                 { "is_final", n => { IsFinal = n.GetBoolValue(); } },
                 { "transcript", n => { Transcript = n.GetStringValue(); } },
-                { "transcription_track", n => { TranscriptionTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionBodyPayloadTranscriptionDataTranscriptionTrack>(); } },
+                { "transcription_track", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionBodyPayloadTranscriptionDataTranscriptionTrack>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTranscriptionTrack = default; _explicitNullProperties?.Remove("transcription_track"); AdditionalData["transcription_track"] = unknown; } else { TranscriptionTrack = parsed; AdditionalData.Remove("transcription_track"); } } },
             };
         }
         /// <summary>

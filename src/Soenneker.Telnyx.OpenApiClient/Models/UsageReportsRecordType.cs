@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("product_dimensions") is { } nullNodeProductDimensions && nullNodeProductDimensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductDimensions = null;
-            if (parseNode.GetChildNode("product_metrics") is { } nullNodeProductMetrics && nullNodeProductMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductMetrics = null;
-            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("product_dimensions") is null) { _explicitNullValueProductDimensions = default!; _explicitNullProperties?.Remove("product_dimensions"); }
+            else if (parseNode.GetChildNode("product_dimensions") is { } nullNodeProductDimensions && nullNodeProductDimensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductDimensions = null;
+            if (parseNode.GetChildNode("product_metrics") is null) { _explicitNullValueProductMetrics = default!; _explicitNullProperties?.Remove("product_metrics"); }
+            else if (parseNode.GetChildNode("product_metrics") is { } nullNodeProductMetrics && nullNodeProductMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductMetrics = null;
+            if (parseNode.GetChildNode("record_type") is null) { _explicitNullValueRecordType = default!; _explicitNullProperties?.Remove("record_type"); }
+            else if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Telnyx Product Dimensions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
+        public List<string>? ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; AdditionalData?.Remove("product_dimensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
         private List<string>? _explicitNullValueProductDimensions = default!;
 #nullable restore
 #else
-        public List<string> ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
+        public List<string> ProductDimensions { get => _explicitNullValueProductDimensions; set { _explicitNullValueProductDimensions = value; AdditionalData?.Remove("product_dimensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_dimensions"); else _explicitNullProperties?.Remove("product_dimensions"); } }
         private List<string> _explicitNullValueProductDimensions = default!;
 #endif
         /// <summary>Telnyx Product Metrics</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
+        public List<string>? ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; AdditionalData?.Remove("product_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
         private List<string>? _explicitNullValueProductMetrics = default!;
 #nullable restore
 #else
-        public List<string> ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
+        public List<string> ProductMetrics { get => _explicitNullValueProductMetrics; set { _explicitNullValueProductMetrics = value; AdditionalData?.Remove("product_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_metrics"); else _explicitNullProperties?.Remove("product_metrics"); } }
         private List<string> _explicitNullValueProductMetrics = default!;
 #endif
         /// <summary>Telnyx Product type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string? _explicitNullValueRecordType = default!;
 #nullable restore
 #else
-        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string _explicitNullValueRecordType = default!;
 #endif
         /// <summary>

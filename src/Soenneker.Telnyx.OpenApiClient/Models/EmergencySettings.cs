@@ -18,9 +18,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("emergency_address_id") is { } nullNodeEmergencyAddressId && nullNodeEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyAddressId = null;
-            if (parseNode.GetChildNode("emergency_enabled") is { } nullNodeEmergencyEnabled && nullNodeEmergencyEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyEnabled = null;
-            if (parseNode.GetChildNode("emergency_status") is { } nullNodeEmergencyStatus && nullNodeEmergencyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyStatus = null;
+            if (parseNode.GetChildNode("emergency_address_id") is null) { _explicitNullValueEmergencyAddressId = default!; _explicitNullProperties?.Remove("emergency_address_id"); }
+            else if (parseNode.GetChildNode("emergency_address_id") is { } nullNodeEmergencyAddressId && nullNodeEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyAddressId = null;
+            if (parseNode.GetChildNode("emergency_enabled") is null) { _explicitNullValueEmergencyEnabled = default!; _explicitNullProperties?.Remove("emergency_enabled"); }
+            else if (parseNode.GetChildNode("emergency_enabled") is { } nullNodeEmergencyEnabled && nullNodeEmergencyEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyEnabled = null;
+            if (parseNode.GetChildNode("emergency_status") is null) { _explicitNullValueEmergencyStatus = default!; _explicitNullProperties?.Remove("emergency_status"); }
+            else if (parseNode.GetChildNode("emergency_status") is { } nullNodeEmergencyStatus && nullNodeEmergencyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmergencyStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,18 +31,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the address to be used with emergency services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        public string? EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; AdditionalData?.Remove("emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
         private string? _explicitNullValueEmergencyAddressId = default!;
 #nullable restore
 #else
-        public string EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
+        public string EmergencyAddressId { get => _explicitNullValueEmergencyAddressId; set { _explicitNullValueEmergencyAddressId = value; AdditionalData?.Remove("emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_address_id"); else _explicitNullProperties?.Remove("emergency_address_id"); } }
         private string _explicitNullValueEmergencyAddressId = default!;
 #endif
         /// <summary>Allows you to enable or disable emergency services on the phone number. In order to enable emergency services, you must also set an emergency_address_id.</summary>
-        public bool? EmergencyEnabled { get => _explicitNullValueEmergencyEnabled; set { _explicitNullValueEmergencyEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_enabled"); else _explicitNullProperties?.Remove("emergency_enabled"); } }
+        public bool? EmergencyEnabled { get => _explicitNullValueEmergencyEnabled; set { _explicitNullValueEmergencyEnabled = value; AdditionalData?.Remove("emergency_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_enabled"); else _explicitNullProperties?.Remove("emergency_enabled"); } }
         private bool? _explicitNullValueEmergencyEnabled = default!;
         /// <summary>Represents the state of the number regarding emergency activation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? EmergencyStatus { get => _explicitNullValueEmergencyStatus; set { _explicitNullValueEmergencyStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_status"); else _explicitNullProperties?.Remove("emergency_status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? EmergencyStatus { get => _explicitNullValueEmergencyStatus; set { _explicitNullValueEmergencyStatus = value; AdditionalData?.Remove("emergency_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emergency_status"); else _explicitNullProperties?.Remove("emergency_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus? _explicitNullValueEmergencyStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings"/> and sets the default values.
@@ -69,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
-                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus>(); } },
+                { "emergency_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettingsEmergencyStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEmergencyStatus = default; _explicitNullProperties?.Remove("emergency_status"); AdditionalData["emergency_status"] = unknown; } else { EmergencyStatus = parsed; AdditionalData.Remove("emergency_status"); } } },
             };
         }
         /// <summary>

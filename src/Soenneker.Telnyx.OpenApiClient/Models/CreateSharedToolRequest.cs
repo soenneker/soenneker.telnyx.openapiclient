@@ -18,18 +18,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_side_tool") is { } nullNodeClientSideTool && nullNodeClientSideTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSideTool = null;
-            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
-            if (parseNode.GetChildNode("function") is { } nullNodeFunction && nullNodeFunction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Function = null;
-            if (parseNode.GetChildNode("handoff") is { } nullNodeHandoff && nullNodeHandoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Handoff = null;
-            if (parseNode.GetChildNode("invite") is { } nullNodeInvite && nullNodeInvite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invite = null;
-            if (parseNode.GetChildNode("pay") is { } nullNodePay && nullNodePay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pay = null;
-            if (parseNode.GetChildNode("retrieval") is { } nullNodeRetrieval && nullNodeRetrieval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retrieval = null;
-            if (parseNode.GetChildNode("timeout_ms") is { } nullNodeTimeoutMs && nullNodeTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMs = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("update_dynamic_variables") is { } nullNodeUpdateDynamicVariables && nullNodeUpdateDynamicVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdateDynamicVariables = null;
-            if (parseNode.GetChildNode("vision") is { } nullNodeVision && nullNodeVision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vision = null;
-            if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
+            if (parseNode.GetChildNode("client_side_tool") is null) { _explicitNullValueClientSideTool = default!; _explicitNullProperties?.Remove("client_side_tool"); }
+            else if (parseNode.GetChildNode("client_side_tool") is { } nullNodeClientSideTool && nullNodeClientSideTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSideTool = null;
+            if (parseNode.GetChildNode("display_name") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("display_name"); }
+            else if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("function") is null) { _explicitNullValueFunction = default!; _explicitNullProperties?.Remove("function"); }
+            else if (parseNode.GetChildNode("function") is { } nullNodeFunction && nullNodeFunction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Function = null;
+            if (parseNode.GetChildNode("handoff") is null) { _explicitNullValueHandoff = default!; _explicitNullProperties?.Remove("handoff"); }
+            else if (parseNode.GetChildNode("handoff") is { } nullNodeHandoff && nullNodeHandoff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Handoff = null;
+            if (parseNode.GetChildNode("invite") is null) { _explicitNullValueInvite = default!; _explicitNullProperties?.Remove("invite"); }
+            else if (parseNode.GetChildNode("invite") is { } nullNodeInvite && nullNodeInvite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invite = null;
+            if (parseNode.GetChildNode("pay") is null) { _explicitNullValuePay = default!; _explicitNullProperties?.Remove("pay"); }
+            else if (parseNode.GetChildNode("pay") is { } nullNodePay && nullNodePay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pay = null;
+            if (parseNode.GetChildNode("retrieval") is null) { _explicitNullValueRetrieval = default!; _explicitNullProperties?.Remove("retrieval"); }
+            else if (parseNode.GetChildNode("retrieval") is { } nullNodeRetrieval && nullNodeRetrieval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retrieval = null;
+            if (parseNode.GetChildNode("timeout_ms") is null) { _explicitNullValueTimeoutMs = default!; _explicitNullProperties?.Remove("timeout_ms"); }
+            else if (parseNode.GetChildNode("timeout_ms") is { } nullNodeTimeoutMs && nullNodeTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMs = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("update_dynamic_variables") is null) { _explicitNullValueUpdateDynamicVariables = default!; _explicitNullProperties?.Remove("update_dynamic_variables"); }
+            else if (parseNode.GetChildNode("update_dynamic_variables") is { } nullNodeUpdateDynamicVariables && nullNodeUpdateDynamicVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdateDynamicVariables = null;
+            if (parseNode.GetChildNode("vision") is null) { _explicitNullValueVision = default!; _explicitNullProperties?.Remove("vision"); }
+            else if (parseNode.GetChildNode("vision") is { } nullNodeVision && nullNodeVision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vision = null;
+            if (parseNode.GetChildNode("webhook") is null) { _explicitNullValueWebhook = default!; _explicitNullProperties?.Remove("webhook"); }
+            else if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,114 +49,114 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The client_side_tool property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty? ClientSideTool { get => _explicitNullValueClientSideTool; set { _explicitNullValueClientSideTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_side_tool"); else _explicitNullProperties?.Remove("client_side_tool"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty? ClientSideTool { get => _explicitNullValueClientSideTool; set { _explicitNullValueClientSideTool = value; AdditionalData?.Remove("client_side_tool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_side_tool"); else _explicitNullProperties?.Remove("client_side_tool"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty? _explicitNullValueClientSideTool = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty ClientSideTool { get => _explicitNullValueClientSideTool; set { _explicitNullValueClientSideTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_side_tool"); else _explicitNullProperties?.Remove("client_side_tool"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty ClientSideTool { get => _explicitNullValueClientSideTool; set { _explicitNullValueClientSideTool = value; AdditionalData?.Remove("client_side_tool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_side_tool"); else _explicitNullProperties?.Remove("client_side_tool"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestClientSideToolProperty _explicitNullValueClientSideTool = default!;
 #endif
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
         private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
         private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The function property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty? Function { get => _explicitNullValueFunction; set { _explicitNullValueFunction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function"); else _explicitNullProperties?.Remove("function"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty? Function { get => _explicitNullValueFunction; set { _explicitNullValueFunction = value; AdditionalData?.Remove("function"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function"); else _explicitNullProperties?.Remove("function"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty? _explicitNullValueFunction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty Function { get => _explicitNullValueFunction; set { _explicitNullValueFunction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function"); else _explicitNullProperties?.Remove("function"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty Function { get => _explicitNullValueFunction; set { _explicitNullValueFunction = value; AdditionalData?.Remove("function"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function"); else _explicitNullProperties?.Remove("function"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestFunctionProperty _explicitNullValueFunction = default!;
 #endif
         /// <summary>The handoff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty? Handoff { get => _explicitNullValueHandoff; set { _explicitNullValueHandoff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handoff"); else _explicitNullProperties?.Remove("handoff"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty? Handoff { get => _explicitNullValueHandoff; set { _explicitNullValueHandoff = value; AdditionalData?.Remove("handoff"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handoff"); else _explicitNullProperties?.Remove("handoff"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty? _explicitNullValueHandoff = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty Handoff { get => _explicitNullValueHandoff; set { _explicitNullValueHandoff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handoff"); else _explicitNullProperties?.Remove("handoff"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty Handoff { get => _explicitNullValueHandoff; set { _explicitNullValueHandoff = value; AdditionalData?.Remove("handoff"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handoff"); else _explicitNullProperties?.Remove("handoff"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestHandoffProperty _explicitNullValueHandoff = default!;
 #endif
         /// <summary>The invite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty? Invite { get => _explicitNullValueInvite; set { _explicitNullValueInvite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite"); else _explicitNullProperties?.Remove("invite"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty? Invite { get => _explicitNullValueInvite; set { _explicitNullValueInvite = value; AdditionalData?.Remove("invite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite"); else _explicitNullProperties?.Remove("invite"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty? _explicitNullValueInvite = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty Invite { get => _explicitNullValueInvite; set { _explicitNullValueInvite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite"); else _explicitNullProperties?.Remove("invite"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty Invite { get => _explicitNullValueInvite; set { _explicitNullValueInvite = value; AdditionalData?.Remove("invite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite"); else _explicitNullProperties?.Remove("invite"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestInviteProperty _explicitNullValueInvite = default!;
 #endif
         /// <summary>The pay property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams? Pay { get => _explicitNullValuePay; set { _explicitNullValuePay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pay"); else _explicitNullProperties?.Remove("pay"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams? Pay { get => _explicitNullValuePay; set { _explicitNullValuePay = value; AdditionalData?.Remove("pay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pay"); else _explicitNullProperties?.Remove("pay"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams? _explicitNullValuePay = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams Pay { get => _explicitNullValuePay; set { _explicitNullValuePay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pay"); else _explicitNullProperties?.Remove("pay"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams Pay { get => _explicitNullValuePay; set { _explicitNullValuePay = value; AdditionalData?.Remove("pay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pay"); else _explicitNullProperties?.Remove("pay"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParams _explicitNullValuePay = default!;
 #endif
         /// <summary>The retrieval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty? Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty? Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; AdditionalData?.Remove("retrieval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty? _explicitNullValueRetrieval = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty Retrieval { get => _explicitNullValueRetrieval; set { _explicitNullValueRetrieval = value; AdditionalData?.Remove("retrieval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval"); else _explicitNullProperties?.Remove("retrieval"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestRetrievalProperty _explicitNullValueRetrieval = default!;
 #endif
         /// <summary>The timeout_ms property</summary>
-        public int? TimeoutMs { get => _explicitNullValueTimeoutMs; set { _explicitNullValueTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_ms"); else _explicitNullProperties?.Remove("timeout_ms"); } }
+        public int? TimeoutMs { get => _explicitNullValueTimeoutMs; set { _explicitNullValueTimeoutMs = value; AdditionalData?.Remove("timeout_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_ms"); else _explicitNullProperties?.Remove("timeout_ms"); } }
         private int? _explicitNullValueTimeoutMs = default!;
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string _explicitNullValueType = default!;
 #endif
         /// <summary>Configuration for an update_dynamic_variables tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams? UpdateDynamicVariables { get => _explicitNullValueUpdateDynamicVariables; set { _explicitNullValueUpdateDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("update_dynamic_variables"); else _explicitNullProperties?.Remove("update_dynamic_variables"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams? UpdateDynamicVariables { get => _explicitNullValueUpdateDynamicVariables; set { _explicitNullValueUpdateDynamicVariables = value; AdditionalData?.Remove("update_dynamic_variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("update_dynamic_variables"); else _explicitNullProperties?.Remove("update_dynamic_variables"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams? _explicitNullValueUpdateDynamicVariables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams UpdateDynamicVariables { get => _explicitNullValueUpdateDynamicVariables; set { _explicitNullValueUpdateDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("update_dynamic_variables"); else _explicitNullProperties?.Remove("update_dynamic_variables"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams UpdateDynamicVariables { get => _explicitNullValueUpdateDynamicVariables; set { _explicitNullValueUpdateDynamicVariables = value; AdditionalData?.Remove("update_dynamic_variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("update_dynamic_variables"); else _explicitNullProperties?.Remove("update_dynamic_variables"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateDynamicVariablesToolParams _explicitNullValueUpdateDynamicVariables = default!;
 #endif
         /// <summary>The vision property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams? Vision { get => _explicitNullValueVision; set { _explicitNullValueVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vision"); else _explicitNullProperties?.Remove("vision"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams? Vision { get => _explicitNullValueVision; set { _explicitNullValueVision = value; AdditionalData?.Remove("vision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vision"); else _explicitNullProperties?.Remove("vision"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams? _explicitNullValueVision = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams Vision { get => _explicitNullValueVision; set { _explicitNullValueVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vision"); else _explicitNullProperties?.Remove("vision"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams Vision { get => _explicitNullValueVision; set { _explicitNullValueVision = value; AdditionalData?.Remove("vision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vision"); else _explicitNullProperties?.Remove("vision"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.VisionToolParams _explicitNullValueVision = default!;
 #endif
         /// <summary>The webhook property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; AdditionalData?.Remove("webhook"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty? _explicitNullValueWebhook = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; AdditionalData?.Remove("webhook"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateSharedToolRequestWebhookProperty _explicitNullValueWebhook = default!;
 #endif
         /// <summary>

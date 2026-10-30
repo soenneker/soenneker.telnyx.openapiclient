@@ -17,57 +17,64 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("BidirectionalCodec") is { } nullNodeBidirectionalCodec && nullNodeBidirectionalCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BidirectionalCodec = null;
-            if (parseNode.GetChildNode("BidirectionalMode") is { } nullNodeBidirectionalMode && nullNodeBidirectionalMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BidirectionalMode = null;
-            if (parseNode.GetChildNode("Name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("StatusCallback") is { } nullNodeStatusCallback && nullNodeStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallback = null;
-            if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
-            if (parseNode.GetChildNode("Track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
-            if (parseNode.GetChildNode("Url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("BidirectionalCodec") is null) { _explicitNullValueBidirectionalCodec = default!; _explicitNullProperties?.Remove("BidirectionalCodec"); }
+            else if (parseNode.GetChildNode("BidirectionalCodec") is { } nullNodeBidirectionalCodec && nullNodeBidirectionalCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BidirectionalCodec = null;
+            if (parseNode.GetChildNode("BidirectionalMode") is null) { _explicitNullValueBidirectionalMode = default!; _explicitNullProperties?.Remove("BidirectionalMode"); }
+            else if (parseNode.GetChildNode("BidirectionalMode") is { } nullNodeBidirectionalMode && nullNodeBidirectionalMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BidirectionalMode = null;
+            if (parseNode.GetChildNode("Name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("Name"); }
+            else if (parseNode.GetChildNode("Name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("StatusCallback") is null) { _explicitNullValueStatusCallback = default!; _explicitNullProperties?.Remove("StatusCallback"); }
+            else if (parseNode.GetChildNode("StatusCallback") is { } nullNodeStatusCallback && nullNodeStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallback = null;
+            if (parseNode.GetChildNode("StatusCallbackMethod") is null) { _explicitNullValueStatusCallbackMethod = default!; _explicitNullProperties?.Remove("StatusCallbackMethod"); }
+            else if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
+            if (parseNode.GetChildNode("Track") is null) { _explicitNullValueTrack = default!; _explicitNullProperties?.Remove("Track"); }
+            else if (parseNode.GetChildNode("Track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
+            if (parseNode.GetChildNode("Url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("Url"); }
+            else if (parseNode.GetChildNode("Url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? BidirectionalCodec { get => _explicitNullValueBidirectionalCodec; set { _explicitNullValueBidirectionalCodec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BidirectionalCodec"); else _explicitNullProperties?.Remove("BidirectionalCodec"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? BidirectionalCodec { get => _explicitNullValueBidirectionalCodec; set { _explicitNullValueBidirectionalCodec = value; AdditionalData?.Remove("BidirectionalCodec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BidirectionalCodec"); else _explicitNullProperties?.Remove("BidirectionalCodec"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? _explicitNullValueBidirectionalCodec = default!;
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? BidirectionalMode { get => _explicitNullValueBidirectionalMode; set { _explicitNullValueBidirectionalMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BidirectionalMode"); else _explicitNullProperties?.Remove("BidirectionalMode"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? BidirectionalMode { get => _explicitNullValueBidirectionalMode; set { _explicitNullValueBidirectionalMode = value; AdditionalData?.Remove("BidirectionalMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("BidirectionalMode"); else _explicitNullProperties?.Remove("BidirectionalMode"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? _explicitNullValueBidirectionalMode = default!;
         /// <summary>The user specified name of Stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Name"); else _explicitNullProperties?.Remove("Name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("Name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Name"); else _explicitNullProperties?.Remove("Name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Name"); else _explicitNullProperties?.Remove("Name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("Name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Name"); else _explicitNullProperties?.Remove("Name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Url where status callbacks will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        public string? StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; AdditionalData?.Remove("StatusCallback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
         private string? _explicitNullValueStatusCallback = default!;
 #nullable restore
 #else
-        public string StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
+        public string StatusCallback { get => _explicitNullValueStatusCallback; set { _explicitNullValueStatusCallback = value; AdditionalData?.Remove("StatusCallback"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallback"); else _explicitNullProperties?.Remove("StatusCallback"); } }
         private string _explicitNullValueStatusCallback = default!;
 #endif
         /// <summary>HTTP method used to send status callbacks.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; AdditionalData?.Remove("StatusCallbackMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? _explicitNullValueStatusCallbackMethod = default!;
         /// <summary>Tracks to be included in the stream</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Track"); else _explicitNullProperties?.Remove("Track"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; AdditionalData?.Remove("Track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Track"); else _explicitNullProperties?.Remove("Track"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? _explicitNullValueTrack = default!;
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("Url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("Url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Url"); else _explicitNullProperties?.Remove("Url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
@@ -95,12 +102,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "BidirectionalCodec", n => { BidirectionalCodec = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec>(); } },
-                { "BidirectionalMode", n => { BidirectionalMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode>(); } },
+                { "BidirectionalCodec", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBidirectionalCodec = default; _explicitNullProperties?.Remove("BidirectionalCodec"); AdditionalData["BidirectionalCodec"] = unknown; } else { BidirectionalCodec = parsed; AdditionalData.Remove("BidirectionalCodec"); } } },
+                { "BidirectionalMode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBidirectionalMode = default; _explicitNullProperties?.Remove("BidirectionalMode"); AdditionalData["BidirectionalMode"] = unknown; } else { BidirectionalMode = parsed; AdditionalData.Remove("BidirectionalMode"); } } },
                 { "Name", n => { Name = n.GetStringValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>(); } },
-                { "Track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack>(); } },
+                { "StatusCallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatusCallbackMethod = default; _explicitNullProperties?.Remove("StatusCallbackMethod"); AdditionalData["StatusCallbackMethod"] = unknown; } else { StatusCallbackMethod = parsed; AdditionalData.Remove("StatusCallbackMethod"); } } },
+                { "Track", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTrack = default; _explicitNullProperties?.Remove("Track"); AdditionalData["Track"] = unknown; } else { Track = parsed; AdditionalData.Remove("Track"); } } },
                 { "Url", n => { Url = n.GetStringValue(); } },
             };
         }

@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bucket_name") is { } nullNodeBucketName && nullNodeBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketName = null;
-            if (parseNode.GetChildNode("document_chunk_overlap_size") is { } nullNodeDocumentChunkOverlapSize && nullNodeDocumentChunkOverlapSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentChunkOverlapSize = null;
-            if (parseNode.GetChildNode("document_chunk_size") is { } nullNodeDocumentChunkSize && nullNodeDocumentChunkSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentChunkSize = null;
-            if (parseNode.GetChildNode("embedding_model") is { } nullNodeEmbeddingModel && nullNodeEmbeddingModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbeddingModel = null;
-            if (parseNode.GetChildNode("loader") is { } nullNodeLoader && nullNodeLoader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Loader = null;
+            if (parseNode.GetChildNode("bucket_name") is null) { _explicitNullValueBucketName = default!; _explicitNullProperties?.Remove("bucket_name"); }
+            else if (parseNode.GetChildNode("bucket_name") is { } nullNodeBucketName && nullNodeBucketName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BucketName = null;
+            if (parseNode.GetChildNode("document_chunk_overlap_size") is null) { _explicitNullValueDocumentChunkOverlapSize = default!; _explicitNullProperties?.Remove("document_chunk_overlap_size"); }
+            else if (parseNode.GetChildNode("document_chunk_overlap_size") is { } nullNodeDocumentChunkOverlapSize && nullNodeDocumentChunkOverlapSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentChunkOverlapSize = null;
+            if (parseNode.GetChildNode("document_chunk_size") is null) { _explicitNullValueDocumentChunkSize = default!; _explicitNullProperties?.Remove("document_chunk_size"); }
+            else if (parseNode.GetChildNode("document_chunk_size") is { } nullNodeDocumentChunkSize && nullNodeDocumentChunkSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentChunkSize = null;
+            if (parseNode.GetChildNode("embedding_model") is null) { _explicitNullValueEmbeddingModel = default!; _explicitNullProperties?.Remove("embedding_model"); }
+            else if (parseNode.GetChildNode("embedding_model") is { } nullNodeEmbeddingModel && nullNodeEmbeddingModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbeddingModel = null;
+            if (parseNode.GetChildNode("loader") is null) { _explicitNullValueLoader = default!; _explicitNullProperties?.Remove("loader"); }
+            else if (parseNode.GetChildNode("loader") is { } nullNodeLoader && nullNodeLoader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Loader = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,24 +34,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The bucket_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
+        public string? BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; AdditionalData?.Remove("bucket_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
         private string? _explicitNullValueBucketName = default!;
 #nullable restore
 #else
-        public string BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
+        public string BucketName { get => _explicitNullValueBucketName; set { _explicitNullValueBucketName = value; AdditionalData?.Remove("bucket_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_name"); else _explicitNullProperties?.Remove("bucket_name"); } }
         private string _explicitNullValueBucketName = default!;
 #endif
         /// <summary>The document_chunk_overlap_size property</summary>
-        public int? DocumentChunkOverlapSize { get => _explicitNullValueDocumentChunkOverlapSize; set { _explicitNullValueDocumentChunkOverlapSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_chunk_overlap_size"); else _explicitNullProperties?.Remove("document_chunk_overlap_size"); } }
+        public int? DocumentChunkOverlapSize { get => _explicitNullValueDocumentChunkOverlapSize; set { _explicitNullValueDocumentChunkOverlapSize = value; AdditionalData?.Remove("document_chunk_overlap_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_chunk_overlap_size"); else _explicitNullProperties?.Remove("document_chunk_overlap_size"); } }
         private int? _explicitNullValueDocumentChunkOverlapSize = default!;
         /// <summary>The document_chunk_size property</summary>
-        public int? DocumentChunkSize { get => _explicitNullValueDocumentChunkSize; set { _explicitNullValueDocumentChunkSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_chunk_size"); else _explicitNullProperties?.Remove("document_chunk_size"); } }
+        public int? DocumentChunkSize { get => _explicitNullValueDocumentChunkSize; set { _explicitNullValueDocumentChunkSize = value; AdditionalData?.Remove("document_chunk_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_chunk_size"); else _explicitNullProperties?.Remove("document_chunk_size"); } }
         private int? _explicitNullValueDocumentChunkSize = default!;
         /// <summary>Supported models to vectorize and embed documents.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel? EmbeddingModel { get => _explicitNullValueEmbeddingModel; set { _explicitNullValueEmbeddingModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embedding_model"); else _explicitNullProperties?.Remove("embedding_model"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel? EmbeddingModel { get => _explicitNullValueEmbeddingModel; set { _explicitNullValueEmbeddingModel = value; AdditionalData?.Remove("embedding_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embedding_model"); else _explicitNullProperties?.Remove("embedding_model"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel? _explicitNullValueEmbeddingModel = default!;
         /// <summary>Supported types of custom document loaders for embeddings.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader? Loader { get => _explicitNullValueLoader; set { _explicitNullValueLoader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loader"); else _explicitNullProperties?.Remove("loader"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader? Loader { get => _explicitNullValueLoader; set { _explicitNullValueLoader = value; AdditionalData?.Remove("loader"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loader"); else _explicitNullProperties?.Remove("loader"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader? _explicitNullValueLoader = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest"/> and sets the default values.
@@ -78,8 +83,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "bucket_name", n => { BucketName = n.GetStringValue(); } },
                 { "document_chunk_overlap_size", n => { DocumentChunkOverlapSize = n.GetIntValue(); } },
                 { "document_chunk_size", n => { DocumentChunkSize = n.GetIntValue(); } },
-                { "embedding_model", n => { EmbeddingModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel>(); } },
-                { "loader", n => { Loader = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader>(); } },
+                { "embedding_model", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestEmbeddingModel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEmbeddingModel = default; _explicitNullProperties?.Remove("embedding_model"); AdditionalData["embedding_model"] = unknown; } else { EmbeddingModel = parsed; AdditionalData.Remove("embedding_model"); } } },
+                { "loader", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequestLoader>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLoader = default; _explicitNullProperties?.Remove("loader"); AdditionalData["loader"] = unknown; } else { Loader = parsed; AdditionalData.Remove("loader"); } } },
             };
         }
         /// <summary>

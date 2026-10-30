@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agreements") is { } nullNodeAgreements && nullNodeAgreements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agreements = null;
+            if (parseNode.GetChildNode("agreements") is null) { _explicitNullValueAgreements = default!; _explicitNullProperties?.Remove("agreements"); }
+            else if (parseNode.GetChildNode("agreements") is { } nullNodeAgreements && nullNodeAgreements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agreements = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The agreements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TermsOfServiceInfoItem>? Agreements { get => _explicitNullValueAgreements; set { _explicitNullValueAgreements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreements"); else _explicitNullProperties?.Remove("agreements"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TermsOfServiceInfoItem>? Agreements { get => _explicitNullValueAgreements; set { _explicitNullValueAgreements = value; AdditionalData?.Remove("agreements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreements"); else _explicitNullProperties?.Remove("agreements"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.TermsOfServiceInfoItem>? _explicitNullValueAgreements = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TermsOfServiceInfoItem> Agreements { get => _explicitNullValueAgreements; set { _explicitNullValueAgreements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreements"); else _explicitNullProperties?.Remove("agreements"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TermsOfServiceInfoItem> Agreements { get => _explicitNullValueAgreements; set { _explicitNullValueAgreements = value; AdditionalData?.Remove("agreements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agreements"); else _explicitNullProperties?.Remove("agreements"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.TermsOfServiceInfoItem> _explicitNullValueAgreements = default!;
 #endif
         /// <summary>

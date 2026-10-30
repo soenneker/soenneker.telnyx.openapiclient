@@ -17,65 +17,73 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("check_frequency") is { } nullNodeCheckFrequency && nullNodeCheckFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckFrequency = null;
-            if (parseNode.GetChildNode("enterprise_id") is { } nullNodeEnterpriseId && nullNodeEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseId = null;
-            if (parseNode.GetChildNode("external_verification_status") is { } nullNodeExternalVerificationStatus && nullNodeExternalVerificationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalVerificationStatus = null;
-            if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
-            if (parseNode.GetChildNode("loa_status") is { } nullNodeLoaStatus && nullNodeLoaStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaStatus = null;
-            if (parseNode.GetChildNode("rejection_reasons") is { } nullNodeRejectionReasons && nullNodeRejectionReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RejectionReasons = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+            if (parseNode.GetChildNode("check_frequency") is null) { _explicitNullValueCheckFrequency = default!; _explicitNullProperties?.Remove("check_frequency"); }
+            else if (parseNode.GetChildNode("check_frequency") is { } nullNodeCheckFrequency && nullNodeCheckFrequency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckFrequency = null;
+            if (parseNode.GetChildNode("enterprise_id") is null) { _explicitNullValueEnterpriseId = default!; _explicitNullProperties?.Remove("enterprise_id"); }
+            else if (parseNode.GetChildNode("enterprise_id") is { } nullNodeEnterpriseId && nullNodeEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseId = null;
+            if (parseNode.GetChildNode("external_verification_status") is null) { _explicitNullValueExternalVerificationStatus = default!; _explicitNullProperties?.Remove("external_verification_status"); }
+            else if (parseNode.GetChildNode("external_verification_status") is { } nullNodeExternalVerificationStatus && nullNodeExternalVerificationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalVerificationStatus = null;
+            if (parseNode.GetChildNode("loa_document_id") is null) { _explicitNullValueLoaDocumentId = default!; _explicitNullProperties?.Remove("loa_document_id"); }
+            else if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
+            if (parseNode.GetChildNode("loa_status") is null) { _explicitNullValueLoaStatus = default!; _explicitNullProperties?.Remove("loa_status"); }
+            else if (parseNode.GetChildNode("loa_status") is { } nullNodeLoaStatus && nullNodeLoaStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaStatus = null;
+            if (parseNode.GetChildNode("rejection_reasons") is null) { _explicitNullValueRejectionReasons = default!; _explicitNullProperties?.Remove("rejection_reasons"); }
+            else if (parseNode.GetChildNode("rejection_reasons") is { } nullNodeRejectionReasons && nullNodeRejectionReasons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RejectionReasons = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
+            else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How often Telnyx refreshes the stored reputation data for this enterprise&apos;s registered numbers.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency? CheckFrequency { get => _explicitNullValueCheckFrequency; set { _explicitNullValueCheckFrequency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_frequency"); else _explicitNullProperties?.Remove("check_frequency"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency? CheckFrequency { get => _explicitNullValueCheckFrequency; set { _explicitNullValueCheckFrequency = value; AdditionalData?.Remove("check_frequency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_frequency"); else _explicitNullProperties?.Remove("check_frequency"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency? _explicitNullValueCheckFrequency = default!;
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The enterprise_id property</summary>
-        public Guid? EnterpriseId { get => _explicitNullValueEnterpriseId; set { _explicitNullValueEnterpriseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_id"); else _explicitNullProperties?.Remove("enterprise_id"); } }
+        public Guid? EnterpriseId { get => _explicitNullValueEnterpriseId; set { _explicitNullValueEnterpriseId = value; AdditionalData?.Remove("enterprise_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_id"); else _explicitNullProperties?.Remove("enterprise_id"); } }
         private Guid? _explicitNullValueEnterpriseId = default!;
         /// <summary>Review state of the enterprise&apos;s ownership proof for numbers hosted with another provider. `null` when no proof was submitted.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatus? ExternalVerificationStatus { get => _explicitNullValueExternalVerificationStatus; set { _explicitNullValueExternalVerificationStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_verification_status"); else _explicitNullProperties?.Remove("external_verification_status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatus? ExternalVerificationStatus { get => _explicitNullValueExternalVerificationStatus; set { _explicitNullValueExternalVerificationStatus = value; AdditionalData?.Remove("external_verification_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_verification_status"); else _explicitNullProperties?.Remove("external_verification_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatus? _explicitNullValueExternalVerificationStatus = default!;
         /// <summary>Id of the signed LOA document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        public string? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; AdditionalData?.Remove("loa_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
         private string? _explicitNullValueLoaDocumentId = default!;
 #nullable restore
 #else
-        public string LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        public string LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; AdditionalData?.Remove("loa_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
         private string _explicitNullValueLoaDocumentId = default!;
 #endif
         /// <summary>Customer-facing Letter-of-Authorization verification state. `approved` is required (alongside reputation status) before phone numbers can be added.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic? LoaStatus { get => _explicitNullValueLoaStatus; set { _explicitNullValueLoaStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_status"); else _explicitNullProperties?.Remove("loa_status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic? LoaStatus { get => _explicitNullValueLoaStatus; set { _explicitNullValueLoaStatus = value; AdditionalData?.Remove("loa_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_status"); else _explicitNullProperties?.Remove("loa_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic? _explicitNullValueLoaStatus = default!;
         /// <summary>Populated when `status` is `rejected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RejectionReasons { get => _explicitNullValueRejectionReasons; set { _explicitNullValueRejectionReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reasons"); else _explicitNullProperties?.Remove("rejection_reasons"); } }
+        public List<string>? RejectionReasons { get => _explicitNullValueRejectionReasons; set { _explicitNullValueRejectionReasons = value; AdditionalData?.Remove("rejection_reasons"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reasons"); else _explicitNullProperties?.Remove("rejection_reasons"); } }
         private List<string>? _explicitNullValueRejectionReasons = default!;
 #nullable restore
 #else
-        public List<string> RejectionReasons { get => _explicitNullValueRejectionReasons; set { _explicitNullValueRejectionReasons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reasons"); else _explicitNullProperties?.Remove("rejection_reasons"); } }
+        public List<string> RejectionReasons { get => _explicitNullValueRejectionReasons; set { _explicitNullValueRejectionReasons = value; AdditionalData?.Remove("rejection_reasons"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reasons"); else _explicitNullProperties?.Remove("rejection_reasons"); } }
         private List<string> _explicitNullValueRejectionReasons = default!;
 #endif
         /// <summary>Lifecycle status of the enterprise&apos;s Phone Number Reputation activation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus? _explicitNullValueStatus = default!;
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>HTTPS URL that receives number-ownership webhook events for this enterprise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
@@ -103,14 +111,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "check_frequency", n => { CheckFrequency = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>(); } },
+                { "check_frequency", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationCheckFrequency>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCheckFrequency = default; _explicitNullProperties?.Remove("check_frequency"); AdditionalData["check_frequency"] = unknown; } else { CheckFrequency = parsed; AdditionalData.Remove("check_frequency"); } } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
-                { "external_verification_status", n => { ExternalVerificationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatus>(); } },
+                { "external_verification_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVerificationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExternalVerificationStatus = default; _explicitNullProperties?.Remove("external_verification_status"); AdditionalData["external_verification_status"] = unknown; } else { ExternalVerificationStatus = parsed; AdditionalData.Remove("external_verification_status"); } } },
                 { "loa_document_id", n => { LoaDocumentId = n.GetStringValue(); } },
-                { "loa_status", n => { LoaStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic>(); } },
+                { "loa_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationLoaStatusPublic>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLoaStatus = default; _explicitNullProperties?.Remove("loa_status"); AdditionalData["loa_status"] = unknown; } else { LoaStatus = parsed; AdditionalData.Remove("loa_status"); } } },
                 { "rejection_reasons", n => { RejectionReasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };

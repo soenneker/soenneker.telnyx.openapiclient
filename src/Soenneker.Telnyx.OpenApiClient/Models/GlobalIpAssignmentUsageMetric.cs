@@ -17,11 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_ip") is { } nullNodeGlobalIp && nullNodeGlobalIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIp = null;
-            if (parseNode.GetChildNode("global_ip_assignment") is { } nullNodeGlobalIpAssignment && nullNodeGlobalIpAssignment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpAssignment = null;
-            if (parseNode.GetChildNode("received") is { } nullNodeReceived && nullNodeReceived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Received = null;
-            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
-            if (parseNode.GetChildNode("transmitted") is { } nullNodeTransmitted && nullNodeTransmitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transmitted = null;
+            if (parseNode.GetChildNode("global_ip") is null) { _explicitNullValueGlobalIp = default!; _explicitNullProperties?.Remove("global_ip"); }
+            else if (parseNode.GetChildNode("global_ip") is { } nullNodeGlobalIp && nullNodeGlobalIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIp = null;
+            if (parseNode.GetChildNode("global_ip_assignment") is null) { _explicitNullValueGlobalIpAssignment = default!; _explicitNullProperties?.Remove("global_ip_assignment"); }
+            else if (parseNode.GetChildNode("global_ip_assignment") is { } nullNodeGlobalIpAssignment && nullNodeGlobalIpAssignment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpAssignment = null;
+            if (parseNode.GetChildNode("received") is null) { _explicitNullValueReceived = default!; _explicitNullProperties?.Remove("received"); }
+            else if (parseNode.GetChildNode("received") is { } nullNodeReceived && nullNodeReceived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Received = null;
+            if (parseNode.GetChildNode("timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("timestamp"); }
+            else if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("transmitted") is null) { _explicitNullValueTransmitted = default!; _explicitNullProperties?.Remove("transmitted"); }
+            else if (parseNode.GetChildNode("transmitted") is { } nullNodeTransmitted && nullNodeTransmitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transmitted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp? GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp? GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; AdditionalData?.Remove("global_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp? _explicitNullValueGlobalIp = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; AdditionalData?.Remove("global_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp _explicitNullValueGlobalIp = default!;
 #endif
         /// <summary>The global_ip_assignment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment? GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment? GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; AdditionalData?.Remove("global_ip_assignment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment? _explicitNullValueGlobalIpAssignment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; AdditionalData?.Remove("global_ip_assignment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment _explicitNullValueGlobalIpAssignment = default!;
 #endif
         /// <summary>The received property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived? Received { get => _explicitNullValueReceived; set { _explicitNullValueReceived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received"); else _explicitNullProperties?.Remove("received"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived? Received { get => _explicitNullValueReceived; set { _explicitNullValueReceived = value; AdditionalData?.Remove("received"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received"); else _explicitNullProperties?.Remove("received"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived? _explicitNullValueReceived = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived Received { get => _explicitNullValueReceived; set { _explicitNullValueReceived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received"); else _explicitNullProperties?.Remove("received"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived Received { get => _explicitNullValueReceived; set { _explicitNullValueReceived = value; AdditionalData?.Remove("received"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received"); else _explicitNullProperties?.Remove("received"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived _explicitNullValueReceived = default!;
 #endif
         /// <summary>The timestamp of the metric.</summary>
-        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
         private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>The transmitted property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted? Transmitted { get => _explicitNullValueTransmitted; set { _explicitNullValueTransmitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transmitted"); else _explicitNullProperties?.Remove("transmitted"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted? Transmitted { get => _explicitNullValueTransmitted; set { _explicitNullValueTransmitted = value; AdditionalData?.Remove("transmitted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transmitted"); else _explicitNullProperties?.Remove("transmitted"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted? _explicitNullValueTransmitted = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted Transmitted { get => _explicitNullValueTransmitted; set { _explicitNullValueTransmitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transmitted"); else _explicitNullProperties?.Remove("transmitted"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted Transmitted { get => _explicitNullValueTransmitted; set { _explicitNullValueTransmitted = value; AdditionalData?.Remove("transmitted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transmitted"); else _explicitNullProperties?.Remove("transmitted"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted _explicitNullValueTransmitted = default!;
 #endif
         /// <summary>

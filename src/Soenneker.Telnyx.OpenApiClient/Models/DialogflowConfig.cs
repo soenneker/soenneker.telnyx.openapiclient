@@ -17,17 +17,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("analyze_sentiment") is { } nullNodeAnalyzeSentiment && nullNodeAnalyzeSentiment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalyzeSentiment = null;
-            if (parseNode.GetChildNode("partial_automated_agent_reply") is { } nullNodePartialAutomatedAgentReply && nullNodePartialAutomatedAgentReply.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialAutomatedAgentReply = null;
+            if (parseNode.GetChildNode("analyze_sentiment") is null) { _explicitNullValueAnalyzeSentiment = default!; _explicitNullProperties?.Remove("analyze_sentiment"); }
+            else if (parseNode.GetChildNode("analyze_sentiment") is { } nullNodeAnalyzeSentiment && nullNodeAnalyzeSentiment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalyzeSentiment = null;
+            if (parseNode.GetChildNode("partial_automated_agent_reply") is null) { _explicitNullValuePartialAutomatedAgentReply = default!; _explicitNullProperties?.Remove("partial_automated_agent_reply"); }
+            else if (parseNode.GetChildNode("partial_automated_agent_reply") is { } nullNodePartialAutomatedAgentReply && nullNodePartialAutomatedAgentReply.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialAutomatedAgentReply = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable sentiment analysis from Dialogflow.</summary>
-        public bool? AnalyzeSentiment { get => _explicitNullValueAnalyzeSentiment; set { _explicitNullValueAnalyzeSentiment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analyze_sentiment"); else _explicitNullProperties?.Remove("analyze_sentiment"); } }
+        public bool? AnalyzeSentiment { get => _explicitNullValueAnalyzeSentiment; set { _explicitNullValueAnalyzeSentiment = value; AdditionalData?.Remove("analyze_sentiment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analyze_sentiment"); else _explicitNullProperties?.Remove("analyze_sentiment"); } }
         private bool? _explicitNullValueAnalyzeSentiment = default!;
         /// <summary>Enable partial automated agent reply from Dialogflow.</summary>
-        public bool? PartialAutomatedAgentReply { get => _explicitNullValuePartialAutomatedAgentReply; set { _explicitNullValuePartialAutomatedAgentReply = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_automated_agent_reply"); else _explicitNullProperties?.Remove("partial_automated_agent_reply"); } }
+        public bool? PartialAutomatedAgentReply { get => _explicitNullValuePartialAutomatedAgentReply; set { _explicitNullValuePartialAutomatedAgentReply = value; AdditionalData?.Remove("partial_automated_agent_reply"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_automated_agent_reply"); else _explicitNullProperties?.Remove("partial_automated_agent_reply"); } }
         private bool? _explicitNullValuePartialAutomatedAgentReply = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig"/> and sets the default values.

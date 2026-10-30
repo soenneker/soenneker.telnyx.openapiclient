@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("carousel_card") is { } nullNodeCarouselCard && nullNodeCarouselCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CarouselCard = null;
-            if (parseNode.GetChildNode("standalone_card") is { } nullNodeStandaloneCard && nullNodeStandaloneCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandaloneCard = null;
+            if (parseNode.GetChildNode("carousel_card") is null) { _explicitNullValueCarouselCard = default!; _explicitNullProperties?.Remove("carousel_card"); }
+            else if (parseNode.GetChildNode("carousel_card") is { } nullNodeCarouselCard && nullNodeCarouselCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CarouselCard = null;
+            if (parseNode.GetChildNode("standalone_card") is null) { _explicitNullValueStandaloneCard = default!; _explicitNullProperties?.Remove("standalone_card"); }
+            else if (parseNode.GetChildNode("standalone_card") is { } nullNodeStandaloneCard && nullNodeStandaloneCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandaloneCard = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Carousel of cards.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard? CarouselCard { get => _explicitNullValueCarouselCard; set { _explicitNullValueCarouselCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carousel_card"); else _explicitNullProperties?.Remove("carousel_card"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard? CarouselCard { get => _explicitNullValueCarouselCard; set { _explicitNullValueCarouselCard = value; AdditionalData?.Remove("carousel_card"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carousel_card"); else _explicitNullProperties?.Remove("carousel_card"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard? _explicitNullValueCarouselCard = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard CarouselCard { get => _explicitNullValueCarouselCard; set { _explicitNullValueCarouselCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carousel_card"); else _explicitNullProperties?.Remove("carousel_card"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard CarouselCard { get => _explicitNullValueCarouselCard; set { _explicitNullValueCarouselCard = value; AdditionalData?.Remove("carousel_card"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("carousel_card"); else _explicitNullProperties?.Remove("carousel_card"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsCarouselCard _explicitNullValueCarouselCard = default!;
 #endif
         /// <summary>Standalone card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard? StandaloneCard { get => _explicitNullValueStandaloneCard; set { _explicitNullValueStandaloneCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standalone_card"); else _explicitNullProperties?.Remove("standalone_card"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard? StandaloneCard { get => _explicitNullValueStandaloneCard; set { _explicitNullValueStandaloneCard = value; AdditionalData?.Remove("standalone_card"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standalone_card"); else _explicitNullProperties?.Remove("standalone_card"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard? _explicitNullValueStandaloneCard = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard StandaloneCard { get => _explicitNullValueStandaloneCard; set { _explicitNullValueStandaloneCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standalone_card"); else _explicitNullProperties?.Remove("standalone_card"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard StandaloneCard { get => _explicitNullValueStandaloneCard; set { _explicitNullValueStandaloneCard = value; AdditionalData?.Remove("standalone_card"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standalone_card"); else _explicitNullProperties?.Remove("standalone_card"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RcsStandaloneCard _explicitNullValueStandaloneCard = default!;
 #endif
         /// <summary>

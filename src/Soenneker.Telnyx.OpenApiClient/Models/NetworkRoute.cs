@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cidr") is { } nullNodeCidr && nullNodeCidr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cidr = null;
-            if (parseNode.GetChildNode("network_id") is { } nullNodeNetworkId && nullNodeNetworkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkId = null;
-            if (parseNode.GetChildNode("next_hop") is { } nullNodeNextHop && nullNodeNextHop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextHop = null;
+            if (parseNode.GetChildNode("cidr") is null) { _explicitNullValueCidr = default!; _explicitNullProperties?.Remove("cidr"); }
+            else if (parseNode.GetChildNode("cidr") is { } nullNodeCidr && nullNodeCidr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cidr = null;
+            if (parseNode.GetChildNode("network_id") is null) { _explicitNullValueNetworkId = default!; _explicitNullProperties?.Remove("network_id"); }
+            else if (parseNode.GetChildNode("network_id") is { } nullNodeNetworkId && nullNodeNetworkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkId = null;
+            if (parseNode.GetChildNode("next_hop") is null) { _explicitNullValueNextHop = default!; _explicitNullProperties?.Remove("next_hop"); }
+            else if (parseNode.GetChildNode("next_hop") is { } nullNodeNextHop && nullNodeNextHop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextHop = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,11 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The IPv4 CIDR the route covers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cidr { get => _explicitNullValueCidr; set { _explicitNullValueCidr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cidr"); else _explicitNullProperties?.Remove("cidr"); } }
+        public string? Cidr { get => _explicitNullValueCidr; set { _explicitNullValueCidr = value; AdditionalData?.Remove("cidr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cidr"); else _explicitNullProperties?.Remove("cidr"); } }
         private string? _explicitNullValueCidr = default!;
 #nullable restore
 #else
-        public string Cidr { get => _explicitNullValueCidr; set { _explicitNullValueCidr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cidr"); else _explicitNullProperties?.Remove("cidr"); } }
+        public string Cidr { get => _explicitNullValueCidr; set { _explicitNullValueCidr = value; AdditionalData?.Remove("cidr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cidr"); else _explicitNullProperties?.Remove("cidr"); } }
         private string _explicitNullValueCidr = default!;
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
@@ -39,16 +42,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the resource.</summary>
         public Guid? Id { get; private set; }
         /// <summary>The id of the Network the route belongs to.</summary>
-        public Guid? NetworkId { get => _explicitNullValueNetworkId; set { _explicitNullValueNetworkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_id"); else _explicitNullProperties?.Remove("network_id"); } }
+        public Guid? NetworkId { get => _explicitNullValueNetworkId; set { _explicitNullValueNetworkId = value; AdditionalData?.Remove("network_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_id"); else _explicitNullProperties?.Remove("network_id"); } }
         private Guid? _explicitNullValueNetworkId = default!;
         /// <summary>Where the Network sends traffic for the route&apos;s CIDR.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop? NextHop { get => _explicitNullValueNextHop; set { _explicitNullValueNextHop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_hop"); else _explicitNullProperties?.Remove("next_hop"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop? NextHop { get => _explicitNullValueNextHop; set { _explicitNullValueNextHop = value; AdditionalData?.Remove("next_hop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_hop"); else _explicitNullProperties?.Remove("next_hop"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop? _explicitNullValueNextHop = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop NextHop { get => _explicitNullValueNextHop; set { _explicitNullValueNextHop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_hop"); else _explicitNullProperties?.Remove("next_hop"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop NextHop { get => _explicitNullValueNextHop; set { _explicitNullValueNextHop = value; AdditionalData?.Remove("next_hop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_hop"); else _explicitNullProperties?.Remove("next_hop"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.NetworkRouteNextHop _explicitNullValueNextHop = default!;
 #endif
         /// <summary>`static` for a route added with `POST /network_routes`, `attachment` for a route that another resource installed and removes.</summary>

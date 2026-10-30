@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("wireguard_peer_id") is { } nullNodeWireguardPeerId && nullNodeWireguardPeerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WireguardPeerId = null;
+            if (parseNode.GetChildNode("wireguard_peer_id") is null) { _explicitNullValueWireguardPeerId = default!; _explicitNullProperties?.Remove("wireguard_peer_id"); }
+            else if (parseNode.GetChildNode("wireguard_peer_id") is { } nullNodeWireguardPeerId && nullNodeWireguardPeerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WireguardPeerId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>Wireguard peer ID.</summary>
-        public Guid? WireguardPeerId { get => _explicitNullValueWireguardPeerId; set { _explicitNullValueWireguardPeerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireguard_peer_id"); else _explicitNullProperties?.Remove("wireguard_peer_id"); } }
+        public Guid? WireguardPeerId { get => _explicitNullValueWireguardPeerId; set { _explicitNullValueWireguardPeerId = value; AdditionalData?.Remove("wireguard_peer_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireguard_peer_id"); else _explicitNullProperties?.Remove("wireguard_peer_id"); } }
         private Guid? _explicitNullValueWireguardPeerId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway"/> and sets the default values.

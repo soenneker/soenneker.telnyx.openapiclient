@@ -17,21 +17,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("capture_enabled") is { } nullNodeCaptureEnabled && nullNodeCaptureEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaptureEnabled = null;
-            if (parseNode.GetChildNode("port") is { } nullNodePort && nullNodePort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Port = null;
-            if (parseNode.GetChildNode("report_frequency_secs") is { } nullNodeReportFrequencySecs && nullNodeReportFrequencySecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportFrequencySecs = null;
+            if (parseNode.GetChildNode("capture_enabled") is null) { _explicitNullValueCaptureEnabled = default!; _explicitNullProperties?.Remove("capture_enabled"); }
+            else if (parseNode.GetChildNode("capture_enabled") is { } nullNodeCaptureEnabled && nullNodeCaptureEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaptureEnabled = null;
+            if (parseNode.GetChildNode("port") is null) { _explicitNullValuePort = default!; _explicitNullProperties?.Remove("port"); }
+            else if (parseNode.GetChildNode("port") is { } nullNodePort && nullNodePort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Port = null;
+            if (parseNode.GetChildNode("report_frequency_secs") is null) { _explicitNullValueReportFrequencySecs = default!; _explicitNullProperties?.Remove("report_frequency_secs"); }
+            else if (parseNode.GetChildNode("report_frequency_secs") is { } nullNodeReportFrequencySecs && nullNodeReportFrequencySecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportFrequencySecs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable the capture and storage of RTCP messages to create QoS reports on the Telnyx Mission Control Portal.</summary>
-        public bool? CaptureEnabled { get => _explicitNullValueCaptureEnabled; set { _explicitNullValueCaptureEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capture_enabled"); else _explicitNullProperties?.Remove("capture_enabled"); } }
+        public bool? CaptureEnabled { get => _explicitNullValueCaptureEnabled; set { _explicitNullValueCaptureEnabled = value; AdditionalData?.Remove("capture_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capture_enabled"); else _explicitNullProperties?.Remove("capture_enabled"); } }
         private bool? _explicitNullValueCaptureEnabled = default!;
         /// <summary>RTCP port by default is rtp+1, it can also be set to rtcp-mux</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort? Port { get => _explicitNullValuePort; set { _explicitNullValuePort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port"); else _explicitNullProperties?.Remove("port"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort? Port { get => _explicitNullValuePort; set { _explicitNullValuePort = value; AdditionalData?.Remove("port"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port"); else _explicitNullProperties?.Remove("port"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort? _explicitNullValuePort = default!;
         /// <summary>RTCP reports are sent to customers based on the frequency set. Frequency is in seconds and it can be set to values from 5 to 3000 seconds.</summary>
-        public int? ReportFrequencySecs { get => _explicitNullValueReportFrequencySecs; set { _explicitNullValueReportFrequencySecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_frequency_secs"); else _explicitNullProperties?.Remove("report_frequency_secs"); } }
+        public int? ReportFrequencySecs { get => _explicitNullValueReportFrequencySecs; set { _explicitNullValueReportFrequencySecs = value; AdditionalData?.Remove("report_frequency_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_frequency_secs"); else _explicitNullProperties?.Remove("report_frequency_secs"); } }
         private int? _explicitNullValueReportFrequencySecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings"/> and sets the default values.
@@ -61,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capture_enabled", n => { CaptureEnabled = n.GetBoolValue(); } },
-                { "port", n => { Port = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort>(); } },
+                { "port", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettingsPort>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePort = default; _explicitNullProperties?.Remove("port"); AdditionalData["port"] = unknown; } else { Port = parsed; AdditionalData.Remove("port"); } } },
                 { "report_frequency_secs", n => { ReportFrequencySecs = n.GetIntValue(); } },
             };
         }

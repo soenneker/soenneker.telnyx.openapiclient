@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("template_variables") is { } nullNodeTemplateVariables && nullNodeTemplateVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateVariables = null;
+            if (parseNode.GetChildNode("template_variables") is null) { _explicitNullValueTemplateVariables = default!; _explicitNullProperties?.Remove("template_variables"); }
+            else if (parseNode.GetChildNode("template_variables") is { } nullNodeTemplateVariables && nullNodeTemplateVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateVariables = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Variables for Liquid template rendering. Non-object values are silently treated as an empty object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RenderEmailTemplateRequestTemplateVariablesProperty? TemplateVariables { get => _explicitNullValueTemplateVariables; set { _explicitNullValueTemplateVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_variables"); else _explicitNullProperties?.Remove("template_variables"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RenderEmailTemplateRequestTemplateVariablesProperty? TemplateVariables { get => _explicitNullValueTemplateVariables; set { _explicitNullValueTemplateVariables = value; AdditionalData?.Remove("template_variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_variables"); else _explicitNullProperties?.Remove("template_variables"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RenderEmailTemplateRequestTemplateVariablesProperty? _explicitNullValueTemplateVariables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RenderEmailTemplateRequestTemplateVariablesProperty TemplateVariables { get => _explicitNullValueTemplateVariables; set { _explicitNullValueTemplateVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_variables"); else _explicitNullProperties?.Remove("template_variables"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RenderEmailTemplateRequestTemplateVariablesProperty TemplateVariables { get => _explicitNullValueTemplateVariables; set { _explicitNullValueTemplateVariables = value; AdditionalData?.Remove("template_variables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template_variables"); else _explicitNullProperties?.Remove("template_variables"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RenderEmailTemplateRequestTemplateVariablesProperty _explicitNullValueTemplateVariables = default!;
 #endif
         /// <summary>

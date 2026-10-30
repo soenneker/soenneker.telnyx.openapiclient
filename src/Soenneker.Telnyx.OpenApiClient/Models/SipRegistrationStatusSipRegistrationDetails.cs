@@ -18,77 +18,87 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth_retries") is { } nullNodeAuthRetries && nullNodeAuthRetries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthRetries = null;
-            if (parseNode.GetChildNode("expires") is { } nullNodeExpires && nullNodeExpires.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expires = null;
-            if (parseNode.GetChildNode("failures") is { } nullNodeFailures && nullNodeFailures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failures = null;
-            if (parseNode.GetChildNode("last_modified") is { } nullNodeLastModified && nullNodeLastModified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastModified = null;
-            if (parseNode.GetChildNode("next_action_at") is { } nullNodeNextActionAt && nullNodeNextActionAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextActionAt = null;
-            if (parseNode.GetChildNode("sip_uri_user_host") is { } nullNodeSipUriUserHost && nullNodeSipUriUserHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipUriUserHost = null;
-            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
-            if (parseNode.GetChildNode("ua_ip") is { } nullNodeUaIp && nullNodeUaIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UaIp = null;
-            if (parseNode.GetChildNode("ua_port") is { } nullNodeUaPort && nullNodeUaPort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UaPort = null;
-            if (parseNode.GetChildNode("uptime") is { } nullNodeUptime && nullNodeUptime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uptime = null;
+            if (parseNode.GetChildNode("auth_retries") is null) { _explicitNullValueAuthRetries = default!; _explicitNullProperties?.Remove("auth_retries"); }
+            else if (parseNode.GetChildNode("auth_retries") is { } nullNodeAuthRetries && nullNodeAuthRetries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthRetries = null;
+            if (parseNode.GetChildNode("expires") is null) { _explicitNullValueExpires = default!; _explicitNullProperties?.Remove("expires"); }
+            else if (parseNode.GetChildNode("expires") is { } nullNodeExpires && nullNodeExpires.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expires = null;
+            if (parseNode.GetChildNode("failures") is null) { _explicitNullValueFailures = default!; _explicitNullProperties?.Remove("failures"); }
+            else if (parseNode.GetChildNode("failures") is { } nullNodeFailures && nullNodeFailures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failures = null;
+            if (parseNode.GetChildNode("last_modified") is null) { _explicitNullValueLastModified = default!; _explicitNullProperties?.Remove("last_modified"); }
+            else if (parseNode.GetChildNode("last_modified") is { } nullNodeLastModified && nullNodeLastModified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastModified = null;
+            if (parseNode.GetChildNode("next_action_at") is null) { _explicitNullValueNextActionAt = default!; _explicitNullProperties?.Remove("next_action_at"); }
+            else if (parseNode.GetChildNode("next_action_at") is { } nullNodeNextActionAt && nullNodeNextActionAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextActionAt = null;
+            if (parseNode.GetChildNode("sip_uri_user_host") is null) { _explicitNullValueSipUriUserHost = default!; _explicitNullProperties?.Remove("sip_uri_user_host"); }
+            else if (parseNode.GetChildNode("sip_uri_user_host") is { } nullNodeSipUriUserHost && nullNodeSipUriUserHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipUriUserHost = null;
+            if (parseNode.GetChildNode("transport") is null) { _explicitNullValueTransport = default!; _explicitNullProperties?.Remove("transport"); }
+            else if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+            if (parseNode.GetChildNode("ua_ip") is null) { _explicitNullValueUaIp = default!; _explicitNullProperties?.Remove("ua_ip"); }
+            else if (parseNode.GetChildNode("ua_ip") is { } nullNodeUaIp && nullNodeUaIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UaIp = null;
+            if (parseNode.GetChildNode("ua_port") is null) { _explicitNullValueUaPort = default!; _explicitNullProperties?.Remove("ua_port"); }
+            else if (parseNode.GetChildNode("ua_port") is { } nullNodeUaPort && nullNodeUaPort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UaPort = null;
+            if (parseNode.GetChildNode("uptime") is null) { _explicitNullValueUptime = default!; _explicitNullProperties?.Remove("uptime"); }
+            else if (parseNode.GetChildNode("uptime") is { } nullNodeUptime && nullNodeUptime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uptime = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of authentication retries on the last attempt (uac_external_credential).</summary>
-        public int? AuthRetries { get => _explicitNullValueAuthRetries; set { _explicitNullValueAuthRetries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_retries"); else _explicitNullProperties?.Remove("auth_retries"); } }
+        public int? AuthRetries { get => _explicitNullValueAuthRetries; set { _explicitNullValueAuthRetries = value; AdditionalData?.Remove("auth_retries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_retries"); else _explicitNullProperties?.Remove("auth_retries"); } }
         private int? _explicitNullValueAuthRetries = default!;
         /// <summary>When the current registration expires. The unit depends on `credential_type`: for `uac_external_credential` this is a Unix timestamp (seconds since epoch) of the next scheduled re-registration; for `telephony_credential` and `sip_credential_connection` this is the registration lifetime in seconds as negotiated with the registrar (the `Expires` value, defaulting to 3600 when the endpoint sends none).</summary>
-        public int? Expires { get => _explicitNullValueExpires; set { _explicitNullValueExpires = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires"); else _explicitNullProperties?.Remove("expires"); } }
+        public int? Expires { get => _explicitNullValueExpires; set { _explicitNullValueExpires = value; AdditionalData?.Remove("expires"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires"); else _explicitNullProperties?.Remove("expires"); } }
         private int? _explicitNullValueExpires = default!;
         /// <summary>Count of consecutive registration failures (uac_external_credential).</summary>
-        public int? Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
+        public int? Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; AdditionalData?.Remove("failures"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
         private int? _explicitNullValueFailures = default!;
         /// <summary>Timestamp when the registration was last modified (telephony_credential and sip_credential_connection).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
+        public string? LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; AdditionalData?.Remove("last_modified"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
         private string? _explicitNullValueLastModified = default!;
 #nullable restore
 #else
-        public string LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
+        public string LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; AdditionalData?.Remove("last_modified"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
         private string _explicitNullValueLastModified = default!;
 #endif
         /// <summary>Unix timestamp of the next scheduled registration action (uac_external_credential).</summary>
-        public int? NextActionAt { get => _explicitNullValueNextActionAt; set { _explicitNullValueNextActionAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_action_at"); else _explicitNullProperties?.Remove("next_action_at"); } }
+        public int? NextActionAt { get => _explicitNullValueNextActionAt; set { _explicitNullValueNextActionAt = value; AdditionalData?.Remove("next_action_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_action_at"); else _explicitNullProperties?.Remove("next_action_at"); } }
         private int? _explicitNullValueNextActionAt = default!;
         /// <summary>SIP URI user@host of the registered contact (uac_external_credential).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SipUriUserHost { get => _explicitNullValueSipUriUserHost; set { _explicitNullValueSipUriUserHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_uri_user_host"); else _explicitNullProperties?.Remove("sip_uri_user_host"); } }
+        public string? SipUriUserHost { get => _explicitNullValueSipUriUserHost; set { _explicitNullValueSipUriUserHost = value; AdditionalData?.Remove("sip_uri_user_host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_uri_user_host"); else _explicitNullProperties?.Remove("sip_uri_user_host"); } }
         private string? _explicitNullValueSipUriUserHost = default!;
 #nullable restore
 #else
-        public string SipUriUserHost { get => _explicitNullValueSipUriUserHost; set { _explicitNullValueSipUriUserHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_uri_user_host"); else _explicitNullProperties?.Remove("sip_uri_user_host"); } }
+        public string SipUriUserHost { get => _explicitNullValueSipUriUserHost; set { _explicitNullValueSipUriUserHost = value; AdditionalData?.Remove("sip_uri_user_host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_uri_user_host"); else _explicitNullProperties?.Remove("sip_uri_user_host"); } }
         private string _explicitNullValueSipUriUserHost = default!;
 #endif
         /// <summary>Transport used for the registration, e.g. UDP/TCP/TLS (telephony_credential and sip_credential_connection).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        public string? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
         private string? _explicitNullValueTransport = default!;
 #nullable restore
 #else
-        public string Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        public string Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
         private string _explicitNullValueTransport = default!;
 #endif
         /// <summary>IP address of the registered user agent (telephony_credential and sip_credential_connection).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UaIp { get => _explicitNullValueUaIp; set { _explicitNullValueUaIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ua_ip"); else _explicitNullProperties?.Remove("ua_ip"); } }
+        public string? UaIp { get => _explicitNullValueUaIp; set { _explicitNullValueUaIp = value; AdditionalData?.Remove("ua_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ua_ip"); else _explicitNullProperties?.Remove("ua_ip"); } }
         private string? _explicitNullValueUaIp = default!;
 #nullable restore
 #else
-        public string UaIp { get => _explicitNullValueUaIp; set { _explicitNullValueUaIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ua_ip"); else _explicitNullProperties?.Remove("ua_ip"); } }
+        public string UaIp { get => _explicitNullValueUaIp; set { _explicitNullValueUaIp = value; AdditionalData?.Remove("ua_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ua_ip"); else _explicitNullProperties?.Remove("ua_ip"); } }
         private string _explicitNullValueUaIp = default!;
 #endif
         /// <summary>Port of the registered user agent (telephony_credential and sip_credential_connection).</summary>
-        public int? UaPort { get => _explicitNullValueUaPort; set { _explicitNullValueUaPort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ua_port"); else _explicitNullProperties?.Remove("ua_port"); } }
+        public int? UaPort { get => _explicitNullValueUaPort; set { _explicitNullValueUaPort = value; AdditionalData?.Remove("ua_port"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ua_port"); else _explicitNullProperties?.Remove("ua_port"); } }
         private int? _explicitNullValueUaPort = default!;
         /// <summary>Registration uptime reported by the registrar (uac_external_credential).</summary>
-        public long? Uptime { get => _explicitNullValueUptime; set { _explicitNullValueUptime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uptime"); else _explicitNullProperties?.Remove("uptime"); } }
+        public long? Uptime { get => _explicitNullValueUptime; set { _explicitNullValueUptime = value; AdditionalData?.Remove("uptime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uptime"); else _explicitNullProperties?.Remove("uptime"); } }
         private long? _explicitNullValueUptime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SipRegistrationStatusSipRegistrationDetails"/> and sets the default values.

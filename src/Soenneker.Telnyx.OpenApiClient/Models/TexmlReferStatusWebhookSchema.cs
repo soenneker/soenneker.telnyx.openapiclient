@@ -18,23 +18,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
-            if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
-            if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
-            if (parseNode.GetChildNode("NotifySipResponseCode") is { } nullNodeNotifySipResponseCode && nullNodeNotifySipResponseCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotifySipResponseCode = null;
-            if (parseNode.GetChildNode("ReferCallStatus") is { } nullNodeReferCallStatus && nullNodeReferCallStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferCallStatus = null;
-            if (parseNode.GetChildNode("ReferSipResponseCode") is { } nullNodeReferSipResponseCode && nullNodeReferSipResponseCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferSipResponseCode = null;
-            if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("AccountSid") is null) { _explicitNullValueAccountSid = default!; _explicitNullProperties?.Remove("AccountSid"); }
+            else if (parseNode.GetChildNode("AccountSid") is { } nullNodeAccountSid && nullNodeAccountSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountSid = null;
+            if (parseNode.GetChildNode("CallSid") is null) { _explicitNullValueCallSid = default!; _explicitNullProperties?.Remove("CallSid"); }
+            else if (parseNode.GetChildNode("CallSid") is { } nullNodeCallSid && nullNodeCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSid = null;
+            if (parseNode.GetChildNode("CallSidLegacy") is null) { _explicitNullValueCallSidLegacy = default!; _explicitNullProperties?.Remove("CallSidLegacy"); }
+            else if (parseNode.GetChildNode("CallSidLegacy") is { } nullNodeCallSidLegacy && nullNodeCallSidLegacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallSidLegacy = null;
+            if (parseNode.GetChildNode("NotifySipResponseCode") is null) { _explicitNullValueNotifySipResponseCode = default!; _explicitNullProperties?.Remove("NotifySipResponseCode"); }
+            else if (parseNode.GetChildNode("NotifySipResponseCode") is { } nullNodeNotifySipResponseCode && nullNodeNotifySipResponseCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotifySipResponseCode = null;
+            if (parseNode.GetChildNode("ReferCallStatus") is null) { _explicitNullValueReferCallStatus = default!; _explicitNullProperties?.Remove("ReferCallStatus"); }
+            else if (parseNode.GetChildNode("ReferCallStatus") is { } nullNodeReferCallStatus && nullNodeReferCallStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferCallStatus = null;
+            if (parseNode.GetChildNode("ReferSipResponseCode") is null) { _explicitNullValueReferSipResponseCode = default!; _explicitNullProperties?.Remove("ReferSipResponseCode"); }
+            else if (parseNode.GetChildNode("ReferSipResponseCode") is { } nullNodeReferSipResponseCode && nullNodeReferSipResponseCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferSipResponseCode = null;
+            if (parseNode.GetChildNode("Timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("Timestamp"); }
+            else if (parseNode.GetChildNode("Timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
         }
 
         /// <summary>The unique identifier of the account (user_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        public string? AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; AdditionalData?.Remove("AccountSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
         private string? _explicitNullValueAccountSid = default!;
 #nullable restore
 #else
-        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
+        public string AccountSid { get => _explicitNullValueAccountSid; set { _explicitNullValueAccountSid = value; AdditionalData?.Remove("AccountSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("AccountSid"); else _explicitNullProperties?.Remove("AccountSid"); } }
         private string _explicitNullValueAccountSid = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -42,48 +49,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The unique identifier of the call (call_control_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        public string? CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; AdditionalData?.Remove("CallSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
         private string? _explicitNullValueCallSid = default!;
 #nullable restore
 #else
-        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
+        public string CallSid { get => _explicitNullValueCallSid; set { _explicitNullValueCallSid = value; AdditionalData?.Remove("CallSid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSid"); else _explicitNullProperties?.Remove("CallSid"); } }
         private string _explicitNullValueCallSid = default!;
 #endif
         /// <summary>Legacy call identifier, same as CallSid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        public string? CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; AdditionalData?.Remove("CallSidLegacy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
         private string? _explicitNullValueCallSidLegacy = default!;
 #nullable restore
 #else
-        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
+        public string CallSidLegacy { get => _explicitNullValueCallSidLegacy; set { _explicitNullValueCallSidLegacy = value; AdditionalData?.Remove("CallSidLegacy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CallSidLegacy"); else _explicitNullProperties?.Remove("CallSidLegacy"); } }
         private string _explicitNullValueCallSidLegacy = default!;
 #endif
         /// <summary>The SIP response code from the NOTIFY message (conditional, only present on success).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NotifySipResponseCode { get => _explicitNullValueNotifySipResponseCode; set { _explicitNullValueNotifySipResponseCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("NotifySipResponseCode"); else _explicitNullProperties?.Remove("NotifySipResponseCode"); } }
+        public string? NotifySipResponseCode { get => _explicitNullValueNotifySipResponseCode; set { _explicitNullValueNotifySipResponseCode = value; AdditionalData?.Remove("NotifySipResponseCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("NotifySipResponseCode"); else _explicitNullProperties?.Remove("NotifySipResponseCode"); } }
         private string? _explicitNullValueNotifySipResponseCode = default!;
 #nullable restore
 #else
-        public string NotifySipResponseCode { get => _explicitNullValueNotifySipResponseCode; set { _explicitNullValueNotifySipResponseCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("NotifySipResponseCode"); else _explicitNullProperties?.Remove("NotifySipResponseCode"); } }
+        public string NotifySipResponseCode { get => _explicitNullValueNotifySipResponseCode; set { _explicitNullValueNotifySipResponseCode = value; AdditionalData?.Remove("NotifySipResponseCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("NotifySipResponseCode"); else _explicitNullProperties?.Remove("NotifySipResponseCode"); } }
         private string _explicitNullValueNotifySipResponseCode = default!;
 #endif
         /// <summary>The status of the SIP REFER operation.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlReferStatusWebhookSchemaReferCallStatus? ReferCallStatus { get => _explicitNullValueReferCallStatus; set { _explicitNullValueReferCallStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ReferCallStatus"); else _explicitNullProperties?.Remove("ReferCallStatus"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlReferStatusWebhookSchemaReferCallStatus? ReferCallStatus { get => _explicitNullValueReferCallStatus; set { _explicitNullValueReferCallStatus = value; AdditionalData?.Remove("ReferCallStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ReferCallStatus"); else _explicitNullProperties?.Remove("ReferCallStatus"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TexmlReferStatusWebhookSchemaReferCallStatus? _explicitNullValueReferCallStatus = default!;
         /// <summary>The SIP response code from the REFER message (conditional, only present on success).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferSipResponseCode { get => _explicitNullValueReferSipResponseCode; set { _explicitNullValueReferSipResponseCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ReferSipResponseCode"); else _explicitNullProperties?.Remove("ReferSipResponseCode"); } }
+        public string? ReferSipResponseCode { get => _explicitNullValueReferSipResponseCode; set { _explicitNullValueReferSipResponseCode = value; AdditionalData?.Remove("ReferSipResponseCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ReferSipResponseCode"); else _explicitNullProperties?.Remove("ReferSipResponseCode"); } }
         private string? _explicitNullValueReferSipResponseCode = default!;
 #nullable restore
 #else
-        public string ReferSipResponseCode { get => _explicitNullValueReferSipResponseCode; set { _explicitNullValueReferSipResponseCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ReferSipResponseCode"); else _explicitNullProperties?.Remove("ReferSipResponseCode"); } }
+        public string ReferSipResponseCode { get => _explicitNullValueReferSipResponseCode; set { _explicitNullValueReferSipResponseCode = value; AdditionalData?.Remove("ReferSipResponseCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ReferSipResponseCode"); else _explicitNullProperties?.Remove("ReferSipResponseCode"); } }
         private string _explicitNullValueReferSipResponseCode = default!;
 #endif
         /// <summary>The timestamp when the event occurred.</summary>
-        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("Timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Timestamp"); else _explicitNullProperties?.Remove("Timestamp"); } }
         private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlReferStatusWebhookSchema"/> and sets the default values.
@@ -114,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "CallSid", n => { CallSid = n.GetStringValue(); } },
                 { "CallSidLegacy", n => { CallSidLegacy = n.GetStringValue(); } },
                 { "NotifySipResponseCode", n => { NotifySipResponseCode = n.GetStringValue(); } },
-                { "ReferCallStatus", n => { ReferCallStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlReferStatusWebhookSchemaReferCallStatus>(); } },
+                { "ReferCallStatus", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlReferStatusWebhookSchemaReferCallStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReferCallStatus = default; _explicitNullProperties?.Remove("ReferCallStatus"); AdditionalData["ReferCallStatus"] = unknown; } else { ReferCallStatus = parsed; AdditionalData.Remove("ReferCallStatus"); } } },
                 { "ReferSipResponseCode", n => { ReferSipResponseCode = n.GetStringValue(); } },
                 { "Timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };

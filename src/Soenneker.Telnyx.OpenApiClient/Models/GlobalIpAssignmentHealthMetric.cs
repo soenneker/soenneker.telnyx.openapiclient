@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_ip") is { } nullNodeGlobalIp && nullNodeGlobalIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIp = null;
-            if (parseNode.GetChildNode("global_ip_assignment") is { } nullNodeGlobalIpAssignment && nullNodeGlobalIpAssignment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpAssignment = null;
-            if (parseNode.GetChildNode("health") is { } nullNodeHealth && nullNodeHealth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Health = null;
-            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("global_ip") is null) { _explicitNullValueGlobalIp = default!; _explicitNullProperties?.Remove("global_ip"); }
+            else if (parseNode.GetChildNode("global_ip") is { } nullNodeGlobalIp && nullNodeGlobalIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIp = null;
+            if (parseNode.GetChildNode("global_ip_assignment") is null) { _explicitNullValueGlobalIpAssignment = default!; _explicitNullProperties?.Remove("global_ip_assignment"); }
+            else if (parseNode.GetChildNode("global_ip_assignment") is { } nullNodeGlobalIpAssignment && nullNodeGlobalIpAssignment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpAssignment = null;
+            if (parseNode.GetChildNode("health") is null) { _explicitNullValueHealth = default!; _explicitNullProperties?.Remove("health"); }
+            else if (parseNode.GetChildNode("health") is { } nullNodeHealth && nullNodeHealth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Health = null;
+            if (parseNode.GetChildNode("timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("timestamp"); }
+            else if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp? GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp? GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; AdditionalData?.Remove("global_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp? _explicitNullValueGlobalIp = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp GlobalIp { get => _explicitNullValueGlobalIp; set { _explicitNullValueGlobalIp = value; AdditionalData?.Remove("global_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip"); else _explicitNullProperties?.Remove("global_ip"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp _explicitNullValueGlobalIp = default!;
 #endif
         /// <summary>The global_ip_assignment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment? GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment? GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; AdditionalData?.Remove("global_ip_assignment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment? _explicitNullValueGlobalIpAssignment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment GlobalIpAssignment { get => _explicitNullValueGlobalIpAssignment; set { _explicitNullValueGlobalIpAssignment = value; AdditionalData?.Remove("global_ip_assignment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_assignment"); else _explicitNullProperties?.Remove("global_ip_assignment"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment _explicitNullValueGlobalIpAssignment = default!;
 #endif
         /// <summary>The health property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth? Health { get => _explicitNullValueHealth; set { _explicitNullValueHealth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health"); else _explicitNullProperties?.Remove("health"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth? Health { get => _explicitNullValueHealth; set { _explicitNullValueHealth = value; AdditionalData?.Remove("health"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health"); else _explicitNullProperties?.Remove("health"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth? _explicitNullValueHealth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth Health { get => _explicitNullValueHealth; set { _explicitNullValueHealth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health"); else _explicitNullProperties?.Remove("health"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth Health { get => _explicitNullValueHealth; set { _explicitNullValueHealth = value; AdditionalData?.Remove("health"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("health"); else _explicitNullProperties?.Remove("health"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth _explicitNullValueHealth = default!;
 #endif
         /// <summary>The timestamp of the metric.</summary>
-        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
         private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric"/> and sets the default values.

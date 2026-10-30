@@ -18,8 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ein") is { } nullNodeEin && nullNodeEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ein = null;
-            if (parseNode.GetChildNode("stock_symbol") is { } nullNodeStockSymbol && nullNodeStockSymbol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StockSymbol = null;
+            if (parseNode.GetChildNode("ein") is null) { _explicitNullValueEin = default!; _explicitNullProperties?.Remove("ein"); }
+            else if (parseNode.GetChildNode("ein") is { } nullNodeEin && nullNodeEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ein = null;
+            if (parseNode.GetChildNode("stock_symbol") is null) { _explicitNullValueStockSymbol = default!; _explicitNullProperties?.Remove("stock_symbol"); }
+            else if (parseNode.GetChildNode("stock_symbol") is { } nullNodeStockSymbol && nullNodeStockSymbol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StockSymbol = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The ein property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifier? Ein { get => _explicitNullValueEin; set { _explicitNullValueEin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ein"); else _explicitNullProperties?.Remove("ein"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifier? Ein { get => _explicitNullValueEin; set { _explicitNullValueEin = value; AdditionalData?.Remove("ein"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ein"); else _explicitNullProperties?.Remove("ein"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifier? _explicitNullValueEin = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifier Ein { get => _explicitNullValueEin; set { _explicitNullValueEin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ein"); else _explicitNullProperties?.Remove("ein"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifier Ein { get => _explicitNullValueEin; set { _explicitNullValueEin = value; AdditionalData?.Remove("ein"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ein"); else _explicitNullProperties?.Remove("ein"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EinBrandIdentifier _explicitNullValueEin = default!;
 #endif
         /// <summary>The stock_symbol property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StockSymbolBrandIdentifier? StockSymbol { get => _explicitNullValueStockSymbol; set { _explicitNullValueStockSymbol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stock_symbol"); else _explicitNullProperties?.Remove("stock_symbol"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StockSymbolBrandIdentifier? StockSymbol { get => _explicitNullValueStockSymbol; set { _explicitNullValueStockSymbol = value; AdditionalData?.Remove("stock_symbol"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stock_symbol"); else _explicitNullProperties?.Remove("stock_symbol"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.StockSymbolBrandIdentifier? _explicitNullValueStockSymbol = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StockSymbolBrandIdentifier StockSymbol { get => _explicitNullValueStockSymbol; set { _explicitNullValueStockSymbol = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stock_symbol"); else _explicitNullProperties?.Remove("stock_symbol"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StockSymbolBrandIdentifier StockSymbol { get => _explicitNullValueStockSymbol; set { _explicitNullValueStockSymbol = value; AdditionalData?.Remove("stock_symbol"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stock_symbol"); else _explicitNullProperties?.Remove("stock_symbol"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.StockSymbolBrandIdentifier _explicitNullValueStockSymbol = default!;
 #endif
         /// <summary>

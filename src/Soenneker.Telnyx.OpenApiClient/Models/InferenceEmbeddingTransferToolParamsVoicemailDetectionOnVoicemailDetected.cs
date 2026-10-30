@@ -18,23 +18,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
-            if (parseNode.GetChildNode("voicemail_message") is { } nullNodeVoicemailMessage && nullNodeVoicemailMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoicemailMessage = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("voicemail_message") is null) { _explicitNullValueVoicemailMessage = default!; _explicitNullProperties?.Remove("voicemail_message"); }
+            else if (parseNode.GetChildNode("voicemail_message") is { } nullNodeVoicemailMessage && nullNodeVoicemailMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoicemailMessage = null;
         }
 
         /// <summary>The action to take when voicemail is detected. &apos;stop_transfer&apos; hangs up immediately. &apos;leave_message_and_stop_transfer&apos; leaves a message then hangs up.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Configuration for the voicemail message to leave. Only applicable when action is &apos;leave_message_and_stop_transfer&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage? VoicemailMessage { get => _explicitNullValueVoicemailMessage; set { _explicitNullValueVoicemailMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voicemail_message"); else _explicitNullProperties?.Remove("voicemail_message"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage? VoicemailMessage { get => _explicitNullValueVoicemailMessage; set { _explicitNullValueVoicemailMessage = value; AdditionalData?.Remove("voicemail_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voicemail_message"); else _explicitNullProperties?.Remove("voicemail_message"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage? _explicitNullValueVoicemailMessage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage VoicemailMessage { get => _explicitNullValueVoicemailMessage; set { _explicitNullValueVoicemailMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voicemail_message"); else _explicitNullProperties?.Remove("voicemail_message"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage VoicemailMessage { get => _explicitNullValueVoicemailMessage; set { _explicitNullValueVoicemailMessage = value; AdditionalData?.Remove("voicemail_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voicemail_message"); else _explicitNullProperties?.Remove("voicemail_message"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage _explicitNullValueVoicemailMessage = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedAction>(); } },
+                { "action", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAction = default; _explicitNullProperties?.Remove("action"); AdditionalData["action"] = unknown; } else { Action = parsed; AdditionalData.Remove("action"); } } },
                 { "voicemail_message", n => { VoicemailMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetectionOnVoicemailDetectedVoicemailMessage.CreateFromDiscriminatorValue); } },
             };
         }

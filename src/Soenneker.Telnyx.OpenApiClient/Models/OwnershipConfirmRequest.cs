@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evidence_document_id") is { } nullNodeEvidenceDocumentId && nullNodeEvidenceDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvidenceDocumentId = null;
-            if (parseNode.GetChildNode("still_own") is { } nullNodeStillOwn && nullNodeStillOwn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StillOwn = null;
+            if (parseNode.GetChildNode("evidence_document_id") is null) { _explicitNullValueEvidenceDocumentId = default!; _explicitNullProperties?.Remove("evidence_document_id"); }
+            else if (parseNode.GetChildNode("evidence_document_id") is { } nullNodeEvidenceDocumentId && nullNodeEvidenceDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvidenceDocumentId = null;
+            if (parseNode.GetChildNode("still_own") is null) { _explicitNullValueStillOwn = default!; _explicitNullProperties?.Remove("still_own"); }
+            else if (parseNode.GetChildNode("still_own") is { } nullNodeStillOwn && nullNodeStillOwn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StillOwn = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Optional id of an uploaded document supporting the confirmation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvidenceDocumentId { get => _explicitNullValueEvidenceDocumentId; set { _explicitNullValueEvidenceDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_document_id"); else _explicitNullProperties?.Remove("evidence_document_id"); } }
+        public string? EvidenceDocumentId { get => _explicitNullValueEvidenceDocumentId; set { _explicitNullValueEvidenceDocumentId = value; AdditionalData?.Remove("evidence_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_document_id"); else _explicitNullProperties?.Remove("evidence_document_id"); } }
         private string? _explicitNullValueEvidenceDocumentId = default!;
 #nullable restore
 #else
-        public string EvidenceDocumentId { get => _explicitNullValueEvidenceDocumentId; set { _explicitNullValueEvidenceDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_document_id"); else _explicitNullProperties?.Remove("evidence_document_id"); } }
+        public string EvidenceDocumentId { get => _explicitNullValueEvidenceDocumentId; set { _explicitNullValueEvidenceDocumentId = value; AdditionalData?.Remove("evidence_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_document_id"); else _explicitNullProperties?.Remove("evidence_document_id"); } }
         private string _explicitNullValueEvidenceDocumentId = default!;
 #endif
         /// <summary>`true` confirms you still own the number. `false` reports that you no longer own it and removes it from Number Reputation.</summary>
-        public bool? StillOwn { get => _explicitNullValueStillOwn; set { _explicitNullValueStillOwn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("still_own"); else _explicitNullProperties?.Remove("still_own"); } }
+        public bool? StillOwn { get => _explicitNullValueStillOwn; set { _explicitNullValueStillOwn = value; AdditionalData?.Remove("still_own"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("still_own"); else _explicitNullProperties?.Remove("still_own"); } }
         private bool? _explicitNullValueStillOwn = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OwnershipConfirmRequest"/> and sets the default values.

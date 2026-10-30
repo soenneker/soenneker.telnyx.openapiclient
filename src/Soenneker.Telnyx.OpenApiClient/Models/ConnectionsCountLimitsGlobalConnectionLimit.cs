@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_limit") is { } nullNodeGlobalLimit && nullNodeGlobalLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalLimit = null;
+            if (parseNode.GetChildNode("global_limit") is null) { _explicitNullValueGlobalLimit = default!; _explicitNullProperties?.Remove("global_limit"); }
+            else if (parseNode.GetChildNode("global_limit") is { } nullNodeGlobalLimit && nullNodeGlobalLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalLimit = null;
         }
 
         /// <summary>Maximum total number of connections allowed, when a global limit applies.</summary>

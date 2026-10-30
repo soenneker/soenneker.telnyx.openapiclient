@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sim_card_group_id") is { } nullNodeSimCardGroupId && nullNodeSimCardGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardGroupId = null;
+            if (parseNode.GetChildNode("sim_card_group_id") is null) { _explicitNullValueSimCardGroupId = default!; _explicitNullProperties?.Remove("sim_card_group_id"); }
+            else if (parseNode.GetChildNode("sim_card_group_id") is { } nullNodeSimCardGroupId && nullNodeSimCardGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimCardGroupId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sim_card_group_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SimCardGroupId { get => _explicitNullValueSimCardGroupId; set { _explicitNullValueSimCardGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_group_id"); else _explicitNullProperties?.Remove("sim_card_group_id"); } }
+        public string? SimCardGroupId { get => _explicitNullValueSimCardGroupId; set { _explicitNullValueSimCardGroupId = value; AdditionalData?.Remove("sim_card_group_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_group_id"); else _explicitNullProperties?.Remove("sim_card_group_id"); } }
         private string? _explicitNullValueSimCardGroupId = default!;
 #nullable restore
 #else
-        public string SimCardGroupId { get => _explicitNullValueSimCardGroupId; set { _explicitNullValueSimCardGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_group_id"); else _explicitNullProperties?.Remove("sim_card_group_id"); } }
+        public string SimCardGroupId { get => _explicitNullValueSimCardGroupId; set { _explicitNullValueSimCardGroupId = value; AdditionalData?.Remove("sim_card_group_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sim_card_group_id"); else _explicitNullProperties?.Remove("sim_card_group_id"); } }
         private string _explicitNullValueSimCardGroupId = default!;
 #endif
         /// <summary>

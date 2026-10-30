@@ -18,36 +18,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("emotion") is { } nullNodeEmotion && nullNodeEmotion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emotion = null;
-            if (parseNode.GetChildNode("response_format") is { } nullNodeResponseFormat && nullNodeResponseFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseFormat = null;
-            if (parseNode.GetChildNode("sampling_rate") is { } nullNodeSamplingRate && nullNodeSamplingRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SamplingRate = null;
-            if (parseNode.GetChildNode("voice_speed") is { } nullNodeVoiceSpeed && nullNodeVoiceSpeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSpeed = null;
-            if (parseNode.GetChildNode("volume") is { } nullNodeVolume && nullNodeVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volume = null;
+            if (parseNode.GetChildNode("emotion") is null) { _explicitNullValueEmotion = default!; _explicitNullProperties?.Remove("emotion"); }
+            else if (parseNode.GetChildNode("emotion") is { } nullNodeEmotion && nullNodeEmotion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emotion = null;
+            if (parseNode.GetChildNode("response_format") is null) { _explicitNullValueResponseFormat = default!; _explicitNullProperties?.Remove("response_format"); }
+            else if (parseNode.GetChildNode("response_format") is { } nullNodeResponseFormat && nullNodeResponseFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseFormat = null;
+            if (parseNode.GetChildNode("sampling_rate") is null) { _explicitNullValueSamplingRate = default!; _explicitNullProperties?.Remove("sampling_rate"); }
+            else if (parseNode.GetChildNode("sampling_rate") is { } nullNodeSamplingRate && nullNodeSamplingRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SamplingRate = null;
+            if (parseNode.GetChildNode("voice_speed") is null) { _explicitNullValueVoiceSpeed = default!; _explicitNullProperties?.Remove("voice_speed"); }
+            else if (parseNode.GetChildNode("voice_speed") is { } nullNodeVoiceSpeed && nullNodeVoiceSpeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSpeed = null;
+            if (parseNode.GetChildNode("volume") is null) { _explicitNullValueVolume = default!; _explicitNullProperties?.Remove("volume"); }
+            else if (parseNode.GetChildNode("volume") is { } nullNodeVolume && nullNodeVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Volume = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Emotion control for the Ultra model. Adjusts the emotional tone of the synthesized speech.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion? Emotion { get => _explicitNullValueEmotion; set { _explicitNullValueEmotion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emotion"); else _explicitNullProperties?.Remove("emotion"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion? Emotion { get => _explicitNullValueEmotion; set { _explicitNullValueEmotion = value; AdditionalData?.Remove("emotion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emotion"); else _explicitNullProperties?.Remove("emotion"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion? _explicitNullValueEmotion = default!;
         /// <summary>Audio response format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
+        public string? ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; AdditionalData?.Remove("response_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
         private string? _explicitNullValueResponseFormat = default!;
 #nullable restore
 #else
-        public string ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
+        public string ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; AdditionalData?.Remove("response_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
         private string _explicitNullValueResponseFormat = default!;
 #endif
         /// <summary>Audio sampling rate in Hz. `Bayan` ignores the default and synthesizes at its native 16 kHz unless `8000`, `22050`, or `24000` is set explicitly with `response_format: pcm`. Resampled rates aren&apos;t available with `output_type: audio_id`.</summary>
-        public int? SamplingRate { get => _explicitNullValueSamplingRate; set { _explicitNullValueSamplingRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampling_rate"); else _explicitNullProperties?.Remove("sampling_rate"); } }
+        public int? SamplingRate { get => _explicitNullValueSamplingRate; set { _explicitNullValueSamplingRate = value; AdditionalData?.Remove("sampling_rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampling_rate"); else _explicitNullProperties?.Remove("sampling_rate"); } }
         private int? _explicitNullValueSamplingRate = default!;
         /// <summary>Voice speed multiplier. Telnyx `Ultra` voices accept values from 0.6 to 1.5 — requests outside that range are rejected by the synthesis engine. `Bayan` accepts values from 0.5 to 2.0. `KokoroTTS` and `Qwen3TTS` accept the field but do not apply it. `Sukhan` doesn&apos;t support it.</summary>
-        public float? VoiceSpeed { get => _explicitNullValueVoiceSpeed; set { _explicitNullValueVoiceSpeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_speed"); else _explicitNullProperties?.Remove("voice_speed"); } }
+        public float? VoiceSpeed { get => _explicitNullValueVoiceSpeed; set { _explicitNullValueVoiceSpeed = value; AdditionalData?.Remove("voice_speed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_speed"); else _explicitNullProperties?.Remove("voice_speed"); } }
         private float? _explicitNullValueVoiceSpeed = default!;
         /// <summary>Volume level for the Ultra model. Telnyx `Ultra` voices accept values from 0.5 to 2.0 — requests outside that range are rejected by the synthesis engine. `KokoroTTS`, `Qwen3TTS`, `Bayan`, and `Sukhan` voices accept the field but do not apply it.</summary>
-        public float? Volume { get => _explicitNullValueVolume; set { _explicitNullValueVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume"); else _explicitNullProperties?.Remove("volume"); } }
+        public float? Volume { get => _explicitNullValueVolume; set { _explicitNullValueVolume = value; AdditionalData?.Remove("volume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("volume"); else _explicitNullProperties?.Remove("volume"); } }
         private float? _explicitNullValueVolume = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams"/> and sets the default values.
@@ -78,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "emotion", n => { Emotion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>(); } },
+                { "emotion", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEmotion = default; _explicitNullProperties?.Remove("emotion"); AdditionalData["emotion"] = unknown; } else { Emotion = parsed; AdditionalData.Remove("emotion"); } } },
                 { "response_format", n => { ResponseFormat = n.GetStringValue(); } },
                 { "sampling_rate", n => { SamplingRate = n.GetIntValue(); } },
                 { "voice_speed", n => { VoiceSpeed = n.GetFloatValue(); } },

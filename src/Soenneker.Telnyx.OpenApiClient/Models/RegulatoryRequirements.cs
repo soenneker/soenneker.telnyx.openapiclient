@@ -17,7 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("regulatory_requirements") is { } nullNodeRegulatoryRequirementsProp && nullNodeRegulatoryRequirementsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulatoryRequirementsProp = null;
+            if (parseNode.GetChildNode("regulatory_requirements") is null) { _explicitNullValueRegulatoryRequirementsProp = default!; _explicitNullProperties?.Remove("regulatory_requirements"); }
+            else if (parseNode.GetChildNode("regulatory_requirements") is { } nullNodeRegulatoryRequirementsProp && nullNodeRegulatoryRequirementsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulatoryRequirementsProp = null;
         }
 
         /// <summary>The action property</summary>
@@ -49,11 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>? RegulatoryRequirementsProp { get => _explicitNullValueRegulatoryRequirementsProp; set { _explicitNullValueRegulatoryRequirementsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>? RegulatoryRequirementsProp { get => _explicitNullValueRegulatoryRequirementsProp; set { _explicitNullValueRegulatoryRequirementsProp = value; AdditionalData?.Remove("regulatory_requirements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem>? _explicitNullValueRegulatoryRequirementsProp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem> RegulatoryRequirementsProp { get => _explicitNullValueRegulatoryRequirementsProp; set { _explicitNullValueRegulatoryRequirementsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem> RegulatoryRequirementsProp { get => _explicitNullValueRegulatoryRequirementsProp; set { _explicitNullValueRegulatoryRequirementsProp = value; AdditionalData?.Remove("regulatory_requirements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulatory_requirements"); else _explicitNullProperties?.Remove("regulatory_requirements"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirementsRegulatoryRequirementsItem> _explicitNullValueRegulatoryRequirementsProp = default!;
 #endif
         /// <summary>

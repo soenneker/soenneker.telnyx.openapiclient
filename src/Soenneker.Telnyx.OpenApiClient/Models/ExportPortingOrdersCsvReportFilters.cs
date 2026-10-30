@@ -18,38 +18,42 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created_at__gt") is { } nullNodeCreatedAtGt && nullNodeCreatedAtGt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtGt = null;
-            if (parseNode.GetChildNode("created_at__lt") is { } nullNodeCreatedAtLt && nullNodeCreatedAtLt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtLt = null;
-            if (parseNode.GetChildNode("customer_reference__in") is { } nullNodeCustomerReferenceIn && nullNodeCustomerReferenceIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReferenceIn = null;
-            if (parseNode.GetChildNode("status__in") is { } nullNodeStatusIn && nullNodeStatusIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusIn = null;
+            if (parseNode.GetChildNode("created_at__gt") is null) { _explicitNullValueCreatedAtGt = default!; _explicitNullProperties?.Remove("created_at__gt"); }
+            else if (parseNode.GetChildNode("created_at__gt") is { } nullNodeCreatedAtGt && nullNodeCreatedAtGt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtGt = null;
+            if (parseNode.GetChildNode("created_at__lt") is null) { _explicitNullValueCreatedAtLt = default!; _explicitNullProperties?.Remove("created_at__lt"); }
+            else if (parseNode.GetChildNode("created_at__lt") is { } nullNodeCreatedAtLt && nullNodeCreatedAtLt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtLt = null;
+            if (parseNode.GetChildNode("customer_reference__in") is null) { _explicitNullValueCustomerReferenceIn = default!; _explicitNullProperties?.Remove("customer_reference__in"); }
+            else if (parseNode.GetChildNode("customer_reference__in") is { } nullNodeCustomerReferenceIn && nullNodeCustomerReferenceIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerReferenceIn = null;
+            if (parseNode.GetChildNode("status__in") is null) { _explicitNullValueStatusIn = default!; _explicitNullProperties?.Remove("status__in"); }
+            else if (parseNode.GetChildNode("status__in") is { } nullNodeStatusIn && nullNodeStatusIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusIn = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time the porting order was created after.</summary>
-        public DateTimeOffset? CreatedAtGt { get => _explicitNullValueCreatedAtGt; set { _explicitNullValueCreatedAtGt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at__gt"); else _explicitNullProperties?.Remove("created_at__gt"); } }
+        public DateTimeOffset? CreatedAtGt { get => _explicitNullValueCreatedAtGt; set { _explicitNullValueCreatedAtGt = value; AdditionalData?.Remove("created_at__gt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at__gt"); else _explicitNullProperties?.Remove("created_at__gt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAtGt = default!;
         /// <summary>The date and time the porting order was created before.</summary>
-        public DateTimeOffset? CreatedAtLt { get => _explicitNullValueCreatedAtLt; set { _explicitNullValueCreatedAtLt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at__lt"); else _explicitNullProperties?.Remove("created_at__lt"); } }
+        public DateTimeOffset? CreatedAtLt { get => _explicitNullValueCreatedAtLt; set { _explicitNullValueCreatedAtLt = value; AdditionalData?.Remove("created_at__lt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at__lt"); else _explicitNullProperties?.Remove("created_at__lt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAtLt = default!;
         /// <summary>The customer reference of the porting orders to include in the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomerReferenceIn { get => _explicitNullValueCustomerReferenceIn; set { _explicitNullValueCustomerReferenceIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference__in"); else _explicitNullProperties?.Remove("customer_reference__in"); } }
+        public List<string>? CustomerReferenceIn { get => _explicitNullValueCustomerReferenceIn; set { _explicitNullValueCustomerReferenceIn = value; AdditionalData?.Remove("customer_reference__in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference__in"); else _explicitNullProperties?.Remove("customer_reference__in"); } }
         private List<string>? _explicitNullValueCustomerReferenceIn = default!;
 #nullable restore
 #else
-        public List<string> CustomerReferenceIn { get => _explicitNullValueCustomerReferenceIn; set { _explicitNullValueCustomerReferenceIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference__in"); else _explicitNullProperties?.Remove("customer_reference__in"); } }
+        public List<string> CustomerReferenceIn { get => _explicitNullValueCustomerReferenceIn; set { _explicitNullValueCustomerReferenceIn = value; AdditionalData?.Remove("customer_reference__in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customer_reference__in"); else _explicitNullProperties?.Remove("customer_reference__in"); } }
         private List<string> _explicitNullValueCustomerReferenceIn = default!;
 #endif
         /// <summary>The status of the porting orders to include in the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportFiltersStatusInItem?>? StatusIn { get => _explicitNullValueStatusIn; set { _explicitNullValueStatusIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status__in"); else _explicitNullProperties?.Remove("status__in"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportFiltersStatusInItem?>? StatusIn { get => _explicitNullValueStatusIn; set { _explicitNullValueStatusIn = value; AdditionalData?.Remove("status__in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status__in"); else _explicitNullProperties?.Remove("status__in"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportFiltersStatusInItem?>? _explicitNullValueStatusIn = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportFiltersStatusInItem?> StatusIn { get => _explicitNullValueStatusIn; set { _explicitNullValueStatusIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status__in"); else _explicitNullProperties?.Remove("status__in"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportFiltersStatusInItem?> StatusIn { get => _explicitNullValueStatusIn; set { _explicitNullValueStatusIn = value; AdditionalData?.Remove("status__in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status__in"); else _explicitNullProperties?.Remove("status__in"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCsvReportFiltersStatusInItem?> _explicitNullValueStatusIn = default!;
 #endif
         /// <summary>

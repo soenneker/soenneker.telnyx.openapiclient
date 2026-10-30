@@ -17,10 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("notification_channel_id") is { } nullNodeNotificationChannelId && nullNodeNotificationChannelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationChannelId = null;
-            if (parseNode.GetChildNode("notification_event_condition_id") is { } nullNodeNotificationEventConditionId && nullNodeNotificationEventConditionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationEventConditionId = null;
-            if (parseNode.GetChildNode("notification_profile_id") is { } nullNodeNotificationProfileId && nullNodeNotificationProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationProfileId = null;
-            if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
+            if (parseNode.GetChildNode("notification_channel_id") is null) { _explicitNullValueNotificationChannelId = default!; _explicitNullProperties?.Remove("notification_channel_id"); }
+            else if (parseNode.GetChildNode("notification_channel_id") is { } nullNodeNotificationChannelId && nullNodeNotificationChannelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationChannelId = null;
+            if (parseNode.GetChildNode("notification_event_condition_id") is null) { _explicitNullValueNotificationEventConditionId = default!; _explicitNullProperties?.Remove("notification_event_condition_id"); }
+            else if (parseNode.GetChildNode("notification_event_condition_id") is { } nullNodeNotificationEventConditionId && nullNodeNotificationEventConditionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationEventConditionId = null;
+            if (parseNode.GetChildNode("notification_profile_id") is null) { _explicitNullValueNotificationProfileId = default!; _explicitNullProperties?.Remove("notification_profile_id"); }
+            else if (parseNode.GetChildNode("notification_profile_id") is { } nullNodeNotificationProfileId && nullNodeNotificationProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationProfileId = null;
+            if (parseNode.GetChildNode("parameters") is null) { _explicitNullValueParameters = default!; _explicitNullProperties?.Remove("parameters"); }
+            else if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,41 +58,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A UUID reference to the associated Notification Channel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NotificationChannelId { get => _explicitNullValueNotificationChannelId; set { _explicitNullValueNotificationChannelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channel_id"); else _explicitNullProperties?.Remove("notification_channel_id"); } }
+        public string? NotificationChannelId { get => _explicitNullValueNotificationChannelId; set { _explicitNullValueNotificationChannelId = value; AdditionalData?.Remove("notification_channel_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channel_id"); else _explicitNullProperties?.Remove("notification_channel_id"); } }
         private string? _explicitNullValueNotificationChannelId = default!;
 #nullable restore
 #else
-        public string NotificationChannelId { get => _explicitNullValueNotificationChannelId; set { _explicitNullValueNotificationChannelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channel_id"); else _explicitNullProperties?.Remove("notification_channel_id"); } }
+        public string NotificationChannelId { get => _explicitNullValueNotificationChannelId; set { _explicitNullValueNotificationChannelId = value; AdditionalData?.Remove("notification_channel_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_channel_id"); else _explicitNullProperties?.Remove("notification_channel_id"); } }
         private string _explicitNullValueNotificationChannelId = default!;
 #endif
         /// <summary>A UUID reference to the associated Notification Event Condition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NotificationEventConditionId { get => _explicitNullValueNotificationEventConditionId; set { _explicitNullValueNotificationEventConditionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_event_condition_id"); else _explicitNullProperties?.Remove("notification_event_condition_id"); } }
+        public string? NotificationEventConditionId { get => _explicitNullValueNotificationEventConditionId; set { _explicitNullValueNotificationEventConditionId = value; AdditionalData?.Remove("notification_event_condition_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_event_condition_id"); else _explicitNullProperties?.Remove("notification_event_condition_id"); } }
         private string? _explicitNullValueNotificationEventConditionId = default!;
 #nullable restore
 #else
-        public string NotificationEventConditionId { get => _explicitNullValueNotificationEventConditionId; set { _explicitNullValueNotificationEventConditionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_event_condition_id"); else _explicitNullProperties?.Remove("notification_event_condition_id"); } }
+        public string NotificationEventConditionId { get => _explicitNullValueNotificationEventConditionId; set { _explicitNullValueNotificationEventConditionId = value; AdditionalData?.Remove("notification_event_condition_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_event_condition_id"); else _explicitNullProperties?.Remove("notification_event_condition_id"); } }
         private string _explicitNullValueNotificationEventConditionId = default!;
 #endif
         /// <summary>A UUID reference to the associated Notification Profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
+        public string? NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; AdditionalData?.Remove("notification_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
         private string? _explicitNullValueNotificationProfileId = default!;
 #nullable restore
 #else
-        public string NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
+        public string NotificationProfileId { get => _explicitNullValueNotificationProfileId; set { _explicitNullValueNotificationProfileId = value; AdditionalData?.Remove("notification_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_profile_id"); else _explicitNullProperties?.Remove("notification_profile_id"); } }
         private string _explicitNullValueNotificationProfileId = default!;
 #endif
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem>? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem>? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; AdditionalData?.Remove("parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem>? _explicitNullValueParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem> Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem> Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; AdditionalData?.Remove("parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationSettingParametersItem> _explicitNullValueParameters = default!;
 #endif
         /// <summary>Most preferences apply immediately; however, other may needs to propagate.</summary>

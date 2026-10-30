@@ -17,23 +17,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("channel_limit") is { } nullNodeChannelLimit && nullNodeChannelLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelLimit = null;
-            if (parseNode.GetChildNode("outbound_voice_profile_id") is { } nullNodeOutboundVoiceProfileId && nullNodeOutboundVoiceProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundVoiceProfileId = null;
+            if (parseNode.GetChildNode("channel_limit") is null) { _explicitNullValueChannelLimit = default!; _explicitNullProperties?.Remove("channel_limit"); }
+            else if (parseNode.GetChildNode("channel_limit") is { } nullNodeChannelLimit && nullNodeChannelLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelLimit = null;
+            if (parseNode.GetChildNode("outbound_voice_profile_id") is null) { _explicitNullValueOutboundVoiceProfileId = default!; _explicitNullProperties?.Remove("outbound_voice_profile_id"); }
+            else if (parseNode.GetChildNode("outbound_voice_profile_id") is { } nullNodeOutboundVoiceProfileId && nullNodeOutboundVoiceProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutboundVoiceProfileId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The channel_limit property</summary>
-        public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
+        public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; AdditionalData?.Remove("channel_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
         private int? _explicitNullValueChannelLimit = default!;
         /// <summary>The outbound_voice_profile_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
+        public string? OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; AdditionalData?.Remove("outbound_voice_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
         private string? _explicitNullValueOutboundVoiceProfileId = default!;
 #nullable restore
 #else
-        public string OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
+        public string OutboundVoiceProfileId { get => _explicitNullValueOutboundVoiceProfileId; set { _explicitNullValueOutboundVoiceProfileId = value; AdditionalData?.Remove("outbound_voice_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outbound_voice_profile_id"); else _explicitNullProperties?.Remove("outbound_voice_profile_id"); } }
         private string _explicitNullValueOutboundVoiceProfileId = default!;
 #endif
         /// <summary>

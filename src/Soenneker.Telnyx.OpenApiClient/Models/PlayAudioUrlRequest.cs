@@ -17,108 +17,119 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("audio_type") is { } nullNodeAudioType && nullNodeAudioType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioType = null;
-            if (parseNode.GetChildNode("audio_url") is { } nullNodeAudioUrl && nullNodeAudioUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioUrl = null;
-            if (parseNode.GetChildNode("cache_audio") is { } nullNodeCacheAudio && nullNodeCacheAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheAudio = null;
-            if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
-            if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
-            if (parseNode.GetChildNode("loop") is { } nullNodeLoop && nullNodeLoop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Loop = null;
-            if (parseNode.GetChildNode("media_name") is { } nullNodeMediaName && nullNodeMediaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaName = null;
-            if (parseNode.GetChildNode("overlay") is { } nullNodeOverlay && nullNodeOverlay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Overlay = null;
-            if (parseNode.GetChildNode("playback_content") is { } nullNodePlaybackContent && nullNodePlaybackContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlaybackContent = null;
-            if (parseNode.GetChildNode("stop") is { } nullNodeStop && nullNodeStop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stop = null;
-            if (parseNode.GetChildNode("target_legs") is { } nullNodeTargetLegs && nullNodeTargetLegs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetLegs = null;
+            if (parseNode.GetChildNode("audio_type") is null) { _explicitNullValueAudioType = default!; _explicitNullProperties?.Remove("audio_type"); }
+            else if (parseNode.GetChildNode("audio_type") is { } nullNodeAudioType && nullNodeAudioType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioType = null;
+            if (parseNode.GetChildNode("audio_url") is null) { _explicitNullValueAudioUrl = default!; _explicitNullProperties?.Remove("audio_url"); }
+            else if (parseNode.GetChildNode("audio_url") is { } nullNodeAudioUrl && nullNodeAudioUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioUrl = null;
+            if (parseNode.GetChildNode("cache_audio") is null) { _explicitNullValueCacheAudio = default!; _explicitNullProperties?.Remove("cache_audio"); }
+            else if (parseNode.GetChildNode("cache_audio") is { } nullNodeCacheAudio && nullNodeCacheAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheAudio = null;
+            if (parseNode.GetChildNode("client_state") is null) { _explicitNullValueClientState = default!; _explicitNullProperties?.Remove("client_state"); }
+            else if (parseNode.GetChildNode("client_state") is { } nullNodeClientState && nullNodeClientState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientState = null;
+            if (parseNode.GetChildNode("command_id") is null) { _explicitNullValueCommandId = default!; _explicitNullProperties?.Remove("command_id"); }
+            else if (parseNode.GetChildNode("command_id") is { } nullNodeCommandId && nullNodeCommandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommandId = null;
+            if (parseNode.GetChildNode("loop") is null) { _explicitNullValueLoop = default!; _explicitNullProperties?.Remove("loop"); }
+            else if (parseNode.GetChildNode("loop") is { } nullNodeLoop && nullNodeLoop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Loop = null;
+            if (parseNode.GetChildNode("media_name") is null) { _explicitNullValueMediaName = default!; _explicitNullProperties?.Remove("media_name"); }
+            else if (parseNode.GetChildNode("media_name") is { } nullNodeMediaName && nullNodeMediaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaName = null;
+            if (parseNode.GetChildNode("overlay") is null) { _explicitNullValueOverlay = default!; _explicitNullProperties?.Remove("overlay"); }
+            else if (parseNode.GetChildNode("overlay") is { } nullNodeOverlay && nullNodeOverlay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Overlay = null;
+            if (parseNode.GetChildNode("playback_content") is null) { _explicitNullValuePlaybackContent = default!; _explicitNullProperties?.Remove("playback_content"); }
+            else if (parseNode.GetChildNode("playback_content") is { } nullNodePlaybackContent && nullNodePlaybackContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlaybackContent = null;
+            if (parseNode.GetChildNode("stop") is null) { _explicitNullValueStop = default!; _explicitNullProperties?.Remove("stop"); }
+            else if (parseNode.GetChildNode("stop") is { } nullNodeStop && nullNodeStop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stop = null;
+            if (parseNode.GetChildNode("target_legs") is null) { _explicitNullValueTargetLegs = default!; _explicitNullProperties?.Remove("target_legs"); }
+            else if (parseNode.GetChildNode("target_legs") is { } nullNodeTargetLegs && nullNodeTargetLegs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetLegs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the type of audio provided in `audio_url` or `playback_content`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType? AudioType { get => _explicitNullValueAudioType; set { _explicitNullValueAudioType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_type"); else _explicitNullProperties?.Remove("audio_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType? AudioType { get => _explicitNullValueAudioType; set { _explicitNullValueAudioType = value; AdditionalData?.Remove("audio_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_type"); else _explicitNullProperties?.Remove("audio_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType? _explicitNullValueAudioType = default!;
         /// <summary>The URL of a file to be played back on the call. The URL can point to either a WAV or MP3 file. media_name and audio_url cannot be used together in one request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AudioUrl { get => _explicitNullValueAudioUrl; set { _explicitNullValueAudioUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_url"); else _explicitNullProperties?.Remove("audio_url"); } }
+        public string? AudioUrl { get => _explicitNullValueAudioUrl; set { _explicitNullValueAudioUrl = value; AdditionalData?.Remove("audio_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_url"); else _explicitNullProperties?.Remove("audio_url"); } }
         private string? _explicitNullValueAudioUrl = default!;
 #nullable restore
 #else
-        public string AudioUrl { get => _explicitNullValueAudioUrl; set { _explicitNullValueAudioUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_url"); else _explicitNullProperties?.Remove("audio_url"); } }
+        public string AudioUrl { get => _explicitNullValueAudioUrl; set { _explicitNullValueAudioUrl = value; AdditionalData?.Remove("audio_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_url"); else _explicitNullProperties?.Remove("audio_url"); } }
         private string _explicitNullValueAudioUrl = default!;
 #endif
         /// <summary>Caches the audio file. Useful when playing the same audio file multiple times during the call.</summary>
-        public bool? CacheAudio { get => _explicitNullValueCacheAudio; set { _explicitNullValueCacheAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_audio"); else _explicitNullProperties?.Remove("cache_audio"); } }
+        public bool? CacheAudio { get => _explicitNullValueCacheAudio; set { _explicitNullValueCacheAudio = value; AdditionalData?.Remove("cache_audio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_audio"); else _explicitNullProperties?.Remove("cache_audio"); } }
         private bool? _explicitNullValueCacheAudio = default!;
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string? ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string? _explicitNullValueClientState = default!;
 #nullable restore
 #else
-        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
+        public string ClientState { get => _explicitNullValueClientState; set { _explicitNullValueClientState = value; AdditionalData?.Remove("client_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_state"); else _explicitNullProperties?.Remove("client_state"); } }
         private string _explicitNullValueClientState = default!;
 #endif
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string? CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string? _explicitNullValueCommandId = default!;
 #nullable restore
 #else
-        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
+        public string CommandId { get => _explicitNullValueCommandId; set { _explicitNullValueCommandId = value; AdditionalData?.Remove("command_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("command_id"); else _explicitNullProperties?.Remove("command_id"); } }
         private string _explicitNullValueCommandId = default!;
 #endif
         /// <summary>The number of times the audio file should be played. If supplied, the value must be an integer between 1 and 100, or the special string `infinity` for an endless loop.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? Loop { get => _explicitNullValueLoop; set { _explicitNullValueLoop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loop"); else _explicitNullProperties?.Remove("loop"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? Loop { get => _explicitNullValueLoop; set { _explicitNullValueLoop = value; AdditionalData?.Remove("loop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loop"); else _explicitNullProperties?.Remove("loop"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? _explicitNullValueLoop = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount Loop { get => _explicitNullValueLoop; set { _explicitNullValueLoop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loop"); else _explicitNullProperties?.Remove("loop"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount Loop { get => _explicitNullValueLoop; set { _explicitNullValueLoop = value; AdditionalData?.Remove("loop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loop"); else _explicitNullProperties?.Remove("loop"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount _explicitNullValueLoop = default!;
 #endif
         /// <summary>The media_name of a file to be played back on the call. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MediaName { get => _explicitNullValueMediaName; set { _explicitNullValueMediaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_name"); else _explicitNullProperties?.Remove("media_name"); } }
+        public string? MediaName { get => _explicitNullValueMediaName; set { _explicitNullValueMediaName = value; AdditionalData?.Remove("media_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_name"); else _explicitNullProperties?.Remove("media_name"); } }
         private string? _explicitNullValueMediaName = default!;
 #nullable restore
 #else
-        public string MediaName { get => _explicitNullValueMediaName; set { _explicitNullValueMediaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_name"); else _explicitNullProperties?.Remove("media_name"); } }
+        public string MediaName { get => _explicitNullValueMediaName; set { _explicitNullValueMediaName = value; AdditionalData?.Remove("media_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_name"); else _explicitNullProperties?.Remove("media_name"); } }
         private string _explicitNullValueMediaName = default!;
 #endif
         /// <summary>When enabled, audio will be mixed on top of any other audio that is actively being played back. Note that `overlay: true` will only work if there is another audio file already being played on the call.</summary>
-        public bool? Overlay { get => _explicitNullValueOverlay; set { _explicitNullValueOverlay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overlay"); else _explicitNullProperties?.Remove("overlay"); } }
+        public bool? Overlay { get => _explicitNullValueOverlay; set { _explicitNullValueOverlay = value; AdditionalData?.Remove("overlay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overlay"); else _explicitNullProperties?.Remove("overlay"); } }
         private bool? _explicitNullValueOverlay = default!;
         /// <summary>Allows a user to provide base64 encoded mp3 or wav. Note: when using this parameter, `media_url` and `media_name` in the `playback_started` and `playback_ended` webhooks will be empty</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlaybackContent { get => _explicitNullValuePlaybackContent; set { _explicitNullValuePlaybackContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("playback_content"); else _explicitNullProperties?.Remove("playback_content"); } }
+        public string? PlaybackContent { get => _explicitNullValuePlaybackContent; set { _explicitNullValuePlaybackContent = value; AdditionalData?.Remove("playback_content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("playback_content"); else _explicitNullProperties?.Remove("playback_content"); } }
         private string? _explicitNullValuePlaybackContent = default!;
 #nullable restore
 #else
-        public string PlaybackContent { get => _explicitNullValuePlaybackContent; set { _explicitNullValuePlaybackContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("playback_content"); else _explicitNullProperties?.Remove("playback_content"); } }
+        public string PlaybackContent { get => _explicitNullValuePlaybackContent; set { _explicitNullValuePlaybackContent = value; AdditionalData?.Remove("playback_content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("playback_content"); else _explicitNullProperties?.Remove("playback_content"); } }
         private string _explicitNullValuePlaybackContent = default!;
 #endif
         /// <summary>When specified, it stops the current audio being played. Specify `current` to stop the current audio being played, and to play the next file in the queue. Specify `all` to stop the current audio file being played and to also clear all audio files from the queue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
+        public string? Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; AdditionalData?.Remove("stop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
         private string? _explicitNullValueStop = default!;
 #nullable restore
 #else
-        public string Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
+        public string Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; AdditionalData?.Remove("stop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
         private string _explicitNullValueStop = default!;
 #endif
         /// <summary>Specifies the leg or legs on which audio will be played. If supplied, the value must be either `self`, `opposite` or `both`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetLegs { get => _explicitNullValueTargetLegs; set { _explicitNullValueTargetLegs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_legs"); else _explicitNullProperties?.Remove("target_legs"); } }
+        public string? TargetLegs { get => _explicitNullValueTargetLegs; set { _explicitNullValueTargetLegs = value; AdditionalData?.Remove("target_legs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_legs"); else _explicitNullProperties?.Remove("target_legs"); } }
         private string? _explicitNullValueTargetLegs = default!;
 #nullable restore
 #else
-        public string TargetLegs { get => _explicitNullValueTargetLegs; set { _explicitNullValueTargetLegs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_legs"); else _explicitNullProperties?.Remove("target_legs"); } }
+        public string TargetLegs { get => _explicitNullValueTargetLegs; set { _explicitNullValueTargetLegs = value; AdditionalData?.Remove("target_legs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_legs"); else _explicitNullProperties?.Remove("target_legs"); } }
         private string _explicitNullValueTargetLegs = default!;
 #endif
         /// <summary>
@@ -149,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "audio_type", n => { AudioType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType>(); } },
+                { "audio_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAudioType = default; _explicitNullProperties?.Remove("audio_type"); AdditionalData["audio_type"] = unknown; } else { AudioType = parsed; AdditionalData.Remove("audio_type"); } } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "cache_audio", n => { CacheAudio = n.GetBoolValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },

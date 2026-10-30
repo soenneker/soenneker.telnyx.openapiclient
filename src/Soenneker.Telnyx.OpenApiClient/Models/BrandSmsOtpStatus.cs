@@ -18,14 +18,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("brandId") is { } nullNodeBrandId && nullNodeBrandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandId = null;
-            if (parseNode.GetChildNode("deliveryStatus") is { } nullNodeDeliveryStatus && nullNodeDeliveryStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatus = null;
-            if (parseNode.GetChildNode("deliveryStatusDate") is { } nullNodeDeliveryStatusDate && nullNodeDeliveryStatusDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatusDate = null;
-            if (parseNode.GetChildNode("deliveryStatusDetails") is { } nullNodeDeliveryStatusDetails && nullNodeDeliveryStatusDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatusDetails = null;
-            if (parseNode.GetChildNode("mobilePhone") is { } nullNodeMobilePhone && nullNodeMobilePhone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobilePhone = null;
-            if (parseNode.GetChildNode("referenceId") is { } nullNodeReferenceId && nullNodeReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceId = null;
-            if (parseNode.GetChildNode("requestDate") is { } nullNodeRequestDate && nullNodeRequestDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestDate = null;
-            if (parseNode.GetChildNode("verifyDate") is { } nullNodeVerifyDate && nullNodeVerifyDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifyDate = null;
+            if (parseNode.GetChildNode("brandId") is null) { _explicitNullValueBrandId = default!; _explicitNullProperties?.Remove("brandId"); }
+            else if (parseNode.GetChildNode("brandId") is { } nullNodeBrandId && nullNodeBrandId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandId = null;
+            if (parseNode.GetChildNode("deliveryStatus") is null) { _explicitNullValueDeliveryStatus = default!; _explicitNullProperties?.Remove("deliveryStatus"); }
+            else if (parseNode.GetChildNode("deliveryStatus") is { } nullNodeDeliveryStatus && nullNodeDeliveryStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatus = null;
+            if (parseNode.GetChildNode("deliveryStatusDate") is null) { _explicitNullValueDeliveryStatusDate = default!; _explicitNullProperties?.Remove("deliveryStatusDate"); }
+            else if (parseNode.GetChildNode("deliveryStatusDate") is { } nullNodeDeliveryStatusDate && nullNodeDeliveryStatusDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatusDate = null;
+            if (parseNode.GetChildNode("deliveryStatusDetails") is null) { _explicitNullValueDeliveryStatusDetails = default!; _explicitNullProperties?.Remove("deliveryStatusDetails"); }
+            else if (parseNode.GetChildNode("deliveryStatusDetails") is { } nullNodeDeliveryStatusDetails && nullNodeDeliveryStatusDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryStatusDetails = null;
+            if (parseNode.GetChildNode("mobilePhone") is null) { _explicitNullValueMobilePhone = default!; _explicitNullProperties?.Remove("mobilePhone"); }
+            else if (parseNode.GetChildNode("mobilePhone") is { } nullNodeMobilePhone && nullNodeMobilePhone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobilePhone = null;
+            if (parseNode.GetChildNode("referenceId") is null) { _explicitNullValueReferenceId = default!; _explicitNullProperties?.Remove("referenceId"); }
+            else if (parseNode.GetChildNode("referenceId") is { } nullNodeReferenceId && nullNodeReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceId = null;
+            if (parseNode.GetChildNode("requestDate") is null) { _explicitNullValueRequestDate = default!; _explicitNullProperties?.Remove("requestDate"); }
+            else if (parseNode.GetChildNode("requestDate") is { } nullNodeRequestDate && nullNodeRequestDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestDate = null;
+            if (parseNode.GetChildNode("verifyDate") is null) { _explicitNullValueVerifyDate = default!; _explicitNullProperties?.Remove("verifyDate"); }
+            else if (parseNode.GetChildNode("verifyDate") is { } nullNodeVerifyDate && nullNodeVerifyDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifyDate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,61 +41,61 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The Brand ID associated with this OTP request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrandId { get => _explicitNullValueBrandId; set { _explicitNullValueBrandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandId"); else _explicitNullProperties?.Remove("brandId"); } }
+        public string? BrandId { get => _explicitNullValueBrandId; set { _explicitNullValueBrandId = value; AdditionalData?.Remove("brandId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandId"); else _explicitNullProperties?.Remove("brandId"); } }
         private string? _explicitNullValueBrandId = default!;
 #nullable restore
 #else
-        public string BrandId { get => _explicitNullValueBrandId; set { _explicitNullValueBrandId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandId"); else _explicitNullProperties?.Remove("brandId"); } }
+        public string BrandId { get => _explicitNullValueBrandId; set { _explicitNullValueBrandId = value; AdditionalData?.Remove("brandId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandId"); else _explicitNullProperties?.Remove("brandId"); } }
         private string _explicitNullValueBrandId = default!;
 #endif
         /// <summary>The current delivery status of the OTP SMS message. Common values include: `DELIVERED_HANDSET`, `PENDING`, `FAILED`, `EXPIRED`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeliveryStatus { get => _explicitNullValueDeliveryStatus; set { _explicitNullValueDeliveryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatus"); else _explicitNullProperties?.Remove("deliveryStatus"); } }
+        public string? DeliveryStatus { get => _explicitNullValueDeliveryStatus; set { _explicitNullValueDeliveryStatus = value; AdditionalData?.Remove("deliveryStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatus"); else _explicitNullProperties?.Remove("deliveryStatus"); } }
         private string? _explicitNullValueDeliveryStatus = default!;
 #nullable restore
 #else
-        public string DeliveryStatus { get => _explicitNullValueDeliveryStatus; set { _explicitNullValueDeliveryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatus"); else _explicitNullProperties?.Remove("deliveryStatus"); } }
+        public string DeliveryStatus { get => _explicitNullValueDeliveryStatus; set { _explicitNullValueDeliveryStatus = value; AdditionalData?.Remove("deliveryStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatus"); else _explicitNullProperties?.Remove("deliveryStatus"); } }
         private string _explicitNullValueDeliveryStatus = default!;
 #endif
         /// <summary>The timestamp when the delivery status was last updated</summary>
-        public DateTimeOffset? DeliveryStatusDate { get => _explicitNullValueDeliveryStatusDate; set { _explicitNullValueDeliveryStatusDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatusDate"); else _explicitNullProperties?.Remove("deliveryStatusDate"); } }
+        public DateTimeOffset? DeliveryStatusDate { get => _explicitNullValueDeliveryStatusDate; set { _explicitNullValueDeliveryStatusDate = value; AdditionalData?.Remove("deliveryStatusDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatusDate"); else _explicitNullProperties?.Remove("deliveryStatusDate"); } }
         private DateTimeOffset? _explicitNullValueDeliveryStatusDate = default!;
         /// <summary>Additional details about the delivery status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeliveryStatusDetails { get => _explicitNullValueDeliveryStatusDetails; set { _explicitNullValueDeliveryStatusDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatusDetails"); else _explicitNullProperties?.Remove("deliveryStatusDetails"); } }
+        public string? DeliveryStatusDetails { get => _explicitNullValueDeliveryStatusDetails; set { _explicitNullValueDeliveryStatusDetails = value; AdditionalData?.Remove("deliveryStatusDetails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatusDetails"); else _explicitNullProperties?.Remove("deliveryStatusDetails"); } }
         private string? _explicitNullValueDeliveryStatusDetails = default!;
 #nullable restore
 #else
-        public string DeliveryStatusDetails { get => _explicitNullValueDeliveryStatusDetails; set { _explicitNullValueDeliveryStatusDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatusDetails"); else _explicitNullProperties?.Remove("deliveryStatusDetails"); } }
+        public string DeliveryStatusDetails { get => _explicitNullValueDeliveryStatusDetails; set { _explicitNullValueDeliveryStatusDetails = value; AdditionalData?.Remove("deliveryStatusDetails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deliveryStatusDetails"); else _explicitNullProperties?.Remove("deliveryStatusDetails"); } }
         private string _explicitNullValueDeliveryStatusDetails = default!;
 #endif
         /// <summary>The mobile phone number where the OTP was sent, in E.164 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MobilePhone { get => _explicitNullValueMobilePhone; set { _explicitNullValueMobilePhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobilePhone"); else _explicitNullProperties?.Remove("mobilePhone"); } }
+        public string? MobilePhone { get => _explicitNullValueMobilePhone; set { _explicitNullValueMobilePhone = value; AdditionalData?.Remove("mobilePhone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobilePhone"); else _explicitNullProperties?.Remove("mobilePhone"); } }
         private string? _explicitNullValueMobilePhone = default!;
 #nullable restore
 #else
-        public string MobilePhone { get => _explicitNullValueMobilePhone; set { _explicitNullValueMobilePhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobilePhone"); else _explicitNullProperties?.Remove("mobilePhone"); } }
+        public string MobilePhone { get => _explicitNullValueMobilePhone; set { _explicitNullValueMobilePhone = value; AdditionalData?.Remove("mobilePhone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobilePhone"); else _explicitNullProperties?.Remove("mobilePhone"); } }
         private string _explicitNullValueMobilePhone = default!;
 #endif
         /// <summary>The reference ID for this OTP request, used for status queries</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferenceId { get => _explicitNullValueReferenceId; set { _explicitNullValueReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceId"); else _explicitNullProperties?.Remove("referenceId"); } }
+        public string? ReferenceId { get => _explicitNullValueReferenceId; set { _explicitNullValueReferenceId = value; AdditionalData?.Remove("referenceId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceId"); else _explicitNullProperties?.Remove("referenceId"); } }
         private string? _explicitNullValueReferenceId = default!;
 #nullable restore
 #else
-        public string ReferenceId { get => _explicitNullValueReferenceId; set { _explicitNullValueReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceId"); else _explicitNullProperties?.Remove("referenceId"); } }
+        public string ReferenceId { get => _explicitNullValueReferenceId; set { _explicitNullValueReferenceId = value; AdditionalData?.Remove("referenceId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceId"); else _explicitNullProperties?.Remove("referenceId"); } }
         private string _explicitNullValueReferenceId = default!;
 #endif
         /// <summary>The timestamp when the OTP request was initiated</summary>
-        public DateTimeOffset? RequestDate { get => _explicitNullValueRequestDate; set { _explicitNullValueRequestDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requestDate"); else _explicitNullProperties?.Remove("requestDate"); } }
+        public DateTimeOffset? RequestDate { get => _explicitNullValueRequestDate; set { _explicitNullValueRequestDate = value; AdditionalData?.Remove("requestDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requestDate"); else _explicitNullProperties?.Remove("requestDate"); } }
         private DateTimeOffset? _explicitNullValueRequestDate = default!;
         /// <summary>The timestamp when the OTP was successfully verified (if applicable)</summary>
-        public DateTimeOffset? VerifyDate { get => _explicitNullValueVerifyDate; set { _explicitNullValueVerifyDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifyDate"); else _explicitNullProperties?.Remove("verifyDate"); } }
+        public DateTimeOffset? VerifyDate { get => _explicitNullValueVerifyDate; set { _explicitNullValueVerifyDate = value; AdditionalData?.Remove("verifyDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifyDate"); else _explicitNullProperties?.Remove("verifyDate"); } }
         private DateTimeOffset? _explicitNullValueVerifyDate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandSmsOtpStatus"/> and sets the default values.

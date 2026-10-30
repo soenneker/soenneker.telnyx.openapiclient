@@ -66,10 +66,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("Url") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("Texml") != null))();
-            if (result.InitiateCallRequestApplicationDefault == null && result.InitiateCallRequestWithTeXml == null && result.InitiateCallRequestWithUrl == null && matchesUnionBranch0 && !matchesUnionBranch1) result.InitiateCallRequestWithUrl = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl(), parseNode);
-            if (result.InitiateCallRequestApplicationDefault == null && result.InitiateCallRequestWithTeXml == null && result.InitiateCallRequestWithUrl == null && matchesUnionBranch1 && !matchesUnionBranch0) result.InitiateCallRequestWithTeXml = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("Url") && (!shapeMembers1.ContainsKey("Texml") || (!(true))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("Texml") && (!shapeMembers1.ContainsKey("Url") || (!(true))))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("Url") || (!(true))) && (!shapeMembers1.ContainsKey("Texml") || (!(true))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            if (matchesUnionBranch2) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.InitiateCallRequestApplicationDefault == null && result.InitiateCallRequestWithTeXml == null && result.InitiateCallRequestWithUrl == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.InitiateCallRequestWithUrl = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithUrl(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.InitiateCallRequestWithTeXml = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestWithTeXml(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.InitiateCallRequestApplicationDefault = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestApplicationDefault(), parseNode);
             if (result.InitiateCallRequestApplicationDefault == null && result.InitiateCallRequestWithTeXml == null && result.InitiateCallRequestWithUrl == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -79,6 +86,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(InitiateCallRequestApplicationDefault != null)
             {
                 return InitiateCallRequestApplicationDefault.GetFieldDeserializers();
@@ -101,9 +110,13 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (InitiateCallRequestApplicationDefault == null && InitiateCallRequestWithTeXml == null && InitiateCallRequestWithUrl == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (InitiateCallRequestApplicationDefault != null && InitiateCallRequestWithTeXml == null && InitiateCallRequestWithUrl == null) { if (InitiateCallRequestApplicationDefault is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InitiateCallRequestApplicationDefault); return; }
-            if (InitiateCallRequestWithTeXml != null && InitiateCallRequestApplicationDefault == null && InitiateCallRequestWithUrl == null) { if (InitiateCallRequestWithTeXml is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InitiateCallRequestWithTeXml); return; }
-            if (InitiateCallRequestWithUrl != null && InitiateCallRequestApplicationDefault == null && InitiateCallRequestWithTeXml == null) { if (InitiateCallRequestWithUrl is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InitiateCallRequestWithUrl); return; }
+            int selectedUnionBranches = 0;
+            if (InitiateCallRequestApplicationDefault != null) selectedUnionBranches++;
+            if (InitiateCallRequestWithTeXml != null) selectedUnionBranches++;
+            if (InitiateCallRequestWithUrl != null) selectedUnionBranches++;
+            if (InitiateCallRequestApplicationDefault != null && selectedUnionBranches == 1) { if (InitiateCallRequestApplicationDefault is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InitiateCallRequestApplicationDefault); return; }
+            if (InitiateCallRequestWithTeXml != null && selectedUnionBranches == 1) { if (InitiateCallRequestWithTeXml is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InitiateCallRequestWithTeXml); return; }
+            if (InitiateCallRequestWithUrl != null && selectedUnionBranches == 1) { if (InitiateCallRequestWithUrl is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InitiateCallRequestWithUrl); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(InitiateCallRequestApplicationDefault != null)

@@ -18,17 +18,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("retrieval_type") is { } nullNodeRetrievalType && nullNodeRetrievalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetrievalType = null;
-            if (parseNode.GetChildNode("top_k") is { } nullNodeTopK && nullNodeTopK.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopK = null;
+            if (parseNode.GetChildNode("retrieval_type") is null) { _explicitNullValueRetrievalType = default!; _explicitNullProperties?.Remove("retrieval_type"); }
+            else if (parseNode.GetChildNode("retrieval_type") is { } nullNodeRetrievalType && nullNodeRetrievalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetrievalType = null;
+            if (parseNode.GetChildNode("top_k") is null) { _explicitNullValueTopK = default!; _explicitNullProperties?.Remove("top_k"); }
+            else if (parseNode.GetChildNode("top_k") is { } nullNodeTopK && nullNodeTopK.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopK = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Retrieval strategy. `vector` runs semantic similarity search; `hybrid` combines vector similarity with keyword matching; `keyword` runs lexical (BM25) matching. `keyword` is not accepted yet: setting it returns 422 `unsupported_retrieval_type`. A collection set to `hybrid` is accepted here but cannot be searched until hybrid execution ships.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsRetrievalType? RetrievalType { get => _explicitNullValueRetrievalType; set { _explicitNullValueRetrievalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval_type"); else _explicitNullProperties?.Remove("retrieval_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsRetrievalType? RetrievalType { get => _explicitNullValueRetrievalType; set { _explicitNullValueRetrievalType = value; AdditionalData?.Remove("retrieval_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retrieval_type"); else _explicitNullProperties?.Remove("retrieval_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsRetrievalType? _explicitNullValueRetrievalType = default!;
         /// <summary>Number of top results to retrieve (1–50).</summary>
-        public int? TopK { get => _explicitNullValueTopK; set { _explicitNullValueTopK = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_k"); else _explicitNullProperties?.Remove("top_k"); } }
+        public int? TopK { get => _explicitNullValueTopK; set { _explicitNullValueTopK = value; AdditionalData?.Remove("top_k"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_k"); else _explicitNullProperties?.Remove("top_k"); } }
         private int? _explicitNullValueTopK = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettings"/> and sets the default values.
@@ -56,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "retrieval_type", n => { RetrievalType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsRetrievalType>(); } },
+                { "retrieval_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalSettingsRetrievalType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRetrievalType = default; _explicitNullProperties?.Remove("retrieval_type"); AdditionalData["retrieval_type"] = unknown; } else { RetrievalType = parsed; AdditionalData.Remove("retrieval_type"); } } },
                 { "top_k", n => { TopK = n.GetIntValue(); } },
             };
         }

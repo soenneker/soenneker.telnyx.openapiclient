@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mobile_network_operators_preferences") is { } nullNodeMobileNetworkOperatorsPreferences && nullNodeMobileNetworkOperatorsPreferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileNetworkOperatorsPreferences = null;
+            if (parseNode.GetChildNode("mobile_network_operators_preferences") is null) { _explicitNullValueMobileNetworkOperatorsPreferences = default!; _explicitNullProperties?.Remove("mobile_network_operators_preferences"); }
+            else if (parseNode.GetChildNode("mobile_network_operators_preferences") is { } nullNodeMobileNetworkOperatorsPreferences && nullNodeMobileNetworkOperatorsPreferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileNetworkOperatorsPreferences = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A list of mobile network operators and the priority that should be applied when the SIM is connecting to the network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse>? MobileNetworkOperatorsPreferences { get => _explicitNullValueMobileNetworkOperatorsPreferences; set { _explicitNullValueMobileNetworkOperatorsPreferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operators_preferences"); else _explicitNullProperties?.Remove("mobile_network_operators_preferences"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse>? MobileNetworkOperatorsPreferences { get => _explicitNullValueMobileNetworkOperatorsPreferences; set { _explicitNullValueMobileNetworkOperatorsPreferences = value; AdditionalData?.Remove("mobile_network_operators_preferences"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operators_preferences"); else _explicitNullProperties?.Remove("mobile_network_operators_preferences"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse>? _explicitNullValueMobileNetworkOperatorsPreferences = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse> MobileNetworkOperatorsPreferences { get => _explicitNullValueMobileNetworkOperatorsPreferences; set { _explicitNullValueMobileNetworkOperatorsPreferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operators_preferences"); else _explicitNullProperties?.Remove("mobile_network_operators_preferences"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse> MobileNetworkOperatorsPreferences { get => _explicitNullValueMobileNetworkOperatorsPreferences; set { _explicitNullValueMobileNetworkOperatorsPreferences = value; AdditionalData?.Remove("mobile_network_operators_preferences"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile_network_operators_preferences"); else _explicitNullProperties?.Remove("mobile_network_operators_preferences"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse> _explicitNullValueMobileNetworkOperatorsPreferences = default!;
 #endif
         /// <summary>

@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("original_message_id") is { } nullNodeOriginalMessageId && nullNodeOriginalMessageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalMessageId = null;
+            if (parseNode.GetChildNode("original_message_id") is null) { _explicitNullValueOriginalMessageId = default!; _explicitNullProperties?.Remove("original_message_id"); }
+            else if (parseNode.GetChildNode("original_message_id") is { } nullNodeOriginalMessageId && nullNodeOriginalMessageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalMessageId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Telnyx message ID when a mapping exists, otherwise the original Meta WhatsApp message ID. Treat this value as opaque.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OriginalMessageId { get => _explicitNullValueOriginalMessageId; set { _explicitNullValueOriginalMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_message_id"); else _explicitNullProperties?.Remove("original_message_id"); } }
+        public string? OriginalMessageId { get => _explicitNullValueOriginalMessageId; set { _explicitNullValueOriginalMessageId = value; AdditionalData?.Remove("original_message_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_message_id"); else _explicitNullProperties?.Remove("original_message_id"); } }
         private string? _explicitNullValueOriginalMessageId = default!;
 #nullable restore
 #else
-        public string OriginalMessageId { get => _explicitNullValueOriginalMessageId; set { _explicitNullValueOriginalMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_message_id"); else _explicitNullProperties?.Remove("original_message_id"); } }
+        public string OriginalMessageId { get => _explicitNullValueOriginalMessageId; set { _explicitNullValueOriginalMessageId = value; AdditionalData?.Remove("original_message_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_message_id"); else _explicitNullProperties?.Remove("original_message_id"); } }
         private string _explicitNullValueOriginalMessageId = default!;
 #endif
         /// <summary>

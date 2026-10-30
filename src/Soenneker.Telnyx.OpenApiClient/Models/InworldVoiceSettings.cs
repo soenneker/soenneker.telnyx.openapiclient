@@ -17,17 +17,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("delivery_mode") is { } nullNodeDeliveryMode && nullNodeDeliveryMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryMode = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("delivery_mode") is null) { _explicitNullValueDeliveryMode = default!; _explicitNullProperties?.Remove("delivery_mode"); }
+            else if (parseNode.GetChildNode("delivery_mode") is { } nullNodeDeliveryMode && nullNodeDeliveryMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryMode = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Controls the expressiveness and consistency of the Inworld `TTS2` model&apos;s speech synthesis. `STABLE` favors consistent, predictable output, `CREATIVE` allows more expressive variation, and `BALANCED` sits in between. Optional and only supported by `TTS2`; when omitted, the provider default applies.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode? DeliveryMode { get => _explicitNullValueDeliveryMode; set { _explicitNullValueDeliveryMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_mode"); else _explicitNullProperties?.Remove("delivery_mode"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode? DeliveryMode { get => _explicitNullValueDeliveryMode; set { _explicitNullValueDeliveryMode = value; AdditionalData?.Remove("delivery_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_mode"); else _explicitNullProperties?.Remove("delivery_mode"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode? _explicitNullValueDeliveryMode = default!;
         /// <summary>Voice settings provider type</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InworldType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InworldType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InworldType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings"/> and sets the default values.
@@ -54,8 +56,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "delivery_mode", n => { DeliveryMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldType>(); } },
+                { "delivery_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettingsDeliveryMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDeliveryMode = default; _explicitNullProperties?.Remove("delivery_mode"); AdditionalData["delivery_mode"] = unknown; } else { DeliveryMode = parsed; AdditionalData.Remove("delivery_mode"); } } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

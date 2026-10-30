@@ -17,9 +17,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_ip_id") is { } nullNodeGlobalIpId && nullNodeGlobalIpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpId = null;
-            if (parseNode.GetChildNode("is_in_maintenance") is { } nullNodeIsInMaintenance && nullNodeIsInMaintenance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsInMaintenance = null;
-            if (parseNode.GetChildNode("wireguard_peer_id") is { } nullNodeWireguardPeerId && nullNodeWireguardPeerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WireguardPeerId = null;
+            if (parseNode.GetChildNode("global_ip_id") is null) { _explicitNullValueGlobalIpId = default!; _explicitNullProperties?.Remove("global_ip_id"); }
+            else if (parseNode.GetChildNode("global_ip_id") is { } nullNodeGlobalIpId && nullNodeGlobalIpId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalIpId = null;
+            if (parseNode.GetChildNode("is_in_maintenance") is null) { _explicitNullValueIsInMaintenance = default!; _explicitNullProperties?.Remove("is_in_maintenance"); }
+            else if (parseNode.GetChildNode("is_in_maintenance") is { } nullNodeIsInMaintenance && nullNodeIsInMaintenance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsInMaintenance = null;
+            if (parseNode.GetChildNode("wireguard_peer_id") is null) { _explicitNullValueWireguardPeerId = default!; _explicitNullProperties?.Remove("wireguard_peer_id"); }
+            else if (parseNode.GetChildNode("wireguard_peer_id") is { } nullNodeWireguardPeerId && nullNodeWireguardPeerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WireguardPeerId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CreatedAt { get; private set; }
 #endif
         /// <summary>Global IP ID.</summary>
-        public Guid? GlobalIpId { get => _explicitNullValueGlobalIpId; set { _explicitNullValueGlobalIpId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_id"); else _explicitNullProperties?.Remove("global_ip_id"); } }
+        public Guid? GlobalIpId { get => _explicitNullValueGlobalIpId; set { _explicitNullValueGlobalIpId = value; AdditionalData?.Remove("global_ip_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_ip_id"); else _explicitNullProperties?.Remove("global_ip_id"); } }
         private Guid? _explicitNullValueGlobalIpId = default!;
         /// <summary>Identifies the resource.</summary>
         public Guid? Id { get; private set; }
@@ -42,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Wireguard peer is connected.</summary>
         public bool? IsConnected { get; private set; }
         /// <summary>Enable/disable BGP announcement.</summary>
-        public bool? IsInMaintenance { get => _explicitNullValueIsInMaintenance; set { _explicitNullValueIsInMaintenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_in_maintenance"); else _explicitNullProperties?.Remove("is_in_maintenance"); } }
+        public bool? IsInMaintenance { get => _explicitNullValueIsInMaintenance; set { _explicitNullValueIsInMaintenance = value; AdditionalData?.Remove("is_in_maintenance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_in_maintenance"); else _explicitNullProperties?.Remove("is_in_maintenance"); } }
         private bool? _explicitNullValueIsInMaintenance = default!;
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>Wireguard peer ID.</summary>
-        public Guid? WireguardPeerId { get => _explicitNullValueWireguardPeerId; set { _explicitNullValueWireguardPeerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireguard_peer_id"); else _explicitNullProperties?.Remove("wireguard_peer_id"); } }
+        public Guid? WireguardPeerId { get => _explicitNullValueWireguardPeerId; set { _explicitNullValueWireguardPeerId = value; AdditionalData?.Remove("wireguard_peer_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wireguard_peer_id"); else _explicitNullProperties?.Remove("wireguard_peer_id"); } }
         private Guid? _explicitNullValueWireguardPeerId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignment"/> and sets the default values.

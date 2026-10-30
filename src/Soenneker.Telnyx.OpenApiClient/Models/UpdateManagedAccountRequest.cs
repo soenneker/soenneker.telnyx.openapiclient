@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("managed_account_allow_custom_pricing") is { } nullNodeManagedAccountAllowCustomPricing && nullNodeManagedAccountAllowCustomPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAccountAllowCustomPricing = null;
+            if (parseNode.GetChildNode("managed_account_allow_custom_pricing") is null) { _explicitNullValueManagedAccountAllowCustomPricing = default!; _explicitNullProperties?.Remove("managed_account_allow_custom_pricing"); }
+            else if (parseNode.GetChildNode("managed_account_allow_custom_pricing") is { } nullNodeManagedAccountAllowCustomPricing && nullNodeManagedAccountAllowCustomPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAccountAllowCustomPricing = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Boolean value that indicates if the managed account is able to have custom pricing set for it or not. If false, uses the pricing of the manager account. Defaults to false. This value may be changed, but there may be time lag between when the value is changed and pricing changes take effect.</summary>
-        public bool? ManagedAccountAllowCustomPricing { get => _explicitNullValueManagedAccountAllowCustomPricing; set { _explicitNullValueManagedAccountAllowCustomPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_account_allow_custom_pricing"); else _explicitNullProperties?.Remove("managed_account_allow_custom_pricing"); } }
+        public bool? ManagedAccountAllowCustomPricing { get => _explicitNullValueManagedAccountAllowCustomPricing; set { _explicitNullValueManagedAccountAllowCustomPricing = value; AdditionalData?.Remove("managed_account_allow_custom_pricing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_account_allow_custom_pricing"); else _explicitNullProperties?.Remove("managed_account_allow_custom_pricing"); } }
         private bool? _explicitNullValueManagedAccountAllowCustomPricing = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateManagedAccountRequest"/> and sets the default values.

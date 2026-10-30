@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("room_recordings") is { } nullNodeRoomRecordings && nullNodeRoomRecordings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoomRecordings = null;
+            if (parseNode.GetChildNode("room_recordings") is null) { _explicitNullValueRoomRecordings = default!; _explicitNullProperties?.Remove("room_recordings"); }
+            else if (parseNode.GetChildNode("room_recordings") is { } nullNodeRoomRecordings && nullNodeRoomRecordings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoomRecordings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Amount of room recordings affected</summary>
-        public int? RoomRecordings { get => _explicitNullValueRoomRecordings; set { _explicitNullValueRoomRecordings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("room_recordings"); else _explicitNullProperties?.Remove("room_recordings"); } }
+        public int? RoomRecordings { get => _explicitNullValueRoomRecordings; set { _explicitNullValueRoomRecordings = value; AdditionalData?.Remove("room_recordings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("room_recordings"); else _explicitNullProperties?.Remove("room_recordings"); } }
         private int? _explicitNullValueRoomRecordings = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkRoomRecordingsDeleteResponseData"/> and sets the default values.

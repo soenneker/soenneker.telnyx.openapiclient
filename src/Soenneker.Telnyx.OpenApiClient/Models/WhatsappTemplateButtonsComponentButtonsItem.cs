@@ -17,19 +17,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("autofill_text") is { } nullNodeAutofillText && nullNodeAutofillText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutofillText = null;
-            if (parseNode.GetChildNode("example") is { } nullNodeExample && nullNodeExample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Example = null;
-            if (parseNode.GetChildNode("flow_action") is { } nullNodeFlowAction && nullNodeFlowAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowAction = null;
-            if (parseNode.GetChildNode("flow_id") is { } nullNodeFlowId && nullNodeFlowId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowId = null;
-            if (parseNode.GetChildNode("navigate_screen") is { } nullNodeNavigateScreen && nullNodeNavigateScreen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NavigateScreen = null;
-            if (parseNode.GetChildNode("otp_type") is { } nullNodeOtpType && nullNodeOtpType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpType = null;
-            if (parseNode.GetChildNode("package_name") is { } nullNodePackageName && nullNodePackageName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PackageName = null;
-            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
-            if (parseNode.GetChildNode("signature_hash") is { } nullNodeSignatureHash && nullNodeSignatureHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignatureHash = null;
-            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
-            if (parseNode.GetChildNode("zero_tap_terms_accepted") is { } nullNodeZeroTapTermsAccepted && nullNodeZeroTapTermsAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ZeroTapTermsAccepted = null;
+            if (parseNode.GetChildNode("autofill_text") is null) { _explicitNullValueAutofillText = default!; _explicitNullProperties?.Remove("autofill_text"); }
+            else if (parseNode.GetChildNode("autofill_text") is { } nullNodeAutofillText && nullNodeAutofillText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutofillText = null;
+            if (parseNode.GetChildNode("example") is null) { _explicitNullValueExample = default!; _explicitNullProperties?.Remove("example"); }
+            else if (parseNode.GetChildNode("example") is { } nullNodeExample && nullNodeExample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Example = null;
+            if (parseNode.GetChildNode("flow_action") is null) { _explicitNullValueFlowAction = default!; _explicitNullProperties?.Remove("flow_action"); }
+            else if (parseNode.GetChildNode("flow_action") is { } nullNodeFlowAction && nullNodeFlowAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowAction = null;
+            if (parseNode.GetChildNode("flow_id") is null) { _explicitNullValueFlowId = default!; _explicitNullProperties?.Remove("flow_id"); }
+            else if (parseNode.GetChildNode("flow_id") is { } nullNodeFlowId && nullNodeFlowId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowId = null;
+            if (parseNode.GetChildNode("navigate_screen") is null) { _explicitNullValueNavigateScreen = default!; _explicitNullProperties?.Remove("navigate_screen"); }
+            else if (parseNode.GetChildNode("navigate_screen") is { } nullNodeNavigateScreen && nullNodeNavigateScreen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NavigateScreen = null;
+            if (parseNode.GetChildNode("otp_type") is null) { _explicitNullValueOtpType = default!; _explicitNullProperties?.Remove("otp_type"); }
+            else if (parseNode.GetChildNode("otp_type") is { } nullNodeOtpType && nullNodeOtpType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpType = null;
+            if (parseNode.GetChildNode("package_name") is null) { _explicitNullValuePackageName = default!; _explicitNullProperties?.Remove("package_name"); }
+            else if (parseNode.GetChildNode("package_name") is { } nullNodePackageName && nullNodePackageName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PackageName = null;
+            if (parseNode.GetChildNode("phone_number") is null) { _explicitNullValuePhoneNumber = default!; _explicitNullProperties?.Remove("phone_number"); }
+            else if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("signature_hash") is null) { _explicitNullValueSignatureHash = default!; _explicitNullProperties?.Remove("signature_hash"); }
+            else if (parseNode.GetChildNode("signature_hash") is { } nullNodeSignatureHash && nullNodeSignatureHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignatureHash = null;
+            if (parseNode.GetChildNode("text") is null) { _explicitNullValueText = default!; _explicitNullProperties?.Remove("text"); }
+            else if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("zero_tap_terms_accepted") is null) { _explicitNullValueZeroTapTermsAccepted = default!; _explicitNullProperties?.Remove("zero_tap_terms_accepted"); }
+            else if (parseNode.GetChildNode("zero_tap_terms_accepted") is { } nullNodeZeroTapTermsAccepted && nullNodeZeroTapTermsAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ZeroTapTermsAccepted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,104 +50,104 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Custom autofill button text for ONE_TAP OTP buttons.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutofillText { get => _explicitNullValueAutofillText; set { _explicitNullValueAutofillText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autofill_text"); else _explicitNullProperties?.Remove("autofill_text"); } }
+        public string? AutofillText { get => _explicitNullValueAutofillText; set { _explicitNullValueAutofillText = value; AdditionalData?.Remove("autofill_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autofill_text"); else _explicitNullProperties?.Remove("autofill_text"); } }
         private string? _explicitNullValueAutofillText = default!;
 #nullable restore
 #else
-        public string AutofillText { get => _explicitNullValueAutofillText; set { _explicitNullValueAutofillText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autofill_text"); else _explicitNullProperties?.Remove("autofill_text"); } }
+        public string AutofillText { get => _explicitNullValueAutofillText; set { _explicitNullValueAutofillText = value; AdditionalData?.Remove("autofill_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autofill_text"); else _explicitNullProperties?.Remove("autofill_text"); } }
         private string _explicitNullValueAutofillText = default!;
 #endif
         /// <summary>Sample values for URL variable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Example { get => _explicitNullValueExample; set { _explicitNullValueExample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("example"); else _explicitNullProperties?.Remove("example"); } }
+        public List<string>? Example { get => _explicitNullValueExample; set { _explicitNullValueExample = value; AdditionalData?.Remove("example"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("example"); else _explicitNullProperties?.Remove("example"); } }
         private List<string>? _explicitNullValueExample = default!;
 #nullable restore
 #else
-        public List<string> Example { get => _explicitNullValueExample; set { _explicitNullValueExample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("example"); else _explicitNullProperties?.Remove("example"); } }
+        public List<string> Example { get => _explicitNullValueExample; set { _explicitNullValueExample = value; AdditionalData?.Remove("example"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("example"); else _explicitNullProperties?.Remove("example"); } }
         private List<string> _explicitNullValueExample = default!;
 #endif
         /// <summary>Flow action type for FLOW-type buttons.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemFlowAction? FlowAction { get => _explicitNullValueFlowAction; set { _explicitNullValueFlowAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action"); else _explicitNullProperties?.Remove("flow_action"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemFlowAction? FlowAction { get => _explicitNullValueFlowAction; set { _explicitNullValueFlowAction = value; AdditionalData?.Remove("flow_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_action"); else _explicitNullProperties?.Remove("flow_action"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemFlowAction? _explicitNullValueFlowAction = default!;
         /// <summary>Flow ID for FLOW-type buttons.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
+        public string? FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; AdditionalData?.Remove("flow_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
         private string? _explicitNullValueFlowId = default!;
 #nullable restore
 #else
-        public string FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
+        public string FlowId { get => _explicitNullValueFlowId; set { _explicitNullValueFlowId = value; AdditionalData?.Remove("flow_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_id"); else _explicitNullProperties?.Remove("flow_id"); } }
         private string _explicitNullValueFlowId = default!;
 #endif
         /// <summary>Target screen name for FLOW buttons with navigate action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NavigateScreen { get => _explicitNullValueNavigateScreen; set { _explicitNullValueNavigateScreen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("navigate_screen"); else _explicitNullProperties?.Remove("navigate_screen"); } }
+        public string? NavigateScreen { get => _explicitNullValueNavigateScreen; set { _explicitNullValueNavigateScreen = value; AdditionalData?.Remove("navigate_screen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("navigate_screen"); else _explicitNullProperties?.Remove("navigate_screen"); } }
         private string? _explicitNullValueNavigateScreen = default!;
 #nullable restore
 #else
-        public string NavigateScreen { get => _explicitNullValueNavigateScreen; set { _explicitNullValueNavigateScreen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("navigate_screen"); else _explicitNullProperties?.Remove("navigate_screen"); } }
+        public string NavigateScreen { get => _explicitNullValueNavigateScreen; set { _explicitNullValueNavigateScreen = value; AdditionalData?.Remove("navigate_screen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("navigate_screen"); else _explicitNullProperties?.Remove("navigate_screen"); } }
         private string _explicitNullValueNavigateScreen = default!;
 #endif
         /// <summary>The otp_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemOtpType? OtpType { get => _explicitNullValueOtpType; set { _explicitNullValueOtpType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otp_type"); else _explicitNullProperties?.Remove("otp_type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemOtpType? OtpType { get => _explicitNullValueOtpType; set { _explicitNullValueOtpType = value; AdditionalData?.Remove("otp_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otp_type"); else _explicitNullProperties?.Remove("otp_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemOtpType? _explicitNullValueOtpType = default!;
         /// <summary>Android package name. Required for ONE_TAP OTP buttons.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PackageName { get => _explicitNullValuePackageName; set { _explicitNullValuePackageName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_name"); else _explicitNullProperties?.Remove("package_name"); } }
+        public string? PackageName { get => _explicitNullValuePackageName; set { _explicitNullValuePackageName = value; AdditionalData?.Remove("package_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_name"); else _explicitNullProperties?.Remove("package_name"); } }
         private string? _explicitNullValuePackageName = default!;
 #nullable restore
 #else
-        public string PackageName { get => _explicitNullValuePackageName; set { _explicitNullValuePackageName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_name"); else _explicitNullProperties?.Remove("package_name"); } }
+        public string PackageName { get => _explicitNullValuePackageName; set { _explicitNullValuePackageName = value; AdditionalData?.Remove("package_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_name"); else _explicitNullProperties?.Remove("package_name"); } }
         private string _explicitNullValuePackageName = default!;
 #endif
         /// <summary>Phone number in E.164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>Android app signing key hash. Required for ONE_TAP OTP buttons.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SignatureHash { get => _explicitNullValueSignatureHash; set { _explicitNullValueSignatureHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature_hash"); else _explicitNullProperties?.Remove("signature_hash"); } }
+        public string? SignatureHash { get => _explicitNullValueSignatureHash; set { _explicitNullValueSignatureHash = value; AdditionalData?.Remove("signature_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature_hash"); else _explicitNullProperties?.Remove("signature_hash"); } }
         private string? _explicitNullValueSignatureHash = default!;
 #nullable restore
 #else
-        public string SignatureHash { get => _explicitNullValueSignatureHash; set { _explicitNullValueSignatureHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature_hash"); else _explicitNullProperties?.Remove("signature_hash"); } }
+        public string SignatureHash { get => _explicitNullValueSignatureHash; set { _explicitNullValueSignatureHash = value; AdditionalData?.Remove("signature_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature_hash"); else _explicitNullProperties?.Remove("signature_hash"); } }
         private string _explicitNullValueSignatureHash = default!;
 #endif
         /// <summary>Button label text. Maximum 25 characters. Required for URL, PHONE_NUMBER, and QUICK_REPLY buttons. Not required for OTP buttons (Meta supplies the label).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
         private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
         private string _explicitNullValueText = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemType? _explicitNullValueType = default!;
         /// <summary>URL for URL-type buttons. Supports one variable ({{1}}).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>Whether zero-tap terms have been accepted.</summary>
-        public bool? ZeroTapTermsAccepted { get => _explicitNullValueZeroTapTermsAccepted; set { _explicitNullValueZeroTapTermsAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("zero_tap_terms_accepted"); else _explicitNullProperties?.Remove("zero_tap_terms_accepted"); } }
+        public bool? ZeroTapTermsAccepted { get => _explicitNullValueZeroTapTermsAccepted; set { _explicitNullValueZeroTapTermsAccepted = value; AdditionalData?.Remove("zero_tap_terms_accepted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("zero_tap_terms_accepted"); else _explicitNullProperties?.Remove("zero_tap_terms_accepted"); } }
         private bool? _explicitNullValueZeroTapTermsAccepted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItem"/> and sets the default values.
@@ -163,15 +176,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "autofill_text", n => { AutofillText = n.GetStringValue(); } },
                 { "example", n => { Example = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "flow_action", n => { FlowAction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemFlowAction>(); } },
+                { "flow_action", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemFlowAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFlowAction = default; _explicitNullProperties?.Remove("flow_action"); AdditionalData["flow_action"] = unknown; } else { FlowAction = parsed; AdditionalData.Remove("flow_action"); } } },
                 { "flow_id", n => { FlowId = n.GetStringValue(); } },
                 { "navigate_screen", n => { NavigateScreen = n.GetStringValue(); } },
-                { "otp_type", n => { OtpType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemOtpType>(); } },
+                { "otp_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemOtpType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOtpType = default; _explicitNullProperties?.Remove("otp_type"); AdditionalData["otp_type"] = unknown; } else { OtpType = parsed; AdditionalData.Remove("otp_type"); } } },
                 { "package_name", n => { PackageName = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "signature_hash", n => { SignatureHash = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponentButtonsItemType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "zero_tap_terms_accepted", n => { ZeroTapTermsAccepted = n.GetBoolValue(); } },
             };

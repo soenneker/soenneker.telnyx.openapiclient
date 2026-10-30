@@ -18,7 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("transcriptions") is { } nullNodeTranscriptions && nullNodeTranscriptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcriptions = null;
+            if (parseNode.GetChildNode("transcriptions") is null) { _explicitNullValueTranscriptions = default!; _explicitNullProperties?.Remove("transcriptions"); }
+            else if (parseNode.GetChildNode("transcriptions") is { } nullNodeTranscriptions && nullNodeTranscriptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcriptions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The transcriptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Transcriptions { get => _explicitNullValueTranscriptions; set { _explicitNullValueTranscriptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcriptions"); else _explicitNullProperties?.Remove("transcriptions"); } }
+        public string? Transcriptions { get => _explicitNullValueTranscriptions; set { _explicitNullValueTranscriptions = value; AdditionalData?.Remove("transcriptions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcriptions"); else _explicitNullProperties?.Remove("transcriptions"); } }
         private string? _explicitNullValueTranscriptions = default!;
 #nullable restore
 #else
-        public string Transcriptions { get => _explicitNullValueTranscriptions; set { _explicitNullValueTranscriptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcriptions"); else _explicitNullProperties?.Remove("transcriptions"); } }
+        public string Transcriptions { get => _explicitNullValueTranscriptions; set { _explicitNullValueTranscriptions = value; AdditionalData?.Remove("transcriptions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcriptions"); else _explicitNullProperties?.Remove("transcriptions"); } }
         private string _explicitNullValueTranscriptions = default!;
 #endif
         /// <summary>

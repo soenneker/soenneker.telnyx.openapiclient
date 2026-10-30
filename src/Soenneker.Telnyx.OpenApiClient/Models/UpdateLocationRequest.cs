@@ -17,13 +17,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("static_emergency_address_id") is { } nullNodeStaticEmergencyAddressId && nullNodeStaticEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StaticEmergencyAddressId = null;
+            if (parseNode.GetChildNode("static_emergency_address_id") is null) { _explicitNullValueStaticEmergencyAddressId = default!; _explicitNullProperties?.Remove("static_emergency_address_id"); }
+            else if (parseNode.GetChildNode("static_emergency_address_id") is { } nullNodeStaticEmergencyAddressId && nullNodeStaticEmergencyAddressId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StaticEmergencyAddressId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A new static emergency address ID to update the location with</summary>
-        public Guid? StaticEmergencyAddressId { get => _explicitNullValueStaticEmergencyAddressId; set { _explicitNullValueStaticEmergencyAddressId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("static_emergency_address_id"); else _explicitNullProperties?.Remove("static_emergency_address_id"); } }
+        public Guid? StaticEmergencyAddressId { get => _explicitNullValueStaticEmergencyAddressId; set { _explicitNullValueStaticEmergencyAddressId = value; AdditionalData?.Remove("static_emergency_address_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("static_emergency_address_id"); else _explicitNullProperties?.Remove("static_emergency_address_id"); } }
         private Guid? _explicitNullValueStaticEmergencyAddressId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateLocationRequest"/> and sets the default values.

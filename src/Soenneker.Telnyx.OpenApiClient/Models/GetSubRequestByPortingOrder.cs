@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("port_request_id") is { } nullNodePortRequestId && nullNodePortRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortRequestId = null;
-            if (parseNode.GetChildNode("sub_request_id") is { } nullNodeSubRequestId && nullNodeSubRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubRequestId = null;
+            if (parseNode.GetChildNode("port_request_id") is null) { _explicitNullValuePortRequestId = default!; _explicitNullProperties?.Remove("port_request_id"); }
+            else if (parseNode.GetChildNode("port_request_id") is { } nullNodePortRequestId && nullNodePortRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortRequestId = null;
+            if (parseNode.GetChildNode("sub_request_id") is null) { _explicitNullValueSubRequestId = default!; _explicitNullProperties?.Remove("sub_request_id"); }
+            else if (parseNode.GetChildNode("sub_request_id") is { } nullNodeSubRequestId && nullNodeSubRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubRequestId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the Port Request associated with the Porting Order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PortRequestId { get => _explicitNullValuePortRequestId; set { _explicitNullValuePortRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port_request_id"); else _explicitNullProperties?.Remove("port_request_id"); } }
+        public string? PortRequestId { get => _explicitNullValuePortRequestId; set { _explicitNullValuePortRequestId = value; AdditionalData?.Remove("port_request_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port_request_id"); else _explicitNullProperties?.Remove("port_request_id"); } }
         private string? _explicitNullValuePortRequestId = default!;
 #nullable restore
 #else
-        public string PortRequestId { get => _explicitNullValuePortRequestId; set { _explicitNullValuePortRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port_request_id"); else _explicitNullProperties?.Remove("port_request_id"); } }
+        public string PortRequestId { get => _explicitNullValuePortRequestId; set { _explicitNullValuePortRequestId = value; AdditionalData?.Remove("port_request_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("port_request_id"); else _explicitNullProperties?.Remove("port_request_id"); } }
         private string _explicitNullValuePortRequestId = default!;
 #endif
         /// <summary>Identifies the Sub Request associated with the Porting Order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubRequestId { get => _explicitNullValueSubRequestId; set { _explicitNullValueSubRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_request_id"); else _explicitNullProperties?.Remove("sub_request_id"); } }
+        public string? SubRequestId { get => _explicitNullValueSubRequestId; set { _explicitNullValueSubRequestId = value; AdditionalData?.Remove("sub_request_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_request_id"); else _explicitNullProperties?.Remove("sub_request_id"); } }
         private string? _explicitNullValueSubRequestId = default!;
 #nullable restore
 #else
-        public string SubRequestId { get => _explicitNullValueSubRequestId; set { _explicitNullValueSubRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_request_id"); else _explicitNullProperties?.Remove("sub_request_id"); } }
+        public string SubRequestId { get => _explicitNullValueSubRequestId; set { _explicitNullValueSubRequestId = value; AdditionalData?.Remove("sub_request_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_request_id"); else _explicitNullProperties?.Remove("sub_request_id"); } }
         private string _explicitNullValueSubRequestId = default!;
 #endif
         /// <summary>

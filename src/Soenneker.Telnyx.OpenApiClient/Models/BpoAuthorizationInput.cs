@@ -18,17 +18,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bpo_enterprise_id") is { } nullNodeBpoEnterpriseId && nullNodeBpoEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BpoEnterpriseId = null;
-            if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
+            if (parseNode.GetChildNode("bpo_enterprise_id") is null) { _explicitNullValueBpoEnterpriseId = default!; _explicitNullProperties?.Remove("bpo_enterprise_id"); }
+            else if (parseNode.GetChildNode("bpo_enterprise_id") is { } nullNodeBpoEnterpriseId && nullNodeBpoEnterpriseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BpoEnterpriseId = null;
+            if (parseNode.GetChildNode("loa_document_id") is null) { _explicitNullValueLoaDocumentId = default!; _explicitNullProperties?.Remove("loa_document_id"); }
+            else if (parseNode.GetChildNode("loa_document_id") is { } nullNodeLoaDocumentId && nullNodeLoaDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoaDocumentId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enterprise id of an approved BPO (Business Process Outsourcer) account on your organization to authorize for this DIR.</summary>
-        public Guid? BpoEnterpriseId { get => _explicitNullValueBpoEnterpriseId; set { _explicitNullValueBpoEnterpriseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bpo_enterprise_id"); else _explicitNullProperties?.Remove("bpo_enterprise_id"); } }
+        public Guid? BpoEnterpriseId { get => _explicitNullValueBpoEnterpriseId; set { _explicitNullValueBpoEnterpriseId = value; AdditionalData?.Remove("bpo_enterprise_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bpo_enterprise_id"); else _explicitNullProperties?.Remove("bpo_enterprise_id"); } }
         private Guid? _explicitNullValueBpoEnterpriseId = default!;
         /// <summary>Id of the signed Letter of Authorization document (uploaded via the Telnyx Documents API) in which the Brand Owner authorizes this BPO.</summary>
-        public Guid? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
+        public Guid? LoaDocumentId { get => _explicitNullValueLoaDocumentId; set { _explicitNullValueLoaDocumentId = value; AdditionalData?.Remove("loa_document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loa_document_id"); else _explicitNullProperties?.Remove("loa_document_id"); } }
         private Guid? _explicitNullValueLoaDocumentId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BpoAuthorizationInput"/> and sets the default values.

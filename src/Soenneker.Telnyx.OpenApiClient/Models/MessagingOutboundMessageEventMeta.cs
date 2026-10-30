@@ -17,23 +17,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attempt") is { } nullNodeAttempt && nullNodeAttempt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attempt = null;
-            if (parseNode.GetChildNode("delivered_to") is { } nullNodeDeliveredTo && nullNodeDeliveredTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveredTo = null;
+            if (parseNode.GetChildNode("attempt") is null) { _explicitNullValueAttempt = default!; _explicitNullProperties?.Remove("attempt"); }
+            else if (parseNode.GetChildNode("attempt") is { } nullNodeAttempt && nullNodeAttempt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attempt = null;
+            if (parseNode.GetChildNode("delivered_to") is null) { _explicitNullValueDeliveredTo = default!; _explicitNullProperties?.Remove("delivered_to"); }
+            else if (parseNode.GetChildNode("delivered_to") is { } nullNodeDeliveredTo && nullNodeDeliveredTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveredTo = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of attempts to deliver the webhook event.</summary>
-        public int? Attempt { get => _explicitNullValueAttempt; set { _explicitNullValueAttempt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempt"); else _explicitNullProperties?.Remove("attempt"); } }
+        public int? Attempt { get => _explicitNullValueAttempt; set { _explicitNullValueAttempt = value; AdditionalData?.Remove("attempt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attempt"); else _explicitNullProperties?.Remove("attempt"); } }
         private int? _explicitNullValueAttempt = default!;
         /// <summary>The webhook URL the event was delivered to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeliveredTo { get => _explicitNullValueDeliveredTo; set { _explicitNullValueDeliveredTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivered_to"); else _explicitNullProperties?.Remove("delivered_to"); } }
+        public string? DeliveredTo { get => _explicitNullValueDeliveredTo; set { _explicitNullValueDeliveredTo = value; AdditionalData?.Remove("delivered_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivered_to"); else _explicitNullProperties?.Remove("delivered_to"); } }
         private string? _explicitNullValueDeliveredTo = default!;
 #nullable restore
 #else
-        public string DeliveredTo { get => _explicitNullValueDeliveredTo; set { _explicitNullValueDeliveredTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivered_to"); else _explicitNullProperties?.Remove("delivered_to"); } }
+        public string DeliveredTo { get => _explicitNullValueDeliveredTo; set { _explicitNullValueDeliveredTo = value; AdditionalData?.Remove("delivered_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivered_to"); else _explicitNullProperties?.Remove("delivered_to"); } }
         private string _explicitNullValueDeliveredTo = default!;
 #endif
         /// <summary>

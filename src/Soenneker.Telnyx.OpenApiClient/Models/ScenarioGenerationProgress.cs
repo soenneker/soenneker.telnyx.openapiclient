@@ -17,32 +17,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("completed_scenarios") is { } nullNodeCompletedScenarios && nullNodeCompletedScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedScenarios = null;
-            if (parseNode.GetChildNode("failed_scenarios") is { } nullNodeFailedScenarios && nullNodeFailedScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedScenarios = null;
-            if (parseNode.GetChildNode("scenarios_list") is { } nullNodeScenariosList && nullNodeScenariosList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenariosList = null;
-            if (parseNode.GetChildNode("total_scenarios") is { } nullNodeTotalScenarios && nullNodeTotalScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalScenarios = null;
+            if (parseNode.GetChildNode("completed_scenarios") is null) { _explicitNullValueCompletedScenarios = default!; _explicitNullProperties?.Remove("completed_scenarios"); }
+            else if (parseNode.GetChildNode("completed_scenarios") is { } nullNodeCompletedScenarios && nullNodeCompletedScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedScenarios = null;
+            if (parseNode.GetChildNode("failed_scenarios") is null) { _explicitNullValueFailedScenarios = default!; _explicitNullProperties?.Remove("failed_scenarios"); }
+            else if (parseNode.GetChildNode("failed_scenarios") is { } nullNodeFailedScenarios && nullNodeFailedScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedScenarios = null;
+            if (parseNode.GetChildNode("scenarios_list") is null) { _explicitNullValueScenariosList = default!; _explicitNullProperties?.Remove("scenarios_list"); }
+            else if (parseNode.GetChildNode("scenarios_list") is { } nullNodeScenariosList && nullNodeScenariosList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScenariosList = null;
+            if (parseNode.GetChildNode("total_scenarios") is null) { _explicitNullValueTotalScenarios = default!; _explicitNullProperties?.Remove("total_scenarios"); }
+            else if (parseNode.GetChildNode("total_scenarios") is { } nullNodeTotalScenarios && nullNodeTotalScenarios.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalScenarios = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The completed_scenarios property</summary>
-        public int? CompletedScenarios { get => _explicitNullValueCompletedScenarios; set { _explicitNullValueCompletedScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_scenarios"); else _explicitNullProperties?.Remove("completed_scenarios"); } }
+        public int? CompletedScenarios { get => _explicitNullValueCompletedScenarios; set { _explicitNullValueCompletedScenarios = value; AdditionalData?.Remove("completed_scenarios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_scenarios"); else _explicitNullProperties?.Remove("completed_scenarios"); } }
         private int? _explicitNullValueCompletedScenarios = default!;
         /// <summary>The failed_scenarios property</summary>
-        public int? FailedScenarios { get => _explicitNullValueFailedScenarios; set { _explicitNullValueFailedScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_scenarios"); else _explicitNullProperties?.Remove("failed_scenarios"); } }
+        public int? FailedScenarios { get => _explicitNullValueFailedScenarios; set { _explicitNullValueFailedScenarios = value; AdditionalData?.Remove("failed_scenarios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_scenarios"); else _explicitNullProperties?.Remove("failed_scenarios"); } }
         private int? _explicitNullValueFailedScenarios = default!;
         /// <summary>The scenarios_list property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgressScenariosListItemProperty>? ScenariosList { get => _explicitNullValueScenariosList; set { _explicitNullValueScenariosList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios_list"); else _explicitNullProperties?.Remove("scenarios_list"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgressScenariosListItemProperty>? ScenariosList { get => _explicitNullValueScenariosList; set { _explicitNullValueScenariosList = value; AdditionalData?.Remove("scenarios_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios_list"); else _explicitNullProperties?.Remove("scenarios_list"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgressScenariosListItemProperty>? _explicitNullValueScenariosList = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgressScenariosListItemProperty> ScenariosList { get => _explicitNullValueScenariosList; set { _explicitNullValueScenariosList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios_list"); else _explicitNullProperties?.Remove("scenarios_list"); } }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgressScenariosListItemProperty> ScenariosList { get => _explicitNullValueScenariosList; set { _explicitNullValueScenariosList = value; AdditionalData?.Remove("scenarios_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scenarios_list"); else _explicitNullProperties?.Remove("scenarios_list"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgressScenariosListItemProperty> _explicitNullValueScenariosList = default!;
 #endif
         /// <summary>The total_scenarios property</summary>
-        public int? TotalScenarios { get => _explicitNullValueTotalScenarios; set { _explicitNullValueTotalScenarios = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_scenarios"); else _explicitNullProperties?.Remove("total_scenarios"); } }
+        public int? TotalScenarios { get => _explicitNullValueTotalScenarios; set { _explicitNullValueTotalScenarios = value; AdditionalData?.Remove("total_scenarios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_scenarios"); else _explicitNullProperties?.Remove("total_scenarios"); } }
         private int? _explicitNullValueTotalScenarios = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScenarioGenerationProgress"/> and sets the default values.

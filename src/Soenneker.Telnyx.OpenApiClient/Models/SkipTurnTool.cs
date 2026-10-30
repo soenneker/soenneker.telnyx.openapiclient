@@ -17,8 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("skip_turn") is { } nullNodeSkipTurn && nullNodeSkipTurn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipTurn = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("skip_turn") is null) { _explicitNullValueSkipTurn = default!; _explicitNullProperties?.Remove("skip_turn"); }
+            else if (parseNode.GetChildNode("skip_turn") is { } nullNodeSkipTurn && nullNodeSkipTurn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipTurn = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,15 +30,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The skip_turn property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams? SkipTurn { get => _explicitNullValueSkipTurn; set { _explicitNullValueSkipTurn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_turn"); else _explicitNullProperties?.Remove("skip_turn"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams? SkipTurn { get => _explicitNullValueSkipTurn; set { _explicitNullValueSkipTurn = value; AdditionalData?.Remove("skip_turn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_turn"); else _explicitNullProperties?.Remove("skip_turn"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams? _explicitNullValueSkipTurn = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams SkipTurn { get => _explicitNullValueSkipTurn; set { _explicitNullValueSkipTurn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_turn"); else _explicitNullProperties?.Remove("skip_turn"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams SkipTurn { get => _explicitNullValueSkipTurn; set { _explicitNullValueSkipTurn = value; AdditionalData?.Remove("skip_turn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_turn"); else _explicitNullProperties?.Remove("skip_turn"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams _explicitNullValueSkipTurn = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/> and sets the default values.
@@ -65,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "shared", n => { Shared = n.GetBoolValue(); } },
                 { "skip_turn", n => { SkipTurn = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

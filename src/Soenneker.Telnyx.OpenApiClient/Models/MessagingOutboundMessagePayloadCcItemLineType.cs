@@ -7,6 +7,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MessagingOutboundMessagePayloadCcItemLineType
     {
+        [EnumMember(Value = "")]
+        EmptyString,
+
         [EnumMember(Value = "Wireline")]
         #pragma warning disable CS1591
         Wireline,
