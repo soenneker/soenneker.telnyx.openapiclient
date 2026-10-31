@@ -60,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

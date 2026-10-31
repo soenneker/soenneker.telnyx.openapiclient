@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GenericPayConnectorConfig : IComposedTypeWrapper, IParsable
@@ -18,29 +18,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault? GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf1? GenericPayConnectorConfigOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf1 GenericPayConnectorConfigOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication? GenericPayConnectorConfigBearerAuthentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf2? GenericPayConnectorConfigOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication GenericPayConnectorConfigBearerAuthentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf2 GenericPayConnectorConfigOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication? GenericPayConnectorConfigNoProcessorAuthentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3? GenericPayConnectorConfigOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication GenericPayConnectorConfigNoProcessorAuthentication { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3 GenericPayConnectorConfigOneOf3 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,18 +66,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("username") && shapeMembers1.ContainsKey("password") && (!shapeMembers1.ContainsKey("auth_type") || ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "basic".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "basic".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("username") || (((shapeMembers1["username"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("password") || (((shapeMembers1["password"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("auth_type") && shapeMembers1.ContainsKey("token") && (!shapeMembers1.ContainsKey("auth_type") || ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "bearer".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "bearer".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("token") || (((shapeMembers1["token"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
-            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("auth_type") && (!shapeMembers1.ContainsKey("auth_type") || ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "none".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "none".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal))))))))))();
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("username") && shapeMembers1.ContainsKey("password") && shapeMembers1.ContainsKey("endpoint_url") && (!shapeMembers1.ContainsKey("auth_type") || (((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "basic".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "basic".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("username") || (((shapeMembers1["username"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("password") || (((shapeMembers1["password"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("endpoint_url") || (((shapeMembers1["endpoint_url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("token") || (((shapeMembers1["token"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("timeout") || ((((shapeMembers1["timeout"] == null || shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || ((shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble integral14 && integral14.GetValue() % 1 == 0) || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal integral15 && integral15.GetValue() % 1 == 0) || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat integral16 && integral16.GetValue() % 1 == 0)))))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("auth_type") && shapeMembers1.ContainsKey("token") && shapeMembers1.ContainsKey("endpoint_url") && (!shapeMembers1.ContainsKey("auth_type") || (((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "bearer".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "bearer".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("token") || (((shapeMembers1["token"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("endpoint_url") || (((shapeMembers1["endpoint_url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("username") || (((shapeMembers1["username"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("password") || (((shapeMembers1["password"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("timeout") || ((((shapeMembers1["timeout"] == null || shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || ((shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble integral14 && integral14.GetValue() % 1 == 0) || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal integral15 && integral15.GetValue() % 1 == 0) || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat integral16 && integral16.GetValue() % 1 == 0)))))))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("auth_type") && shapeMembers1.ContainsKey("endpoint_url") && (!shapeMembers1.ContainsKey("auth_type") || (((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "none".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["auth_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "none".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("endpoint_url") || (((shapeMembers1["endpoint_url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("username") || (((shapeMembers1["username"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("password") || (((shapeMembers1["password"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("token") || (((shapeMembers1["token"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("timeout") || ((((shapeMembers1["timeout"] == null || shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || ((shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble integral14 && integral14.GetValue() % 1 == 0) || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal integral15 && integral15.GetValue() % 1 == 0) || (shapeMembers1["timeout"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat integral16 && integral16.GetValue() % 1 == 0)))))))))))();
             int matchingUnionBranches = 0;
             if (matchesUnionBranch0) matchingUnionBranches++;
             if (matchesUnionBranch1) matchingUnionBranches++;
             if (matchesUnionBranch2) matchingUnionBranches++;
-            bool noSelectedUnionBranch = result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && result.GenericPayConnectorConfigBearerAuthentication == null && result.GenericPayConnectorConfigNoProcessorAuthentication == null;
-            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.GenericPayConnectorConfigBearerAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.GenericPayConnectorConfigNoProcessorAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication(), parseNode);
-            if (result.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && result.GenericPayConnectorConfigBearerAuthentication == null && result.GenericPayConnectorConfigNoProcessorAuthentication == null) result.UnrecognizedValue = unionPayload;
+            bool noSelectedUnionBranch = result.GenericPayConnectorConfigOneOf1 == null && result.GenericPayConnectorConfigOneOf2 == null && result.GenericPayConnectorConfigOneOf3 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.GenericPayConnectorConfigOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf1(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.GenericPayConnectorConfigOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf2(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.GenericPayConnectorConfigOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3(), parseNode);
+            if (result.GenericPayConnectorConfigOneOf1 == null && result.GenericPayConnectorConfigOneOf2 == null && result.GenericPayConnectorConfigOneOf3 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -88,17 +88,17 @@ return result;
         {
             if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
 
-            if(GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault != null)
+            if(GenericPayConnectorConfigOneOf1 != null)
             {
-                return GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault.GetFieldDeserializers();
+                return GenericPayConnectorConfigOneOf1.GetFieldDeserializers();
             }
-            else if(GenericPayConnectorConfigBearerAuthentication != null)
+            else if(GenericPayConnectorConfigOneOf2 != null)
             {
-                return GenericPayConnectorConfigBearerAuthentication.GetFieldDeserializers();
+                return GenericPayConnectorConfigOneOf2.GetFieldDeserializers();
             }
-            else if(GenericPayConnectorConfigNoProcessorAuthentication != null)
+            else if(GenericPayConnectorConfigOneOf3 != null)
             {
-                return GenericPayConnectorConfigNoProcessorAuthentication.GetFieldDeserializers();
+                return GenericPayConnectorConfigOneOf3.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -109,30 +109,30 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault == null && GenericPayConnectorConfigBearerAuthentication == null && GenericPayConnectorConfigNoProcessorAuthentication == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (GenericPayConnectorConfigOneOf1 == null && GenericPayConnectorConfigOneOf2 == null && GenericPayConnectorConfigOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
             int selectedUnionBranches = 0;
-            if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault != null) selectedUnionBranches++;
-            if (GenericPayConnectorConfigBearerAuthentication != null) selectedUnionBranches++;
-            if (GenericPayConnectorConfigNoProcessorAuthentication != null) selectedUnionBranches++;
-            if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault != null && selectedUnionBranches == 1) { if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault); return; }
-            if (GenericPayConnectorConfigBearerAuthentication != null && selectedUnionBranches == 1) { if (GenericPayConnectorConfigBearerAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigBearerAuthentication); return; }
-            if (GenericPayConnectorConfigNoProcessorAuthentication != null && selectedUnionBranches == 1) { if (GenericPayConnectorConfigNoProcessorAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigNoProcessorAuthentication); return; }
+            if (GenericPayConnectorConfigOneOf1 != null) selectedUnionBranches++;
+            if (GenericPayConnectorConfigOneOf2 != null) selectedUnionBranches++;
+            if (GenericPayConnectorConfigOneOf3 != null) selectedUnionBranches++;
+            if (GenericPayConnectorConfigOneOf1 != null && selectedUnionBranches == 1) { if (GenericPayConnectorConfigOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigOneOf1); return; }
+            if (GenericPayConnectorConfigOneOf2 != null && selectedUnionBranches == 1) { if (GenericPayConnectorConfigOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigOneOf2); return; }
+            if (GenericPayConnectorConfigOneOf3 != null && selectedUnionBranches == 1) { if (GenericPayConnectorConfigOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GenericPayConnectorConfigOneOf3); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault != null)
+            if(GenericPayConnectorConfigOneOf1 != null)
             {
-                if (GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault>(null, GenericPayConnectorConfigBasicAuthenticationAlsoTheValidationDefault);
+                if (GenericPayConnectorConfigOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf1>(null, GenericPayConnectorConfigOneOf1);
             }
-            else if(GenericPayConnectorConfigBearerAuthentication != null)
+            else if(GenericPayConnectorConfigOneOf2 != null)
             {
-                if (GenericPayConnectorConfigBearerAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigBearerAuthentication>(null, GenericPayConnectorConfigBearerAuthentication);
+                if (GenericPayConnectorConfigOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf2>(null, GenericPayConnectorConfigOneOf2);
             }
-            else if(GenericPayConnectorConfigNoProcessorAuthentication != null)
+            else if(GenericPayConnectorConfigOneOf3 != null)
             {
-                if (GenericPayConnectorConfigNoProcessorAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigNoProcessorAuthentication>(null, GenericPayConnectorConfigNoProcessorAuthentication);
+                if (GenericPayConnectorConfigOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3>(null, GenericPayConnectorConfigOneOf3);
             }
         }
     }

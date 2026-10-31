@@ -70,6 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "attempt", n => { Attempt = n.GetStringValue(); } },
                 { "error_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptErrorType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorType = default; _explicitNullProperties?.Remove("error_type"); AdditionalData["error_type"] = unknown; } else { ErrorType = parsed; AdditionalData.Remove("error_type"); } } },
                 { "card_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayPromptCardType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCardType = default; _explicitNullProperties?.Remove("card_type"); AdditionalData["card_type"] = unknown; } else { CardType = parsed; AdditionalData.Remove("card_type"); } } },
+
             };
         }
         /// <summary>

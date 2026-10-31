@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "plmn", n => { Plmn = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

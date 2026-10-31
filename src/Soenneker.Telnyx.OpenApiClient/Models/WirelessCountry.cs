@@ -55,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

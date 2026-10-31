@@ -80,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

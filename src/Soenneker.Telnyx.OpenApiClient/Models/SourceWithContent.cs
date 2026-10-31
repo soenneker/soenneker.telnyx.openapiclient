@@ -36,12 +36,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>What was stored, in the shape it was sent: an ingested JSON body as JSON, a string body or a remembered fact as a string. A session ingested before formats were recorded is returned as the text it was stored as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
-        private UntypedNode? _explicitNullValueContent = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public UntypedNode Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
-        private UntypedNode _explicitNullValueContent = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2 Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2 _explicitNullValueContent = default!;
 #endif
         /// <summary>When the source was first stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2>(global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "memory_count", n => { MemoryCount = n.GetIntValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SourceWithContentContentAnyOf2>("content", Content);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("memory_count", MemoryCount);

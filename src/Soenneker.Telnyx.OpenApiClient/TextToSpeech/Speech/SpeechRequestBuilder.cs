@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         /// <summary>
         /// Generate synthesized speech audio from text input. Returns audio in the requested format (binary audio stream, base64-encoded JSON, or an audio URL for later retrieval).Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.The `voice` parameter provides a convenient shorthand to specify provider, model, and voice in a single string (e.g. `Telnyx.Ultra.&lt;voice_id&gt;`). Alternatively, specify `provider` explicitly along with provider-specific parameters.Supported providers: `aws`, `telnyx`, `azure`, `elevenlabs`, `minimax`, `resemble`, `xai`, `humain`, `soniox`.The Telnyx `Ultra` model supports 44 languages with emotion control, speed adjustment, and volume control. Use the `telnyx` provider-specific parameters to configure these features.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Base64AudioResponse"/></returns>
         /// <param name="body">Request body for generating speech from text.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,11 +62,11 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.TextToSpeechValidationErrorResponse">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Base64AudioResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Base64AudioResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Base64AudioResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Base64AudioResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.Supported providers: `aws`, `telnyx`, `azure`, `minimax`, `resemble`, `elevenlabs`, `xai`, `humain`, `soniox`.**Connection flow:**1. Open WebSocket with query parameters specifying provider, voice, and model.2. Send an initial handshake message `{&quot;text&quot;: &quot; &quot;}` (single space) with optional `voice_settings` to initialize the session.3. Send text messages as `{&quot;text&quot;: &quot;Hello world&quot;}`.4. Receive audio chunks as JSON frames with base64-encoded audio.5. A final frame with `isFinal: true` indicates the end of audio for the current text.To interrupt and restart synthesis mid-stream, send `{&quot;force&quot;: true}` — the current worker is stopped and a new one is started.**Note:** The Telnyx `Ultra` model is not available over WebSocket. Use the HTTP POST `/text-to-speech/speech` endpoint instead.

@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_breakdown
         /// <summary>
         /// Retrieve a detailed breakdown of monthly charges for phone numbers in a specified date range. The date range cannot exceed 31 days.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesBreakdownResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChargesErrors">When receiving a 400 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_breakdown
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChargesErrors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.Charges_breakdownRequestBuilder.Charges_breakdownRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesBreakdownResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.Charges_breakdownRequestBuilder.Charges_breakdownRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.Charges_breakdownRequestBuilder.Charges_breakdownRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesBreakdownResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.Charges_breakdownRequestBuilder.Charges_breakdownRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_breakdown
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ChargesErrors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.ChargesErrors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesBreakdownResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesBreakdownResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a detailed breakdown of monthly charges for phone numbers in a specified date range. The date range cannot exceed 31 days.
