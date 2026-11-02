@@ -57,8 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValuePassword = default!;
 #endif
         /// <summary>Processor HTTP timeout in milliseconds. Omitted or null uses 10000; null is removed before storage. Not the IVR digit-gather timeout.</summary>
-        public int? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; AdditionalData?.Remove("timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
-        private int? _explicitNullValueTimeout = default!;
+        public long? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; AdditionalData?.Remove("timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
+        private long? _explicitNullValueTimeout = default!;
         /// <summary>Nonblank string required for bearer authentication. Write-only; omitted from responses. Re-send when replacing a bearer-auth config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public GenericPayConnectorConfigOneOf3()
         {
             AdditionalData = new Dictionary<string, object>();
-            Timeout = 10000;
+            Timeout = 10000L;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "auth_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3_auth_type>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthType = default; _explicitNullProperties?.Remove("auth_type"); AdditionalData["auth_type"] = unknown; } else { AuthType = parsed; AdditionalData.Remove("auth_type"); } } },
                 { "endpoint_url", n => { EndpointUrl = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
-                { "timeout", n => { Timeout = n.GetIntValue(); } },
+                { "timeout", n => { Timeout = n.GetLongValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenericPayConnectorConfigOneOf3_auth_type>("auth_type", AuthType);
             writer.WriteStringValue("endpoint_url", EndpointUrl);
             writer.WriteStringValue("password", Password);
-            writer.WriteIntValue("timeout", Timeout);
+            writer.WriteLongValue("timeout", Timeout);
             writer.WriteStringValue("token", Token);
             writer.WriteStringValue("username", Username);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

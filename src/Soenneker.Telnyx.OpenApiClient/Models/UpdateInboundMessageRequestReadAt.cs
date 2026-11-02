@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="DateTimeOffset"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtMember1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateInboundMessageRequestReadAt : IComposedTypeWrapper, IParsable
@@ -22,13 +22,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? Boolean { get; set; }
         /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
         public DateTimeOffset? DateTimeOffset { get; set; }
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtMember1? UpdateInboundMessageRequestReadAtMember1 { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtMember1 UpdateInboundMessageRequestReadAtMember1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,13 +48,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 result.DateTimeOffset = dateTimeOffsetValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.Boolean == null && result.DateTimeOffset == null && result.String == null) result.UnrecognizedValue = unionPayload;
+            if (result.Boolean == null && result.DateTimeOffset == null && result.UpdateInboundMessageRequestReadAtMember1 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -65,6 +61,10 @@ return result;
         {
             if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
 
+            if(UpdateInboundMessageRequestReadAtMember1 != null)
+            {
+                return UpdateInboundMessageRequestReadAtMember1.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -74,20 +74,21 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (Boolean == null && DateTimeOffset == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (Boolean == null && DateTimeOffset == null && UpdateInboundMessageRequestReadAtMember1 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Boolean != null)
+            if(UpdateInboundMessageRequestReadAtMember1 != null)
+            {
+                if (UpdateInboundMessageRequestReadAtMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateInboundMessageRequestReadAtMember1>(null, UpdateInboundMessageRequestReadAtMember1);
+            }
+            else if(Boolean != null)
             {
                 writer.WriteBoolValue(null, Boolean);
             }
             else if(DateTimeOffset != null)
             {
                 writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-            }
-            else if(String != null)
-            {
-                writer.WriteStringValue(null, String);
             }
         }
     }

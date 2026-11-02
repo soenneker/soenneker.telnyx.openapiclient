@@ -72,8 +72,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>TTS model identifier. Nullable — defaults to speech-2.8-turbo.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId? ModelId { get => _explicitNullValueModelId; set { _explicitNullValueModelId = value; AdditionalData?.Remove("model_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_id"); else _explicitNullProperties?.Remove("model_id"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId? _explicitNullValueModelId = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId ModelId { get => _explicitNullValueModelId; set { _explicitNullValueModelId = value; AdditionalData?.Remove("model_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_id"); else _explicitNullProperties?.Remove("model_id"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId _explicitNullValueModelId = default!;
+#endif
         /// <summary>Name for the voice clone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "gender", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneGender>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGender = default; _explicitNullProperties?.Remove("gender"); AdditionalData["gender"] = unknown; } else { Gender = parsed; AdditionalData.Remove("gender"); } } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "model_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueModelId = default; _explicitNullProperties?.Remove("model_id"); AdditionalData["model_id"] = unknown; } else { ModelId = parsed; AdditionalData.Remove("model_id"); } } },
+                { "model_id", n => { ModelId = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId>(global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetStringValue(); } },
                 { "ref_text", n => { RefText = n.GetStringValue(); } },
@@ -145,7 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneGender>("gender", Gender);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("language", Language);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId>("model_id", ModelId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxCloneModelId>("model_id", ModelId);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("provider", Provider);
             writer.WriteStringValue("ref_text", RefText);

@@ -52,121 +52,163 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll200ResponseData();
-            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray ambiguousArray) { result.UnrecognizedValue = ambiguousArray; return result; }
-            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => (((global::System.Func<bool?>)(() => { int remaining = 10000;
-bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
-int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
-bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
-bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
-bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
-decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
-    try { return node switch {
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
-    catch (global::System.OverflowException) { return null; }
-}
-bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray unionArrayPayload) {
+var arrayMatches = ((global::System.Func<bool?[]>)(() => { int remaining = 10000;
+
+bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
-if (result == false) return false;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray itemsArray) foreach (var item in itemsArray.GetValue()) {
+{ result &= (MatchSchema3(item, depth + 1)); if (result == false) return false; }
+}
+return result;
+}
+bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray itemsArray) foreach (var item in itemsArray.GetValue()) {
+{ result &= (MatchSchema4(item, depth + 1)); if (result == false) return false; }
+}
+return result;
+}
+bool? MatchSchema2(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray itemsArray) foreach (var item in itemsArray.GetValue()) {
+{ result &= (MatchSchema5(item, depth + 1)); if (result == false) return false; }
+}
+return result;
+}
+bool? MatchSchema3(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("country_code")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("country_code") ? (bool?)true : MatchSchema1(fields["country_code"], depth + 1)))();
-if (result == false) return false;
+{ result &= (fields.ContainsKey("country_code")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("country_code") ? (bool?)true : MatchSchema6(fields["country_code"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
-bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+bool? MatchSchema4(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
+{ result &= (fields.ContainsKey("mcc")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("mcc") ? (bool?)true : MatchSchema7(fields["mcc"], depth + 1)); if (result == false) return false; }
+}
 return result;
 }
-return MatchSchema0(item, 0); }))()) == true) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry> wirelessCountryValue)
+bool? MatchSchema5(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
+{ result &= (fields.ContainsKey("plmn")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("plmn") ? (bool?)true : MatchSchema8(fields["plmn"], depth + 1)); if (result == false) return false; }
+}
+return result;
+}
+bool? MatchSchema6(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema7(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema8(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+return result;
+}
+var matches = new bool?[3];
+remaining = 10000; matches[0] = MatchSchema0(unionArrayPayload, 0);
+remaining = 10000; matches[1] = MatchSchema1(unionArrayPayload, 0);
+remaining = 10000; matches[2] = MatchSchema2(unionArrayPayload, 0);
+return matches; }))();
+if (arrayMatches[0] == true && arrayMatches[1] == false && arrayMatches[2] == false) { result.WirelessCountry = global::System.Linq.Enumerable.ToList(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry.CreateFromDiscriminatorValue)!); return result; }
+if (arrayMatches[1] == true && arrayMatches[0] == false && arrayMatches[2] == false) { result.WirelessMcc = global::System.Linq.Enumerable.ToList(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc.CreateFromDiscriminatorValue)!); return result; }
+if (arrayMatches[2] == true && arrayMatches[0] == false && arrayMatches[1] == false) { result.WirelessPlmn = global::System.Linq.Enumerable.ToList(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn.CreateFromDiscriminatorValue)!); return result; }
+result.UnrecognizedValue = unionArrayPayload; return result; }
+
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => (((global::System.Func<bool?[]>)(() => { int remaining = 10000;
+
+bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
+{ result &= (fields.ContainsKey("country_code")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("country_code") ? (bool?)true : MatchSchema1(fields["country_code"], depth + 1)); if (result == false) return false; }
+}
+return result;
+}
+bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+return result;
+}
+var matches = new bool?[1];
+remaining = 10000; matches[0] = MatchSchema0(item, 0);
+return matches; }))()[0]) == true) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCountry> wirelessCountryValue)
             {
                 result.WirelessCountry = wirelessCountryValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => (((global::System.Func<bool?>)(() => { int remaining = 10000;
-bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
-int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
-bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
-bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
-bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
-decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
-    try { return node switch {
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
-    catch (global::System.OverflowException) { return null; }
-}
-bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => (((global::System.Func<bool?[]>)(() => { int remaining = 10000;
+
+bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
-if (result == false) return false;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("mcc")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("mcc") ? (bool?)true : MatchSchema1(fields["mcc"], depth + 1)))();
-if (result == false) return false;
+{ result &= (fields.ContainsKey("mcc")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("mcc") ? (bool?)true : MatchSchema1(fields["mcc"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
-bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
 return result;
 }
-return MatchSchema0(item, 0); }))()) == true) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc> wirelessMccValue)
+var matches = new bool?[1];
+remaining = 10000; matches[0] = MatchSchema0(item, 0);
+return matches; }))()[0]) == true) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessMcc> wirelessMccValue)
             {
                 result.WirelessMcc = wirelessMccValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => (((global::System.Func<bool?>)(() => { int remaining = 10000;
-bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
-int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
-bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
-bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
-bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
-decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
-    try { return node switch {
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
-    catch (global::System.OverflowException) { return null; }
-}
-bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => (((global::System.Func<bool?[]>)(() => { int remaining = 10000;
+
+bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
-if (result == false) return false;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("plmn")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("plmn") ? (bool?)true : MatchSchema1(fields["plmn"], depth + 1)))();
-if (result == false) return false;
+{ result &= (fields.ContainsKey("plmn")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("plmn") ? (bool?)true : MatchSchema1(fields["plmn"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
-bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
 return result;
 }
-return MatchSchema0(item, 0); }))()) == true) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn> wirelessPlmnValue)
+var matches = new bool?[1];
+remaining = 10000; matches[0] = MatchSchema0(item, 0);
+return matches; }))()[0]) == true) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPlmn> wirelessPlmnValue)
             {
                 result.WirelessPlmn = wirelessPlmnValue;
             }

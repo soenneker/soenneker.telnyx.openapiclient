@@ -55,8 +55,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? CallingEnabled { get => _explicitNullValueCallingEnabled; set { _explicitNullValueCallingEnabled = value; AdditionalData?.Remove("calling_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calling_enabled"); else _explicitNullProperties?.Remove("calling_enabled"); } }
         private bool? _explicitNullValueCallingEnabled = default!;
         /// <summary>Current lifecycle state for a coexistence number. This is null for a standard Cloud API number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState? CoexistenceState { get => _explicitNullValueCoexistenceState; set { _explicitNullValueCoexistenceState = value; AdditionalData?.Remove("coexistence_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coexistence_state"); else _explicitNullProperties?.Remove("coexistence_state"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState? _explicitNullValueCoexistenceState = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState CoexistenceState { get => _explicitNullValueCoexistenceState; set { _explicitNullValueCoexistenceState = value; AdditionalData?.Remove("coexistence_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coexistence_state"); else _explicitNullProperties?.Remove("coexistence_state"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState _explicitNullValueCoexistenceState = default!;
+#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
@@ -185,7 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "calling_enabled", n => { CallingEnabled = n.GetBoolValue(); } },
-                { "coexistence_state", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCoexistenceState = default; _explicitNullProperties?.Remove("coexistence_state"); AdditionalData["coexistence_state"] = unknown; } else { CoexistenceState = parsed; AdditionalData.Remove("coexistence_state"); } } },
+                { "coexistence_state", n => { CoexistenceState = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
@@ -209,7 +216,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("calling_enabled", CallingEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState>("coexistence_state", CoexistenceState);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappPhoneResponseCoexistenceState>("coexistence_state", CoexistenceState);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteBoolValue("enabled", Enabled);

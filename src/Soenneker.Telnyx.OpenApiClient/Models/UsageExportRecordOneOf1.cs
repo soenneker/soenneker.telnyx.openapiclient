@@ -234,8 +234,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportRecordOneOf1_type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportRecordOneOf1_type? _explicitNullValueType = default!;
         /// <summary>The usage_source property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource? UsageSource { get => _explicitNullValueUsageSource; set { _explicitNullValueUsageSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_source"); else _explicitNullProperties?.Remove("usage_source"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource? _explicitNullValueUsageSource = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource UsageSource { get => _explicitNullValueUsageSource; set { _explicitNullValueUsageSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_source"); else _explicitNullProperties?.Remove("usage_source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource _explicitNullValueUsageSource = default!;
+#endif
         /// <summary>The usage_status property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus? UsageStatus { get => _explicitNullValueUsageStatus; set { _explicitNullValueUsageStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_status"); else _explicitNullProperties?.Remove("usage_status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus? _explicitNullValueUsageStatus = default!;
@@ -285,7 +292,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "token_key_id", n => { TokenKeyId = n.GetGuidValue(); } },
                 { "token_user_id", n => { TokenUserId = n.GetGuidValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportRecordOneOf1_type>(); } },
-                { "usage_source", n => { UsageSource = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>(); } },
+                { "usage_source", n => { UsageSource = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>(global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource.CreateFromDiscriminatorValue); } },
                 { "usage_status", n => { UsageStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus>(); } },
             };
         }
@@ -324,7 +331,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("token_key_id", TokenKeyId);
             writer.WriteGuidValue("token_user_id", TokenUserId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportRecordOneOf1_type>("type", Type);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>("usage_source", UsageSource);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageSource>("usage_source", UsageSource);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsageExportInferenceRequestUsageStatus>("usage_status", UsageStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

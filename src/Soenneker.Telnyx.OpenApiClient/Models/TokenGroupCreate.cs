@@ -59,8 +59,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? Blocked { get => _explicitNullValueBlocked; set { _explicitNullValueBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked"); else _explicitNullProperties?.Remove("blocked"); } }
         private bool? _explicitNullValueBlocked = default!;
         /// <summary>The budget_duration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration? BudgetDuration { get => _explicitNullValueBudgetDuration; set { _explicitNullValueBudgetDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_duration"); else _explicitNullProperties?.Remove("budget_duration"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration? _explicitNullValueBudgetDuration = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration BudgetDuration { get => _explicitNullValueBudgetDuration; set { _explicitNullValueBudgetDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_duration"); else _explicitNullProperties?.Remove("budget_duration"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration _explicitNullValueBudgetDuration = default!;
+#endif
         /// <summary>The cache_ttl property</summary>
         public int? CacheTtl { get => _explicitNullValueCacheTtl; set { _explicitNullValueCacheTtl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_ttl"); else _explicitNullProperties?.Remove("cache_ttl"); } }
         private int? _explicitNullValueCacheTtl = default!;
@@ -146,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "allowed_models", n => { AllowedModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "blocked", n => { Blocked = n.GetBoolValue(); } },
-                { "budget_duration", n => { BudgetDuration = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration>(); } },
+                { "budget_duration", n => { BudgetDuration = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration>(global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration.CreateFromDiscriminatorValue); } },
                 { "cache_ttl", n => { CacheTtl = n.GetIntValue(); } },
                 { "fallbacks", n => { Fallbacks = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupCreateFallbacksProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupCreateFallbacksProperty.CreateFromDiscriminatorValue); } },
                 { "guardrails", n => { Guardrails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupCreateGuardrails>(global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupCreateGuardrails.CreateFromDiscriminatorValue); } },
@@ -168,7 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_models", AllowedModels);
             writer.WriteBoolValue("blocked", Blocked);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration>("budget_duration", BudgetDuration);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BudgetDuration>("budget_duration", BudgetDuration);
             writer.WriteIntValue("cache_ttl", CacheTtl);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupCreateFallbacksProperty>("fallbacks", Fallbacks);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TokenGroupCreateGuardrails>("guardrails", Guardrails);

@@ -71,8 +71,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? ChannelLimit { get => _explicitNullValueChannelLimit; set { _explicitNullValueChannelLimit = value; AdditionalData?.Remove("channel_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_limit"); else _explicitNullProperties?.Remove("channel_limit"); } }
         private int? _explicitNullValueChannelLimit = default!;
         /// <summary>Enable use of SRTP for encryption. Can only be set when the SIP signaling transport protocol is TLS.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get => _explicitNullValueEncryptedMedia; set { _explicitNullValueEncryptedMedia = value; AdditionalData?.Remove("encrypted_media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_media"); else _explicitNullProperties?.Remove("encrypted_media"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? _explicitNullValueEncryptedMedia = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia EncryptedMedia { get => _explicitNullValueEncryptedMedia; set { _explicitNullValueEncryptedMedia = value; AdditionalData?.Remove("encrypted_media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_media"); else _explicitNullProperties?.Remove("encrypted_media"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia _explicitNullValueEncryptedMedia = default!;
+#endif
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
         public bool? GenerateRingbackTone { get => _explicitNullValueGenerateRingbackTone; set { _explicitNullValueGenerateRingbackTone = value; AdditionalData?.Remove("generate_ringback_tone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_ringback_tone"); else _explicitNullProperties?.Remove("generate_ringback_tone"); } }
         private bool? _explicitNullValueGenerateRingbackTone = default!;
@@ -166,7 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ani_override_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnAniOverrideType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAniOverrideType = default; _explicitNullProperties?.Remove("ani_override_type"); AdditionalData["ani_override_type"] = unknown; } else { AniOverrideType = parsed; AdditionalData.Remove("ani_override_type"); } } },
                 { "call_parking_enabled", n => { CallParkingEnabled = n.GetBoolValue(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
-                { "encrypted_media", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEncryptedMedia = default; _explicitNullProperties?.Remove("encrypted_media"); AdditionalData["encrypted_media"] = unknown; } else { EncryptedMedia = parsed; AdditionalData.Remove("encrypted_media"); } } },
+                { "encrypted_media", n => { EncryptedMedia = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia.CreateFromDiscriminatorValue); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "instant_ringback_enabled", n => { InstantRingbackEnabled = n.GetBoolValue(); } },
                 { "ip_authentication_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnIpAuthenticationMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIpAuthenticationMethod = default; _explicitNullProperties?.Remove("ip_authentication_method"); AdditionalData["ip_authentication_method"] = unknown; } else { IpAuthenticationMethod = parsed; AdditionalData.Remove("ip_authentication_method"); } } },
@@ -190,7 +197,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnAniOverrideType>("ani_override_type", AniOverrideType);
             writer.WriteBoolValue("call_parking_enabled", CallParkingEnabled);
             writer.WriteIntValue("channel_limit", ChannelLimit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("instant_ringback_enabled", InstantRingbackEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnIpAuthenticationMethod>("ip_authentication_method", IpAuthenticationMethod);

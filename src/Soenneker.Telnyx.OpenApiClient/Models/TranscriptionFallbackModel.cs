@@ -44,12 +44,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Settings for the fallback, with the same fields and limits as `transcription.settings`. Fields that don&apos;t apply to this model&apos;s provider are dropped, and the provider&apos;s defaults fill in the rest. Omit it or set it to `null` to use the settings of `transcription.model` where they apply to this model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; AdditionalData?.Remove("settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? _explicitNullValueSettings = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; AdditionalData?.Remove("settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; AdditionalData?.Remove("settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig _explicitNullValueSettings = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; AdditionalData?.Remove("settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings _explicitNullValueSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel"/> and sets the default values.
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "model", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelModel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueModel = default; _explicitNullProperties?.Remove("model"); AdditionalData["model"] = unknown; } else { Model = parsed; AdditionalData.Remove("model"); } } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelModel>("model", Model);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModelSettings>("settings", Settings);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

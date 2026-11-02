@@ -45,6 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Batch
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailSendTooManyRequestsResponseResponseError">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Email_messages.Batch
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Telnyx.OpenApiClient.Models.EmailSendTooManyRequestsResponseResponseError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.EmailErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

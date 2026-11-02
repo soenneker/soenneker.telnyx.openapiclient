@@ -67,8 +67,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? ExpressiveMode { get => _explicitNullValueExpressiveMode; set { _explicitNullValueExpressiveMode = value; AdditionalData?.Remove("expressive_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressive_mode"); else _explicitNullProperties?.Remove("expressive_mode"); } }
         private bool? _explicitNullValueExpressiveMode = default!;
         /// <summary>Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to &apos;auto&apos; for automatic language detection. Only applicable when using MiniMax voices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost? LanguageBoost { get => _explicitNullValueLanguageBoost; set { _explicitNullValueLanguageBoost = value; AdditionalData?.Remove("language_boost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_boost"); else _explicitNullProperties?.Remove("language_boost"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost? _explicitNullValueLanguageBoost = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost LanguageBoost { get => _explicitNullValueLanguageBoost; set { _explicitNullValueLanguageBoost = value; AdditionalData?.Remove("language_boost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_boost"); else _explicitNullProperties?.Remove("language_boost"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost _explicitNullValueLanguageBoost = default!;
+#endif
         /// <summary>Determines how closely the AI should adhere to the original voice when attempting to replicate it. Only applicable when using ElevenLabs.</summary>
         public double? SimilarityBoost { get => _explicitNullValueSimilarityBoost; set { _explicitNullValueSimilarityBoost = value; AdditionalData?.Remove("similarity_boost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("similarity_boost"); else _explicitNullProperties?.Remove("similarity_boost"); } }
         private double? _explicitNullValueSimilarityBoost = default!;
@@ -132,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "background_audio", n => { BackgroundAudio = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio.CreateFromDiscriminatorValue); } },
                 { "expressive_mode", n => { ExpressiveMode = n.GetBoolValue(); } },
-                { "language_boost", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLanguageBoost = default; _explicitNullProperties?.Remove("language_boost"); AdditionalData["language_boost"] = unknown; } else { LanguageBoost = parsed; AdditionalData.Remove("language_boost"); } } },
+                { "language_boost", n => { LanguageBoost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost.CreateFromDiscriminatorValue); } },
                 { "similarity_boost", n => { SimilarityBoost = n.GetDoubleValue(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
                 { "style", n => { Style = n.GetDoubleValue(); } },
@@ -152,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudio>("background_audio", BackgroundAudio);
             writer.WriteBoolValue("expressive_mode", ExpressiveMode);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost>("language_boost", LanguageBoost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsLanguageBoost>("language_boost", LanguageBoost);
             writer.WriteDoubleValue("similarity_boost", SimilarityBoost);
             writer.WriteDoubleValue("speed", Speed);
             writer.WriteDoubleValue("style", Style);

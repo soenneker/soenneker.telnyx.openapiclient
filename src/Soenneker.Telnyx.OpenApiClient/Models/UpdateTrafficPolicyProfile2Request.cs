@@ -52,8 +52,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private List<string> _explicitNullValueIpRanges = default!;
 #endif
         /// <summary>Bandwidth limit in kbps. Must be 512 or 1024, or null to remove.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps? LimitBwKbps { get => _explicitNullValueLimitBwKbps; set { _explicitNullValueLimitBwKbps = value; AdditionalData?.Remove("limit_bw_kbps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_bw_kbps"); else _explicitNullProperties?.Remove("limit_bw_kbps"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps? _explicitNullValueLimitBwKbps = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps LimitBwKbps { get => _explicitNullValueLimitBwKbps; set { _explicitNullValueLimitBwKbps = value; AdditionalData?.Remove("limit_bw_kbps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_bw_kbps"); else _explicitNullProperties?.Remove("limit_bw_kbps"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps _explicitNullValueLimitBwKbps = default!;
+#endif
         /// <summary>Array of PCEF service IDs to include in the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "ip_ranges", n => { IpRanges = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "limit_bw_kbps", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLimitBwKbps = default; _explicitNullProperties?.Remove("limit_bw_kbps"); AdditionalData["limit_bw_kbps"] = unknown; } else { LimitBwKbps = parsed; AdditionalData.Remove("limit_bw_kbps"); } } },
+                { "limit_bw_kbps", n => { LimitBwKbps = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps.CreateFromDiscriminatorValue); } },
                 { "services", n => { Services = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
@@ -108,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
             writer.WriteCollectionOfPrimitiveValues<string>("ip_ranges", IpRanges);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps>("limit_bw_kbps", LimitBwKbps);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestLimitBwKbps>("limit_bw_kbps", LimitBwKbps);
             writer.WriteCollectionOfPrimitiveValues<string>("services", Services);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTrafficPolicyProfile2RequestType>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

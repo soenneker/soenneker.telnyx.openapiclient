@@ -94,8 +94,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValueProxy = default!;
 #endif
         /// <summary>The transport protocol used for SIP signaling when communicating with the external SIP peer. One of UDP, TLS, or TCP.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport? _explicitNullValueTransport = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport _explicitNullValueTransport = default!;
+#endif
         /// <summary>Custom SIP User-Agent header value that Telnyx uses on outbound REGISTER and INVITE messages. Set to null to use Telnyx&apos;s default User-Agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -147,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound_proxy", n => { OutboundProxy = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetStringValue(); } },
-                { "transport", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTransport = default; _explicitNullProperties?.Remove("transport"); AdditionalData["transport"] = unknown; } else { Transport = parsed; AdditionalData.Remove("transport"); } } },
+                { "transport", n => { Transport = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>(global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport.CreateFromDiscriminatorValue); } },
                 { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
@@ -165,7 +172,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("outbound_proxy", OutboundProxy);
             writer.WriteStringValue("password", Password);
             writer.WriteStringValue("proxy", Proxy);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>("transport", Transport);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UacExternalSettingsTransport>("transport", Transport);
             writer.WriteStringValue("user_agent", UserAgent);
             writer.WriteStringValue("username", Username);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

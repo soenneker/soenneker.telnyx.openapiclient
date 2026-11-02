@@ -102,12 +102,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>**Beta:** Replaces the assistant&apos;s avatar configuration. Omit this field to leave the current configuration unchanged, or set it to `null` to remove the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest? AvatarSettings { get => _explicitNullValueAvatarSettings; set { _explicitNullValueAvatarSettings = value; AdditionalData?.Remove("avatar_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_settings"); else _explicitNullProperties?.Remove("avatar_settings"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest? _explicitNullValueAvatarSettings = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings? AvatarSettings { get => _explicitNullValueAvatarSettings; set { _explicitNullValueAvatarSettings = value; AdditionalData?.Remove("avatar_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_settings"); else _explicitNullProperties?.Remove("avatar_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings? _explicitNullValueAvatarSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest AvatarSettings { get => _explicitNullValueAvatarSettings; set { _explicitNullValueAvatarSettings = value; AdditionalData?.Remove("avatar_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_settings"); else _explicitNullProperties?.Remove("avatar_settings"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest _explicitNullValueAvatarSettings = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings AvatarSettings { get => _explicitNullValueAvatarSettings; set { _explicitNullValueAvatarSettings = value; AdditionalData?.Remove("avatar_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_settings"); else _explicitNullProperties?.Remove("avatar_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings _explicitNullValueAvatarSettings = default!;
 #endif
         /// <summary>Conversation flow as supplied by API clients (create / update).A directed graph of `FlowNodeReq` connected by `FlowEdge`s. Validationenforces unique node/edge IDs, that `start_node_id` references a realnode, and that every edge&apos;s endpoints reference real nodes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -444,7 +444,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "a2a_agents", n => { A2aAgents = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "avatar_settings", n => { AvatarSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest.CreateFromDiscriminatorValue); } },
+                { "avatar_settings", n => { AvatarSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings.CreateFromDiscriminatorValue); } },
                 { "conversation_flow", n => { ConversationFlow = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq.CreateFromDiscriminatorValue); } },
                 { "delegation_settings", n => { DelegationSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -487,7 +487,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgent>("a2a_agents", A2aAgents);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarSettingsRequest>("avatar_settings", AvatarSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestAvatarSettings>("avatar_settings", AvatarSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowReq>("conversation_flow", ConversationFlow);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettings>("delegation_settings", DelegationSettings);
             writer.WriteStringValue("description", Description);

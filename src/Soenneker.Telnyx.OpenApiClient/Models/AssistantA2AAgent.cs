@@ -70,11 +70,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>How often, in milliseconds, to poll an agent task that has not finished yet. Defaults to 500.</summary>
-        public int? PollIntervalMs { get => _explicitNullValuePollIntervalMs; set { _explicitNullValuePollIntervalMs = value; AdditionalData?.Remove("poll_interval_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("poll_interval_ms"); else _explicitNullProperties?.Remove("poll_interval_ms"); } }
-        private int? _explicitNullValuePollIntervalMs = default!;
+        public long? PollIntervalMs { get => _explicitNullValuePollIntervalMs; set { _explicitNullValuePollIntervalMs = value; AdditionalData?.Remove("poll_interval_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("poll_interval_ms"); else _explicitNullProperties?.Remove("poll_interval_ms"); } }
+        private long? _explicitNullValuePollIntervalMs = default!;
         /// <summary>Total budget, in milliseconds, for one call to this agent, including any time spent polling a task that is still running. Omit to inherit the assistant&apos;s tool timeout.</summary>
-        public int? TimeoutMs { get => _explicitNullValueTimeoutMs; set { _explicitNullValueTimeoutMs = value; AdditionalData?.Remove("timeout_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_ms"); else _explicitNullProperties?.Remove("timeout_ms"); } }
-        private int? _explicitNullValueTimeoutMs = default!;
+        public long? TimeoutMs { get => _explicitNullValueTimeoutMs; set { _explicitNullValueTimeoutMs = value; AdditionalData?.Remove("timeout_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_ms"); else _explicitNullProperties?.Remove("timeout_ms"); } }
+        private long? _explicitNullValueTimeoutMs = default!;
         /// <summary>The agent&apos;s base URL, or the URL of its agent card. At most 2,048 bytes once UTF-8 encoded. `/.well-known/agent-card.json` is appended to the path unless it already ends in `.json`. Must be an `http://` or `https://` URL for an externally reachable host: internal destinations (`localhost`, private and reserved IP ranges, `.local` domains) are rejected, and the hostname may not contain a `{{...}}` placeholder. Placeholders in the path are allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,8 +115,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "headers", n => { Headers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.A2AAgentHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.A2AAgentHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItem>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "poll_interval_ms", n => { PollIntervalMs = n.GetIntValue(); } },
-                { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
+                { "poll_interval_ms", n => { PollIntervalMs = n.GetLongValue(); } },
+                { "timeout_ms", n => { TimeoutMs = n.GetLongValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -131,8 +131,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.A2AAgentHeader>("headers", Headers);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantA2AAgentMessagesItem>("messages", Messages);
             writer.WriteStringValue("name", Name);
-            writer.WriteIntValue("poll_interval_ms", PollIntervalMs);
-            writer.WriteIntValue("timeout_ms", TimeoutMs);
+            writer.WriteLongValue("poll_interval_ms", PollIntervalMs);
+            writer.WriteLongValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("url", Url);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

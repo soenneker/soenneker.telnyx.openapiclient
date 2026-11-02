@@ -86,8 +86,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValueDefaultPrimaryFqdnId = default!;
 #endif
         /// <summary>Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or null, other values are not allowed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod? DefaultRoutingMethod { get => _explicitNullValueDefaultRoutingMethod; set { _explicitNullValueDefaultRoutingMethod = value; AdditionalData?.Remove("default_routing_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_routing_method"); else _explicitNullProperties?.Remove("default_routing_method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod? _explicitNullValueDefaultRoutingMethod = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod DefaultRoutingMethod { get => _explicitNullValueDefaultRoutingMethod; set { _explicitNullValueDefaultRoutingMethod = value; AdditionalData?.Remove("default_routing_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_routing_method"); else _explicitNullProperties?.Remove("default_routing_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod _explicitNullValueDefaultRoutingMethod = default!;
+#endif
         /// <summary>The default secondary FQDN to use for the number. Only settable if the connection isof FQDN type. Value must be the ID of an FQDN set on the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -186,7 +193,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "codecs", n => { Codecs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "default_primary_fqdn_id", n => { DefaultPrimaryFqdnId = n.GetStringValue(); } },
-                { "default_routing_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultRoutingMethod = default; _explicitNullProperties?.Remove("default_routing_method"); AdditionalData["default_routing_method"] = unknown; } else { DefaultRoutingMethod = parsed; AdditionalData.Remove("default_routing_method"); } } },
+                { "default_routing_method", n => { DefaultRoutingMethod = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod.CreateFromDiscriminatorValue); } },
                 { "default_secondary_fqdn_id", n => { DefaultSecondaryFqdnId = n.GetStringValue(); } },
                 { "default_tertiary_fqdn_id", n => { DefaultTertiaryFqdnId = n.GetStringValue(); } },
                 { "dnis_number_format", n => { DnisNumberFormat = n.GetStringValue(); } },
@@ -213,7 +220,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteCollectionOfPrimitiveValues<string>("codecs", Codecs);
             writer.WriteStringValue("default_primary_fqdn_id", DefaultPrimaryFqdnId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod>("default_routing_method", DefaultRoutingMethod);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdnDefaultRoutingMethod>("default_routing_method", DefaultRoutingMethod);
             writer.WriteStringValue("default_secondary_fqdn_id", DefaultSecondaryFqdnId);
             writer.WriteStringValue("default_tertiary_fqdn_id", DefaultTertiaryFqdnId);
             writer.WriteStringValue("dnis_number_format", DnisNumberFormat);

@@ -81,32 +81,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Assistant configuration if an assistant is attached, otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant? Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant? _explicitNullValueAssistant = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed? Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed? _explicitNullValueAssistant = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant _explicitNullValueAssistant = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed _explicitNullValueAssistant = default!;
 #endif
         /// <summary>Current state of the assistant, or null if no assistant is attached.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState? AssistantState { get => _explicitNullValueAssistantState; set { _explicitNullValueAssistantState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant_state"); else _explicitNullProperties?.Remove("assistant_state"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState? _explicitNullValueAssistantState = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState AssistantState { get => _explicitNullValueAssistantState; set { _explicitNullValueAssistantState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant_state"); else _explicitNullProperties?.Remove("assistant_state"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState _explicitNullValueAssistantState = default!;
+#endif
         /// <summary>Timestamp of the last assistant state change, or null.</summary>
         public DateTimeOffset? AssistantStateChangedAt { get => _explicitNullValueAssistantStateChangedAt; set { _explicitNullValueAssistantStateChangedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant_state_changed_at"); else _explicitNullProperties?.Remove("assistant_state_changed_at"); } }
         private DateTimeOffset? _explicitNullValueAssistantStateChangedAt = default!;
         /// <summary>The assistant&apos;s avatar when the session was created with `assistant.avatar: true`, otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar? Avatar { get => _explicitNullValueAvatar; set { _explicitNullValueAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar"); else _explicitNullProperties?.Remove("avatar"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar? _explicitNullValueAvatar = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed? Avatar { get => _explicitNullValueAvatar; set { _explicitNullValueAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar"); else _explicitNullProperties?.Remove("avatar"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed? _explicitNullValueAvatar = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar Avatar { get => _explicitNullValueAvatar; set { _explicitNullValueAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar"); else _explicitNullProperties?.Remove("avatar"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar _explicitNullValueAvatar = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed Avatar { get => _explicitNullValueAvatar; set { _explicitNullValueAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar"); else _explicitNullProperties?.Remove("avatar"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed _explicitNullValueAvatar = default!;
 #endif
         /// <summary>Current state of the avatar, or null if the session has no avatar. `starting` until the avatar&apos;s video is playing, then `connected`; `degraded` when the session has fallen back to voice-only (the `avatar.degraded` event carries the reason); `disconnected` when the avatar has ended.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState? AvatarState { get => _explicitNullValueAvatarState; set { _explicitNullValueAvatarState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_state"); else _explicitNullProperties?.Remove("avatar_state"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState? _explicitNullValueAvatarState = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState AvatarState { get => _explicitNullValueAvatarState; set { _explicitNullValueAvatarState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_state"); else _explicitNullProperties?.Remove("avatar_state"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState _explicitNullValueAvatarState = default!;
+#endif
         /// <summary>Timestamp of the last avatar state change, or null.</summary>
         public DateTimeOffset? AvatarStateChangedAt { get => _explicitNullValueAvatarStateChangedAt; set { _explicitNullValueAvatarStateChangedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_state_changed_at"); else _explicitNullProperties?.Remove("avatar_state_changed_at"); } }
         private DateTimeOffset? _explicitNullValueAvatarStateChangedAt = default!;
@@ -251,11 +265,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
-                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant.CreateFromDiscriminatorValue); } },
-                { "assistant_state", n => { AssistantState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState>(); } },
+                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed.CreateFromDiscriminatorValue); } },
+                { "assistant_state", n => { AssistantState = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState.CreateFromDiscriminatorValue); } },
                 { "assistant_state_changed_at", n => { AssistantStateChangedAt = n.GetDateTimeOffsetValue(); } },
-                { "avatar", n => { Avatar = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar.CreateFromDiscriminatorValue); } },
-                { "avatar_state", n => { AvatarState = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState>(); } },
+                { "avatar", n => { Avatar = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed.CreateFromDiscriminatorValue); } },
+                { "avatar_state", n => { AvatarState = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState.CreateFromDiscriminatorValue); } },
                 { "avatar_state_changed_at", n => { AvatarStateChangedAt = n.GetDateTimeOffsetValue(); } },
                 { "bot_name", n => { BotName = n.GetStringValue(); } },
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfig.CreateFromDiscriminatorValue); } },
@@ -285,11 +299,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_id", AccountId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistant>("assistant", Assistant);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState>("assistant_state", AssistantState);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed>("assistant", Assistant);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAssistantState>("assistant_state", AssistantState);
             writer.WriteDateTimeOffsetValue("assistant_state_changed_at", AssistantStateChangedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatar>("avatar", Avatar);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState>("avatar_state", AvatarState);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAvatarComposed>("avatar", Avatar);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedAvatarState>("avatar_state", AvatarState);
             writer.WriteDateTimeOffsetValue("avatar_state_changed_at", AvatarStateChangedAt);
             writer.WriteStringValue("bot_name", BotName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfig>("config", Config);

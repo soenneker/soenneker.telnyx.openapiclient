@@ -61,15 +61,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private string _explicitNullValuePhoneNumber = default!;
 #endif
-        /// <summary>The rejection_reason property</summary>
+        /// <summary>Populated when `status` is `unsuccessful` or `permanently_rejected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason? RejectionReason { get => _explicitNullValueRejectionReason; set { _explicitNullValueRejectionReason = value; AdditionalData?.Remove("rejection_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reason"); else _explicitNullProperties?.Remove("rejection_reason"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason? _explicitNullValueRejectionReason = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason? RejectionReason { get => _explicitNullValueRejectionReason; set { _explicitNullValueRejectionReason = value; AdditionalData?.Remove("rejection_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reason"); else _explicitNullProperties?.Remove("rejection_reason"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason? _explicitNullValueRejectionReason = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason RejectionReason { get => _explicitNullValueRejectionReason; set { _explicitNullValueRejectionReason = value; AdditionalData?.Remove("rejection_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reason"); else _explicitNullProperties?.Remove("rejection_reason"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason _explicitNullValueRejectionReason = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason RejectionReason { get => _explicitNullValueRejectionReason; set { _explicitNullValueRejectionReason = value; AdditionalData?.Remove("rejection_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejection_reason"); else _explicitNullProperties?.Remove("rejection_reason"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason _explicitNullValueRejectionReason = default!;
 #endif
         /// <summary>Phone-number lifecycle status.- `submitted` / `in_review` - Telnyx is reviewing the batch this number belongs to.- `verified` - approved; the DIR&apos;s display identity will be shown on outbound calls from this number.- `unsuccessful` - Telnyx rejected this submission; the customer may re-add to retry.- `suspended` - temporarily disabled (e.g. by an active infringement claim on the DIR).- `expired` - verification expired; re-add to renew.- `permanently_rejected` - terminal; cannot be re-added on this or any other DIR you own.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "loa_document_id", n => { LoaDocumentId = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "rejection_reason", n => { RejectionReason = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason>(global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason.CreateFromDiscriminatorValue); } },
+                { "rejection_reason", n => { RejectionReason = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason>(global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "verified_at", n => { VerifiedAt = n.GetDateTimeOffsetValue(); } },
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("enterprise_id", EnterpriseId);
             writer.WriteGuidValue("loa_document_id", LoaDocumentId);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RejectionReason>("rejection_reason", RejectionReason);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DirPhoneNumberRejectionReason>("rejection_reason", RejectionReason);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatus>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

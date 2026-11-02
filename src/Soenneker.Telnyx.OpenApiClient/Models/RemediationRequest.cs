@@ -86,12 +86,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Per-category buckets. Populated once results are available. Null while the request is still pending.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults? _explicitNullValueResults = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults _explicitNullValueResults = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults _explicitNullValueResults = default!;
 #endif
         /// <summary>Customer-facing status of a remediation request.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RemediationStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_numbers_count", n => { PhoneNumbersCount = n.GetIntValue(); } },
                 { "phone_numbers_ineligible", n => { PhoneNumbersIneligible = n.GetIntValue(); } },
                 { "phone_numbers_submitted", n => { PhoneNumbersSubmitted = n.GetIntValue(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults>(global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults>(global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "tier1_completed_at", n => { Tier1CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "tier2_completed_at", n => { Tier2CompletedAt = n.GetDateTimeOffsetValue(); } },
@@ -169,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("phone_numbers_count", PhoneNumbersCount);
             writer.WriteIntValue("phone_numbers_ineligible", PhoneNumbersIneligible);
             writer.WriteIntValue("phone_numbers_submitted", PhoneNumbersSubmitted);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationPerNumberResults>("results", Results);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationRequestResults>("results", Results);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemediationStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("tier1_completed_at", Tier1CompletedAt);
             writer.WriteDateTimeOffsetValue("tier2_completed_at", Tier2CompletedAt);

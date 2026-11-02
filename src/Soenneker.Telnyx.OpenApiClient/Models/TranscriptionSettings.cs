@@ -48,12 +48,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The language booster: a second model that transcribes alongside `model`, and the rule that decides which transcript the assistant uses. Both models must be streaming, or both non-streaming, and, except with `merge_words`, `model` must support `language` alongside another model (for example, `cohere/ar-stt` supports only `ar` there). If the language booster can&apos;t run, the call runs on `model` alone; if either model fails mid-call, the call continues on the other. On update, omit the field to keep the stored language booster, or send `null` to remove it. When an update changes `model` or `language` and the stored language booster no longer fits, it is removed without an error. Can&apos;t be combined with `fallback_models`; to replace stored fallbacks, send `fallback_models: []` in the same request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger? Challenger { get => _explicitNullValueChallenger; set { _explicitNullValueChallenger = value; AdditionalData?.Remove("challenger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenger"); else _explicitNullProperties?.Remove("challenger"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger? _explicitNullValueChallenger = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger? Challenger { get => _explicitNullValueChallenger; set { _explicitNullValueChallenger = value; AdditionalData?.Remove("challenger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenger"); else _explicitNullProperties?.Remove("challenger"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger? _explicitNullValueChallenger = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger Challenger { get => _explicitNullValueChallenger; set { _explicitNullValueChallenger = value; AdditionalData?.Remove("challenger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenger"); else _explicitNullProperties?.Remove("challenger"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger _explicitNullValueChallenger = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger Challenger { get => _explicitNullValueChallenger; set { _explicitNullValueChallenger = value; AdditionalData?.Remove("challenger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenger"); else _explicitNullProperties?.Remove("challenger"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger _explicitNullValueChallenger = default!;
 #endif
         /// <summary>Up to 3 streaming models that take over transcription, in this order, when the model in use fails, at the start of a call or mid-call. `model` must be a streaming model too, and must support `language` alongside other models. On update, a list replaces the stored one: omit the field to keep the stored list, or send `null` or `[]` to remove it. When an update changes `model` or `language`, stored fallbacks that no longer fit are removed without an error. Can&apos;t be combined with `challenger`, the language booster; to replace a stored language booster, send `challenger: null` in the same request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
-                { "challenger", n => { Challenger = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger.CreateFromDiscriminatorValue); } },
+                { "challenger", n => { Challenger = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger.CreateFromDiscriminatorValue); } },
                 { "fallback_models", n => { FallbackModels = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "model", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueModel = default; _explicitNullProperties?.Remove("model"); AdditionalData["model"] = unknown; } else { Model = parsed; AdditionalData.Remove("model"); } } },
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionChallenger>("challenger", Challenger);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger>("challenger", Challenger);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionFallbackModel>("fallback_models", FallbackModels);
             writer.WriteStringValue("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsModel>("model", Model);

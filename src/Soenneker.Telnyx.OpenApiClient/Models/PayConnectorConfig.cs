@@ -44,8 +44,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValueEndpointUrl = default!;
 #endif
         /// <summary>Stored processor HTTP timeout in milliseconds. Omitted when no timeout was configured; the effective runtime default is 10000.</summary>
-        public int? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; AdditionalData?.Remove("timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
-        private int? _explicitNullValueTimeout = default!;
+        public long? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; AdditionalData?.Remove("timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
+        private long? _explicitNullValueTimeout = default!;
         /// <summary>Stored username, when supplied. Required to be a nonblank string for basic authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "auth_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayConnectorConfigAuthType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthType = default; _explicitNullProperties?.Remove("auth_type"); AdditionalData["auth_type"] = unknown; } else { AuthType = parsed; AdditionalData.Remove("auth_type"); } } },
                 { "endpoint_url", n => { EndpointUrl = n.GetStringValue(); } },
-                { "timeout", n => { Timeout = n.GetIntValue(); } },
+                { "timeout", n => { Timeout = n.GetLongValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayConnectorConfigAuthType>("auth_type", AuthType);
             writer.WriteStringValue("endpoint_url", EndpointUrl);
-            writer.WriteIntValue("timeout", Timeout);
+            writer.WriteLongValue("timeout", Timeout);
             writer.WriteStringValue("username", Username);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

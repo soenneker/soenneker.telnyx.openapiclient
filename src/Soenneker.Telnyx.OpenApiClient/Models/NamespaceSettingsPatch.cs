@@ -26,12 +26,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Summary settings to change. Omit to change nothing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch? _explicitNullValueSummary = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch _explicitNullValueSummary = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary _explicitNullValueSummary = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatch"/> and sets the default values.
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch>(global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch.CreateFromDiscriminatorValue); } },
+                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SummarySettingsPatch>("summary", Summary);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceSettingsPatchSummary>("summary", Summary);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

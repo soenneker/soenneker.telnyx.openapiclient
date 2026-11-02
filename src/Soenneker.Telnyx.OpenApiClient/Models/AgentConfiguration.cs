@@ -38,22 +38,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The campaign property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration? Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration? _explicitNullValueCampaign = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign? Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign? _explicitNullValueCampaign = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration _explicitNullValueCampaign = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign _explicitNullValueCampaign = default!;
 #endif
         /// <summary>The testing property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration? Testing { get => _explicitNullValueTesting; set { _explicitNullValueTesting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing"); else _explicitNullProperties?.Remove("testing"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration? _explicitNullValueTesting = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting? Testing { get => _explicitNullValueTesting; set { _explicitNullValueTesting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing"); else _explicitNullProperties?.Remove("testing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting? _explicitNullValueTesting = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration Testing { get => _explicitNullValueTesting; set { _explicitNullValueTesting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing"); else _explicitNullProperties?.Remove("testing"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration _explicitNullValueTesting = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting Testing { get => _explicitNullValueTesting; set { _explicitNullValueTesting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing"); else _explicitNullProperties?.Remove("testing"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting _explicitNullValueTesting = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -74,8 +74,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "basics", n => { Basics = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfiguration.CreateFromDiscriminatorValue); } },
-                { "campaign", n => { Campaign = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration.CreateFromDiscriminatorValue); } },
-                { "testing", n => { Testing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration.CreateFromDiscriminatorValue); } },
+                { "campaign", n => { Campaign = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign.CreateFromDiscriminatorValue); } },
+                { "testing", n => { Testing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,8 +86,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfiguration>("basics", Basics);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentCampaignConfiguration>("campaign", Campaign);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentTestingConfiguration>("testing", Testing);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationCampaign>("campaign", Campaign);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentConfigurationTesting>("testing", Testing);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

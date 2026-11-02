@@ -56,8 +56,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Gender of the voice clone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender? Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; AdditionalData?.Remove("gender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender? _explicitNullValueGender = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; AdditionalData?.Remove("gender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender _explicitNullValueGender = default!;
+#endif
         /// <summary>Unique identifier for the voice clone.</summary>
         public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private Guid? _explicitNullValueId = default!;
@@ -160,7 +167,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "gender", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGender = default; _explicitNullProperties?.Remove("gender"); AdditionalData["gender"] = unknown; } else { Gender = parsed; AdditionalData.Remove("gender"); } } },
+                { "gender", n => { Gender = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
@@ -184,7 +191,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender>("gender", Gender);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneDataGender>("gender", Gender);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("language", Language);

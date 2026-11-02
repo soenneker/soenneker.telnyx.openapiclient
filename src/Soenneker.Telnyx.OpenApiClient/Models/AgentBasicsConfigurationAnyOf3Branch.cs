@@ -90,12 +90,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact? _explicitNullValuePhoneNumber = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact _explicitNullValuePhoneNumber = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>The privacy_policy_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,12 +120,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The website property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact? Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact? _explicitNullValueWebsite = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite? Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite? _explicitNullValueWebsite = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact _explicitNullValueWebsite = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite _explicitNullValueWebsite = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -150,10 +150,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "email", n => { Email = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationAnyOf3Branch_email>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationAnyOf3Branch_email.CreateFromDiscriminatorValue); } },
                 { "hero_url", n => { HeroUrl = n.GetStringValue(); } },
                 { "logo_url", n => { LogoUrl = n.GetStringValue(); } },
-                { "phone_number", n => { PhoneNumber = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact.CreateFromDiscriminatorValue); } },
+                { "phone_number", n => { PhoneNumber = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber.CreateFromDiscriminatorValue); } },
                 { "privacy_policy_url", n => { PrivacyPolicyUrl = n.GetStringValue(); } },
                 { "terms_and_conditions_url", n => { TermsAndConditionsUrl = n.GetStringValue(); } },
-                { "website", n => { Website = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact.CreateFromDiscriminatorValue); } },
+                { "website", n => { Website = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite>(global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -168,10 +168,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationAnyOf3Branch_email>("email", Email);
             writer.WriteStringValue("hero_url", HeroUrl);
             writer.WriteStringValue("logo_url", LogoUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentPhoneContact>("phone_number", PhoneNumber);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationPhoneNumber>("phone_number", PhoneNumber);
             writer.WriteStringValue("privacy_policy_url", PrivacyPolicyUrl);
             writer.WriteStringValue("terms_and_conditions_url", TermsAndConditionsUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentWebsiteContact>("website", Website);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AgentBasicsConfigurationWebsite>("website", Website);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

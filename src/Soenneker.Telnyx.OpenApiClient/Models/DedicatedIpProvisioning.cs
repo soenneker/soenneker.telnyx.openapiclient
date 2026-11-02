@@ -54,8 +54,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValuePtrRequestPrUrl = default!;
 #endif
         /// <summary>State of the Telnyx PTR change: `pending`, `pr_open`, `merged`, `confirmed`, `failed`, or `abandoned`. Informational.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? PtrRequestState { get => _explicitNullValuePtrRequestState; set { _explicitNullValuePtrRequestState = value; AdditionalData?.Remove("ptr_request_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_state"); else _explicitNullProperties?.Remove("ptr_request_state"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState? _explicitNullValuePtrRequestState = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState PtrRequestState { get => _explicitNullValuePtrRequestState; set { _explicitNullValuePtrRequestState = value; AdditionalData?.Remove("ptr_request_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ptr_request_state"); else _explicitNullProperties?.Remove("ptr_request_state"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState _explicitNullValuePtrRequestState = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioning"/> and sets the default values.
         /// </summary>
@@ -84,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "checklist", n => { Checklist = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist>(global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist.CreateFromDiscriminatorValue); } },
                 { "dns_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDnsStatus = default; _explicitNullProperties?.Remove("dns_status"); AdditionalData["dns_status"] = unknown; } else { DnsStatus = parsed; AdditionalData.Remove("dns_status"); } } },
                 { "ptr_request_pr_url", n => { PtrRequestPrUrl = n.GetStringValue(); } },
-                { "ptr_request_state", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePtrRequestState = default; _explicitNullProperties?.Remove("ptr_request_state"); AdditionalData["ptr_request_state"] = unknown; } else { PtrRequestState = parsed; AdditionalData.Remove("ptr_request_state"); } } },
+                { "ptr_request_state", n => { PtrRequestState = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>(global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningChecklist>("checklist", Checklist);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningDnsStatus>("dns_status", DnsStatus);
             writer.WriteStringValue("ptr_request_pr_url", PtrRequestPrUrl);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>("ptr_request_state", PtrRequestState);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DedicatedIpProvisioningPtrRequestState>("ptr_request_state", PtrRequestState);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

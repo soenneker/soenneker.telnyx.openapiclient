@@ -35,11 +35,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The algorithm property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm? Algorithm { get => _explicitNullValueAlgorithm; set { _explicitNullValueAlgorithm = value; AdditionalData?.Remove("algorithm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("algorithm"); else _explicitNullProperties?.Remove("algorithm"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm? _explicitNullValueAlgorithm = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm Algorithm { get => _explicitNullValueAlgorithm; set { _explicitNullValueAlgorithm = value; AdditionalData?.Remove("algorithm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("algorithm"); else _explicitNullProperties?.Remove("algorithm"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm _explicitNullValueAlgorithm = default!;
+#endif
         /// <summary>The key_length property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength? KeyLength { get => _explicitNullValueKeyLength; set { _explicitNullValueKeyLength = value; AdditionalData?.Remove("key_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_length"); else _explicitNullProperties?.Remove("key_length"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength? _explicitNullValueKeyLength = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength KeyLength { get => _explicitNullValueKeyLength; set { _explicitNullValueKeyLength = value; AdditionalData?.Remove("key_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_length"); else _explicitNullProperties?.Remove("key_length"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength _explicitNullValueKeyLength = default!;
+#endif
         /// <summary>The rotated_at property</summary>
         public DateTimeOffset? RotatedAt { get => _explicitNullValueRotatedAt; set { _explicitNullValueRotatedAt = value; AdditionalData?.Remove("rotated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rotated_at"); else _explicitNullProperties?.Remove("rotated_at"); } }
         private DateTimeOffset? _explicitNullValueRotatedAt = default!;
@@ -79,8 +93,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "algorithm", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAlgorithm = default; _explicitNullProperties?.Remove("algorithm"); AdditionalData["algorithm"] = unknown; } else { Algorithm = parsed; AdditionalData.Remove("algorithm"); } } },
-                { "key_length", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKeyLength = default; _explicitNullProperties?.Remove("key_length"); AdditionalData["key_length"] = unknown; } else { KeyLength = parsed; AdditionalData.Remove("key_length"); } } },
+                { "algorithm", n => { Algorithm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm>(global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm.CreateFromDiscriminatorValue); } },
+                { "key_length", n => { KeyLength = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength>(global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength.CreateFromDiscriminatorValue); } },
                 { "rotated_at", n => { RotatedAt = n.GetDateTimeOffsetValue(); } },
                 { "selector", n => { Selector = n.GetStringValue(); } },
             };
@@ -93,8 +107,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm>("algorithm", Algorithm);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength>("key_length", KeyLength);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusAlgorithm>("algorithm", Algorithm);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DkimStatusKeyLength>("key_length", KeyLength);
             writer.WriteDateTimeOffsetValue("rotated_at", RotatedAt);
             writer.WriteStringValue("selector", Selector);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

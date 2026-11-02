@@ -81,12 +81,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>`null` until the first refresh has been collected for this number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData? ReputationData { get => _explicitNullValueReputationData; set { _explicitNullValueReputationData = value; AdditionalData?.Remove("reputation_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reputation_data"); else _explicitNullProperties?.Remove("reputation_data"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData? _explicitNullValueReputationData = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData? ReputationData { get => _explicitNullValueReputationData; set { _explicitNullValueReputationData = value; AdditionalData?.Remove("reputation_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reputation_data"); else _explicitNullProperties?.Remove("reputation_data"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData? _explicitNullValueReputationData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData ReputationData { get => _explicitNullValueReputationData; set { _explicitNullValueReputationData = value; AdditionalData?.Remove("reputation_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reputation_data"); else _explicitNullProperties?.Remove("reputation_data"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData _explicitNullValueReputationData = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData ReputationData { get => _explicitNullValueReputationData; set { _explicitNullValueReputationData = value; AdditionalData?.Remove("reputation_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reputation_data"); else _explicitNullProperties?.Remove("reputation_data"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData _explicitNullValueReputationData = default!;
 #endif
         /// <summary>Where the phone number is hosted. `telnyx`: in your Telnyx inventory. `external`: a number you own that is hosted with another provider.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "removal_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRemovalReason = default; _explicitNullProperties?.Remove("removal_reason"); AdditionalData["removal_reason"] = unknown; } else { RemovalReason = parsed; AdditionalData.Remove("removal_reason"); } } },
                 { "removed_at", n => { RemovedAt = n.GetDateTimeOffsetValue(); } },
-                { "reputation_data", n => { ReputationData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData.CreateFromDiscriminatorValue); } },
+                { "reputation_data", n => { ReputationData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData.CreateFromDiscriminatorValue); } },
                 { "source", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSource = default; _explicitNullProperties?.Remove("source"); AdditionalData["source"] = unknown; } else { Source = parsed; AdditionalData.Remove("source"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -146,7 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationRemovalReason>("removal_reason", RemovalReason);
             writer.WriteDateTimeOffsetValue("removed_at", RemovedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationData>("reputation_data", ReputationData);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberReputationData>("reputation_data", ReputationData);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationNumberSource>("source", Source);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

@@ -110,12 +110,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Relationship to the parent node, null for root.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo? Relationship { get => _explicitNullValueRelationship; set { _explicitNullValueRelationship = value; AdditionalData?.Remove("relationship"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship"); else _explicitNullProperties?.Remove("relationship"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo? _explicitNullValueRelationship = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship? Relationship { get => _explicitNullValueRelationship; set { _explicitNullValueRelationship = value; AdditionalData?.Remove("relationship"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship"); else _explicitNullProperties?.Remove("relationship"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship? _explicitNullValueRelationship = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo Relationship { get => _explicitNullValueRelationship; set { _explicitNullValueRelationship = value; AdditionalData?.Remove("relationship"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship"); else _explicitNullProperties?.Remove("relationship"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo _explicitNullValueRelationship = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship Relationship { get => _explicitNullValueRelationship; set { _explicitNullValueRelationship = value; AdditionalData?.Remove("relationship"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship"); else _explicitNullProperties?.Remove("relationship"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship _explicitNullValueRelationship = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventNode"/> and sets the default values.
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Links>(global::Soenneker.Telnyx.OpenApiClient.Models.Links.CreateFromDiscriminatorValue); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "record", n => { Record = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRecordProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRecordProperty.CreateFromDiscriminatorValue); } },
-                { "relationship", n => { Relationship = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo.CreateFromDiscriminatorValue); } },
+                { "relationship", n => { Relationship = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship>(global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Links>("links", Links);
             writer.WriteStringValue("product", Product);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRecordProperty>("record", Record);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo>("relationship", Relationship);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNodeRelationship>("relationship", Relationship);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

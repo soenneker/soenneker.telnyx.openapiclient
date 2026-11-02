@@ -42,12 +42,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent? _explicitNullValueContent = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent _explicitNullValueContent = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent _explicitNullValueContent = default!;
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
@@ -75,12 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The model_provenance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance? ModelProvenance { get => _explicitNullValueModelProvenance; set { _explicitNullValueModelProvenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_provenance"); else _explicitNullProperties?.Remove("model_provenance"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance? _explicitNullValueModelProvenance = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance? ModelProvenance { get => _explicitNullValueModelProvenance; set { _explicitNullValueModelProvenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_provenance"); else _explicitNullProperties?.Remove("model_provenance"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance? _explicitNullValueModelProvenance = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance ModelProvenance { get => _explicitNullValueModelProvenance; set { _explicitNullValueModelProvenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_provenance"); else _explicitNullProperties?.Remove("model_provenance"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance _explicitNullValueModelProvenance = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance ModelProvenance { get => _explicitNullValueModelProvenance; set { _explicitNullValueModelProvenance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_provenance"); else _explicitNullProperties?.Remove("model_provenance"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance _explicitNullValueModelProvenance = default!;
 #endif
         /// <summary>The prompt that produced this artifact, or null for a named type. Non-null only when `type` is `custom`; the five named types always return `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -129,11 +129,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent>(global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "failure_reason", n => { FailureReason = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "model_provenance", n => { ModelProvenance = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance.CreateFromDiscriminatorValue); } },
+                { "model_provenance", n => { ModelProvenance = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactStatus>(); } },
@@ -148,11 +148,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ArtifactContent>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactContent>("content", Content);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("failure_reason", FailureReason);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelProvenance>("model_provenance", ModelProvenance);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactModelProvenance>("model_provenance", ModelProvenance);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionArtifactStatus>("status", Status);

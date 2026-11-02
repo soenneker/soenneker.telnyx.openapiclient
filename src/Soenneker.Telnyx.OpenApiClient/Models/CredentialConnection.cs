@@ -138,8 +138,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? EncodeContactHeaderEnabled { get => _explicitNullValueEncodeContactHeaderEnabled; set { _explicitNullValueEncodeContactHeaderEnabled = value; AdditionalData?.Remove("encode_contact_header_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encode_contact_header_enabled"); else _explicitNullProperties?.Remove("encode_contact_header_enabled"); } }
         private bool? _explicitNullValueEncodeContactHeaderEnabled = default!;
         /// <summary>Enable use of SRTP for encryption. Can only be set when the SIP signaling transport protocol is TLS.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get => _explicitNullValueEncryptedMedia; set { _explicitNullValueEncryptedMedia = value; AdditionalData?.Remove("encrypted_media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_media"); else _explicitNullProperties?.Remove("encrypted_media"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? _explicitNullValueEncryptedMedia = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia EncryptedMedia { get => _explicitNullValueEncryptedMedia; set { _explicitNullValueEncryptedMedia = value; AdditionalData?.Remove("encrypted_media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_media"); else _explicitNullProperties?.Remove("encrypted_media"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia _explicitNullValueEncryptedMedia = default!;
+#endif
         /// <summary>Identifies the type of resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -336,7 +343,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
                 { "dtmf_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDtmfType = default; _explicitNullProperties?.Remove("dtmf_type"); AdditionalData["dtmf_type"] = unknown; } else { DtmfType = parsed; AdditionalData.Remove("dtmf_type"); } } },
                 { "encode_contact_header_enabled", n => { EncodeContactHeaderEnabled = n.GetBoolValue(); } },
-                { "encrypted_media", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEncryptedMedia = default; _explicitNullProperties?.Remove("encrypted_media"); AdditionalData["encrypted_media"] = unknown; } else { EncryptedMedia = parsed; AdditionalData.Remove("encrypted_media"); } } },
+                { "encrypted_media", n => { EncryptedMedia = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound.CreateFromDiscriminatorValue); } },
                 { "ios_push_credential_id", n => { IosPushCredentialId = n.GetStringValue(); } },
@@ -376,7 +383,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound>("inbound", Inbound);
             writer.WriteStringValue("ios_push_credential_id", IosPushCredentialId);

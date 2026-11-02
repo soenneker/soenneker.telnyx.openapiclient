@@ -75,10 +75,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>Voice synthesis provider used for this design.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
-        private string? _explicitNullValueProvider = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider? _explicitNullValueProvider = default!;
 #nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider _explicitNullValueProvider = default!;
+#endif
         /// <summary>List of TTS model identifiers supported by this design&apos;s provider (e.g. `Qwen3TTS`, `speech-02-turbo`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -153,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider.CreateFromDiscriminatorValue); } },
                 { "provider_supported_models", n => { ProviderSupportedModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "provider_voice_id", n => { ProviderVoiceId = n.GetStringValue(); } },
                 { "record_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRecordType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordType = default; _explicitNullProperties?.Remove("record_type"); AdditionalData["record_type"] = unknown; } else { RecordType = parsed; AdditionalData.Remove("record_type"); } } },
@@ -175,7 +180,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteStringValue("provider", Provider);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignDataProvider>("provider", Provider);
             writer.WriteCollectionOfPrimitiveValues<string>("provider_supported_models", ProviderSupportedModels);
             writer.WriteStringValue("provider_voice_id", ProviderVoiceId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRecordType>("record_type", RecordType);

@@ -117,14 +117,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         private string _explicitNullValuePaymentIntentId = default!;
 #endif
         /// <summary>Payment method used by the provider: `stripe_spt` for Stripe Shared Payment Token payments, `tempo_usdc` for Tempo USDC payments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod? PaymentMethod { get => _explicitNullValuePaymentMethod; set { _explicitNullValuePaymentMethod = value; AdditionalData?.Remove("payment_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method"); else _explicitNullProperties?.Remove("payment_method"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod? _explicitNullValuePaymentMethod = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod PaymentMethod { get => _explicitNullValuePaymentMethod; set { _explicitNullValuePaymentMethod = value; AdditionalData?.Remove("payment_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method"); else _explicitNullProperties?.Remove("payment_method"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod _explicitNullValuePaymentMethod = default!;
+#endif
         /// <summary>Payment source identifier distinguishing machine payments from other account-credit sources.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentPaymentSource? PaymentSource { get => _explicitNullValuePaymentSource; set { _explicitNullValuePaymentSource = value; AdditionalData?.Remove("payment_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_source"); else _explicitNullProperties?.Remove("payment_source"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentPaymentSource? _explicitNullValuePaymentSource = default!;
         /// <summary>Upstream payment provider that settled the payment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider? _explicitNullValueProvider = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider _explicitNullValueProvider = default!;
+#endif
         /// <summary>Provider receipt reference: the Stripe PaymentIntent identifier for Stripe settlements, or the on-chain transaction hash for Tempo settlements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,8 +153,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditRecordType? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditRecordType? _explicitNullValueRecordType = default!;
         /// <summary>Status of the transaction. Successful machine payment credits are recorded as `settled`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus? _explicitNullValueStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus _explicitNullValueStatus = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCredit"/> and sets the default values.
         /// </summary>
@@ -174,12 +195,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "mpp_resource", n => { MppResource = n.GetStringValue(); } },
                 { "payment_intent_id", n => { PaymentIntentId = n.GetStringValue(); } },
-                { "payment_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePaymentMethod = default; _explicitNullProperties?.Remove("payment_method"); AdditionalData["payment_method"] = unknown; } else { PaymentMethod = parsed; AdditionalData.Remove("payment_method"); } } },
+                { "payment_method", n => { PaymentMethod = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod>(global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod.CreateFromDiscriminatorValue); } },
                 { "payment_source", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentPaymentSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePaymentSource = default; _explicitNullProperties?.Remove("payment_source"); AdditionalData["payment_source"] = unknown; } else { PaymentSource = parsed; AdditionalData.Remove("payment_source"); } } },
-                { "provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProvider = default; _explicitNullProperties?.Remove("provider"); AdditionalData["provider"] = unknown; } else { Provider = parsed; AdditionalData.Remove("provider"); } } },
+                { "provider", n => { Provider = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider>(global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider.CreateFromDiscriminatorValue); } },
                 { "receipt_reference", n => { ReceiptReference = n.GetStringValue(); } },
                 { "record_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditRecordType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordType = default; _explicitNullProperties?.Remove("record_type"); AdditionalData["record_type"] = unknown; } else { RecordType = parsed; AdditionalData.Remove("record_type"); } } },
-                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -197,12 +218,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("mpp_resource", MppResource);
             writer.WriteStringValue("payment_intent_id", PaymentIntentId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod>("payment_method", PaymentMethod);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditPaymentMethod>("payment_method", PaymentMethod);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentPaymentSource>("payment_source", PaymentSource);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider>("provider", Provider);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditProvider>("provider", Provider);
             writer.WriteStringValue("receipt_reference", ReceiptReference);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditRecordType>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MachinePaymentAccountCreditStatus>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
