@@ -52,12 +52,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "action_items" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact(),
-                "custom" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestCustomArtifact(),
-                "decisions" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact(),
-                "open_questions" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact(),
-                "summary" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact(),
-                "topics" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact(),
+                "action_items" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifactVariant(),
+                "custom" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestCustomArtifactVariant(),
+                "decisions" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifactVariant(),
+                "open_questions" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifactVariant(),
+                "summary" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifactVariant(),
+                "topics" => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequestNamedArtifactVariant(),
                 _ => new global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionArtifactRequest(),
             };
         }

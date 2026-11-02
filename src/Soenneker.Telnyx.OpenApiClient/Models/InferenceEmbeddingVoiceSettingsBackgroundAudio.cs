@@ -52,9 +52,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "media_name" => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3(),
-                "media_url" => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2(),
-                "predefined_media" => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1(),
+                "media_name" => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3Variant(),
+                "media_url" => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2Variant(),
+                "predefined_media" => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1Variant(),
                 _ => new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudio(),
             };
         }

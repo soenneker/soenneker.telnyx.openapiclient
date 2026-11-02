@@ -124186,12 +124186,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "summary": "#/components/schemas/CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact",
-            "action_items": "#/components/schemas/CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact",
-            "decisions": "#/components/schemas/CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact",
-            "topics": "#/components/schemas/CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact",
-            "open_questions": "#/components/schemas/CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact",
-            "custom": "#/components/schemas/CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestCustomArtifact"
+            "summary": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifactVariant",
+            "action_items": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifactVariant",
+            "decisions": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifactVariant",
+            "topics": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifactVariant",
+            "open_questions": "#/components/schemas/CreateMeetingSessionArtifactRequestNamedArtifactVariant",
+            "custom": "#/components/schemas/CreateMeetingSessionArtifactRequestCustomArtifactVariant"
           }
         },
         "x-client-original-tagged-union": {
@@ -153523,13 +153523,13 @@
         "discriminator": {
           "propertyName": "event_type",
           "mapping": {
-            "porting_order.deleted": "#/components/schemas/PortingEventPortingEventOneOf1",
-            "porting_order.messaging_changed": "#/components/schemas/PortingEventPortingEventOneOf2",
-            "porting_order.status_changed": "#/components/schemas/PortingEventPortingEventOneOf3",
-            "porting_order.new_comment": "#/components/schemas/PortingEventPortingEventOneOf4",
-            "porting_order.split": "#/components/schemas/PortingEventPortingEventOneOf5",
-            "porting_order.loa_updated": "#/components/schemas/PortingEventPortingEventOneOf6",
-            "porting_order.sharing_token_expired": "#/components/schemas/PortingEventPortingEventOneOf6"
+            "porting_order.deleted": "#/components/schemas/PortingEventOneOf1Variant",
+            "porting_order.messaging_changed": "#/components/schemas/PortingEventOneOf2Variant",
+            "porting_order.status_changed": "#/components/schemas/PortingEventOneOf3Variant",
+            "porting_order.new_comment": "#/components/schemas/PortingEventOneOf4Variant",
+            "porting_order.split": "#/components/schemas/PortingEventOneOf5Variant",
+            "porting_order.loa_updated": "#/components/schemas/PortingEventOneOf6Variant",
+            "porting_order.sharing_token_expired": "#/components/schemas/PortingEventOneOf6Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -175897,9 +175897,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "audio_chunk": "#/components/schemas/TtsServerEventTtsServerEventOneOf1",
-            "final": "#/components/schemas/TtsServerEventTtsServerEventOneOf2",
-            "error": "#/components/schemas/TtsServerEventTtsServerEventOneOf3"
+            "audio_chunk": "#/components/schemas/TtsServerEventOneOf1Variant",
+            "final": "#/components/schemas/TtsServerEventOneOf2Variant",
+            "error": "#/components/schemas/TtsServerEventOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -194486,8 +194486,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "request_start": "#/components/schemas/AssistantA2AAgentMessagesItemAssistantA2AAgentMessagesItemA2AAgentRequestStartMessage",
-            "request_response_delayed": "#/components/schemas/AssistantA2AAgentMessagesItemAssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessage"
+            "request_start": "#/components/schemas/AssistantA2AAgentMessagesItemA2AAgentRequestStartMessageVariant",
+            "request_response_delayed": "#/components/schemas/AssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessageVariant"
           }
         },
         "x-client-original-tagged-union": {
@@ -195152,9 +195152,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/ConversationFlowNodesItemConversationFlowNodesItemOneOf1",
-            "tool": "#/components/schemas/ConversationFlowNodesItemConversationFlowNodesItemOneOf2",
-            "speak": "#/components/schemas/ConversationFlowNodesItemConversationFlowNodesItemOneOf3"
+            "prompt": "#/components/schemas/ConversationFlowNodesItemOneOf1Variant",
+            "tool": "#/components/schemas/ConversationFlowNodesItemOneOf2Variant",
+            "speak": "#/components/schemas/ConversationFlowNodesItemOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -195208,9 +195208,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "prompt": "#/components/schemas/ConversationFlowReqNodesItemConversationFlowReqNodesItemOneOf1",
-            "tool": "#/components/schemas/ConversationFlowReqNodesItemConversationFlowReqNodesItemOneOf2",
-            "speak": "#/components/schemas/ConversationFlowReqNodesItemConversationFlowReqNodesItemOneOf3"
+            "prompt": "#/components/schemas/ConversationFlowReqNodesItemOneOf1Variant",
+            "tool": "#/components/schemas/ConversationFlowReqNodesItemOneOf2Variant",
+            "speak": "#/components/schemas/ConversationFlowReqNodesItemOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -199071,9 +199071,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "predefined_media": "#/components/schemas/VoiceSettingsBackgroundAudioVoiceSettingsBackgroundAudioOneOf1",
-            "media_url": "#/components/schemas/VoiceSettingsBackgroundAudioVoiceSettingsBackgroundAudioOneOf2",
-            "media_name": "#/components/schemas/VoiceSettingsBackgroundAudioVoiceSettingsBackgroundAudioOneOf3"
+            "predefined_media": "#/components/schemas/VoiceSettingsBackgroundAudioOneOf1Variant",
+            "media_url": "#/components/schemas/VoiceSettingsBackgroundAudioOneOf2Variant",
+            "media_name": "#/components/schemas/VoiceSettingsBackgroundAudioOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -199137,8 +199137,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "request_start": "#/components/schemas/WebhookToolParamsMessagesItemWebhookToolParamsMessagesItemWebhookToolRequestStartMessage",
-            "request_response_delayed": "#/components/schemas/WebhookToolParamsMessagesItemWebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessage"
+            "request_start": "#/components/schemas/WebhookToolParamsMessagesItemWebhookToolRequestStartMessageVariant",
+            "request_response_delayed": "#/components/schemas/WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageVariant"
           }
         },
         "x-client-original-tagged-union": {
@@ -199307,9 +199307,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "predefined_media": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1",
-            "media_url": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2",
-            "media_name": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3"
+            "predefined_media": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1Variant",
+            "media_url": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2Variant",
+            "media_name": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -274562,7 +274562,7 @@
           }
         ]
       },
-      "CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestNamedArtifact": {
+      "CreateMeetingSessionArtifactRequestNamedArtifactVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CreateMeetingSessionArtifactRequest"
@@ -274582,7 +274582,7 @@
           }
         ]
       },
-      "CreateMeetingSessionArtifactRequestCreateMeetingSessionArtifactRequestCustomArtifact": {
+      "CreateMeetingSessionArtifactRequestCustomArtifactVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CreateMeetingSessionArtifactRequest"
@@ -275131,7 +275131,7 @@
           }
         ]
       },
-      "PortingEventPortingEventOneOf1": {
+      "PortingEventOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PortingEvent"
@@ -275189,7 +275189,7 @@
           }
         ]
       },
-      "PortingEventPortingEventOneOf2": {
+      "PortingEventOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PortingEvent"
@@ -275265,7 +275265,7 @@
           }
         ]
       },
-      "PortingEventPortingEventOneOf3": {
+      "PortingEventOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PortingEvent"
@@ -275341,7 +275341,7 @@
           }
         ]
       },
-      "PortingEventPortingEventOneOf4": {
+      "PortingEventOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PortingEvent"
@@ -275417,7 +275417,7 @@
           }
         ]
       },
-      "PortingEventPortingEventOneOf5": {
+      "PortingEventOneOf5Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PortingEvent"
@@ -275493,7 +275493,7 @@
           }
         ]
       },
-      "PortingEventPortingEventOneOf6": {
+      "PortingEventOneOf6Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PortingEvent"
@@ -276232,7 +276232,7 @@
           }
         ]
       },
-      "TtsServerEventTtsServerEventOneOf1": {
+      "TtsServerEventOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/TtsServerEvent"
@@ -276291,7 +276291,7 @@
           }
         ]
       },
-      "TtsServerEventTtsServerEventOneOf2": {
+      "TtsServerEventOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/TtsServerEvent"
@@ -276342,7 +276342,7 @@
           }
         ]
       },
-      "TtsServerEventTtsServerEventOneOf3": {
+      "TtsServerEventOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/TtsServerEvent"
@@ -276694,7 +276694,7 @@
           }
         ]
       },
-      "AssistantA2AAgentMessagesItemAssistantA2AAgentMessagesItemA2AAgentRequestStartMessage": {
+      "AssistantA2AAgentMessagesItemA2AAgentRequestStartMessageVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AssistantA2AAgentMessagesItem"
@@ -276726,7 +276726,7 @@
           }
         ]
       },
-      "AssistantA2AAgentMessagesItemAssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessage": {
+      "AssistantA2AAgentMessagesItemA2AAgentRequestResponseDelayedMessageVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AssistantA2AAgentMessagesItem"
@@ -277497,7 +277497,7 @@
           }
         ]
       },
-      "ConversationFlowNodesItemConversationFlowNodesItemOneOf1": {
+      "ConversationFlowNodesItemOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConversationFlowNodesItem"
@@ -277598,7 +277598,7 @@
           }
         ]
       },
-      "ConversationFlowNodesItemConversationFlowNodesItemOneOf2": {
+      "ConversationFlowNodesItemOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConversationFlowNodesItem"
@@ -277668,7 +277668,7 @@
           }
         ]
       },
-      "ConversationFlowNodesItemConversationFlowNodesItemOneOf3": {
+      "ConversationFlowNodesItemOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConversationFlowNodesItem"
@@ -277723,7 +277723,7 @@
           }
         ]
       },
-      "ConversationFlowReqNodesItemConversationFlowReqNodesItemOneOf1": {
+      "ConversationFlowReqNodesItemOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConversationFlowReqNodesItem"
@@ -277825,7 +277825,7 @@
           }
         ]
       },
-      "ConversationFlowReqNodesItemConversationFlowReqNodesItemOneOf2": {
+      "ConversationFlowReqNodesItemOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConversationFlowReqNodesItem"
@@ -277895,7 +277895,7 @@
           }
         ]
       },
-      "ConversationFlowReqNodesItemConversationFlowReqNodesItemOneOf3": {
+      "ConversationFlowReqNodesItemOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConversationFlowReqNodesItem"
@@ -278273,7 +278273,7 @@
           }
         ]
       },
-      "VoiceSettingsBackgroundAudioVoiceSettingsBackgroundAudioOneOf1": {
+      "VoiceSettingsBackgroundAudioOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/VoiceSettingsBackgroundAudio"
@@ -278303,7 +278303,7 @@
           }
         ]
       },
-      "VoiceSettingsBackgroundAudioVoiceSettingsBackgroundAudioOneOf2": {
+      "VoiceSettingsBackgroundAudioOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/VoiceSettingsBackgroundAudio"
@@ -278327,7 +278327,7 @@
           }
         ]
       },
-      "VoiceSettingsBackgroundAudioVoiceSettingsBackgroundAudioOneOf3": {
+      "VoiceSettingsBackgroundAudioOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/VoiceSettingsBackgroundAudio"
@@ -278350,7 +278350,7 @@
           }
         ]
       },
-      "WebhookToolParamsMessagesItemWebhookToolParamsMessagesItemWebhookToolRequestStartMessage": {
+      "WebhookToolParamsMessagesItemWebhookToolRequestStartMessageVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/WebhookToolParamsMessagesItem"
@@ -278382,7 +278382,7 @@
           }
         ]
       },
-      "WebhookToolParamsMessagesItemWebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessage": {
+      "WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/WebhookToolParamsMessagesItem"
@@ -278554,7 +278554,7 @@
           }
         ]
       },
-      "InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1": {
+      "InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudio"
@@ -278584,7 +278584,7 @@
           }
         ]
       },
-      "InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2": {
+      "InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudio"
@@ -278608,7 +278608,7 @@
           }
         ]
       },
-      "InferenceEmbeddingVoiceSettingsBackgroundAudioInferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3": {
+      "InferenceEmbeddingVoiceSettingsBackgroundAudioOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/InferenceEmbeddingVoiceSettingsBackgroundAudio"

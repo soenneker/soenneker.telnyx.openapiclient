@@ -51,13 +51,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("event_type")?.GetStringValue();
             return mappingValue switch
             {
-                "porting_order.deleted" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf1(),
-                "porting_order.loa_updated" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf6(),
-                "porting_order.messaging_changed" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf2(),
-                "porting_order.new_comment" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf4(),
-                "porting_order.sharing_token_expired" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf6(),
-                "porting_order.split" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf5(),
-                "porting_order.status_changed" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventPortingEventOneOf3(),
+                "porting_order.deleted" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf1Variant(),
+                "porting_order.loa_updated" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf6Variant(),
+                "porting_order.messaging_changed" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf2Variant(),
+                "porting_order.new_comment" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf4Variant(),
+                "porting_order.sharing_token_expired" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf6Variant(),
+                "porting_order.split" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf5Variant(),
+                "porting_order.status_changed" => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventOneOf3Variant(),
                 _ => new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent(),
             };
         }

@@ -51,9 +51,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "prompt" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemConversationFlowNodesItemOneOf1(),
-                "speak" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemConversationFlowNodesItemOneOf3(),
-                "tool" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemConversationFlowNodesItemOneOf2(),
+                "prompt" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf1Variant(),
+                "speak" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf3Variant(),
+                "tool" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItemOneOf2Variant(),
                 _ => new global::Soenneker.Telnyx.OpenApiClient.Models.ConversationFlowNodesItem(),
             };
         }

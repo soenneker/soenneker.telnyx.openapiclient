@@ -51,8 +51,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "request_response_delayed" => new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessage(),
-                "request_start" => new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolParamsMessagesItemWebhookToolRequestStartMessage(),
+                "request_response_delayed" => new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestResponseDelayedMessageVariant(),
+                "request_start" => new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItemWebhookToolRequestStartMessageVariant(),
                 _ => new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsMessagesItem(),
             };
         }
