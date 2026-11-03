@@ -20,6 +20,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("caller_name") is null) { _explicitNullValueCallerName = default!; _explicitNullProperties?.Remove("caller_name"); }
             else if (parseNode.GetChildNode("caller_name") is { } nullNodeCallerName && nullNodeCallerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerName = null;
+            if (parseNode.GetChildNode("entity_type") is null) { _explicitNullValueEntityType = default!; _explicitNullProperties?.Remove("entity_type"); }
+            else if (parseNode.GetChildNode("entity_type") is { } nullNodeEntityType && nullNodeEntityType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityType = null;
             if (parseNode.GetChildNode("error_code") is null) { _explicitNullValueErrorCode = default!; _explicitNullProperties?.Remove("error_code"); }
             else if (parseNode.GetChildNode("error_code") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
         }
@@ -35,6 +37,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CallerName { get => _explicitNullValueCallerName; set { _explicitNullValueCallerName = value; AdditionalData?.Remove("caller_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_name"); else _explicitNullProperties?.Remove("caller_name"); } }
         private string _explicitNullValueCallerName = default!;
+#endif
+        /// <summary>The entity type of the phone number&apos;s owner, from the enhanced caller name data source — `Person` or `Business`. Null when not available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EntityType { get => _explicitNullValueEntityType; set { _explicitNullValueEntityType = value; AdditionalData?.Remove("entity_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity_type"); else _explicitNullProperties?.Remove("entity_type"); } }
+        private string? _explicitNullValueEntityType = default!;
+#nullable restore
+#else
+        public string EntityType { get => _explicitNullValueEntityType; set { _explicitNullValueEntityType = value; AdditionalData?.Remove("entity_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity_type"); else _explicitNullProperties?.Remove("entity_type"); } }
+        private string _explicitNullValueEntityType = default!;
 #endif
         /// <summary>A lookup-specific error code if the enhanced caller name could not be resolved; otherwise null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,6 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "caller_name", n => { CallerName = n.GetStringValue(); } },
+                { "entity_type", n => { EntityType = n.GetStringValue(); } },
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
             };
         }
@@ -83,6 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("caller_name", CallerName);
+            writer.WriteStringValue("entity_type", EntityType);
             writer.WriteStringValue("error_code", ErrorCode);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

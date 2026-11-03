@@ -39,15 +39,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Interrupt-prediction sensitivity, from 0.0 to 1.0. Set to null or 0.0 to disable interrupt prediction.</summary>
         public double? InterruptPredictionThreshold { get => _explicitNullValueInterruptPredictionThreshold; set { _explicitNullValueInterruptPredictionThreshold = value; AdditionalData?.Remove("interrupt_prediction_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interrupt_prediction_threshold"); else _explicitNullProperties?.Remove("interrupt_prediction_threshold"); } }
         private double? _explicitNullValueInterruptPredictionThreshold = default!;
-        /// <summary>Controls when the assistant starts speaking after the user stops. These thresholds primarily apply to non turn-taking transcription models. For turn-taking models like `deepgram/flux`, end-of-turn detection is driven by the transcription end-of-turn settings under `transcription.settings` instead.</summary>
+        /// <summary>Presence of this object (even `{}`) enables per-turn transcript endpointing while it is set; setting it to `null` clears the plan and disables per-turn matching entirely. Omitting it from an update leaves the existing plan in place (updates are validated against the merged configuration).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan? StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; AdditionalData?.Remove("start_speaking_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan? _explicitNullValueStartSpeakingPlan = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan? StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; AdditionalData?.Remove("start_speaking_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan? _explicitNullValueStartSpeakingPlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; AdditionalData?.Remove("start_speaking_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan _explicitNullValueStartSpeakingPlan = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan StartSpeakingPlan { get => _explicitNullValueStartSpeakingPlan; set { _explicitNullValueStartSpeakingPlan = value; AdditionalData?.Remove("start_speaking_plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_speaking_plan"); else _explicitNullProperties?.Remove("start_speaking_plan"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan _explicitNullValueStartSpeakingPlan = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettings"/> and sets the default values.
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "disable_greeting_interruption", n => { DisableGreetingInterruption = n.GetBoolValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "interrupt_prediction_threshold", n => { InterruptPredictionThreshold = n.GetDoubleValue(); } },
-                { "start_speaking_plan", n => { StartSpeakingPlan = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>(global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan.CreateFromDiscriminatorValue); } },
+                { "start_speaking_plan", n => { StartSpeakingPlan = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("disable_greeting_interruption", DisableGreetingInterruption);
             writer.WriteBoolValue("enable", Enable);
             writer.WriteDoubleValue("interrupt_prediction_threshold", InterruptPredictionThreshold);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>("start_speaking_plan", StartSpeakingPlan);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingInterruptionSettingsStartSpeakingPlan>("start_speaking_plan", StartSpeakingPlan);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

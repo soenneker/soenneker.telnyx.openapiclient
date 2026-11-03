@@ -23,6 +23,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
             if (parseNode.GetChildNode("certificate_ref") is null) { _explicitNullValueCertificateRef = default!; _explicitNullProperties?.Remove("certificate_ref"); }
             else if (parseNode.GetChildNode("certificate_ref") is { } nullNodeCertificateRef && nullNodeCertificateRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateRef = null;
+            if (parseNode.GetChildNode("extra_headers") is null) { _explicitNullValueExtraHeaders = default!; _explicitNullProperties?.Remove("extra_headers"); }
+            else if (parseNode.GetChildNode("extra_headers") is { } nullNodeExtraHeaders && nullNodeExtraHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraHeaders = null;
             if (parseNode.GetChildNode("forward_metadata") is null) { _explicitNullValueForwardMetadata = default!; _explicitNullProperties?.Remove("forward_metadata"); }
             else if (parseNode.GetChildNode("forward_metadata") is { } nullNodeForwardMetadata && nullNodeForwardMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardMetadata = null;
             if (parseNode.GetChildNode("llm_api_key_ref") is null) { _explicitNullValueLlmApiKeyRef = default!; _explicitNullProperties?.Remove("llm_api_key_ref"); }
@@ -57,6 +59,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CertificateRef { get => _explicitNullValueCertificateRef; set { _explicitNullValueCertificateRef = value; AdditionalData?.Remove("certificate_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ref"); else _explicitNullProperties?.Remove("certificate_ref"); } }
         private string _explicitNullValueCertificateRef = default!;
+#endif
+        /// <summary>Custom HTTP headers Telnyx sets on every request to the external LLM endpoint, in addition to the authentication header. Keys are header names, values are static strings. At most 32 headers. Reserved names are rejected: accept-encoding, authorization, connection, content-encoding, content-length, content-type, cookie, expect, host, keep-alive, proxy-authenticate, proxy-authorization, proxy-connection, set-cookie, te, trailer, transfer-encoding, upgrade, x-host-rewrite, x-request-id, x-trace-id, and any x-telnyx-* or x-stainless-* header; &apos;_&apos; counts as &apos;-&apos; when names are compared. Names must be valid HTTP header names (RFC 7230 token, at most 128 characters) and must not repeat (case-insensitive). Values must be printable ASCII, at most 4096 characters, with no leading or trailing whitespace. Values are stored as plain text and returned when the assistant is retrieved.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty? ExtraHeaders { get => _explicitNullValueExtraHeaders; set { _explicitNullValueExtraHeaders = value; AdditionalData?.Remove("extra_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_headers"); else _explicitNullProperties?.Remove("extra_headers"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty? _explicitNullValueExtraHeaders = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty ExtraHeaders { get => _explicitNullValueExtraHeaders; set { _explicitNullValueExtraHeaders = value; AdditionalData?.Remove("extra_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_headers"); else _explicitNullProperties?.Remove("extra_headers"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty _explicitNullValueExtraHeaders = default!;
 #endif
         /// <summary>When `true`, Telnyx forwards the assistant&apos;s dynamic variables to the external LLM endpoint as a top-level `extra_metadata` object on the chat completion request body. Defaults to `false`. Example payload sent to the external endpoint: `{&quot;extra_metadata&quot;: {&quot;customer_name&quot;: &quot;Jane&quot;, &quot;account_id&quot;: &quot;acct_789&quot;, &quot;telnyx_agent_target&quot;: &quot;+13125550100&quot;, &quot;telnyx_end_user_target&quot;: &quot;+13125550123&quot;}}`. Distinct from OpenAI&apos;s native `metadata` field, which has its own size and type limits.</summary>
         public bool? ForwardMetadata { get => _explicitNullValueForwardMetadata; set { _explicitNullValueForwardMetadata = value; AdditionalData?.Remove("forward_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forward_metadata"); else _explicitNullProperties?.Remove("forward_metadata"); } }
@@ -120,6 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "authentication_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthenticationMethod = default; _explicitNullProperties?.Remove("authentication_method"); AdditionalData["authentication_method"] = unknown; } else { AuthenticationMethod = parsed; AdditionalData.Remove("authentication_method"); } } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "certificate_ref", n => { CertificateRef = n.GetStringValue(); } },
+                { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "forward_metadata", n => { ForwardMetadata = n.GetBoolValue(); } },
                 { "llm_api_key_ref", n => { LlmApiKeyRef = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -136,6 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationMethod>("authentication_method", AuthenticationMethod);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("certificate_ref", CertificateRef);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLlmExtraHeadersProperty>("extra_headers", ExtraHeaders);
             writer.WriteBoolValue("forward_metadata", ForwardMetadata);
             writer.WriteStringValue("llm_api_key_ref", LlmApiKeyRef);
             writer.WriteStringValue("model", Model);

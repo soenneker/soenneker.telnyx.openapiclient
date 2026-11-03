@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Endpointing thresholds used to decide when the user has finished speaking. Applies to non turn-taking transcription models. For `deepgram/flux`, use `transcription.settings.eot_threshold` / `eot_timeout_ms` / `eager_eot_threshold`.
+    /// Omit (stay null) when unset: the per-turn wait stays on `wait_seconds`. Setting `null` on an update clears a previously configured plan.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TranscriptionEndpointingPlan : IAdditionalDataHolder, IParsable
+    public partial class StartSpeakingPlanTranscriptionEndpointingPlan : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -38,9 +38,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public float? OnPunctuationSeconds { get => _explicitNullValueOnPunctuationSeconds; set { _explicitNullValueOnPunctuationSeconds = value; AdditionalData?.Remove("on_punctuation_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_punctuation_seconds"); else _explicitNullProperties?.Remove("on_punctuation_seconds"); } }
         private float? _explicitNullValueOnPunctuationSeconds = default!;
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlanTranscriptionEndpointingPlan"/> and sets the default values.
         /// </summary>
-        public TranscriptionEndpointingPlan()
+        public StartSpeakingPlanTranscriptionEndpointingPlan()
         {
             AdditionalData = new Dictionary<string, object>();
             OnNoPunctuationSeconds = 1.5f;
@@ -50,12 +50,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlanTranscriptionEndpointingPlan"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlanTranscriptionEndpointingPlan CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEndpointingPlan(), parseNode);
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlanTranscriptionEndpointingPlan(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
