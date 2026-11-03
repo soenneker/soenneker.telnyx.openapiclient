@@ -43,5 +43,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Soniox,
         #pragma warning restore CS1591
+        [EnumMember(Value = "assemblyai")]
+        #pragma warning disable CS1591
+        Assemblyai,
+        #pragma warning restore CS1591
     }
 }

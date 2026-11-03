@@ -190,6 +190,7 @@ using Soenneker.Telnyx.OpenApiClient.Uac_connections;
 using Soenneker.Telnyx.OpenApiClient.Usage_reports;
 using Soenneker.Telnyx.OpenApiClient.User;
 using Soenneker.Telnyx.OpenApiClient.User_addresses;
+using Soenneker.Telnyx.OpenApiClient.User_profile;
 using Soenneker.Telnyx.OpenApiClient.User_tags;
 using Soenneker.Telnyx.OpenApiClient.V2;
 using Soenneker.Telnyx.OpenApiClient.Verifications;
@@ -1141,6 +1142,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder User_addresses
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The user_profile property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.User_profile.User_profileRequestBuilder User_profile
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.User_profile.User_profileRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The user_tags property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsRequestBuilder User_tags

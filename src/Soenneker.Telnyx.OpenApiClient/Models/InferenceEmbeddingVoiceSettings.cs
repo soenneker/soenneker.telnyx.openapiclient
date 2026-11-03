@@ -23,6 +23,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("background_audio") is { } nullNodeBackgroundAudio && nullNodeBackgroundAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundAudio = null;
             if (parseNode.GetChildNode("expressive_mode") is null) { _explicitNullValueExpressiveMode = default!; _explicitNullProperties?.Remove("expressive_mode"); }
             else if (parseNode.GetChildNode("expressive_mode") is { } nullNodeExpressiveMode && nullNodeExpressiveMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpressiveMode = null;
+            if (parseNode.GetChildNode("language") is null) { _explicitNullValueLanguage = default!; _explicitNullProperties?.Remove("language"); }
+            else if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
             if (parseNode.GetChildNode("language_boost") is null) { _explicitNullValueLanguageBoost = default!; _explicitNullProperties?.Remove("language_boost"); }
             else if (parseNode.GetChildNode("language_boost") is { } nullNodeLanguageBoost && nullNodeLanguageBoost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LanguageBoost = null;
             if (parseNode.GetChildNode("similarity_boost") is null) { _explicitNullValueSimilarityBoost = default!; _explicitNullProperties?.Remove("similarity_boost"); }
@@ -68,6 +70,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables emotionally expressive speech using SSML emotion tags. When enabled, the assistant uses audio tags like angry, excited, content, and sad to add emotional nuance. Only supported for Telnyx Ultra voices.</summary>
         public bool? ExpressiveMode { get => _explicitNullValueExpressiveMode; set { _explicitNullValueExpressiveMode = value; AdditionalData?.Remove("expressive_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressive_mode"); else _explicitNullProperties?.Remove("expressive_mode"); } }
         private bool? _explicitNullValueExpressiveMode = default!;
+        /// <summary>Two-letter ISO 639-1 code of the language the voice speaks, for example `es`. Only applicable to Soniox and AssemblyAI voices, which speak every language of their model. AssemblyAI accepts `en`, `es`, `de`, `fr`, `it`, and `pt`. When unset, the voice speaks English.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string? _explicitNullValueLanguage = default!;
+#nullable restore
+#else
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private string _explicitNullValueLanguage = default!;
+#endif
         /// <summary>Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to &apos;auto&apos; for automatic language detection. Only applicable when using MiniMax voices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "background_audio", n => { BackgroundAudio = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudio>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudio.CreateFromDiscriminatorValue); } },
                 { "expressive_mode", n => { ExpressiveMode = n.GetBoolValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
                 { "language_boost", n => { LanguageBoost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsLanguageBoost>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsLanguageBoost.CreateFromDiscriminatorValue); } },
                 { "similarity_boost", n => { SimilarityBoost = n.GetDoubleValue(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
@@ -172,6 +185,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsBackgroundAudio>("background_audio", BackgroundAudio);
             writer.WriteBoolValue("expressive_mode", ExpressiveMode);
+            writer.WriteStringValue("language", Language);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingVoiceSettingsLanguageBoost>("language_boost", LanguageBoost);
             writer.WriteDoubleValue("similarity_boost", SimilarityBoost);
             writer.WriteDoubleValue("speed", Speed);
