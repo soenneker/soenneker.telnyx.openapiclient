@@ -11,6 +11,7 @@ using Soenneker.Telnyx.OpenApiClient.Access_ip_ranges;
 using Soenneker.Telnyx.OpenApiClient.Actions;
 using Soenneker.Telnyx.OpenApiClient.Addresses;
 using Soenneker.Telnyx.OpenApiClient.Advanced_orders;
+using Soenneker.Telnyx.OpenApiClient.Agent_gateways;
 using Soenneker.Telnyx.OpenApiClient.Ai;
 using Soenneker.Telnyx.OpenApiClient.Alphanumeric_sender_ids;
 using Soenneker.Telnyx.OpenApiClient.Artifact_downloads;
@@ -247,6 +248,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Advanced_ordersRequestBuilder Advanced_orders
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Advanced_ordersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The agent_gateways property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Agent_gateways.Agent_gatewaysRequestBuilder Agent_gateways
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Agent_gateways.Agent_gatewaysRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ai property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.AiRequestBuilder Ai
