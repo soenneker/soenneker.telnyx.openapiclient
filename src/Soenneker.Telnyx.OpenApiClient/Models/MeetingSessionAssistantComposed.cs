@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Audio gating strategy in force for the assistant call leg.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantAudioGate? AudioGate { get => _explicitNullValueAudioGate; set { _explicitNullValueAudioGate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_gate"); else _explicitNullProperties?.Remove("audio_gate"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantAudioGate? _explicitNullValueAudioGate = default!;
-        /// <summary>The dynamic variables in force for this session, or null when none were supplied.</summary>
+        /// <summary>Dynamic variables in individual-session responses; null when none were supplied. Omitted from session list items.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantDynamicVariablesProperty? DynamicVariables { get => _explicitNullValueDynamicVariables; set { _explicitNullValueDynamicVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_variables"); else _explicitNullProperties?.Remove("dynamic_variables"); } }

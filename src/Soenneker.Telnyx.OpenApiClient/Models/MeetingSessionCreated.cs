@@ -58,6 +58,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
             if (parseNode.GetChildNode("recording") is null) { _explicitNullValueRecording = default!; _explicitNullProperties?.Remove("recording"); }
             else if (parseNode.GetChildNode("recording") is { } nullNodeRecording && nullNodeRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recording = null;
+            if (parseNode.GetChildNode("recording_export") is null) { _explicitNullValueRecordingExport = default!; _explicitNullProperties?.Remove("recording_export"); }
+            else if (parseNode.GetChildNode("recording_export") is { } nullNodeRecordingExport && nullNodeRecordingExport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingExport = null;
+            if (parseNode.GetChildNode("remote_state_observed_at") is null) { _explicitNullValueRemoteStateObservedAt = default!; _explicitNullProperties?.Remove("remote_state_observed_at"); }
+            else if (parseNode.GetChildNode("remote_state_observed_at") is { } nullNodeRemoteStateObservedAt && nullNodeRemoteStateObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoteStateObservedAt = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("status_detail") is null) { _explicitNullValueStatusDetail = default!; _explicitNullProperties?.Remove("status_detail"); }
@@ -150,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Timestamp when the session ended, or null if ongoing.</summary>
         public DateTimeOffset? EndedAt { get => _explicitNullValueEndedAt; set { _explicitNullValueEndedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ended_at"); else _explicitNullProperties?.Remove("ended_at"); } }
         private DateTimeOffset? _explicitNullValueEndedAt = default!;
-        /// <summary>Human-readable failure reason if the session failed, or null.</summary>
+        /// <summary>A machine-readable lifecycle reason, or null. Values include left_on_request, meeting_ended, everyone_left, no_one_joined, silence_timeout, max_duration_reached, admission_timeout, admission_denied, removed_from_meeting, recording_permission_denied, meeting_not_found, meeting_not_started, meeting_access_denied, meeting_full, cancelled, cancelled_calendar_disconnected, cancelled_calendar_event_deleted, cancelled_calendar_superseded, cancelled_policy, internal_error, and other. Treat this vocabulary as extensible.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FailureReason { get => _explicitNullValueFailureReason; set { _explicitNullValueFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_reason"); else _explicitNullProperties?.Remove("failure_reason"); } }
@@ -199,23 +203,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Detected meeting platform.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedPlatform? Platform { get => _explicitNullValuePlatform; set { _explicitNullValuePlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform"); else _explicitNullProperties?.Remove("platform"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedPlatform? _explicitNullValuePlatform = default!;
-        /// <summary>Provider handling the meeting session.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
-        private string? _explicitNullValueProvider = default!;
-#nullable restore
-#else
-        public string Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
-        private string _explicitNullValueProvider = default!;
-#endif
+        /// <summary>Always telnyx.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedProvider? _explicitNullValueProvider = default!;
         /// <summary>Whether the session is being recorded.</summary>
         public bool? Recording { get => _explicitNullValueRecording; set { _explicitNullValueRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording"); else _explicitNullProperties?.Remove("recording"); } }
         private bool? _explicitNullValueRecording = default!;
+        /// <summary>Included on Google Meet and Teams create/retrieve responses, omitted from lists and update/leave responses. Null when disabled or no export reference is available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport? RecordingExport { get => _explicitNullValueRecordingExport; set { _explicitNullValueRecordingExport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_export"); else _explicitNullProperties?.Remove("recording_export"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport? _explicitNullValueRecordingExport = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport RecordingExport { get => _explicitNullValueRecordingExport; set { _explicitNullValueRecordingExport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_export"); else _explicitNullProperties?.Remove("recording_export"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport _explicitNullValueRecordingExport = default!;
+#endif
+        /// <summary>Optional observation time on session list items. Retrieve the individual session when current state is required.</summary>
+        public DateTimeOffset? RemoteStateObservedAt { get => _explicitNullValueRemoteStateObservedAt; set { _explicitNullValueRemoteStateObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remote_state_observed_at"); else _explicitNullProperties?.Remove("remote_state_observed_at"); } }
+        private DateTimeOffset? _explicitNullValueRemoteStateObservedAt = default!;
         /// <summary>Lifecycle status. `waiting_for_admission` means the bot reached the meeting lobby and may require host approval. `active` means the bot entered the meeting/media path. `ended` alone does not prove attendance; use non-null `joined_at` as positive evidence that the session became active. `admission_denied` is reserved for an explicit provider denial, while cancellation or another termination can end a never-admitted session as `ended`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedStatus? _explicitNullValueStatus = default!;
-        /// <summary>Additional human-readable detail about the status, or null.</summary>
+        /// <summary>A machine-readable lifecycle reason, or null. Values include left_on_request, meeting_ended, everyone_left, no_one_joined, silence_timeout, max_duration_reached, admission_timeout, admission_denied, removed_from_meeting, recording_permission_denied, meeting_not_found, meeting_not_started, meeting_access_denied, meeting_full, cancelled, cancelled_calendar_disconnected, cancelled_calendar_event_deleted, cancelled_calendar_superseded, cancelled_policy, internal_error, and other. Treat this vocabulary as extensible.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusDetail { get => _explicitNullValueStatusDetail; set { _explicitNullValueStatusDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_detail"); else _explicitNullProperties?.Remove("status_detail"); } }
@@ -282,8 +292,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "meeting_url", n => { MeetingUrl = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "platform", n => { Platform = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedPlatform>(); } },
-                { "provider", n => { Provider = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedProvider>(); } },
                 { "recording", n => { Recording = n.GetBoolValue(); } },
+                { "recording_export", n => { RecordingExport = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport.CreateFromDiscriminatorValue); } },
+                { "remote_state_observed_at", n => { RemoteStateObservedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedStatus>(); } },
                 { "status_detail", n => { StatusDetail = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -316,8 +328,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("meeting_url", MeetingUrl);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedMetadataProperty>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedPlatform>("platform", Platform);
-            writer.WriteStringValue("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedProvider>("provider", Provider);
             writer.WriteBoolValue("recording", Recording);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedRecordingExport>("recording_export", RecordingExport);
+            writer.WriteDateTimeOffsetValue("remote_state_observed_at", RemoteStateObservedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCreatedStatus>("status", Status);
             writer.WriteStringValue("status_detail", StatusDetail);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

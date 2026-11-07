@@ -11,6 +11,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         AccountNumberMismatch,
         #pragma warning restore CS1591
+        [EnumMember(Value = "ACCOUNT_NUMBER_MISMATCH_OR_MISSING")]
+        #pragma warning disable CS1591
+        AccountNumberMismatchOrMissing,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ACCOUNT_NUMBER_REQUIRED")]
+        #pragma warning disable CS1591
+        AccountNumberRequired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ALL_DATA_MISMATCH")]
+        #pragma warning disable CS1591
+        AllDataMismatch,
+        #pragma warning restore CS1591
         [EnumMember(Value = "AUTH_PERSON_MISMATCH")]
         #pragma warning disable CS1591
         AuthPersonMismatch,
@@ -18,6 +30,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "BTN_ATN_MISMATCH")]
         #pragma warning disable CS1591
         BtnAtnMismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "DOCUMENT_BLOCKED")]
+        #pragma warning disable CS1591
+        DocumentBlocked,
         #pragma warning restore CS1591
         [EnumMember(Value = "ENTITY_NAME_MISMATCH")]
         #pragma warning disable CS1591
@@ -31,6 +47,34 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         FocRejected,
         #pragma warning restore CS1591
+        [EnumMember(Value = "INCORRECT_LOA_TEMPLATE")]
+        #pragma warning disable CS1591
+        IncorrectLoaTemplate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "INCORRECT_LOSING_COMMUNICATION_PROVIDER")]
+        #pragma warning disable CS1591
+        IncorrectLosingCommunicationProvider,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "INCORRECT_PORT_TYPE")]
+        #pragma warning disable CS1591
+        IncorrectPortType,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "INVALID_OR_MISSING_INVOICE")]
+        #pragma warning disable CS1591
+        InvalidOrMissingInvoice,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "INVALID_OR_MISSING_LOA")]
+        #pragma warning disable CS1591
+        InvalidOrMissingLoa,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "INVALID_SIGNATURE_ON_THE_LOA")]
+        #pragma warning disable CS1591
+        InvalidSignatureOnTheLoa,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "J2_PASSCODE_PIN_INVALID")]
+        #pragma warning disable CS1591
+        J2PasscodePinInvalid,
+        #pragma warning restore CS1591
         [EnumMember(Value = "LOCATION_MISMATCH")]
         #pragma warning disable CS1591
         LocationMismatch,
@@ -42,6 +86,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "MAIN_BTN_PORTING")]
         #pragma warning disable CS1591
         MainBtnPorting,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "MISSING_MANDATORY_REQUIREMENT")]
+        #pragma warning disable CS1591
+        MissingMandatoryRequirement,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "MISSING_NUMBER_DETAILS")]
+        #pragma warning disable CS1591
+        MissingNumberDetails,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "NUMBER_HAS_ASSOCIATED_SERVICES")]
+        #pragma warning disable CS1591
+        NumberHasAssociatedServices,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ORDER_REFLOW")]
+        #pragma warning disable CS1591
+        OrderReflow,
         #pragma warning restore CS1591
         [EnumMember(Value = "OSP_IRRESPONSIVE")]
         #pragma warning disable CS1591
@@ -55,10 +115,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         PasscodePinInvalid,
         #pragma warning restore CS1591
-        [EnumMember(Value = "PHONE_NUMBER_HAS_SPECIAL_FEATURE")]
-        #pragma warning disable CS1591
-        PhoneNumberHasSpecialFeature,
-        #pragma warning restore CS1591
         [EnumMember(Value = "PHONE_NUMBER_MISMATCH")]
         #pragma warning disable CS1591
         PhoneNumberMismatch,
@@ -66,14 +122,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "PHONE_NUMBER_NOT_PORTABLE")]
         #pragma warning disable CS1591
         PhoneNumberNotPortable,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "PORT_TYPE_INCORRECT")]
-        #pragma warning disable CS1591
-        PortTypeIncorrect,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "PORTING_ORDER_SPLIT_REQUIRED")]
-        #pragma warning disable CS1591
-        PortingOrderSplitRequired,
         #pragma warning restore CS1591
         [EnumMember(Value = "POSTAL_CODE_MISMATCH")]
         #pragma warning disable CS1591
@@ -83,6 +131,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         RateCenterNotPortable,
         #pragma warning restore CS1591
+        [EnumMember(Value = "RESELLER_INVALID")]
+        #pragma warning disable CS1591
+        ResellerInvalid,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "STRANDED_SERVICES_NEED_NEW_BTN")]
+        #pragma warning disable CS1591
+        StrandedServicesNeedNewBtn,
+        #pragma warning restore CS1591
         [EnumMember(Value = "SV_CONFLICT")]
         #pragma warning disable CS1591
         SvConflict,
@@ -90,6 +146,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "SV_UNKNOWN_FAILURE")]
         #pragma warning disable CS1591
         SvUnknownFailure,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "TNS_ON_MULTIPLE_ACCOUNTS")]
+        #pragma warning disable CS1591
+        TnsOnMultipleAccounts,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "TN_BUILD_CONFLICT")]
+        #pragma warning disable CS1591
+        TnBuildConflict,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "TN_DISCONNECTED")]
+        #pragma warning disable CS1591
+        TnDisconnected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "UNAUTHORIZED_PERSON_SIGNATURE")]
+        #pragma warning disable CS1591
+        UnauthorizedPersonSignature,
         #pragma warning restore CS1591
     }
 }

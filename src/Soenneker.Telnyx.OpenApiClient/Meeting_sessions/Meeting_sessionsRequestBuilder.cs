@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
         {
         }
         /// <summary>
-        /// Returns a list of meeting sessions, optionally filtered by status.
+        /// Returns a list of meeting sessions, optionally filtered by status. List items omit assistant.dynamic_variables and recording_export. Some items include remote_state_observed_at; retrieve the individual session for current state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,6 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -82,15 +84,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new meeting session. When an idempotency_key is supplied in the request body, replay lookup is scoped to the authenticated account and compares only the key; the request payload is not fingerprinted or compared. If a session with that key already exists for the account, the existing session is replayed (200); otherwise a new session is created (201). The session may enter asynchronous states (e.g. joining, waiting_for_admission) before becoming active. Optional `camera_image` input is write-only and applies only when no avatar or Assistant webpage output takes precedence. An ignored URL is not fetched. An effective URL source is resolved before bot creation; neither the source URL nor image bytes are persisted, returned, or logged. Treat signed URLs as credentials. With `assistant.avatar: true`, the assistant is read before the bot is created: an assistant without a Telnyx avatar configured is rejected with 400 `invalid_request` (message prefix `assistant_avatar_not_configured:`), an unknown assistant with 400 `invalid_request` (prefix `assistant_not_found:`), and a failed lookup with 503 `assistant_lookup_unavailable`; no bot is created in any of these cases.
+        /// Creates a meeting session and returns 201, or 200 for a replay. Use a unique `idempotency_key` per intended join and reuse the same key and request on retries. Reusing a key with a different join configuration or meeting URL can return 409 invalid_state. Always retry with the original request. The session can pass through joining and waiting_for_admission before active. Optional `camera_image` input is write-only and applies when no assistant avatar takes precedence. An ignored URL is not fetched. An effective URL source is resolved before bot creation; the source URL and image bytes are not returned in the session response. Treat signed URLs as credentials. With `assistant.avatar: true`, the assistant is read before the bot is created: an assistant without a Telnyx avatar configured is rejected with 400 `invalid_request` (message prefix `assistant_avatar_not_configured:`), an unknown assistant with 400 `invalid_request` (prefix `assistant_not_found:`), and a failed lookup with 503 `assistant_lookup_unavailable`; no bot is created in any of these cases.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionSuccessResponse"/></returns>
-        /// <param name="body">Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- A digital avatar or Assistant webpage output takes precedence over `camera_image`; the static image is ignored and a URL source is not fetched.- The former top-level `avatar` object (bring-your-own-key avatar) has been removed and is rejected with 400 `invalid_request`; use `assistant.avatar` instead.</param>
+        /// <param name="body">Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- An avatar takes precedence over `camera_image`; ordinary assistant sessions can use a static camera image.Google Meet and Teams recording requires a recording_export destination. Use join_at to schedule a meeting, or omit it to join now. Zoom recordings are enabled automatically; Zoom does not support recording, recording_view or recording_export, and ignores leave_policy. Digital avatars require avatar support.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 429 status code</exception>
@@ -113,6 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
@@ -125,7 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionSuccessResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of meeting sessions, optionally filtered by status.
+        /// Returns a list of meeting sessions, optionally filtered by status. List items omit assistant.dynamic_variables and recording_export. Some items include remote_state_observed_at; retrieve the individual session for current state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,10 +148,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new meeting session. When an idempotency_key is supplied in the request body, replay lookup is scoped to the authenticated account and compares only the key; the request payload is not fingerprinted or compared. If a session with that key already exists for the account, the existing session is replayed (200); otherwise a new session is created (201). The session may enter asynchronous states (e.g. joining, waiting_for_admission) before becoming active. Optional `camera_image` input is write-only and applies only when no avatar or Assistant webpage output takes precedence. An ignored URL is not fetched. An effective URL source is resolved before bot creation; neither the source URL nor image bytes are persisted, returned, or logged. Treat signed URLs as credentials. With `assistant.avatar: true`, the assistant is read before the bot is created: an assistant without a Telnyx avatar configured is rejected with 400 `invalid_request` (message prefix `assistant_avatar_not_configured:`), an unknown assistant with 400 `invalid_request` (prefix `assistant_not_found:`), and a failed lookup with 503 `assistant_lookup_unavailable`; no bot is created in any of these cases.
+        /// Creates a meeting session and returns 201, or 200 for a replay. Use a unique `idempotency_key` per intended join and reuse the same key and request on retries. Reusing a key with a different join configuration or meeting URL can return 409 invalid_state. Always retry with the original request. The session can pass through joining and waiting_for_admission before active. Optional `camera_image` input is write-only and applies when no assistant avatar takes precedence. An ignored URL is not fetched. An effective URL source is resolved before bot creation; the source URL and image bytes are not returned in the session response. Treat signed URLs as credentials. With `assistant.avatar: true`, the assistant is read before the bot is created: an assistant without a Telnyx avatar configured is rejected with 400 `invalid_request` (message prefix `assistant_avatar_not_configured:`), an unknown assistant with 400 `invalid_request` (prefix `assistant_not_found:`), and a failed lookup with 503 `assistant_lookup_unavailable`; no bot is created in any of these cases.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- A digital avatar or Assistant webpage output takes precedence over `camera_image`; the static image is ignored and a URL source is not fetched.- The former top-level `avatar` object (bring-your-own-key avatar) has been removed and is rejected with 400 `invalid_request`; use `assistant.avatar` instead.</param>
+        /// <param name="body">Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- An avatar takes precedence over `camera_image`; ordinary assistant sessions can use a static camera image.Google Meet and Teams recording requires a recording_export destination. Use join_at to schedule a meeting, or omit it to join now. Zoom recordings are enabled automatically; Zoom does not support recording, recording_view or recording_export, and ignores leave_policy. Digital avatars require avatar support.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,7 +179,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions
             return new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Meeting_sessionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of meeting sessions, optionally filtered by status.
+        /// Returns a list of meeting sessions, optionally filtered by status. List items omit assistant.dynamic_variables and recording_export. Some items include remote_state_observed_at; retrieve the individual session for current state.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Meeting_sessionsRequestBuilderGetQueryParameters 

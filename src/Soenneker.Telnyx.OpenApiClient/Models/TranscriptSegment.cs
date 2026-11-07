@@ -40,10 +40,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The relative_ts property</summary>
         public double? RelativeTs { get => _explicitNullValueRelativeTs; set { _explicitNullValueRelativeTs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relative_ts"); else _explicitNullProperties?.Remove("relative_ts"); } }
         private double? _explicitNullValueRelativeTs = default!;
-        /// <summary>The seq property</summary>
+        /// <summary>Monotonic transcript append cursor. This is separate from the event-history cursor and does not establish conversational turn order.</summary>
         public int? Seq { get => _explicitNullValueSeq; set { _explicitNullValueSeq = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seq"); else _explicitNullProperties?.Remove("seq"); } }
         private int? _explicitNullValueSeq = default!;
-        /// <summary>The speaker_label property</summary>
+        /// <summary>Recorded participant or bot label, or null when unavailable. Labels are attribution, not verified identity. Segments from concurrent speakers can finalize in a different order from the conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SpeakerLabel { get => _explicitNullValueSpeakerLabel; set { _explicitNullValueSpeakerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speaker_label"); else _explicitNullProperties?.Remove("speaker_label"); } }

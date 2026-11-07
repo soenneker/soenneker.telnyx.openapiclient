@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables emotionally expressive speech using SSML emotion tags. When enabled, the assistant uses audio tags like angry, excited, content, and sad to add emotional nuance. Only supported for Telnyx Ultra voices.</summary>
         public bool? ExpressiveMode { get => _explicitNullValueExpressiveMode; set { _explicitNullValueExpressiveMode = value; AdditionalData?.Remove("expressive_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expressive_mode"); else _explicitNullProperties?.Remove("expressive_mode"); } }
         private bool? _explicitNullValueExpressiveMode = default!;
-        /// <summary>Two-letter ISO 639-1 code of the language the voice speaks, for example `es`. Only applicable to Soniox and AssemblyAI voices, which speak every language of their model. AssemblyAI accepts `en`, `es`, `de`, `fr`, `it`, and `pt`. When unset, the voice speaks English.</summary>
+        /// <summary>Two-letter ISO 639-1 code of the language the voice speaks, for example `es`. Only applicable to Soniox voices, which speak every language of their model. When unset, the voice speaks English.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }

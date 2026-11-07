@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// The dynamic variables in force for this session, or null when none were supplied.
+    /// Dynamic variables in individual-session responses; null when none were supplied. Omitted from session list items.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MeetingSessionAssistantDynamicVariablesProperty : IAdditionalDataHolder, IParsable

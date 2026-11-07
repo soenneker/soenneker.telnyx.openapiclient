@@ -18,6 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("previous_status") is null) { _explicitNullValuePreviousStatus = default!; _explicitNullProperties?.Remove("previous_status"); }
+            else if (parseNode.GetChildNode("previous_status") is { } nullNodePreviousStatus && nullNodePreviousStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousStatus = null;
             if (parseNode.GetChildNode("recording") is null) { _explicitNullValueRecording = default!; _explicitNullProperties?.Remove("recording"); }
             else if (parseNode.GetChildNode("recording") is { } nullNodeRecording && nullNodeRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recording = null;
             if (parseNode.GetChildNode("session_id") is null) { _explicitNullValueSessionId = default!; _explicitNullProperties?.Remove("session_id"); }
@@ -28,6 +30,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("status_detail") is { } nullNodeStatusDetail && nullNodeStatusDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusDetail = null;
         }
 
+        /// <summary>Previous lifecycle status, when supplied.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatusChangedWebhookRequestDataPreviousStatus? PreviousStatus { get => _explicitNullValuePreviousStatus; set { _explicitNullValuePreviousStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_status"); else _explicitNullProperties?.Remove("previous_status"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatusChangedWebhookRequestDataPreviousStatus? _explicitNullValuePreviousStatus = default!;
         /// <summary>Whether the session is recording at this lifecycle edge.</summary>
         public bool? Recording { get => _explicitNullValueRecording; set { _explicitNullValueRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording"); else _explicitNullProperties?.Remove("recording"); } }
         private bool? _explicitNullValueRecording = default!;
@@ -79,6 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "previous_status", n => { PreviousStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatusChangedWebhookRequestDataPreviousStatus>(); } },
                 { "recording", n => { Recording = n.GetBoolValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -92,6 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatusChangedWebhookRequestDataPreviousStatus>("previous_status", PreviousStatus);
             writer.WriteBoolValue("recording", Recording);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteStringValue("status", Status);

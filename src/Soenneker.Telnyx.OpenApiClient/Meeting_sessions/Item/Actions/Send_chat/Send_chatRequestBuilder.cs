@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Actions.Send_chat
         {
         }
         /// <summary>
-        /// Sends a chat message into a meeting session.
+        /// Send chat as the bot in an active meeting. Returns 202 with data.accepted=true. Google Meet and Teams confirm sending before success; 502 chat_not_sent means not sent, while chat_delivery_unknown means delivery may have occurred. Inspect chat and chat.sent events before retrying an uncertain send. Each request is a new message and is not idempotent. Google Meet and Teams allow at most 1000 chat requests per session, including an entrance message; exceeding this returns 409 invalid_state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionAcceptedResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Actions.Send_chat
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ActionAcceptedResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ActionAcceptedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sends a chat message into a meeting session.
+        /// Send chat as the bot in an active meeting. Returns 202 with data.accepted=true. Google Meet and Teams confirm sending before success; 502 chat_not_sent means not sent, while chat_delivery_unknown means delivery may have occurred. Inspect chat and chat.sent events before retrying an uncertain send. Each request is a new message and is not idempotent. Google Meet and Teams allow at most 1000 chat requests per session, including an entrance message; exceeding this returns 409 invalid_state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -21,6 +21,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("barge_in") is { } nullNodeBargeIn && nullNodeBargeIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BargeIn = null;
             if (parseNode.GetChildNode("chat_on_enter") is null) { _explicitNullValueChatOnEnter = default!; _explicitNullProperties?.Remove("chat_on_enter"); }
             else if (parseNode.GetChildNode("chat_on_enter") is { } nullNodeChatOnEnter && nullNodeChatOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChatOnEnter = null;
+            if (parseNode.GetChildNode("deepfake_detection") is null) { _explicitNullValueDeepfakeDetection = default!; _explicitNullProperties?.Remove("deepfake_detection"); }
+            else if (parseNode.GetChildNode("deepfake_detection") is { } nullNodeDeepfakeDetection && nullNodeDeepfakeDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeepfakeDetection = null;
+            if (parseNode.GetChildNode("leave_policy") is null) { _explicitNullValueLeavePolicy = default!; _explicitNullProperties?.Remove("leave_policy"); }
+            else if (parseNode.GetChildNode("leave_policy") is { } nullNodeLeavePolicy && nullNodeLeavePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeavePolicy = null;
+            if (parseNode.GetChildNode("recording") is null) { _explicitNullValueRecording = default!; _explicitNullProperties?.Remove("recording"); }
+            else if (parseNode.GetChildNode("recording") is { } nullNodeRecording && nullNodeRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recording = null;
+            if (parseNode.GetChildNode("recording_view") is null) { _explicitNullValueRecordingView = default!; _explicitNullProperties?.Remove("recording_view"); }
+            else if (parseNode.GetChildNode("recording_view") is { } nullNodeRecordingView && nullNodeRecordingView.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingView = null;
             if (parseNode.GetChildNode("speak_on_enter") is null) { _explicitNullValueSpeakOnEnter = default!; _explicitNullProperties?.Remove("speak_on_enter"); }
             else if (parseNode.GetChildNode("speak_on_enter") is { } nullNodeSpeakOnEnter && nullNodeSpeakOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakOnEnter = null;
             if (parseNode.GetChildNode("summarize_on_end") is null) { _explicitNullValueSummarizeOnEnd = default!; _explicitNullProperties?.Remove("summarize_on_end"); }
@@ -42,6 +50,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ChatOnEnter { get => _explicitNullValueChatOnEnter; set { _explicitNullValueChatOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_on_enter"); else _explicitNullProperties?.Remove("chat_on_enter"); } }
         private string _explicitNullValueChatOnEnter = default!;
 #endif
+        /// <summary>Detection settings. Enabling audio or video detection is currently unsupported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection? DeepfakeDetection { get => _explicitNullValueDeepfakeDetection; set { _explicitNullValueDeepfakeDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deepfake_detection"); else _explicitNullProperties?.Remove("deepfake_detection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection? _explicitNullValueDeepfakeDetection = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection DeepfakeDetection { get => _explicitNullValueDeepfakeDetection; set { _explicitNullValueDeepfakeDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deepfake_detection"); else _explicitNullProperties?.Remove("deepfake_detection"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection _explicitNullValueDeepfakeDetection = default!;
+#endif
+        /// <summary>Automatic departure settings for Google Meet and Teams. Omitted fields use the default behavior. Set at creation; cannot be changed later. Zoom ignores this policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy? LeavePolicy { get => _explicitNullValueLeavePolicy; set { _explicitNullValueLeavePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leave_policy"); else _explicitNullProperties?.Remove("leave_policy"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy? _explicitNullValueLeavePolicy = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy LeavePolicy { get => _explicitNullValueLeavePolicy; set { _explicitNullValueLeavePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leave_policy"); else _explicitNullProperties?.Remove("leave_policy"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy _explicitNullValueLeavePolicy = default!;
+#endif
+        /// <summary>Recording intent set at creation for Google Meet and Teams. Distinct from the top-level recording field, which reports current activity.</summary>
+        public bool? Recording { get => _explicitNullValueRecording; set { _explicitNullValueRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording"); else _explicitNullProperties?.Remove("recording"); } }
+        private bool? _explicitNullValueRecording = default!;
+        /// <summary>Non-default recording layout. Omitted for the default speaker_view layout.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView? RecordingView { get => _explicitNullValueRecordingView; set { _explicitNullValueRecordingView = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_view"); else _explicitNullProperties?.Remove("recording_view"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView? _explicitNullValueRecordingView = default!;
         /// <summary>Text spoken on meeting entry, or null if not set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +119,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "barge_in", n => { BargeIn = n.GetBoolValue(); } },
                 { "chat_on_enter", n => { ChatOnEnter = n.GetStringValue(); } },
+                { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection.CreateFromDiscriminatorValue); } },
+                { "leave_policy", n => { LeavePolicy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy.CreateFromDiscriminatorValue); } },
+                { "recording", n => { Recording = n.GetBoolValue(); } },
+                { "recording_view", n => { RecordingView = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView>(); } },
                 { "speak_on_enter", n => { SpeakOnEnter = n.GetStringValue(); } },
                 { "summarize_on_end", n => { SummarizeOnEnd = n.GetBoolValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
@@ -99,6 +137,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("barge_in", BargeIn);
             writer.WriteStringValue("chat_on_enter", ChatOnEnter);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy>("leave_policy", LeavePolicy);
+            writer.WriteBoolValue("recording", Recording);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView>("recording_view", RecordingView);
             writer.WriteStringValue("speak_on_enter", SpeakOnEnter);
             writer.WriteBoolValue("summarize_on_end", SummarizeOnEnd);
             writer.WriteStringValue("voice", Voice);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

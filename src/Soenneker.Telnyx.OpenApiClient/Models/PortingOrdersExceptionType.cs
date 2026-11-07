@@ -21,6 +21,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("code") is { } nullNodeCode && nullNodeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Code = null;
             if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
             else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("remediation") is null) { _explicitNullValueRemediation = default!; _explicitNullProperties?.Remove("remediation"); }
+            else if (parseNode.GetChildNode("remediation") is { } nullNodeRemediation && nullNodeRemediation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remediation = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,6 +39,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
+#endif
+        /// <summary>Structured remediation steps so an agent can map the exception to a fix via the API alone</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation? Remediation { get => _explicitNullValueRemediation; set { _explicitNullValueRemediation = value; AdditionalData?.Remove("remediation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediation"); else _explicitNullProperties?.Remove("remediation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation? _explicitNullValueRemediation = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation Remediation { get => _explicitNullValueRemediation; set { _explicitNullValueRemediation = value; AdditionalData?.Remove("remediation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediation"); else _explicitNullProperties?.Remove("remediation"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation _explicitNullValueRemediation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType"/> and sets the default values.
@@ -65,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeCode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCode = default; _explicitNullProperties?.Remove("code"); AdditionalData["code"] = unknown; } else { Code = parsed; AdditionalData.Remove("code"); } } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "remediation", n => { Remediation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,6 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeCode>("code", Code);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionTypeRemediation>("remediation", Remediation);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

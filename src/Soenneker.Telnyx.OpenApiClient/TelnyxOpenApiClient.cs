@@ -27,6 +27,7 @@ using Soenneker.Telnyx.OpenApiClient.Bot_signup;
 using Soenneker.Telnyx.OpenApiClient.Browser_sessions;
 using Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions;
 using Soenneker.Telnyx.OpenApiClient.Bundle_pricing;
+using Soenneker.Telnyx.OpenApiClient.Calendar_connections;
 using Soenneker.Telnyx.OpenApiClient.Call_control_applications;
 using Soenneker.Telnyx.OpenApiClient.Call_events;
 using Soenneker.Telnyx.OpenApiClient.Call_reasons;
@@ -93,6 +94,7 @@ using Soenneker.Telnyx.OpenApiClient.Llm_token_gateway;
 using Soenneker.Telnyx.OpenApiClient.MachinePayments;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
+using Soenneker.Telnyx.OpenApiClient.Meeting_bot;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions;
 using Soenneker.Telnyx.OpenApiClient.Messages;
 using Soenneker.Telnyx.OpenApiClient.Messaging;
@@ -108,6 +110,7 @@ using Soenneker.Telnyx.OpenApiClient.Messaging_url_domains;
 using Soenneker.Telnyx.OpenApiClient.Mobile_network_operators;
 using Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials;
+using Soenneker.Telnyx.OpenApiClient.Mobile_voice_connections;
 using Soenneker.Telnyx.OpenApiClient.Network_coverage;
 using Soenneker.Telnyx.OpenApiClient.Network_routes;
 using Soenneker.Telnyx.OpenApiClient.Networks;
@@ -328,6 +331,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Bundle_pricingRequestBuilder Bundle_pricing
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Bundle_pricingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The calendar_connections property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calendar_connections.Calendar_connectionsRequestBuilder Calendar_connections
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calendar_connections.Calendar_connectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The call_control_applications property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Call_control_applications.Call_control_applicationsRequestBuilder Call_control_applications
@@ -659,6 +667,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The meeting_bot property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Meeting_bot.Meeting_botRequestBuilder Meeting_bot
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Meeting_bot.Meeting_botRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The meeting_sessions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Meeting_sessionsRequestBuilder Meeting_sessions
         {
@@ -733,6 +746,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder Mobile_push_credentials
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mobile_voice_connections property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder Mobile_voice_connections
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The network_coverage property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Network_coverage.Network_coverageRequestBuilder Network_coverage

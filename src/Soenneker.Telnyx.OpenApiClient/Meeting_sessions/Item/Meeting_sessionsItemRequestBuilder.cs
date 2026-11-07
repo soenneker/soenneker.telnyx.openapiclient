@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Actions;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Artifacts;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Events;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recording_media;
+using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recordings;
 using Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -42,6 +43,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recording_media.Recording_mediaRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The recordings property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recordings.RecordingsRequestBuilder Recordings
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Recordings.RecordingsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The transcript property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript.TranscriptRequestBuilder Transcript
         {
@@ -64,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
         {
         }
         /// <summary>
-        /// Stops a meeting session without deleting its persisted record. Scheduled bots are cancelled, while bots that are joining or active are asked to leave. The persisted meeting session record remains available.
+        /// Stops a meeting session without deleting its persisted record. Scheduled bots are cancelled, while bots that are joining or active are asked to leave. The persisted meeting session record remains available. A successful response can report leaving while departure is pending. Poll until ended, failed, or admission_denied. Exported Storage objects are unaffected.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -113,6 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -138,7 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates mutable properties of a meeting session. Only sessions in the scheduled state can be updated; any other state returns 409 with the invalid_state error code. All request fields are optional, and an empty object is a valid no-op update.
+        /// Updates mutable properties of a meeting session. Only sessions in the scheduled state can be updated; any other state returns 409 with the invalid_state error code. All request fields are optional, and an empty object is a valid no-op update. Calendar-controlled Google Meet and Teams sessions return 409 calendar_managed; change the event instead. A conflicting pending edit returns 409 edit_in_progress. On a timeout or 503, read the session and retry the same changes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionResponse"/></returns>
         /// <param name="body">Request body for updating a meeting session. All fields are optional; an empty object is a valid no-op update.</param>
@@ -183,7 +191,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Stops a meeting session without deleting its persisted record. Scheduled bots are cancelled, while bots that are joining or active are asked to leave. The persisted meeting session record remains available.
+        /// Stops a meeting session without deleting its persisted record. Scheduled bots are cancelled, while bots that are joining or active are asked to leave. The persisted meeting session record remains available. A successful response can report leaving while departure is pending. Poll until ended, failed, or admission_denied. Exported Storage objects are unaffected.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -221,7 +229,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates mutable properties of a meeting session. Only sessions in the scheduled state can be updated; any other state returns 409 with the invalid_state error code. All request fields are optional, and an empty object is a valid no-op update.
+        /// Updates mutable properties of a meeting session. Only sessions in the scheduled state can be updated; any other state returns 409 with the invalid_state error code. All request fields are optional, and an empty object is a valid no-op update. Calendar-controlled Google Meet and Teams sessions return 409 calendar_managed; change the event instead. A conflicting pending edit returns 409 edit_in_progress. On a timeout or 503, read the session and retry the same changes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request body for updating a meeting session. All fields are optional; an empty object is a valid no-op update.</param>

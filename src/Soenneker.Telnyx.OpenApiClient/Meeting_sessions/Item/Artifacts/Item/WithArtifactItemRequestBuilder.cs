@@ -44,6 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Artifacts.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Artifacts.Item
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

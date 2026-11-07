@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
         {
         }
         /// <summary>
-        /// Returns transcript segments ordered by ascending `seq`. Default `limit` is 100 and maximum is 1,000. Continue with `after=meta.next_after`. A long-poll timeout returns 200 with empty `data` and `meta.next_after: null`; retain the cursor supplied to that request because null is not a replacement cursor.
+        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptSegmentListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -45,6 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -71,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptSegmentListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptSegmentListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns transcript segments ordered by ascending `seq`. Default `limit` is 100 and maximum is 1,000. Continue with `after=meta.next_after`. A long-poll timeout returns 200 with empty `data` and `meta.next_after: null`; retain the cursor supplied to that request because null is not a replacement cursor.
+        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
             return new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript.TranscriptRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns transcript segments ordered by ascending `seq`. Default `limit` is 100 and maximum is 1,000. Continue with `after=meta.next_after`. A long-poll timeout returns 200 with empty `data` and `meta.next_after: null`; retain the cursor supplied to that request because null is not a replacement cursor.
+        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptRequestBuilderGetQueryParameters 

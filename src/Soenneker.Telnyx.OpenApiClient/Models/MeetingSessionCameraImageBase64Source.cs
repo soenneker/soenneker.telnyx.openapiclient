@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
         }
 
-        /// <summary>Canonical plain RFC 4648 Base64 for a valid decoded JPEG. Data URIs, whitespace, and the URL-safe alphabet are rejected. The encoded value is limited to 1,835,008 characters and the decoded JPEG to 1,363,148 bytes. The JPEG is limited to 4,096 pixels per dimension, 4 megapixels, and 128 MB of decoder memory. The image bytes are not persisted, returned, or logged.</summary>
+        /// <summary>Canonical plain RFC 4648 Base64 for a valid decoded JPEG. Data URIs, whitespace, and the URL-safe alphabet are rejected. The encoded value is limited to 1,835,008 characters and the decoded JPEG to 1,363,148 bytes. The JPEG is limited to 4,096 pixels per dimension, 4 megapixels, and 128 MB of decoder memory. The image bytes are not returned in the session response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Base64Data { get => _explicitNullValueBase64Data; set { _explicitNullValueBase64Data = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base64_data"); else _explicitNullProperties?.Remove("base64_data"); } }

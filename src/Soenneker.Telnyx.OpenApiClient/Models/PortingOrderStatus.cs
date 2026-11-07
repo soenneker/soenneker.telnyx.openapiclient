@@ -29,12 +29,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A list of 0 or more details about this porting order&apos;s status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType>? Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; AdditionalData?.Remove("details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
-        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType>? _explicitNullValueDetails = default!;
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails>? Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; AdditionalData?.Remove("details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails>? _explicitNullValueDetails = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType> Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; AdditionalData?.Remove("details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
-        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType> _explicitNullValueDetails = default!;
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails> Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; AdditionalData?.Remove("details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails> _explicitNullValueDetails = default!;
 #endif
         /// <summary>The current status of the porting order</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "value", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueValue = default; _explicitNullProperties?.Remove("value"); AdditionalData["value"] = unknown; } else { Value = parsed; AdditionalData.Remove("value"); } } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersExceptionType>("details", Details);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusDetails>("details", Details);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatusValue>("value", Value);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

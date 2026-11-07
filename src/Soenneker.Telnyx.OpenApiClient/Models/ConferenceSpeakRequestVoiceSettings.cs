@@ -52,7 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "assemblyai" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequestVoiceSettingsAssemblyAiVoiceSettings(),
                 "aws" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequestVoiceSettingsAwsVoiceSettings(),
                 "azure" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequestVoiceSettingsAzureVoiceSettings(),
                 "elevenlabs" => new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequestVoiceSettingsElevenLabsVoiceSettings(),

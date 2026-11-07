@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- A digital avatar or Assistant webpage output takes precedence over `camera_image`; the static image is ignored and a URL source is not fetched.- The former top-level `avatar` object (bring-your-own-key avatar) has been removed and is rejected with 400 `invalid_request`; use `assistant.avatar` instead.
+    /// Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- An avatar takes precedence over `camera_image`; ordinary assistant sessions can use a static camera image.Google Meet and Teams recording requires a recording_export destination. Use join_at to schedule a meeting, or omit it to join now. Zoom recordings are enabled automatically; Zoom does not support recording, recording_view or recording_export, and ignores leave_policy. Digital avatars require avatar support.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMeetingSessionRequest : IParsable
@@ -32,10 +32,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("idempotency_key") is { } nullNodeIdempotencyKey && nullNodeIdempotencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdempotencyKey = null;
             if (parseNode.GetChildNode("join_at") is null) { _explicitNullValueJoinAt = default!; _explicitNullProperties?.Remove("join_at"); }
             else if (parseNode.GetChildNode("join_at") is { } nullNodeJoinAt && nullNodeJoinAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinAt = null;
+            if (parseNode.GetChildNode("leave_policy") is null) { _explicitNullValueLeavePolicy = default!; _explicitNullProperties?.Remove("leave_policy"); }
+            else if (parseNode.GetChildNode("leave_policy") is { } nullNodeLeavePolicy && nullNodeLeavePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeavePolicy = null;
             if (parseNode.GetChildNode("meeting_url") is null) { _explicitNullValueMeetingUrl = default!; _explicitNullProperties?.Remove("meeting_url"); }
             else if (parseNode.GetChildNode("meeting_url") is { } nullNodeMeetingUrl && nullNodeMeetingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MeetingUrl = null;
             if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
             else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("recording") is null) { _explicitNullValueRecording = default!; _explicitNullProperties?.Remove("recording"); }
+            else if (parseNode.GetChildNode("recording") is { } nullNodeRecording && nullNodeRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recording = null;
+            if (parseNode.GetChildNode("recording_export") is null) { _explicitNullValueRecordingExport = default!; _explicitNullProperties?.Remove("recording_export"); }
+            else if (parseNode.GetChildNode("recording_export") is { } nullNodeRecordingExport && nullNodeRecordingExport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingExport = null;
+            if (parseNode.GetChildNode("recording_view") is null) { _explicitNullValueRecordingView = default!; _explicitNullProperties?.Remove("recording_view"); }
+            else if (parseNode.GetChildNode("recording_view") is { } nullNodeRecordingView && nullNodeRecordingView.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingView = null;
             if (parseNode.GetChildNode("speak_on_enter") is null) { _explicitNullValueSpeakOnEnter = default!; _explicitNullProperties?.Remove("speak_on_enter"); }
             else if (parseNode.GetChildNode("speak_on_enter") is { } nullNodeSpeakOnEnter && nullNodeSpeakOnEnter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpeakOnEnter = null;
             if (parseNode.GetChildNode("summarize_on_end") is null) { _explicitNullValueSummarizeOnEnd = default!; _explicitNullProperties?.Remove("summarize_on_end"); }
@@ -46,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
         }
 
-        /// <summary>Attach a Telnyx AI Assistant to the session. Supply the Assistant&apos;s ID; the Meeting service connects it to the meeting directly. The Call Control connection, caller ID and loopback SIP URI previously required here have been removed and are now rejected as unknown fields.</summary>
+        /// <summary>Attach a Telnyx AI Assistant owned by the authenticated account. Supply its ID and optional conversation settings. Unknown fields are rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest? Assistant { get => _explicitNullValueAssistant; set { _explicitNullValueAssistant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistant"); else _explicitNullProperties?.Remove("assistant"); } }
@@ -69,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
         private string _explicitNullValueBotName = default!;
 #endif
-        /// <summary>Write-only static camera-tile image for this session, not a native account or participant profile photo. Supply exactly one JPEG source. When effective, the image is used as the bot&apos;s static camera/video output; presentation varies by meeting platform and recording configuration and is not guaranteed in recordings. An effective Avatar or Assistant webpage output takes precedence, so this input is ignored and a URL source is not fetched.</summary>
+        /// <summary>Not supported for Google Meet and Teams joins (422 unsupported_capability). Write-only static camera-tile image for this session, not an account or participant profile photo. Supply exactly one JPEG source. When effective, the image is used as the bot&apos;s static camera/video output; presentation varies by meeting platform and recording configuration and is not guaranteed in recordings. An attached assistant or avatar takes precedence, so this input is ignored and a URL source is not fetched.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage? CameraImage { get => _explicitNullValueCameraImage; set { _explicitNullValueCameraImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("camera_image"); else _explicitNullProperties?.Remove("camera_image"); } }
@@ -79,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage CameraImage { get => _explicitNullValueCameraImage; set { _explicitNullValueCameraImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("camera_image"); else _explicitNullProperties?.Remove("camera_image"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionCameraImage _explicitNullValueCameraImage = default!;
 #endif
-        /// <summary>A message the bot posts to the meeting&apos;s chat as soon as it becomes active — typically a recording disclosure. Delivered at most once. Independent of `speak_on_enter`: both may be set, and the chat message posts first because it does not wait for text-to-speech or avatar startup. Rejected with 422 `unsupported_capability` on platforms without meeting chat.</summary>
+        /// <summary>A message the bot posts to the meeting&apos;s chat as soon as it becomes active — typically a recording disclosure. Delivered at most once. Independent of `speak_on_enter`: both may be set, and the chat message posts first because it does not wait for text-to-speech or avatar startup. Rejected with 422 `unsupported_capability` on platforms without meeting chat. For Google Meet and Teams, text must be nonblank, at most 4096 UTF-8 bytes, with no control characters except tabs and line breaks. Counts toward the 1000-chat-request session limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ChatOnEnter { get => _explicitNullValueChatOnEnter; set { _explicitNullValueChatOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_on_enter"); else _explicitNullProperties?.Remove("chat_on_enter"); } }
@@ -89,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ChatOnEnter { get => _explicitNullValueChatOnEnter; set { _explicitNullValueChatOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_on_enter"); else _explicitNullProperties?.Remove("chat_on_enter"); } }
         private string _explicitNullValueChatOnEnter = default!;
 #endif
-        /// <summary>Client-supplied idempotency key to safely retry creation requests without duplicating sessions. Lookup is scoped to the authenticated account and compares the key only; the request payload is not fingerprinted or compared.</summary>
+        /// <summary>Use a unique key per intended join and reuse the same key and request on retries. Reusing a key with a different join configuration or meeting URL can return 409 invalid_state. Always retry with the original request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
@@ -99,9 +107,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
         private string _explicitNullValueIdempotencyKey = default!;
 #endif
-        /// <summary>ISO-8601 timestamp in the future at which the bot should join. If omitted, the bot joins immediately.</summary>
+        /// <summary>Future ISO-8601 join timestamp including timezone. Google Meet and Teams accept dates at most three years ahead. Omit for an immediate join. Assistant sessions created through this endpoint must join immediately.</summary>
         public DateTimeOffset? JoinAt { get => _explicitNullValueJoinAt; set { _explicitNullValueJoinAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_at"); else _explicitNullProperties?.Remove("join_at"); } }
         private DateTimeOffset? _explicitNullValueJoinAt = default!;
+        /// <summary>Automatic departure settings for Google Meet and Teams. Omitted fields use the default behavior. Set at creation; cannot be changed later. Zoom ignores this policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy? LeavePolicy { get => _explicitNullValueLeavePolicy; set { _explicitNullValueLeavePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leave_policy"); else _explicitNullProperties?.Remove("leave_policy"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy? _explicitNullValueLeavePolicy = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy LeavePolicy { get => _explicitNullValueLeavePolicy; set { _explicitNullValueLeavePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leave_policy"); else _explicitNullProperties?.Remove("leave_policy"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy _explicitNullValueLeavePolicy = default!;
+#endif
         /// <summary>The meeting URL the bot should join.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,7 +140,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty _explicitNullValueMetadata = default!;
 #endif
-        /// <summary>Text the bot speaks when it enters the meeting. **Not spoken when an `assistant` is attached**: the value is accepted and echoed back on the session, but the assistant owns the voice and the line is never delivered, with no event reporting the omission. Use `chat_on_enter` to announce an assistant-backed bot. Rejected with 400 `invalid_request` when `assistant.avatar` is `true`.</summary>
+        /// <summary>Google Meet and Teams only. Defaults to true when recording_export is supplied and false otherwise. True requires recording_export.bucket; false cannot be combined with recording_export. Fixed at creation, with no pause/resume action. Zoom rejects recording, recording_view, and recording_export with 422 unsupported_capability; omit these fields for Zoom.</summary>
+        public bool? Recording { get => _explicitNullValueRecording; set { _explicitNullValueRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording"); else _explicitNullProperties?.Remove("recording"); } }
+        private bool? _explicitNullValueRecording = default!;
+        /// <summary>Customer-owned Telnyx Storage destination for recording exports. Uses the authenticated organization and user; do not supply credentials, region, organization ID or object key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination? RecordingExport { get => _explicitNullValueRecordingExport; set { _explicitNullValueRecordingExport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_export"); else _explicitNullProperties?.Remove("recording_export"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination? _explicitNullValueRecordingExport = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination RecordingExport { get => _explicitNullValueRecordingExport; set { _explicitNullValueRecordingExport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_export"); else _explicitNullProperties?.Remove("recording_export"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination _explicitNullValueRecordingExport = default!;
+#endif
+        /// <summary>Recording layout for Google Meet and Teams. Defaults to speaker_view. Accepted at creation only; does not enable recording by itself.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView? RecordingView { get => _explicitNullValueRecordingView; set { _explicitNullValueRecordingView = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_view"); else _explicitNullProperties?.Remove("recording_view"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView? _explicitNullValueRecordingView = default!;
+        /// <summary>Text the bot speaks after joining. Available for sessions without a digital avatar. With an AI Assistant, the greeting waits until the assistant is connected. Rejected with 400 invalid_request when assistant.avatar is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SpeakOnEnter { get => _explicitNullValueSpeakOnEnter; set { _explicitNullValueSpeakOnEnter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("speak_on_enter"); else _explicitNullProperties?.Remove("speak_on_enter"); } }
@@ -135,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>If true, generate a summary artifact when the session ends.</summary>
         public bool? SummarizeOnEnd { get => _explicitNullValueSummarizeOnEnd; set { _explicitNullValueSummarizeOnEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summarize_on_end"); else _explicitNullProperties?.Remove("summarize_on_end"); } }
         private bool? _explicitNullValueSummarizeOnEnd = default!;
-        /// <summary>Session-default voice identifier used for `speak_on_enter` and ordinary speak actions. A voice supplied on an individual speak action overrides this default for that utterance.</summary>
+        /// <summary>Session-default voice identifier used for `speak_on_enter` and ordinary speak actions. A voice supplied on an individual speak action overrides this default for that utterance. With an assistant attached, its conversational voice remains configured on the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
@@ -188,8 +222,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "chat_on_enter", n => { ChatOnEnter = n.GetStringValue(); } },
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "join_at", n => { JoinAt = n.GetDateTimeOffsetValue(); } },
+                { "leave_policy", n => { LeavePolicy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy.CreateFromDiscriminatorValue); } },
                 { "meeting_url", n => { MeetingUrl = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "recording", n => { Recording = n.GetBoolValue(); } },
+                { "recording_export", n => { RecordingExport = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination.CreateFromDiscriminatorValue); } },
+                { "recording_view", n => { RecordingView = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView>(); } },
                 { "speak_on_enter", n => { SpeakOnEnter = n.GetStringValue(); } },
                 { "summarize_on_end", n => { SummarizeOnEnd = n.GetBoolValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
@@ -210,8 +248,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("chat_on_enter", ChatOnEnter);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteDateTimeOffsetValue("join_at", JoinAt);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy>("leave_policy", LeavePolicy);
             writer.WriteStringValue("meeting_url", MeetingUrl);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty>("metadata", Metadata);
+            writer.WriteBoolValue("recording", Recording);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination>("recording_export", RecordingExport);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView>("recording_view", RecordingView);
             writer.WriteStringValue("speak_on_enter", SpeakOnEnter);
             writer.WriteBoolValue("summarize_on_end", SummarizeOnEnd);
             writer.WriteStringValue("voice", Voice);

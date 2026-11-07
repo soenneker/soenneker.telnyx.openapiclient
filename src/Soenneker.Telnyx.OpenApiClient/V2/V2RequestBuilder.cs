@@ -2,9 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers;
-using Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections;
-using Soenneker.Telnyx.OpenApiClient.V2.Payment;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates;
 using System.Collections.Generic;
@@ -19,21 +16,6 @@ namespace Soenneker.Telnyx.OpenApiClient.V2
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class V2RequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The mobile_phone_numbers property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Mobile_phone_numbersRequestBuilder Mobile_phone_numbers
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers.Mobile_phone_numbersRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The mobile_voice_connections property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder Mobile_voice_connections
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The payment property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.V2.Payment.PaymentRequestBuilder Payment
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Payment.PaymentRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The whatsapp property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.WhatsappRequestBuilder Whatsapp
         {

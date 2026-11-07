@@ -18,8 +18,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("assemblyai") is null) { _explicitNullValueAssemblyai = default!; _explicitNullProperties?.Remove("assemblyai"); }
-            else if (parseNode.GetChildNode("assemblyai") is { } nullNodeAssemblyai && nullNodeAssemblyai.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assemblyai = null;
             if (parseNode.GetChildNode("aws") is null) { _explicitNullValueAws = default!; _explicitNullProperties?.Remove("aws"); }
             else if (parseNode.GetChildNode("aws") is { } nullNodeAws && nullNodeAws.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Aws = null;
             if (parseNode.GetChildNode("azure") is null) { _explicitNullValueAzure = default!; _explicitNullProperties?.Remove("azure"); }
@@ -58,16 +56,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>AssemblyAI provider-specific parameters. Every voice speaks all six supported languages; set `language` to the language of the text.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams? Assemblyai { get => _explicitNullValueAssemblyai; set { _explicitNullValueAssemblyai = value; AdditionalData?.Remove("assemblyai"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assemblyai"); else _explicitNullProperties?.Remove("assemblyai"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams? _explicitNullValueAssemblyai = default!;
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams Assemblyai { get => _explicitNullValueAssemblyai; set { _explicitNullValueAssemblyai = value; AdditionalData?.Remove("assemblyai"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assemblyai"); else _explicitNullProperties?.Remove("assemblyai"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams _explicitNullValueAssemblyai = default!;
-#endif
         /// <summary>AWS Polly provider-specific parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -236,7 +224,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assemblyai", n => { Assemblyai = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams.CreateFromDiscriminatorValue); } },
                 { "aws", n => { Aws = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams.CreateFromDiscriminatorValue); } },
                 { "azure", n => { Azure = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams.CreateFromDiscriminatorValue); } },
                 { "disable_cache", n => { DisableCache = n.GetBoolValue(); } },
@@ -263,7 +250,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssemblyAiProviderParams>("assemblyai", Assemblyai);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams>("aws", Aws);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>("azure", Azure);
             writer.WriteBoolValue("disable_cache", DisableCache);

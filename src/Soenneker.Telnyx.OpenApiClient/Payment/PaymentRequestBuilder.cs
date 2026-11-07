@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Payment.Auto_recharge_prefs;
+using Soenneker.Telnyx.OpenApiClient.Payment.Stored_payment_transactions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Payment
         public global::Soenneker.Telnyx.OpenApiClient.Payment.Auto_recharge_prefs.Auto_recharge_prefsRequestBuilder Auto_recharge_prefs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Payment.Auto_recharge_prefs.Auto_recharge_prefsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The stored_payment_transactions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Payment.Stored_payment_transactions.Stored_payment_transactionsRequestBuilder Stored_payment_transactions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Payment.Stored_payment_transactions.Stored_payment_transactionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Payment.PaymentRequestBuilder"/> and sets the default values.
