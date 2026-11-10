@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Total phone numbers in this batch, including any later cancelled. May exceed the sum of the per-category result buckets, which omit cancelled numbers.</summary>
         public int? PhoneNumbersCount { get => _explicitNullValuePhoneNumbersCount; set { _explicitNullValuePhoneNumbersCount = value; AdditionalData?.Remove("phone_numbers_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers_count"); else _explicitNullProperties?.Remove("phone_numbers_count"); } }
         private int? _explicitNullValuePhoneNumbersCount = default!;
-        /// <summary>Numbers rejected before submission (e.g. cooldown).</summary>
+        /// <summary>Number of phone numbers the reputation partner did not re-review because it had reviewed them within the previous 60 days.</summary>
         public int? PhoneNumbersIneligible { get => _explicitNullValuePhoneNumbersIneligible; set { _explicitNullValuePhoneNumbersIneligible = value; AdditionalData?.Remove("phone_numbers_ineligible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_numbers_ineligible"); else _explicitNullProperties?.Remove("phone_numbers_ineligible"); } }
         private int? _explicitNullValuePhoneNumbersIneligible = default!;
         /// <summary>Numbers accepted for remediation, i.e. not rejected as ineligible. Counts numbers still queued (pending) as well as processed ones.</summary>

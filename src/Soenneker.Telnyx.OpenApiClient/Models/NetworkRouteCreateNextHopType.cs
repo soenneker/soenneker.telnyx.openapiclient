@@ -5,11 +5,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>The type of the next hop.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TunnelType
+    public enum NetworkRouteCreateNextHopType
     {
         [EnumMember(Value = "tunnel")]
         #pragma warning disable CS1591
         Tunnel,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "wireguard_peer")]
+        #pragma warning disable CS1591
+        WireguardPeer,
         #pragma warning restore CS1591
     }
 }

@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ineligible property</summary>
+        /// <summary>Numbers the reputation partner did not re-review because it had already reviewed them within the previous 60 days (already reviewed). The cooldown is measured from the partner&apos;s most recent review, not the API submission date. This array identifies the numbers but does not include their last-review or re-eligibility dates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Ineligible { get => _explicitNullValueIneligible; set { _explicitNullValueIneligible = value; AdditionalData?.Remove("ineligible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligible"); else _explicitNullProperties?.Remove("ineligible"); } }
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Ineligible { get => _explicitNullValueIneligible; set { _explicitNullValueIneligible = value; AdditionalData?.Remove("ineligible"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligible"); else _explicitNullProperties?.Remove("ineligible"); } }
         private List<string> _explicitNullValueIneligible = default!;
 #endif
-        /// <summary>The not_flagged property</summary>
+        /// <summary>The reputation partner reported no prior spam label for the number (no prior spam label).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? NotFlagged { get => _explicitNullValueNotFlagged; set { _explicitNullValueNotFlagged = value; AdditionalData?.Remove("not_flagged"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_flagged"); else _explicitNullProperties?.Remove("not_flagged"); } }
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> NotFlagged { get => _explicitNullValueNotFlagged; set { _explicitNullValueNotFlagged = value; AdditionalData?.Remove("not_flagged"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_flagged"); else _explicitNullProperties?.Remove("not_flagged"); } }
         private List<string> _explicitNullValueNotFlagged = default!;
 #endif
-        /// <summary>The refused property</summary>
+        /// <summary>The reputation partner reviewed the number and declined the redress request (redress declined); the number remains flagged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Refused { get => _explicitNullValueRefused; set { _explicitNullValueRefused = value; AdditionalData?.Remove("refused"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refused"); else _explicitNullProperties?.Remove("refused"); } }
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Refused { get => _explicitNullValueRefused; set { _explicitNullValueRefused = value; AdditionalData?.Remove("refused"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refused"); else _explicitNullProperties?.Remove("refused"); } }
         private List<string> _explicitNullValueRefused = default!;
 #endif
-        /// <summary>The remediated property</summary>
+        /// <summary>The reputation partner approved redress (redress approved) or reported that the number had already been redressed recently (already recently redressed). This does not guarantee removal from every spam list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Remediated { get => _explicitNullValueRemediated; set { _explicitNullValueRemediated = value; AdditionalData?.Remove("remediated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediated"); else _explicitNullProperties?.Remove("remediated"); } }
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Remediated { get => _explicitNullValueRemediated; set { _explicitNullValueRemediated = value; AdditionalData?.Remove("remediated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remediated"); else _explicitNullProperties?.Remove("remediated"); } }
         private List<string> _explicitNullValueRemediated = default!;
 #endif
-        /// <summary>The requires_review property</summary>
+        /// <summary>The number needs further review, or the partner response did not match a recognized outcome.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? RequiresReview { get => _explicitNullValueRequiresReview; set { _explicitNullValueRequiresReview = value; AdditionalData?.Remove("requires_review"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_review"); else _explicitNullProperties?.Remove("requires_review"); } }

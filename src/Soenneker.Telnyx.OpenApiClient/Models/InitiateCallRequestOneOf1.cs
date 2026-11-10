@@ -105,6 +105,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("StatusCallbackEvent") is { } nullNodeStatusCallbackEvent && nullNodeStatusCallbackEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackEvent = null;
             if (parseNode.GetChildNode("StatusCallbackMethod") is null) { _explicitNullValueStatusCallbackMethod = default!; _explicitNullProperties?.Remove("StatusCallbackMethod"); }
             else if (parseNode.GetChildNode("StatusCallbackMethod") is { } nullNodeStatusCallbackMethod && nullNodeStatusCallbackMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCallbackMethod = null;
+            if (parseNode.GetChildNode("StreamAuthToken") is null) { _explicitNullValueStreamAuthToken = default!; _explicitNullProperties?.Remove("StreamAuthToken"); }
+            else if (parseNode.GetChildNode("StreamAuthToken") is { } nullNodeStreamAuthToken && nullNodeStreamAuthToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamAuthToken = null;
+            if (parseNode.GetChildNode("StreamBidirectionalCodec") is null) { _explicitNullValueStreamBidirectionalCodec = default!; _explicitNullProperties?.Remove("StreamBidirectionalCodec"); }
+            else if (parseNode.GetChildNode("StreamBidirectionalCodec") is { } nullNodeStreamBidirectionalCodec && nullNodeStreamBidirectionalCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalCodec = null;
+            if (parseNode.GetChildNode("StreamBidirectionalMode") is null) { _explicitNullValueStreamBidirectionalMode = default!; _explicitNullProperties?.Remove("StreamBidirectionalMode"); }
+            else if (parseNode.GetChildNode("StreamBidirectionalMode") is { } nullNodeStreamBidirectionalMode && nullNodeStreamBidirectionalMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalMode = null;
+            if (parseNode.GetChildNode("StreamBidirectionalSamplingRate") is null) { _explicitNullValueStreamBidirectionalSamplingRate = default!; _explicitNullProperties?.Remove("StreamBidirectionalSamplingRate"); }
+            else if (parseNode.GetChildNode("StreamBidirectionalSamplingRate") is { } nullNodeStreamBidirectionalSamplingRate && nullNodeStreamBidirectionalSamplingRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamBidirectionalSamplingRate = null;
+            if (parseNode.GetChildNode("StreamCodec") is null) { _explicitNullValueStreamCodec = default!; _explicitNullProperties?.Remove("StreamCodec"); }
+            else if (parseNode.GetChildNode("StreamCodec") is { } nullNodeStreamCodec && nullNodeStreamCodec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamCodec = null;
+            if (parseNode.GetChildNode("StreamEstablishBeforeCallOriginate") is null) { _explicitNullValueStreamEstablishBeforeCallOriginate = default!; _explicitNullProperties?.Remove("StreamEstablishBeforeCallOriginate"); }
+            else if (parseNode.GetChildNode("StreamEstablishBeforeCallOriginate") is { } nullNodeStreamEstablishBeforeCallOriginate && nullNodeStreamEstablishBeforeCallOriginate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamEstablishBeforeCallOriginate = null;
+            if (parseNode.GetChildNode("StreamTrack") is null) { _explicitNullValueStreamTrack = default!; _explicitNullProperties?.Remove("StreamTrack"); }
+            else if (parseNode.GetChildNode("StreamTrack") is { } nullNodeStreamTrack && nullNodeStreamTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamTrack = null;
+            if (parseNode.GetChildNode("StreamUrl") is null) { _explicitNullValueStreamUrl = default!; _explicitNullProperties?.Remove("StreamUrl"); }
+            else if (parseNode.GetChildNode("StreamUrl") is { } nullNodeStreamUrl && nullNodeStreamUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamUrl = null;
             if (parseNode.GetChildNode("SuperviseCallSid") is null) { _explicitNullValueSuperviseCallSid = default!; _explicitNullProperties?.Remove("SuperviseCallSid"); }
             else if (parseNode.GetChildNode("SuperviseCallSid") is { } nullNodeSuperviseCallSid && nullNodeSuperviseCallSid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuperviseCallSid = null;
             if (parseNode.GetChildNode("SupervisingRole") is null) { _explicitNullValueSupervisingRole = default!; _explicitNullProperties?.Remove("SupervisingRole"); }
@@ -357,6 +373,44 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStatusCallbackMethod? StatusCallbackMethod { get => _explicitNullValueStatusCallbackMethod; set { _explicitNullValueStatusCallbackMethod = value; AdditionalData?.Remove("StatusCallbackMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StatusCallbackMethod"); else _explicitNullProperties?.Remove("StatusCallbackMethod"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStatusCallbackMethod? _explicitNullValueStatusCallbackMethod = default!;
+        /// <summary>An authentication token for the WebSocket server. It is sent as the `x-telnyx-streaming-auth-token` header of the WebSocket handshake and repeated as `connected.x-telnyx-streaming-auth-token` in the `connected` event. Maximum length is 4000 characters. Requires `StreamUrl`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StreamAuthToken { get => _explicitNullValueStreamAuthToken; set { _explicitNullValueStreamAuthToken = value; AdditionalData?.Remove("StreamAuthToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamAuthToken"); else _explicitNullProperties?.Remove("StreamAuthToken"); } }
+        private string? _explicitNullValueStreamAuthToken = default!;
+#nullable restore
+#else
+        public string StreamAuthToken { get => _explicitNullValueStreamAuthToken; set { _explicitNullValueStreamAuthToken = value; AdditionalData?.Remove("StreamAuthToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamAuthToken"); else _explicitNullProperties?.Remove("StreamAuthToken"); } }
+        private string _explicitNullValueStreamAuthToken = default!;
+#endif
+        /// <summary>Indicates the codec for bidirectional streaming RTP payloads. Used only with `StreamBidirectionalMode=rtp`. Case sensitive. Requires `StreamUrl`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalCodec? StreamBidirectionalCodec { get => _explicitNullValueStreamBidirectionalCodec; set { _explicitNullValueStreamBidirectionalCodec = value; AdditionalData?.Remove("StreamBidirectionalCodec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamBidirectionalCodec"); else _explicitNullProperties?.Remove("StreamBidirectionalCodec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalCodec? _explicitNullValueStreamBidirectionalCodec = default!;
+        /// <summary>Configures the method of bidirectional streaming: `mp3` or `rtp`. Requires `StreamUrl`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalMode? StreamBidirectionalMode { get => _explicitNullValueStreamBidirectionalMode; set { _explicitNullValueStreamBidirectionalMode = value; AdditionalData?.Remove("StreamBidirectionalMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamBidirectionalMode"); else _explicitNullProperties?.Remove("StreamBidirectionalMode"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalMode? _explicitNullValueStreamBidirectionalMode = default!;
+        /// <summary>Audio sampling rate for bidirectional streaming, in Hz. Requires `StreamUrl`.</summary>
+        public int? StreamBidirectionalSamplingRate { get => _explicitNullValueStreamBidirectionalSamplingRate; set { _explicitNullValueStreamBidirectionalSamplingRate = value; AdditionalData?.Remove("StreamBidirectionalSamplingRate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamBidirectionalSamplingRate"); else _explicitNullProperties?.Remove("StreamBidirectionalSamplingRate"); } }
+        private int? _explicitNullValueStreamBidirectionalSamplingRate = default!;
+        /// <summary>Specifies the codec to be used for the streamed audio. When set to `default` or when transcoding is not possible, the codec from the call will be used. Requires `StreamUrl`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamCodec? StreamCodec { get => _explicitNullValueStreamCodec; set { _explicitNullValueStreamCodec = value; AdditionalData?.Remove("StreamCodec"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamCodec"); else _explicitNullProperties?.Remove("StreamCodec"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamCodec? _explicitNullValueStreamCodec = default!;
+        /// <summary>Establishes the WebSocket connection before the destination is dialed, so no audio is missed while the connection is set up. If the WebSocket connection can&apos;t be established, the call is not placed and the request fails with a `422` error. `StreamUrl` is required when this is `true`.</summary>
+        public bool? StreamEstablishBeforeCallOriginate { get => _explicitNullValueStreamEstablishBeforeCallOriginate; set { _explicitNullValueStreamEstablishBeforeCallOriginate = value; AdditionalData?.Remove("StreamEstablishBeforeCallOriginate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamEstablishBeforeCallOriginate"); else _explicitNullProperties?.Remove("StreamEstablishBeforeCallOriginate"); } }
+        private bool? _explicitNullValueStreamEstablishBeforeCallOriginate = default!;
+        /// <summary>Specifies which track should be streamed. Requires `StreamUrl`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamTrack? StreamTrack { get => _explicitNullValueStreamTrack; set { _explicitNullValueStreamTrack = value; AdditionalData?.Remove("StreamTrack"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamTrack"); else _explicitNullProperties?.Remove("StreamTrack"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamTrack? _explicitNullValueStreamTrack = default!;
+        /// <summary>The destination WebSocket address where the call&apos;s media stream is delivered, for example `wss://www.example.com/websocket`. When set, a media stream is started on the outbound call. Required when any other `Stream*` parameter is set. Can&apos;t be combined with `SuperviseCallSid`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; AdditionalData?.Remove("StreamUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamUrl"); else _explicitNullProperties?.Remove("StreamUrl"); } }
+        private string? _explicitNullValueStreamUrl = default!;
+#nullable restore
+#else
+        public string StreamUrl { get => _explicitNullValueStreamUrl; set { _explicitNullValueStreamUrl = value; AdditionalData?.Remove("StreamUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("StreamUrl"); else _explicitNullProperties?.Remove("StreamUrl"); } }
+        private string _explicitNullValueStreamUrl = default!;
+#endif
         /// <summary>The call control ID of the existing call to supervise. When provided, the created leg will be added to the specified call in supervising mode. Status callbacks and action callbacks will NOT be sent for the supervising leg.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -428,6 +482,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             RecordingTimeout = 0;
             SendRecordingUrl = true;
             StatusCallbackEvent = "completed";
+            StreamBidirectionalSamplingRate = 8000;
+            StreamEstablishBeforeCallOriginate = false;
             TimeLimit = 14400;
             Timeout = 30;
         }
@@ -493,6 +549,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
                 { "StatusCallbackEvent", n => { StatusCallbackEvent = n.GetStringValue(); } },
                 { "StatusCallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStatusCallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatusCallbackMethod = default; _explicitNullProperties?.Remove("StatusCallbackMethod"); AdditionalData["StatusCallbackMethod"] = unknown; } else { StatusCallbackMethod = parsed; AdditionalData.Remove("StatusCallbackMethod"); } } },
+                { "StreamAuthToken", n => { StreamAuthToken = n.GetStringValue(); } },
+                { "StreamBidirectionalCodec", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalCodec>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamBidirectionalCodec = default; _explicitNullProperties?.Remove("StreamBidirectionalCodec"); AdditionalData["StreamBidirectionalCodec"] = unknown; } else { StreamBidirectionalCodec = parsed; AdditionalData.Remove("StreamBidirectionalCodec"); } } },
+                { "StreamBidirectionalMode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamBidirectionalMode = default; _explicitNullProperties?.Remove("StreamBidirectionalMode"); AdditionalData["StreamBidirectionalMode"] = unknown; } else { StreamBidirectionalMode = parsed; AdditionalData.Remove("StreamBidirectionalMode"); } } },
+                { "StreamBidirectionalSamplingRate", n => { StreamBidirectionalSamplingRate = n.GetIntValue(); } },
+                { "StreamCodec", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamCodec>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamCodec = default; _explicitNullProperties?.Remove("StreamCodec"); AdditionalData["StreamCodec"] = unknown; } else { StreamCodec = parsed; AdditionalData.Remove("StreamCodec"); } } },
+                { "StreamEstablishBeforeCallOriginate", n => { StreamEstablishBeforeCallOriginate = n.GetBoolValue(); } },
+                { "StreamTrack", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamTrack>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamTrack = default; _explicitNullProperties?.Remove("StreamTrack"); AdditionalData["StreamTrack"] = unknown; } else { StreamTrack = parsed; AdditionalData.Remove("StreamTrack"); } } },
+                { "StreamUrl", n => { StreamUrl = n.GetStringValue(); } },
                 { "SuperviseCallSid", n => { SuperviseCallSid = n.GetStringValue(); } },
                 { "SupervisingRole", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestSupervisingRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSupervisingRole = default; _explicitNullProperties?.Remove("SupervisingRole"); AdditionalData["SupervisingRole"] = unknown; } else { SupervisingRole = parsed; AdditionalData.Remove("SupervisingRole"); } } },
                 { "Texml", n => { Texml = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -555,6 +619,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("StatusCallback", StatusCallback);
             writer.WriteStringValue("StatusCallbackEvent", StatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteStringValue("StreamAuthToken", StreamAuthToken);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalCodec>("StreamBidirectionalCodec", StreamBidirectionalCodec);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamBidirectionalMode>("StreamBidirectionalMode", StreamBidirectionalMode);
+            writer.WriteIntValue("StreamBidirectionalSamplingRate", StreamBidirectionalSamplingRate);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamCodec>("StreamCodec", StreamCodec);
+            writer.WriteBoolValue("StreamEstablishBeforeCallOriginate", StreamEstablishBeforeCallOriginate);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestStreamTrack>("StreamTrack", StreamTrack);
+            writer.WriteStringValue("StreamUrl", StreamUrl);
             writer.WriteStringValue("SuperviseCallSid", SuperviseCallSid);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestSupervisingRole>("SupervisingRole", SupervisingRole);
             writer.WriteObjectValue<UntypedNode>("Texml", Texml);
