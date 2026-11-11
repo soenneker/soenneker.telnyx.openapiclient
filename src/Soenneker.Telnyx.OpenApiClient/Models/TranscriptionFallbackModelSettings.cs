@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. A comma-separated list of terms to boost for recognition during transcription, for staff names, building names, or other domain-specific vocabulary. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to Soniox.</summary>
+        /// <summary>Available only for soniox/stt-rt-v4, soniox/stt-rt-v5, and soniox/stt-rt-v6. A comma-separated list of terms to boost for recognition during transcription, for staff names, building names, or other domain-specific vocabulary. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to Soniox.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Available only for deepgram/flux. Confidence threshold for eager end of turn detection. Must be lower than or equal to eot_threshold. Setting this equal to eot_threshold effectively disables eager end of turn.</summary>
         public double? EagerEotThreshold { get => _explicitNullValueEagerEotThreshold; set { _explicitNullValueEagerEotThreshold = value; AdditionalData?.Remove("eager_eot_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eager_eot_threshold"); else _explicitNullProperties?.Remove("eager_eot_threshold"); } }
         private double? _explicitNullValueEagerEotThreshold = default!;
-        /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox emits end-of-utterance events at the cadence configured by `max_endpoint_delay_ms`.</summary>
+        /// <summary>Available only for soniox/stt-rt-v4, soniox/stt-rt-v5, and soniox/stt-rt-v6. When true, Soniox emits end-of-utterance events at the cadence configured by `max_endpoint_delay_ms`.</summary>
         public bool? EnableEndpointDetection { get => _explicitNullValueEnableEndpointDetection; set { _explicitNullValueEnableEndpointDetection = value; AdditionalData?.Remove("enable_endpoint_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_endpoint_detection"); else _explicitNullProperties?.Remove("enable_endpoint_detection"); } }
         private bool? _explicitNullValueEnableEndpointDetection = default!;
         /// <summary>Deprecated and ignored. Accepted for backwards compatibility. AssemblyAI turn detection is configured with min_turn_silence and max_turn_silence.</summary>
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Available only for deepgram/flux. Maximum milliseconds of silence before forcing an end of turn, regardless of confidence.</summary>
         public int? EotTimeoutMs { get => _explicitNullValueEotTimeoutMs; set { _explicitNullValueEotTimeoutMs = value; AdditionalData?.Remove("eot_timeout_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eot_timeout_ms"); else _explicitNullProperties?.Remove("eot_timeout_ms"); } }
         private int? _explicitNullValueEotTimeoutMs = default!;
-        /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. When true, Soniox streams interim (non-final) results in addition to finalized transcripts.</summary>
+        /// <summary>Available only for soniox/stt-rt-v4, soniox/stt-rt-v5, and soniox/stt-rt-v6. When true, Soniox streams interim (non-final) results in addition to finalized transcripts.</summary>
         public bool? InterimResults { get => _explicitNullValueInterimResults; set { _explicitNullValueInterimResults = value; AdditionalData?.Remove("interim_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interim_results"); else _explicitNullProperties?.Remove("interim_results"); } }
         private bool? _explicitNullValueInterimResults = default!;
         /// <summary>A comma-separated list of key terms to boost for recognition during transcription, used by Deepgram, Reson8, Speechmatics Linden 1 and AssemblyAI models. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. At most 1000 characters in total. For assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming), also at most 100 terms of up to 50 characters each. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Keyterm { get => _explicitNullValueKeyterm; set { _explicitNullValueKeyterm = value; AdditionalData?.Remove("keyterm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyterm"); else _explicitNullProperties?.Remove("keyterm"); } }
         private string _explicitNullValueKeyterm = default!;
 #endif
-        /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. A list of ISO 639-1 language codes (e.g. `[&quot;nl&quot;, &quot;fr&quot;]`) to pin recognition to multiple languages at once, overriding the single hint derived from `language`.</summary>
+        /// <summary>Available only for soniox/stt-rt-v4, soniox/stt-rt-v5, and soniox/stt-rt-v6. A list of ISO 639-1 language codes (e.g. `[&quot;nl&quot;, &quot;fr&quot;]`) to pin recognition to multiple languages at once, overriding the single hint derived from `language`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? LanguageHints { get => _explicitNullValueLanguageHints; set { _explicitNullValueLanguageHints = value; AdditionalData?.Remove("language_hints"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_hints"); else _explicitNullProperties?.Remove("language_hints"); } }
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> LanguageHints { get => _explicitNullValueLanguageHints; set { _explicitNullValueLanguageHints = value; AdditionalData?.Remove("language_hints"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_hints"); else _explicitNullProperties?.Remove("language_hints"); } }
         private List<string> _explicitNullValueLanguageHints = default!;
 #endif
-        /// <summary>Available only for soniox/stt-rt-v4 and soniox/stt-rt-v5. Maximum silence (in milliseconds) before Soniox emits an end-of-utterance event. Only honored when `enable_endpoint_detection` is true.</summary>
+        /// <summary>Available only for soniox/stt-rt-v4, soniox/stt-rt-v5, and soniox/stt-rt-v6. Maximum silence (in milliseconds) before Soniox emits an end-of-utterance event. Only honored when `enable_endpoint_detection` is true.</summary>
         public int? MaxEndpointDelayMs { get => _explicitNullValueMaxEndpointDelayMs; set { _explicitNullValueMaxEndpointDelayMs = value; AdditionalData?.Remove("max_endpoint_delay_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_endpoint_delay_ms"); else _explicitNullProperties?.Remove("max_endpoint_delay_ms"); } }
         private int? _explicitNullValueMaxEndpointDelayMs = default!;
         /// <summary>Available only for assemblyai/universal-3-6-pro (and its legacy aliases assemblyai/universal-3-5-pro and assemblyai/universal-streaming). Maximum duration of silence in milliseconds before forcing an end of turn.</summary>

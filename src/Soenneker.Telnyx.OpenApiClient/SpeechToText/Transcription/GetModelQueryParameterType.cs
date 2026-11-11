@@ -76,6 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         #pragma warning disable CS1591
         SonioxSttRtV4,
         #pragma warning restore CS1591
+        [EnumMember(Value = "soniox/stt-rt-v6")]
+        #pragma warning disable CS1591
+        SonioxSttRtV6,
+        #pragma warning restore CS1591
         [EnumMember(Value = "nvidia/parakeet-v3")]
         #pragma warning disable CS1591
         NvidiaParakeetV3,

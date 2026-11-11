@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
-        /// <summary>Whether the model can be used as a base for a fine-tuning job via `POST /v2/ai/fine_tuning/jobs`.</summary>
+        /// <summary>Whether the model can be used as a base for fine-tuning. Fine-tuning jobs are no longer served by the Telnyx API.</summary>
         public bool? IsFineTunable { get => _explicitNullValueIsFineTunable; set { _explicitNullValueIsFineTunable = value; AdditionalData?.Remove("is_fine_tunable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_fine_tunable"); else _explicitNullProperties?.Remove("is_fine_tunable"); } }
         private bool? _explicitNullValueIsFineTunable = default!;
         /// <summary>Whether the model accepts image inputs in chat completions (multimodal vision support).</summary>

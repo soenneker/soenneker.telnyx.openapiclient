@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; AdditionalData?.Remove("transcription_engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SonioxTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SonioxSttRtV4TranscriptionModel? TranscriptionModel { get => _explicitNullValueTranscriptionModel; set { _explicitNullValueTranscriptionModel = value; AdditionalData?.Remove("transcription_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_model"); else _explicitNullProperties?.Remove("transcription_model"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.SonioxSttRtV4TranscriptionModel? _explicitNullValueTranscriptionModel = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfigTranscriptionModel? TranscriptionModel { get => _explicitNullValueTranscriptionModel; set { _explicitNullValueTranscriptionModel = value; AdditionalData?.Remove("transcription_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_model"); else _explicitNullProperties?.Remove("transcription_model"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfigTranscriptionModel? _explicitNullValueTranscriptionModel = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfig"/> and sets the default values.
         /// </summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "max_endpoint_delay_ms", n => { MaxEndpointDelayMs = n.GetIntValue(); } },
                 { "transcription_engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SonioxTranscriptionEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTranscriptionEngine = default; _explicitNullProperties?.Remove("transcription_engine"); AdditionalData["transcription_engine"] = unknown; } else { TranscriptionEngine = parsed; AdditionalData.Remove("transcription_engine"); } } },
-                { "transcription_model", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SonioxSttRtV4TranscriptionModel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTranscriptionModel = default; _explicitNullProperties?.Remove("transcription_model"); AdditionalData["transcription_model"] = unknown; } else { TranscriptionModel = parsed; AdditionalData.Remove("transcription_model"); } } },
+                { "transcription_model", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfigTranscriptionModel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTranscriptionModel = default; _explicitNullProperties?.Remove("transcription_model"); AdditionalData["transcription_model"] = unknown; } else { TranscriptionModel = parsed; AdditionalData.Remove("transcription_model"); } } },
             };
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("language", Language);
             writer.WriteIntValue("max_endpoint_delay_ms", MaxEndpointDelayMs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SonioxTranscriptionEngine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SonioxSttRtV4TranscriptionModel>("transcription_model", TranscriptionModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineSonioxConfigTranscriptionModel>("transcription_model", TranscriptionModel);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

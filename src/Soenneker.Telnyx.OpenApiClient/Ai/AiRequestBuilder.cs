@@ -12,7 +12,6 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Collections;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversation_histories;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
-using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
 using Soenneker.Telnyx.OpenApiClient.Ai.Integrations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Knowledge;
 using Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers;
@@ -86,11 +85,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder Embeddings
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The fine_tuning property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Fine_tuningRequestBuilder Fine_tuning
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Fine_tuningRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The integrations property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.IntegrationsRequestBuilder Integrations
