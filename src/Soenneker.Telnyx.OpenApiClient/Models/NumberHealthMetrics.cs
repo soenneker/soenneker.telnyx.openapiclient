@@ -34,8 +34,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public float? InboundOutboundRatio { get => _explicitNullValueInboundOutboundRatio; set { _explicitNullValueInboundOutboundRatio = value; AdditionalData?.Remove("inbound_outbound_ratio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbound_outbound_ratio"); else _explicitNullProperties?.Remove("inbound_outbound_ratio"); } }
         private float? _explicitNullValueInboundOutboundRatio = default!;
         /// <summary>The number of messages analyzed for the health metrics.</summary>
-        public int? MessageCount { get => _explicitNullValueMessageCount; set { _explicitNullValueMessageCount = value; AdditionalData?.Remove("message_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_count"); else _explicitNullProperties?.Remove("message_count"); } }
-        private int? _explicitNullValueMessageCount = default!;
+        public double? MessageCount { get => _explicitNullValueMessageCount; set { _explicitNullValueMessageCount = value; AdditionalData?.Remove("message_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_count"); else _explicitNullProperties?.Remove("message_count"); } }
+        private double? _explicitNullValueMessageCount = default!;
         /// <summary>The ratio of messages blocked for spam to the number of messages attempted.</summary>
         public float? SpamRatio { get => _explicitNullValueSpamRatio; set { _explicitNullValueSpamRatio = value; AdditionalData?.Remove("spam_ratio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_ratio"); else _explicitNullProperties?.Remove("spam_ratio"); } }
         private float? _explicitNullValueSpamRatio = default!;
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "inbound_outbound_ratio", n => { InboundOutboundRatio = n.GetFloatValue(); } },
-                { "message_count", n => { MessageCount = n.GetIntValue(); } },
+                { "message_count", n => { MessageCount = n.GetDoubleValue(); } },
                 { "spam_ratio", n => { SpamRatio = n.GetFloatValue(); } },
                 { "success_ratio", n => { SuccessRatio = n.GetFloatValue(); } },
             };
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteFloatValue("inbound_outbound_ratio", InboundOutboundRatio);
-            writer.WriteIntValue("message_count", MessageCount);
+            writer.WriteDoubleValue("message_count", MessageCount);
             writer.WriteFloatValue("spam_ratio", SpamRatio);
             writer.WriteFloatValue("success_ratio", SuccessRatio);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
