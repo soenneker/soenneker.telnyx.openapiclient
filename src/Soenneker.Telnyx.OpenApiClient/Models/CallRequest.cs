@@ -607,7 +607,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(65)
             {
                 { "answering_machine_detection", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetection>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnsweringMachineDetection = default; _explicitNullProperties?.Remove("answering_machine_detection"); AdditionalData["answering_machine_detection"] = unknown; } else { AnsweringMachineDetection = parsed; AdditionalData.Remove("answering_machine_detection"); } } },
                 { "answering_machine_detection_config", n => { AnsweringMachineDetectionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig.CreateFromDiscriminatorValue); } },

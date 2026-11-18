@@ -222,7 +222,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "aws", n => { Aws = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AwsProviderParams.CreateFromDiscriminatorValue); } },
                 { "azure", n => { Azure = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams.CreateFromDiscriminatorValue); } },

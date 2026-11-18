@@ -156,7 +156,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "agent_thinking_text", n => { AgentThinkingText = n.GetStringValue(); } },
                 { "audio_visualizer_config", n => { AudioVisualizerConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.AudioVisualizerConfig.CreateFromDiscriminatorValue); } },

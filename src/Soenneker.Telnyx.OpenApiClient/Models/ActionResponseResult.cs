@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "artifact", n => { Artifact = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionResponseResultArtifact>(global::Soenneker.Telnyx.OpenApiClient.Models.ActionResponseResultArtifact.CreateFromDiscriminatorValue); } },
                 { "observation", n => { Observation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionResponseResultObservation>(global::Soenneker.Telnyx.OpenApiClient.Models.ActionResponseResultObservation.CreateFromDiscriminatorValue); } },

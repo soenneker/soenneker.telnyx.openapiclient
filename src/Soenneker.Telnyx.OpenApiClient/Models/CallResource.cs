@@ -239,7 +239,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(18)
             {
                 { "account_sid", n => { AccountSid = n.GetStringValue(); } },
                 { "answered_by", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceAnsweredBy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnsweredBy = default; _explicitNullProperties?.Remove("answered_by"); AdditionalData["answered_by"] = unknown; } else { AnsweredBy = parsed; AdditionalData.Remove("answered_by"); } } },

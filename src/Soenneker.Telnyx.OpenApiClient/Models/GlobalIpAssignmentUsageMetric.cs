@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp.CreateFromDiscriminatorValue); } },
                 { "global_ip_assignment", n => { GlobalIpAssignment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment.CreateFromDiscriminatorValue); } },

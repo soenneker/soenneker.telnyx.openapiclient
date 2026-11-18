@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "content_info", n => { ContentInfo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsContentInfo.CreateFromDiscriminatorValue); } },
                 { "rich_card", n => { RichCard = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsRichCard.CreateFromDiscriminatorValue); } },

@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "available_usages", n => { AvailableUsages = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.UploadAvailableUsagesItem>()?.AsList(); } },
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },

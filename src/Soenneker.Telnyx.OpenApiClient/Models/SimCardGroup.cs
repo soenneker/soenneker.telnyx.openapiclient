@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "consumed_data", n => { ConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData>(global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },

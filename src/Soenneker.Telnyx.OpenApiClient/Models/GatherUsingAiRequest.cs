@@ -198,7 +198,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant>(global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.CreateFromDiscriminatorValue); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },

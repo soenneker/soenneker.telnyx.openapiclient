@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "external_sip_connection", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExternalSipConnection = default; _explicitNullProperties?.Remove("external_sip_connection"); AdditionalData["external_sip_connection"] = unknown; } else { ExternalSipConnection = parsed; AdditionalData.Remove("external_sip_connection"); } } },

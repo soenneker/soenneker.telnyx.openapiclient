@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "conversation_profile_id", n => { ConversationProfileId = n.GetStringValue(); } },
                 { "dialogflow_api", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnectionDialogflowApi>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDialogflowApi = default; _explicitNullProperties?.Remove("dialogflow_api"); AdditionalData["dialogflow_api"] = unknown; } else { DialogflowApi = parsed; AdditionalData.Remove("dialogflow_api"); } } },

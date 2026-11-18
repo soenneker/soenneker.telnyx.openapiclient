@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "end_user_target_context_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsWarmTransferAcceptanceEndUserTargetContextMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEndUserTargetContextMode = default; _explicitNullProperties?.Remove("end_user_target_context_mode"); AdditionalData["end_user_target_context_mode"] = unknown; } else { EndUserTargetContextMode = parsed; AdditionalData.Remove("end_user_target_context_mode"); } } },

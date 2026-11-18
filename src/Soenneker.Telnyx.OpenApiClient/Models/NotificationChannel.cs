@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "channel_destination", n => { ChannelDestination = n.GetStringValue(); } },
                 { "channel_type_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannelChannelTypeId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChannelTypeId = default; _explicitNullProperties?.Remove("channel_type_id"); AdditionalData["channel_type_id"] = unknown; } else { ChannelTypeId = parsed; AdditionalData.Remove("channel_type_id"); } } },

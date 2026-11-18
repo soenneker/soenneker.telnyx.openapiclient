@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "challenge_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BotChallengeResponseDataChallengeType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChallengeType = default; _explicitNullProperties?.Remove("challenge_type"); AdditionalData["challenge_type"] = unknown; } else { ChallengeType = parsed; AdditionalData.Remove("challenge_type"); } } },
                 { "nonce", n => { Nonce = n.GetGuidValue(); } },

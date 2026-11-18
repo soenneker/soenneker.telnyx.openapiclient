@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "call_forwarding", n => { CallForwarding = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoiceCallForwarding>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoiceCallForwarding.CreateFromDiscriminatorValue); } },
                 { "call_recording", n => { CallRecording = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoiceCallRecording>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobParametersVoiceCallRecording.CreateFromDiscriminatorValue); } },

@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "available_bandwidth", n => { AvailableBandwidth = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "cloud_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsVirtualCrossConnectCoverageCloudProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCloudProvider = default; _explicitNullProperties?.Remove("cloud_provider"); AdditionalData["cloud_provider"] = unknown; } else { CloudProvider = parsed; AdditionalData.Remove("cloud_provider"); } } },

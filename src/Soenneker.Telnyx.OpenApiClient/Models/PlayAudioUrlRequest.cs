@@ -158,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "audio_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequestAudioType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAudioType = default; _explicitNullProperties?.Remove("audio_type"); AdditionalData["audio_type"] = unknown; } else { AudioType = parsed; AdditionalData.Remove("audio_type"); } } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },

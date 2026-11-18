@@ -144,7 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "beep_enabled", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfigBeepEnabled>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBeepEnabled = default; _explicitNullProperties?.Remove("beep_enabled"); AdditionalData["beep_enabled"] = unknown; } else { BeepEnabled = parsed; AdditionalData.Remove("beep_enabled"); } } },
                 { "conference_name", n => { ConferenceName = n.GetStringValue(); } },

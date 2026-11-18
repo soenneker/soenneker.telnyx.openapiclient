@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingRecordingExportFailedWebhookRequestData>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingRecordingExportFailedWebhookRequestData.CreateFromDiscriminatorValue); } },
                 { "event", n => { Event = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingExportFailedEvent>(); } },

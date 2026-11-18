@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "call_recording_caller_phone_numbers", n => { CallRecordingCallerPhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "call_recording_channels", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecordingCallRecordingChannels>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCallRecordingChannels = default; _explicitNullProperties?.Remove("call_recording_channels"); AdditionalData["call_recording_channels"] = unknown; } else { CallRecordingChannels = parsed; AdditionalData.Remove("call_recording_channels"); } } },

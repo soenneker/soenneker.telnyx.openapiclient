@@ -141,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "create_calendar_event_action", n => { CreateCalendarEventAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsCreateCalendarEventAction.CreateFromDiscriminatorValue); } },
                 { "dial_action", n => { DialAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RcsDialAction.CreateFromDiscriminatorValue); } },

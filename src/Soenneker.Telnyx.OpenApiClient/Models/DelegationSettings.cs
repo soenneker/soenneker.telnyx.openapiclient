@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettingsExternalLlm>(global::Soenneker.Telnyx.OpenApiClient.Models.DelegationSettingsExternalLlm.CreateFromDiscriminatorValue); } },

@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "conferences", n => { Conferences = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "end", n => { End = n.GetIntValue(); } },

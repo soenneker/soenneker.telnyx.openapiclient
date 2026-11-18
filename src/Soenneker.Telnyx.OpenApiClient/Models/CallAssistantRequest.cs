@@ -226,7 +226,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestDynamicVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm.CreateFromDiscriminatorValue); } },

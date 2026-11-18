@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
                 { "ownership_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RemovedOwnershipStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOwnershipStatus = default; _explicitNullProperties?.Remove("ownership_status"); AdditionalData["ownership_status"] = unknown; } else { OwnershipStatus = parsed; AdditionalData.Remove("ownership_status"); } } },

@@ -182,7 +182,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "client_side_tool", n => { ClientSideTool = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestClientSideToolProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSharedToolRequestClientSideToolProperty.CreateFromDiscriminatorValue); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },

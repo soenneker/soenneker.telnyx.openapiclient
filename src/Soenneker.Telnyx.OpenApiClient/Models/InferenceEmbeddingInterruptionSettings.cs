@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "disable_greeting_interruption", n => { DisableGreetingInterruption = n.GetBoolValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },

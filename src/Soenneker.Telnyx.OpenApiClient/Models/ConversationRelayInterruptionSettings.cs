@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "interruptible", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterruptible = default; _explicitNullProperties?.Remove("interruptible"); AdditionalData["interruptible"] = unknown; } else { Interruptible = parsed; AdditionalData.Remove("interruptible"); } } },

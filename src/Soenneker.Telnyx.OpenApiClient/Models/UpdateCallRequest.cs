@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "FallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequestFallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFallbackMethod = default; _explicitNullProperties?.Remove("FallbackMethod"); AdditionalData["FallbackMethod"] = unknown; } else { FallbackMethod = parsed; AdditionalData.Remove("FallbackMethod"); } } },
                 { "FallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },

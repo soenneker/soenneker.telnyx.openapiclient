@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "address_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessPrivateWirelessGatewayAddressMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAddressMode = default; _explicitNullProperties?.Remove("address_mode"); AdditionalData["address_mode"] = unknown; } else { AddressMode = parsed; AdditionalData.Remove("address_mode"); } } },
                 { "assigned_resources", n => { AssignedResources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.PwgAssignedResourcesSummary.CreateFromDiscriminatorValue)?.AsList(); } },

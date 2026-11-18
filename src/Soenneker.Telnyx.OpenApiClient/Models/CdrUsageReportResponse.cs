@@ -132,7 +132,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "aggregation_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseAggregationType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAggregationType = default; _explicitNullProperties?.Remove("aggregation_type"); AdditionalData["aggregation_type"] = unknown; } else { AggregationType = parsed; AdditionalData.Remove("aggregation_type"); } } },
                 { "connections", n => { Connections = n.GetCollectionOfPrimitiveValues<long?>()?.AsList(); } },

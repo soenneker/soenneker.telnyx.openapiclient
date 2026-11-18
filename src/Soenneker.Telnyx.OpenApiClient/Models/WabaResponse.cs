@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "account_review_status", n => { AccountReviewStatus = n.GetStringValue(); } },
                 { "business_verification_status", n => { BusinessVerificationStatus = n.GetStringValue(); } },

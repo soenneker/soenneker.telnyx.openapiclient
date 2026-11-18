@@ -170,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "add_to_new_agents", n => { AddToNewAgents = n.GetBoolValue(); } },
                 { "agents", n => { Agents = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },

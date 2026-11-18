@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "p", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDmarcPolicyP>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueP = default; _explicitNullProperties?.Remove("p"); AdditionalData["p"] = unknown; } else { P = parsed; AdditionalData.Remove("p"); } } },
                 { "pct", n => { Pct = n.GetIntValue(); } },

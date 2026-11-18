@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "by_day", n => { ByDay = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem>(global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByDayItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "by_model", n => { ByModel = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem>(global::Soenneker.Telnyx.OpenApiClient.Models.GatewayUsageDataByModelItem.CreateFromDiscriminatorValue)?.AsList(); } },

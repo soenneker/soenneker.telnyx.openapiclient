@@ -150,7 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "display_text", n => { DisplayText = n.GetStringValue(); } },
                 { "flow_action", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingWhatsappInteractiveActionParametersFlowAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFlowAction = default; _explicitNullProperties?.Remove("flow_action"); AdditionalData["flow_action"] = unknown; } else { FlowAction = parsed; AdditionalData.Remove("flow_action"); } } },

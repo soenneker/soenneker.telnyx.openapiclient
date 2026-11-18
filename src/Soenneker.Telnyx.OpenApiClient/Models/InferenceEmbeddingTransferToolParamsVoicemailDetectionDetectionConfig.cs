@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "after_greeting_silence_millis", n => { AfterGreetingSilenceMillis = n.GetIntValue(); } },
                 { "between_words_silence_millis", n => { BetweenWordsSilenceMillis = n.GetIntValue(); } },

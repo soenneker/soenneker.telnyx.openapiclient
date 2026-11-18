@@ -311,7 +311,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(24)
             {
                 { "bank_account_number", n => { BankAccountNumber = n.GetStringValue(); } },
                 { "bank_account_type", n => { BankAccountType = n.GetStringValue(); } },

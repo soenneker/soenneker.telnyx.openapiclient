@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "allow_multiple_channels", n => { AllowMultipleChannels = n.GetBoolValue(); } },
                 { "associated_record_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventConditionAssociatedRecordType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAssociatedRecordType = default; _explicitNullProperties?.Remove("associated_record_type"); AdditionalData["associated_record_type"] = unknown; } else { AssociatedRecordType = parsed; AdditionalData.Remove("associated_record_type"); } } },

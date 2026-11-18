@@ -167,7 +167,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "ani_override", n => { AniOverride = n.GetStringValue(); } },
                 { "ani_override_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdnAniOverrideType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAniOverrideType = default; _explicitNullProperties?.Remove("ani_override_type"); AdditionalData["ani_override_type"] = unknown; } else { AniOverrideType = parsed; AdditionalData.Remove("ani_override_type"); } } },

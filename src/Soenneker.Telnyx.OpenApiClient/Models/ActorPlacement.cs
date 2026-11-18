@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "cluster_results", n => { ClusterResults = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult>(global::Soenneker.Telnyx.OpenApiClient.Models.ActorClusterResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "clusters", n => { Clusters = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "counts", n => { Counts = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventCounts>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventCounts.CreateFromDiscriminatorValue); } },
                 { "rates", n => { Rates = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRates>(global::Soenneker.Telnyx.OpenApiClient.Models.EmailEventRates.CreateFromDiscriminatorValue); } },

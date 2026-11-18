@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "bank-account-number", n => { BankAccountNumber = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsBankAccountNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsBankAccountNumber.CreateFromDiscriminatorValue); } },
                 { "bank-routing-number", n => { BankRoutingNumber = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsBankRoutingNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PayToolParamsPromptsBankRoutingNumber.CreateFromDiscriminatorValue); } },

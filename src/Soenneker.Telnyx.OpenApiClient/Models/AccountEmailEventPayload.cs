@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "bcc", n => { Bcc = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadBcc>(global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadBcc.CreateFromDiscriminatorValue); } },
                 { "cc", n => { Cc = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCc>(global::Soenneker.Telnyx.OpenApiClient.Models.AccountEmailEventPayloadCc.CreateFromDiscriminatorValue); } },

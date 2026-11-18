@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "emotion", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParamsEmotion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEmotion = default; _explicitNullProperties?.Remove("emotion"); AdditionalData["emotion"] = unknown; } else { Emotion = parsed; AdditionalData.Remove("emotion"); } } },
                 { "response_format", n => { ResponseFormat = n.GetStringValue(); } },

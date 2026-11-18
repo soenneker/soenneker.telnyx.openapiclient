@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RefreshReputationResponseDataResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_failed", n => { TotalFailed = n.GetIntValue(); } },

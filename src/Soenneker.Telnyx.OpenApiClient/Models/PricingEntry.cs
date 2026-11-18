@@ -249,7 +249,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "cached_input_rate", n => { CachedInputRate = n.GetStringValue(); } },
                 { "cached_input_tiers", n => { CachedInputTiers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier>(global::Soenneker.Telnyx.OpenApiClient.Models.PricingTier.CreateFromDiscriminatorValue)?.AsList(); } },

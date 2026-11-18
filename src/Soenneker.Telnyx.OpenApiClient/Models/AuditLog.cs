@@ -129,7 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "alternate_resource_id", n => { AlternateResourceId = n.GetStringValue(); } },
                 { "change_made_by", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLogChangeMadeBy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChangeMadeBy = default; _explicitNullProperties?.Remove("change_made_by"); AdditionalData["change_made_by"] = unknown; } else { ChangeMadeBy = parsed; AdditionalData.Remove("change_made_by"); } } },

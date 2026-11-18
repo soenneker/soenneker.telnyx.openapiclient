@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "carrier", n => { Carrier = n.GetStringValue(); } },
                 { "line_type", n => { var parsed = (n.GetStringValue() == "" ? global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCcItemLineType.EmptyString : n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCcItemLineType>()); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLineType = default; _explicitNullProperties?.Remove("line_type"); AdditionalData["line_type"] = unknown; } else { LineType = parsed; AdditionalData.Remove("line_type"); } } },

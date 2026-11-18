@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "avatar_type", n => { AvatarType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarType>(); } },
                 { "content_type", n => { ContentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvatarContentType>(); } },

@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "AccountSid", n => { AccountSid = n.GetStringValue(); } },
                 { "AnsweredBy", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCallAmdWebhookSchemaAnsweredBy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnsweredBy = default; _explicitNullProperties?.Remove("AnsweredBy"); AdditionalData["AnsweredBy"] = unknown; } else { AnsweredBy = parsed; AdditionalData.Remove("AnsweredBy"); } } },

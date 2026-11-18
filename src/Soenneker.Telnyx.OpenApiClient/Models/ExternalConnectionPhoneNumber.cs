@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "acquired_capabilities", n => { AcquiredCapabilities = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumberAcquiredCapabilitiesItem>()?.AsList(); } },
                 { "civic_address_id", n => { CivicAddressId = n.GetGuidValue(); } },

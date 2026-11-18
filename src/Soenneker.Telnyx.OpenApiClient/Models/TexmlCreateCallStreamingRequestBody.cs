@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "BidirectionalCodec", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBidirectionalCodec = default; _explicitNullProperties?.Remove("BidirectionalCodec"); AdditionalData["BidirectionalCodec"] = unknown; } else { BidirectionalCodec = parsed; AdditionalData.Remove("BidirectionalCodec"); } } },
                 { "BidirectionalMode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBidirectionalMode = default; _explicitNullProperties?.Remove("BidirectionalMode"); AdditionalData["BidirectionalMode"] = unknown; } else { BidirectionalMode = parsed; AdditionalData.Remove("BidirectionalMode"); } } },

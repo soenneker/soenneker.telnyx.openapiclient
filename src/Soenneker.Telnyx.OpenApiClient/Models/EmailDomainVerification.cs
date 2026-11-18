@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "dkim", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDkim>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDkim = default; _explicitNullProperties?.Remove("dkim"); AdditionalData["dkim"] = unknown; } else { Dkim = parsed; AdditionalData.Remove("dkim"); } } },
                 { "dmarc", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmailDomainVerificationDmarc>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDmarc = default; _explicitNullProperties?.Remove("dmarc"); AdditionalData["dmarc"] = unknown; } else { Dmarc = parsed; AdditionalData.Remove("dmarc"); } } },

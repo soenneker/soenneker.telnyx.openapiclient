@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "average_dps", n => { AverageDps = n.GetDoubleValue(); } },
                 { "dials", n => { Dials = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricDials>(global::Soenneker.Telnyx.OpenApiClient.Models.DialMetricDials.CreateFromDiscriminatorValue); } },

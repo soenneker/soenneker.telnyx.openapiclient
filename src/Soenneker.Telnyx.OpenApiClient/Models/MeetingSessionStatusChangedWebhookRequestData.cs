@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "previous_status", n => { PreviousStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatusChangedWebhookRequestDataPreviousStatus>(); } },
                 { "recording", n => { Recording = n.GetBoolValue(); } },

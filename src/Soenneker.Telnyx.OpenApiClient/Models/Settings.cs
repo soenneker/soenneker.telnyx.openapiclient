@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "idp_cert_fingerprint", n => { IdpCertFingerprint = n.GetStringValue(); } },
                 { "idp_cert_fingerprint_algorithm", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SettingsIdpCertFingerprintAlgorithm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIdpCertFingerprintAlgorithm = default; _explicitNullProperties?.Remove("idp_cert_fingerprint_algorithm"); AdditionalData["idp_cert_fingerprint_algorithm"] = unknown; } else { IdpCertFingerprintAlgorithm = parsed; AdditionalData.Remove("idp_cert_fingerprint_algorithm"); } } },

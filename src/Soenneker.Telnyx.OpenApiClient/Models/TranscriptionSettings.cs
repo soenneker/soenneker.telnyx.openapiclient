@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "challenger", n => { Challenger = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsChallenger.CreateFromDiscriminatorValue); } },
