@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all — when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single `delegate` tool that returns immediately, so the conversation carries on while the backend works. Either way the backend&apos;s answer is spoken as commentary or kept as silent context, depending on `speak_results`. Beta feature.
+    /// Splits the conversation between a frontend model that talks to the caller and a backend model that does the work. On the GPT-Live route the frontend model cannot call tools at all — when it needs something done it raises a delegation and waits. On the chat completion route the frontend keeps a single `delegate` tool that returns immediately, so the conversation carries on while the backend works. Either way the backend&apos;s answer is spoken as commentary or kept as silent context, depending on `speak_results`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DelegationSettings : IAdditionalDataHolder, IParsable

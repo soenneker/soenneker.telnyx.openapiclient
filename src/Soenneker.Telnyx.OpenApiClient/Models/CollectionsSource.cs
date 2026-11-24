@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
         private string _explicitNullValueRecordType = default!;
 #endif
-        /// <summary>The type of Telnyx data attached as a source. `bucket` requires an additional `bucket_id`. Only `voice` is searchable today; `meeting_bot`, `message`, and `bucket` attach but are not yet searchable (Coming soon).</summary>
+        /// <summary>The type of Telnyx data attached as a source. `bucket` requires an additional `bucket_id`. `voice`, `meeting_bot`, `message`, `email`, and `whatsapp` are searchable today; `bucket` attaches but is not yet searchable (Coming soon).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SourceType? SourceType { get => _explicitNullValueSourceType; set { _explicitNullValueSourceType = value; AdditionalData?.Remove("source_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_type"); else _explicitNullProperties?.Remove("source_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SourceType? _explicitNullValueSourceType = default!;
         /// <summary>The status property</summary>

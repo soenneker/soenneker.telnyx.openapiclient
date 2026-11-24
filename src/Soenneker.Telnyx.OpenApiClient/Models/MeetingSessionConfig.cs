@@ -27,6 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("leave_policy") is { } nullNodeLeavePolicy && nullNodeLeavePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeavePolicy = null;
             if (parseNode.GetChildNode("recording") is null) { _explicitNullValueRecording = default!; _explicitNullProperties?.Remove("recording"); }
             else if (parseNode.GetChildNode("recording") is { } nullNodeRecording && nullNodeRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recording = null;
+            if (parseNode.GetChildNode("recording_retention") is null) { _explicitNullValueRecordingRetention = default!; _explicitNullProperties?.Remove("recording_retention"); }
+            else if (parseNode.GetChildNode("recording_retention") is { } nullNodeRecordingRetention && nullNodeRecordingRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingRetention = null;
+            if (parseNode.GetChildNode("recording_screenshare_participants") is null) { _explicitNullValueRecordingScreenshareParticipants = default!; _explicitNullProperties?.Remove("recording_screenshare_participants"); }
+            else if (parseNode.GetChildNode("recording_screenshare_participants") is { } nullNodeRecordingScreenshareParticipants && nullNodeRecordingScreenshareParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingScreenshareParticipants = null;
             if (parseNode.GetChildNode("recording_view") is null) { _explicitNullValueRecordingView = default!; _explicitNullProperties?.Remove("recording_view"); }
             else if (parseNode.GetChildNode("recording_view") is { } nullNodeRecordingView && nullNodeRecordingView.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingView = null;
             if (parseNode.GetChildNode("speak_on_enter") is null) { _explicitNullValueSpeakOnEnter = default!; _explicitNullProperties?.Remove("speak_on_enter"); }
@@ -70,9 +74,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy LeavePolicy { get => _explicitNullValueLeavePolicy; set { _explicitNullValueLeavePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leave_policy"); else _explicitNullProperties?.Remove("leave_policy"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy _explicitNullValueLeavePolicy = default!;
 #endif
-        /// <summary>Recording intent set at creation for Google Meet and Teams. Distinct from the top-level recording field, which reports current activity.</summary>
+        /// <summary>Recording intent set at creation. Distinct from the top-level recording field, which reports current activity.</summary>
         public bool? Recording { get => _explicitNullValueRecording; set { _explicitNullValueRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording"); else _explicitNullProperties?.Remove("recording"); } }
         private bool? _explicitNullValueRecording = default!;
+        /// <summary>Automatic recording deletion policy set at creation. A days value is returned as hours.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention? RecordingRetention { get => _explicitNullValueRecordingRetention; set { _explicitNullValueRecordingRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_retention"); else _explicitNullProperties?.Remove("recording_retention"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention? _explicitNullValueRecordingRetention = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention RecordingRetention { get => _explicitNullValueRecordingRetention; set { _explicitNullValueRecordingRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_retention"); else _explicitNullProperties?.Remove("recording_retention"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention _explicitNullValueRecordingRetention = default!;
+#endif
+        /// <summary>Non-default placement of participant video while a screen is shared. Omitted for the default overlap behavior.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingScreenshareParticipants? RecordingScreenshareParticipants { get => _explicitNullValueRecordingScreenshareParticipants; set { _explicitNullValueRecordingScreenshareParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_screenshare_participants"); else _explicitNullProperties?.Remove("recording_screenshare_participants"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingScreenshareParticipants? _explicitNullValueRecordingScreenshareParticipants = default!;
         /// <summary>Non-default recording layout. Omitted for the default speaker_view layout.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView? RecordingView { get => _explicitNullValueRecordingView; set { _explicitNullValueRecordingView = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_view"); else _explicitNullProperties?.Remove("recording_view"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView? _explicitNullValueRecordingView = default!;
@@ -115,13 +132,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(9)
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "barge_in", n => { BargeIn = n.GetBoolValue(); } },
                 { "chat_on_enter", n => { ChatOnEnter = n.GetStringValue(); } },
                 { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection.CreateFromDiscriminatorValue); } },
                 { "leave_policy", n => { LeavePolicy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy.CreateFromDiscriminatorValue); } },
                 { "recording", n => { Recording = n.GetBoolValue(); } },
+                { "recording_retention", n => { RecordingRetention = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention.CreateFromDiscriminatorValue); } },
+                { "recording_screenshare_participants", n => { RecordingScreenshareParticipants = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingScreenshareParticipants>(); } },
                 { "recording_view", n => { RecordingView = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView>(); } },
                 { "speak_on_enter", n => { SpeakOnEnter = n.GetStringValue(); } },
                 { "summarize_on_end", n => { SummarizeOnEnd = n.GetBoolValue(); } },
@@ -140,6 +159,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionLeavePolicy>("leave_policy", LeavePolicy);
             writer.WriteBoolValue("recording", Recording);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetention>("recording_retention", RecordingRetention);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingScreenshareParticipants>("recording_screenshare_participants", RecordingScreenshareParticipants);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionConfigRecordingView>("recording_view", RecordingView);
             writer.WriteStringValue("speak_on_enter", SpeakOnEnter);
             writer.WriteBoolValue("summarize_on_end", SummarizeOnEnd);

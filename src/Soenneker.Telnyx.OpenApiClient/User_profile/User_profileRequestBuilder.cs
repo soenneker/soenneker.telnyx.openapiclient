@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_profile
         {
         }
         /// <summary>
-        /// Retrieve the authenticated user&apos;s profile, including data locality and migration status.**Beta:** this API should be considered a beta integration target because it may change if user account settings require changes
+        /// Retrieve the authenticated user&apos;s profile, including data locality and migration status.This API may change if user account settings require changes
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetUserProfile200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_profile
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetUserProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetUserProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the authenticated user&apos;s profile using top-level JSON fields. Returns the updated profile.**Beta:** this API should be considered a beta integration target because it may change if user account settings require changes
+        /// Update the authenticated user&apos;s profile using top-level JSON fields. Returns the updated profile.This API may change if user account settings require changes
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUserProfile200Response"/></returns>
         /// <param name="body">Profile fields to update. Omitted fields retain their current values.</param>
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_profile
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUserProfile200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateUserProfile200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the authenticated user&apos;s profile, including data locality and migration status.**Beta:** this API should be considered a beta integration target because it may change if user account settings require changes
+        /// Retrieve the authenticated user&apos;s profile, including data locality and migration status.This API may change if user account settings require changes
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_profile
             return requestInfo;
         }
         /// <summary>
-        /// Update the authenticated user&apos;s profile using top-level JSON fields. Returns the updated profile.**Beta:** this API should be considered a beta integration target because it may change if user account settings require changes
+        /// Update the authenticated user&apos;s profile using top-level JSON fields. Returns the updated profile.This API may change if user account settings require changes
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Profile fields to update. Omitted fields retain their current values.</param>

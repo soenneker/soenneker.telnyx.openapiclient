@@ -31,6 +31,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("custom_headers") is { } nullNodeCustomHeaders && nullNodeCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHeaders = null;
             if (parseNode.GetChildNode("deepfake_detection") is null) { _explicitNullValueDeepfakeDetection = default!; _explicitNullProperties?.Remove("deepfake_detection"); }
             else if (parseNode.GetChildNode("deepfake_detection") is { } nullNodeDeepfakeDetection && nullNodeDeepfakeDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeepfakeDetection = null;
+            if (parseNode.GetChildNode("enable_reconnect") is null) { _explicitNullValueEnableReconnect = default!; _explicitNullProperties?.Remove("enable_reconnect"); }
+            else if (parseNode.GetChildNode("enable_reconnect") is { } nullNodeEnableReconnect && nullNodeEnableReconnect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableReconnect = null;
             if (parseNode.GetChildNode("preferred_codecs") is null) { _explicitNullValuePreferredCodecs = default!; _explicitNullProperties?.Remove("preferred_codecs"); }
             else if (parseNode.GetChildNode("preferred_codecs") is { } nullNodePreferredCodecs && nullNodePreferredCodecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredCodecs = null;
             if (parseNode.GetChildNode("record") is null) { _explicitNullValueRecord = default!; _explicitNullProperties?.Remove("record"); }
@@ -43,6 +45,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("record_format") is { } nullNodeRecordFormat && nullNodeRecordFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordFormat = null;
             if (parseNode.GetChildNode("record_max_length") is null) { _explicitNullValueRecordMaxLength = default!; _explicitNullProperties?.Remove("record_max_length"); }
             else if (parseNode.GetChildNode("record_max_length") is { } nullNodeRecordMaxLength && nullNodeRecordMaxLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordMaxLength = null;
+            if (parseNode.GetChildNode("record_redaction") is null) { _explicitNullValueRecordRedaction = default!; _explicitNullProperties?.Remove("record_redaction"); }
+            else if (parseNode.GetChildNode("record_redaction") is { } nullNodeRecordRedaction && nullNodeRecordRedaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordRedaction = null;
             if (parseNode.GetChildNode("record_timeout_secs") is null) { _explicitNullValueRecordTimeoutSecs = default!; _explicitNullProperties?.Remove("record_timeout_secs"); }
             else if (parseNode.GetChildNode("record_timeout_secs") is { } nullNodeRecordTimeoutSecs && nullNodeRecordTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTimeoutSecs = null;
             if (parseNode.GetChildNode("record_track") is null) { _explicitNullValueRecordTrack = default!; _explicitNullProperties?.Remove("record_track"); }
@@ -148,6 +152,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection DeepfakeDetection { get => _explicitNullValueDeepfakeDetection; set { _explicitNullValueDeepfakeDetection = value; AdditionalData?.Remove("deepfake_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deepfake_detection"); else _explicitNullProperties?.Remove("deepfake_detection"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection _explicitNullValueDeepfakeDetection = default!;
 #endif
+        /// <summary>Whether Telnyx reconnects to `stream_url` when the WebSocket connection drops unexpectedly. A reconnect uses the same `stream_url`, including its query string, and the same authentication token. Telnyx currently makes up to 4 connection attempts per disconnect, over several seconds. If the connection can&apos;t be restored, Telnyx sends a `streaming.failed` webhook and the call continues. When `false`, a disconnect ends the stream; if streaming had already started, Telnyx sends `streaming.stopped` instead of `streaming.failed`. See [Reconnects](https://developers.telnyx.com/docs/voice/programmable-voice/media-streaming#reconnects).</summary>
+        public bool? EnableReconnect { get => _explicitNullValueEnableReconnect; set { _explicitNullValueEnableReconnect = value; AdditionalData?.Remove("enable_reconnect"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_reconnect"); else _explicitNullProperties?.Remove("enable_reconnect"); } }
+        private bool? _explicitNullValueEnableReconnect = default!;
         /// <summary>The list of comma-separated codecs in a preferred order for the forked media to be received.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs? PreferredCodecs { get => _explicitNullValuePreferredCodecs; set { _explicitNullValuePreferredCodecs = value; AdditionalData?.Remove("preferred_codecs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_codecs"); else _explicitNullProperties?.Remove("preferred_codecs"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs? _explicitNullValuePreferredCodecs = default!;
@@ -173,6 +180,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Defines the maximum length for the recording in seconds when `record` is specified. The minimum value is 0. The maximum value is 43200. The default value is 0 (infinite).</summary>
         public int? RecordMaxLength { get => _explicitNullValueRecordMaxLength; set { _explicitNullValueRecordMaxLength = value; AdditionalData?.Remove("record_max_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_max_length"); else _explicitNullProperties?.Remove("record_max_length"); } }
         private int? _explicitNullValueRecordMaxLength = default!;
+        /// <summary>Applies to the recording started with `record`. Silences spoken details of the given kinds in the recording: `pci` (card number, expiry date, security code), `pii` (personal details such as names, phone numbers, addresses and other identifying numbers) and `phi` (health details such as medications, doses and conditions). Redaction works on English speech only. Redacted recordings are charged at the Deepgram speech-to-text rate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordRedactionItem?>? RecordRedaction { get => _explicitNullValueRecordRedaction; set { _explicitNullValueRecordRedaction = value; AdditionalData?.Remove("record_redaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_redaction"); else _explicitNullProperties?.Remove("record_redaction"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordRedactionItem?>? _explicitNullValueRecordRedaction = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordRedactionItem?> RecordRedaction { get => _explicitNullValueRecordRedaction; set { _explicitNullValueRecordRedaction = value; AdditionalData?.Remove("record_redaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_redaction"); else _explicitNullProperties?.Remove("record_redaction"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordRedactionItem?> _explicitNullValueRecordRedaction = default!;
+#endif
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected when `record` is specified. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite).</summary>
         public int? RecordTimeoutSecs { get => _explicitNullValueRecordTimeoutSecs; set { _explicitNullValueRecordTimeoutSecs = value; AdditionalData?.Remove("record_timeout_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_timeout_secs"); else _explicitNullProperties?.Remove("record_timeout_secs"); } }
         private int? _explicitNullValueRecordTimeoutSecs = default!;
@@ -285,6 +302,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public AnswerRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableReconnect = true;
             RecordMaxLength = 0;
             RecordTimeoutSecs = 0;
             SendSilenceWhenIdle = false;
@@ -306,7 +324,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(32)
+            return new Dictionary<string, Action<IParseNode>>(34)
             {
                 { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CreateFromDiscriminatorValue); } },
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
@@ -315,12 +333,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conversation_relay_config", n => { ConversationRelayConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig.CreateFromDiscriminatorValue); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection.CreateFromDiscriminatorValue); } },
+                { "enable_reconnect", n => { EnableReconnect = n.GetBoolValue(); } },
                 { "preferred_codecs", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePreferredCodecs = default; _explicitNullProperties?.Remove("preferred_codecs"); AdditionalData["preferred_codecs"] = unknown; } else { PreferredCodecs = parsed; AdditionalData.Remove("preferred_codecs"); } } },
                 { "record", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecord = default; _explicitNullProperties?.Remove("record"); AdditionalData["record"] = unknown; } else { Record = parsed; AdditionalData.Remove("record"); } } },
                 { "record_channels", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordChannels = default; _explicitNullProperties?.Remove("record_channels"); AdditionalData["record_channels"] = unknown; } else { RecordChannels = parsed; AdditionalData.Remove("record_channels"); } } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
                 { "record_format", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordFormat = default; _explicitNullProperties?.Remove("record_format"); AdditionalData["record_format"] = unknown; } else { RecordFormat = parsed; AdditionalData.Remove("record_format"); } } },
                 { "record_max_length", n => { RecordMaxLength = n.GetIntValue(); } },
+                { "record_redaction", n => { RecordRedaction = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordRedactionItem>()?.AsList(); } },
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
                 { "record_track", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordTrack = default; _explicitNullProperties?.Remove("record_track"); AdditionalData["record_track"] = unknown; } else { RecordTrack = parsed; AdditionalData.Remove("record_track"); } } },
                 { "record_trim", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordTrim = default; _explicitNullProperties?.Remove("record_trim"); AdditionalData["record_trim"] = unknown; } else { RecordTrim = parsed; AdditionalData.Remove("record_trim"); } } },
@@ -356,12 +376,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig>("conversation_relay_config", ConversationRelayConfig);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
+            writer.WriteBoolValue("enable_reconnect", EnableReconnect);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.G722CommaPcmuCommaPcmaCommaG729CommaOpusCommaVp8CommaH264PreferredCodecs>("preferred_codecs", PreferredCodecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordFromAnswerRecord>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordChannels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordFormat>("record_format", RecordFormat);
             writer.WriteIntValue("record_max_length", RecordMaxLength);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordRedactionItem>("record_redaction", RecordRedaction);
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestRecordTrack>("record_track", RecordTrack);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceRecordTrim>("record_trim", RecordTrim);

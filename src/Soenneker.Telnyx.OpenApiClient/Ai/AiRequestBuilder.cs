@@ -20,6 +20,9 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Missions;
 using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai;
 using Soenneker.Telnyx.OpenApiClient.Ai.Responses;
+using Soenneker.Telnyx.OpenApiClient.Ai.SandboxAccess;
+using Soenneker.Telnyx.OpenApiClient.Ai.SandboxGpuTypes;
+using Soenneker.Telnyx.OpenApiClient.Ai.Sandboxes;
 using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
 using Soenneker.Telnyx.OpenApiClient.Ai.Tests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Tools;
@@ -127,6 +130,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Responses.ResponsesRequestBuilder Responses
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Responses.ResponsesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sandboxAccess property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.SandboxAccess.SandboxAccessRequestBuilder SandboxAccess
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.SandboxAccess.SandboxAccessRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sandboxes property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Sandboxes.SandboxesRequestBuilder Sandboxes
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Sandboxes.SandboxesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sandboxGpuTypes property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.SandboxGpuTypes.SandboxGpuTypesRequestBuilder SandboxGpuTypes
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.SandboxGpuTypes.SandboxGpuTypesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The summarize property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder Summarize

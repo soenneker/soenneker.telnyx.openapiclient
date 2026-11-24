@@ -34,14 +34,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Submit
         {
         }
         /// <summary>
-        /// Starts asynchronous provider provisioning and submits the agent&apos;s basic configuration. The brand must be `VERIFIED`. Repeating this request for an in-progress agent returns its current state without creating new work.
+        /// Starts asynchronous provider provisioning and submits the agent&apos;s basic configuration. The brand must be submitted (`SUBMITTED`, `REVIEWING`, `VETTING`, or `VERIFIED`). Submitting charges a one-time vetting fee for the agent; a repeated submission does not charge it again. The agent&apos;s branding images are fetched and checked again. While the agent is still being created with the provider, or any test device invitation is `PENDING`, the submission returns `409`. Repeating this request for an in-progress agent returns its current state without creating new work.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BillingErrorResponse">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeConflictResponseError">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmitValidationErrorResponseError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImageUnavailableErrorResponse">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeUnavailableResponseError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,15 +59,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Submit
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Telnyx.OpenApiClient.Models.BillingErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeConflictResponseError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.AgentSubmitValidationErrorResponseError.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.ImageUnavailableErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeUnavailableResponseError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Starts asynchronous provider provisioning and submits the agent&apos;s basic configuration. The brand must be `VERIFIED`. Repeating this request for an in-progress agent returns its current state without creating new work.
+        /// Starts asynchronous provider provisioning and submits the agent&apos;s basic configuration. The brand must be submitted (`SUBMITTED`, `REVIEWING`, `VETTING`, or `VERIFIED`). Submitting charges a one-time vetting fee for the agent; a repeated submission does not charge it again. The agent&apos;s branding images are fetched and checked again. While the agent is still being created with the provider, or any test device invitation is `PENDING`, the submission returns `409`. Repeating this request for an in-progress agent returns its current state without creating new work.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

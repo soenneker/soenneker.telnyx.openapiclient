@@ -33,6 +33,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("play_beep") is { } nullNodePlayBeep && nullNodePlayBeep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlayBeep = null;
             if (parseNode.GetChildNode("recording_track") is null) { _explicitNullValueRecordingTrack = default!; _explicitNullProperties?.Remove("recording_track"); }
             else if (parseNode.GetChildNode("recording_track") is { } nullNodeRecordingTrack && nullNodeRecordingTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingTrack = null;
+            if (parseNode.GetChildNode("redaction") is null) { _explicitNullValueRedaction = default!; _explicitNullProperties?.Remove("redaction"); }
+            else if (parseNode.GetChildNode("redaction") is { } nullNodeRedaction && nullNodeRedaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Redaction = null;
             if (parseNode.GetChildNode("timeout_secs") is null) { _explicitNullValueTimeoutSecs = default!; _explicitNullProperties?.Remove("timeout_secs"); }
             else if (parseNode.GetChildNode("timeout_secs") is { } nullNodeTimeoutSecs && nullNodeTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSecs = null;
             if (parseNode.GetChildNode("transcription") is null) { _explicitNullValueTranscription = default!; _explicitNullProperties?.Remove("transcription"); }
@@ -100,13 +102,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack? RecordingTrack { get => _explicitNullValueRecordingTrack; set { _explicitNullValueRecordingTrack = value; AdditionalData?.Remove("recording_track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_track"); else _explicitNullProperties?.Remove("recording_track"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack? _explicitNullValueRecordingTrack = default!;
+        /// <summary>Silences spoken details of the given kinds in the recording: `pci` (card number, expiry date, security code), `pii` (personal details such as names, phone numbers, addresses and other identifying numbers) and `phi` (health details such as medications, doses and conditions). Redaction works on English speech only. Redacted recordings are charged at the Deepgram speech-to-text rate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRedactionItem?>? Redaction { get => _explicitNullValueRedaction; set { _explicitNullValueRedaction = value; AdditionalData?.Remove("redaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction"); else _explicitNullProperties?.Remove("redaction"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRedactionItem?>? _explicitNullValueRedaction = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRedactionItem?> Redaction { get => _explicitNullValueRedaction; set { _explicitNullValueRedaction = value; AdditionalData?.Remove("redaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction"); else _explicitNullProperties?.Remove("redaction"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRedactionItem?> _explicitNullValueRedaction = default!;
+#endif
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite)</summary>
         public int? TimeoutSecs { get => _explicitNullValueTimeoutSecs; set { _explicitNullValueTimeoutSecs = value; AdditionalData?.Remove("timeout_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_secs"); else _explicitNullProperties?.Remove("timeout_secs"); } }
         private int? _explicitNullValueTimeoutSecs = default!;
         /// <summary>Enable post recording transcription. The default value is false.</summary>
         public bool? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private bool? _explicitNullValueTranscription = default!;
-        /// <summary>Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages.</summary>
+        /// <summary>Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages. When `redaction` is set, leave this out or set a Deepgram engine.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? TranscriptionEngine { get => _explicitNullValueTranscriptionEngine; set { _explicitNullValueTranscriptionEngine = value; AdditionalData?.Remove("transcription_engine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription_engine"); else _explicitNullProperties?.Remove("transcription_engine"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine? _explicitNullValueTranscriptionEngine = default!;
         /// <summary>Language code for transcription. Note: Not all languages are supported by all transcription engines (google, telnyx, deepgram). See engine-specific documentation for supported values.</summary>
@@ -157,7 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(17)
+            return new Dictionary<string, Action<IParseNode>>(18)
             {
                 { "channels", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestChannels>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChannels = default; _explicitNullProperties?.Remove("channels"); AdditionalData["channels"] = unknown; } else { Channels = parsed; AdditionalData.Remove("channels"); } } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
@@ -167,6 +179,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "max_length", n => { MaxLength = n.GetIntValue(); } },
                 { "play_beep", n => { PlayBeep = n.GetBoolValue(); } },
                 { "recording_track", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordingTrack = default; _explicitNullProperties?.Remove("recording_track"); AdditionalData["recording_track"] = unknown; } else { RecordingTrack = parsed; AdditionalData.Remove("recording_track"); } } },
+                { "redaction", n => { Redaction = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRedactionItem>()?.AsList(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
                 { "transcription_engine", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTranscriptionEngine = default; _explicitNullProperties?.Remove("transcription_engine"); AdditionalData["transcription_engine"] = unknown; } else { TranscriptionEngine = parsed; AdditionalData.Remove("transcription_engine"); } } },
@@ -193,6 +206,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("max_length", MaxLength);
             writer.WriteBoolValue("play_beep", PlayBeep);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRecordingTrack>("recording_track", RecordingTrack);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestRedactionItem>("redaction", Redaction);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteBoolValue("transcription", Transcription);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequestTranscriptionEngine>("transcription_engine", TranscriptionEngine);

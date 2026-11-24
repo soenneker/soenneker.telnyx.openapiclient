@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordId { get => _explicitNullValueRecordId; set { _explicitNullValueRecordId = value; AdditionalData?.Remove("record_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_id"); else _explicitNullProperties?.Remove("record_id"); } }
         private string _explicitNullValueRecordId = default!;
 #endif
-        /// <summary>The source record kind this chunk came from (e.g. `voice`, `meeting_bot`, `message`).</summary>
+        /// <summary>The source record kind this chunk came from (e.g. `voice`, `meeting_bot`, `message`, `email`, `whatsapp`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; AdditionalData?.Remove("record_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }

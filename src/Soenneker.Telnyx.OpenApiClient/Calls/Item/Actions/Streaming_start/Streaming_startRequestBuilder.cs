@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_start
         {
         }
         /// <summary>
-        /// Start streaming the media from a call to a specific WebSocket address or Dialogflow connection in near-realtime. Audio will be delivered as base64-encoded RTP payload (raw audio), wrapped in JSON payloads.Please find more details about media streaming messages specification under the [link](https://developers.telnyx.com/docs/voice/programmable-voice/media-streaming).
+        /// Start streaming the media from a call to a specific WebSocket address or Dialogflow connection in near-realtime. Audio will be delivered as base64-encoded RTP payload (raw audio), wrapped in JSON payloads.Please find more details about media streaming messages specification under the [link](https://developers.telnyx.com/docs/voice/programmable-voice/media-streaming).**Expected Webhooks:**- `streaming.started`- `streaming.stopped`- `streaming.failed`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartCallStreaming200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_start
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.StartCallStreaming200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.StartCallStreaming200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start streaming the media from a call to a specific WebSocket address or Dialogflow connection in near-realtime. Audio will be delivered as base64-encoded RTP payload (raw audio), wrapped in JSON payloads.Please find more details about media streaming messages specification under the [link](https://developers.telnyx.com/docs/voice/programmable-voice/media-streaming).
+        /// Start streaming the media from a call to a specific WebSocket address or Dialogflow connection in near-realtime. Audio will be delivered as base64-encoded RTP payload (raw audio), wrapped in JSON payloads.Please find more details about media streaming messages specification under the [link](https://developers.telnyx.com/docs/voice/programmable-voice/media-streaming).**Expected Webhooks:**- `streaming.started`- `streaming.stopped`- `streaming.failed`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

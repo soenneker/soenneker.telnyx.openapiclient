@@ -54,22 +54,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta? _explicitNullValueMeta = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty? _explicitNullValueMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta _explicitNullValueMeta = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty _explicitNullValueMeta = default!;
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource? _explicitNullValueSource = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource _explicitNullValueSource = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty _explicitNullValueSource = default!;
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,8 +108,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource>(global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -122,8 +122,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMeta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorMetaProperty>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxErrorSourceProperty>("source", Source);
             writer.WriteStringValue("title", Title);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

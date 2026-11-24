@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Brands.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BrandResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BrandResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates one or more fields on a brand while its status is `CREATED`. Submitted brands cannot be changed.
+        /// Updates one or more fields on a brand while its status is `CREATED`, `REJECTED`, or `FAILED`. Updating a `REJECTED` or `FAILED` brand must change at least one field. It clears the failure reason and returns the brand to `CREATED` so it can be submitted again. A brand in any other status cannot be changed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Brands.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates one or more fields on a brand while its status is `CREATED`. Submitted brands cannot be changed.
+        /// Updates one or more fields on a brand while its status is `CREATED`, `REJECTED`, or `FAILED`. Updating a `REJECTED` or `FAILED` brand must change at least one field. It clears the failure reason and returns the brand to `CREATED` so it can be submitted again. A brand in any other status cannot be changed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

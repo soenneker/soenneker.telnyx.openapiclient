@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string BucketId { get => _explicitNullValueBucketId; set { _explicitNullValueBucketId = value; AdditionalData?.Remove("bucket_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket_id"); else _explicitNullProperties?.Remove("bucket_id"); } }
         private string _explicitNullValueBucketId = default!;
 #endif
-        /// <summary>The type of Telnyx data attached as a source. `bucket` requires an additional `bucket_id`. Only `voice` is searchable today; `meeting_bot`, `message`, and `bucket` attach but are not yet searchable (Coming soon).</summary>
+        /// <summary>The type of Telnyx data attached as a source. `bucket` requires an additional `bucket_id`. `voice`, `meeting_bot`, `message`, `email`, and `whatsapp` are searchable today; `bucket` attaches but is not yet searchable (Coming soon).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SourceType? SourceType { get => _explicitNullValueSourceType; set { _explicitNullValueSourceType = value; AdditionalData?.Remove("source_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_type"); else _explicitNullProperties?.Remove("source_type"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.SourceType? _explicitNullValueSourceType = default!;
         /// <summary>

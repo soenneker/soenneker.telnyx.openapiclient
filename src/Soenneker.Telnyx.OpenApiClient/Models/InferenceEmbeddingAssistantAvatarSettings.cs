@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// **Beta:** Saved avatar configuration for supported realtime browser conversations. `null` means that no avatar is configured.
+    /// Saved avatar configuration for supported realtime browser conversations. `null` means that no avatar is configured.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InferenceEmbeddingAssistantAvatarSettings : IParsable

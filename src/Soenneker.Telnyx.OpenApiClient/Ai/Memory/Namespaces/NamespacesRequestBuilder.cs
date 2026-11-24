@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a namespace. An organization can have at most five, `default` among them — a sixth returns `403`.
+        /// Create a namespace. An organization can have at most three, `default` among them — a fourth returns `403`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NamespaceResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Memory.Namespaces
             return requestInfo;
         }
         /// <summary>
-        /// Create a namespace. An organization can have at most five, `default` among them — a sixth returns `403`.
+        /// Create a namespace. An organization can have at most three, `default` among them — a fourth returns `403`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

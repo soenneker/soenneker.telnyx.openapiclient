@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>When the onboarding URL stops working</summary>
         public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private DateTimeOffset? _explicitNullValueExpiresAt = default!;
-        /// <summary>Hosted signup ID</summary>
+        /// <summary>Hosted signup ID. Not a signup session ID. Telnyx returns it as `hosted_signup_id` on the signup session the URL produces.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }

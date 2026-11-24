@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable. Beta feature.
+    /// Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute final tool calls such as sending a summary or updating a record via webhook or function tools. Integration and MCP server tools are not available post-conversation; call-control tools (e.g. hangup, transfer) are also unavailable.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostConversationSettingsReq : IAdditionalDataHolder, IParsable

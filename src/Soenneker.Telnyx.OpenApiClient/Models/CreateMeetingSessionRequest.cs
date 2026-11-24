@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- An avatar takes precedence over `camera_image`; ordinary assistant sessions can use a static camera image.Google Meet and Teams recording requires a recording_export destination. Use join_at to schedule a meeting, or omit it to join now. Zoom recordings are enabled automatically; Zoom does not support recording, recording_view or recording_export, and ignores leave_policy. Digital avatars require avatar support.
+    /// Request body for creating a new meeting session.Cross-field rules:- `assistant` cannot be combined with `join_at`; it is available only for sessions that join immediately.- `assistant` cannot be combined with `barge_in: true`.- `assistant.avatar: true` cannot be combined with `speak_on_enter`; the assistant greets through its avatar.- The `assistant` options, including `avatar`, take effect at session creation and cannot be modified later.- An avatar takes precedence over `camera_image`; ordinary assistant sessions can use a static camera image.Google Meet and Teams recording requires a recording_export destination. Zoom meetings are recorded by default without one; the recording is held by the Meeting service and read through the recordings endpoint. Use join_at to schedule a meeting, or omit it to join now. Zoom ignores leave_policy. Digital avatars require avatar support.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMeetingSessionRequest : IParsable
@@ -42,6 +42,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("recording") is { } nullNodeRecording && nullNodeRecording.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recording = null;
             if (parseNode.GetChildNode("recording_export") is null) { _explicitNullValueRecordingExport = default!; _explicitNullProperties?.Remove("recording_export"); }
             else if (parseNode.GetChildNode("recording_export") is { } nullNodeRecordingExport && nullNodeRecordingExport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingExport = null;
+            if (parseNode.GetChildNode("recording_retention") is null) { _explicitNullValueRecordingRetention = default!; _explicitNullProperties?.Remove("recording_retention"); }
+            else if (parseNode.GetChildNode("recording_retention") is { } nullNodeRecordingRetention && nullNodeRecordingRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingRetention = null;
+            if (parseNode.GetChildNode("recording_screenshare_participants") is null) { _explicitNullValueRecordingScreenshareParticipants = default!; _explicitNullProperties?.Remove("recording_screenshare_participants"); }
+            else if (parseNode.GetChildNode("recording_screenshare_participants") is { } nullNodeRecordingScreenshareParticipants && nullNodeRecordingScreenshareParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingScreenshareParticipants = null;
             if (parseNode.GetChildNode("recording_view") is null) { _explicitNullValueRecordingView = default!; _explicitNullProperties?.Remove("recording_view"); }
             else if (parseNode.GetChildNode("recording_view") is { } nullNodeRecordingView && nullNodeRecordingView.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingView = null;
             if (parseNode.GetChildNode("speak_on_enter") is null) { _explicitNullValueSpeakOnEnter = default!; _explicitNullProperties?.Remove("speak_on_enter"); }
@@ -140,7 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty _explicitNullValueMetadata = default!;
 #endif
-        /// <summary>Google Meet and Teams only. Defaults to true when recording_export is supplied and false otherwise. True requires recording_export.bucket; false cannot be combined with recording_export. Fixed at creation, with no pause/resume action. Zoom rejects recording, recording_view, and recording_export with 422 unsupported_capability; omit these fields for Zoom.</summary>
+        /// <summary>Google Meet and Teams: defaults to true when recording_export is supplied and false otherwise. True requires recording_export.bucket; false cannot be combined with recording_export. Zoom: defaults to true, and the recording is held by the Meeting service; false disables the saved recording, and recording_export is ignored. Fixed at creation, with no pause/resume action.</summary>
         public bool? Recording { get => _explicitNullValueRecording; set { _explicitNullValueRecording = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording"); else _explicitNullProperties?.Remove("recording"); } }
         private bool? _explicitNullValueRecording = default!;
         /// <summary>Customer-owned Telnyx Storage destination for recording exports. Uses the authenticated organization and user; do not supply credentials, region, organization ID or object key.</summary>
@@ -153,7 +157,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination RecordingExport { get => _explicitNullValueRecordingExport; set { _explicitNullValueRecordingExport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_export"); else _explicitNullProperties?.Remove("recording_export"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination _explicitNullValueRecordingExport = default!;
 #endif
-        /// <summary>Recording layout for Google Meet and Teams. Defaults to speaker_view. Accepted at creation only; does not enable recording by itself.</summary>
+        /// <summary>Deletes the recording automatically. Supply exactly one of hours, days, or delete_at. Requires recording to be enabled: on Google Meet and Teams that means recording_export.bucket, and recording: false with a retention policy is rejected with 400. On Zoom the recording held by the Meeting service is deleted; that recording is removed after 167 hours at the latest, so a longer policy does not keep it longer. Fixed at creation. Only the recording is deleted; the session, transcript, events, and artifacts are kept. Returns 503 not_configured when automatic deletion is unavailable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest? RecordingRetention { get => _explicitNullValueRecordingRetention; set { _explicitNullValueRecordingRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_retention"); else _explicitNullProperties?.Remove("recording_retention"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest? _explicitNullValueRecordingRetention = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest RecordingRetention { get => _explicitNullValueRecordingRetention; set { _explicitNullValueRecordingRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_retention"); else _explicitNullProperties?.Remove("recording_retention"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest _explicitNullValueRecordingRetention = default!;
+#endif
+        /// <summary>Where participant video goes in the recording while a screen is shared, on Google Meet, Teams, and Zoom. overlap (default) keeps the default layout, in which participant video can cover part of the shared screen. beside places participant video in a column next to the shared screen. hide records the shared screen alone. When nobody is sharing, the frame follows recording_view. Accepted at creation only; does not enable recording by itself.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingScreenshareParticipants? RecordingScreenshareParticipants { get => _explicitNullValueRecordingScreenshareParticipants; set { _explicitNullValueRecordingScreenshareParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_screenshare_participants"); else _explicitNullProperties?.Remove("recording_screenshare_participants"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingScreenshareParticipants? _explicitNullValueRecordingScreenshareParticipants = default!;
+        /// <summary>Recording layout while nobody is sharing a screen. Defaults to speaker_view. gallery_view_v2 is a Zoom grid that also draws a named tile for participants whose camera is off; Google Meet and Teams treat it as gallery_view and return it as gallery_view. audio_only records a Zoom meeting without video; Google Meet and Teams reject it with 422 unsupported_capability. speaker_view_no_sidebar applies to Google Meet and Teams and is ignored for Zoom. Accepted at creation only; does not enable recording by itself.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView? RecordingView { get => _explicitNullValueRecordingView; set { _explicitNullValueRecordingView = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_view"); else _explicitNullProperties?.Remove("recording_view"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView? _explicitNullValueRecordingView = default!;
         /// <summary>Text the bot speaks after joining. Available for sessions without a digital avatar. With an AI Assistant, the greeting waits until the assistant is connected. Rejected with 400 invalid_request when assistant.avatar is true.</summary>
@@ -213,7 +230,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(17)
+            return new Dictionary<string, Action<IParseNode>>(19)
             {
                 { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantRequest.CreateFromDiscriminatorValue); } },
                 { "barge_in", n => { BargeIn = n.GetBoolValue(); } },
@@ -227,6 +244,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "recording", n => { Recording = n.GetBoolValue(); } },
                 { "recording_export", n => { RecordingExport = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination.CreateFromDiscriminatorValue); } },
+                { "recording_retention", n => { RecordingRetention = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest.CreateFromDiscriminatorValue); } },
+                { "recording_screenshare_participants", n => { RecordingScreenshareParticipants = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingScreenshareParticipants>(); } },
                 { "recording_view", n => { RecordingView = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView>(); } },
                 { "speak_on_enter", n => { SpeakOnEnter = n.GetStringValue(); } },
                 { "summarize_on_end", n => { SummarizeOnEnd = n.GetBoolValue(); } },
@@ -253,6 +272,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestMetadataProperty>("metadata", Metadata);
             writer.WriteBoolValue("recording", Recording);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingDestination>("recording_export", RecordingExport);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionRequest>("recording_retention", RecordingRetention);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingScreenshareParticipants>("recording_screenshare_participants", RecordingScreenshareParticipants);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMeetingSessionRequestRecordingView>("recording_view", RecordingView);
             writer.WriteStringValue("speak_on_enter", SpeakOnEnter);
             writer.WriteBoolValue("summarize_on_end", SummarizeOnEnd);

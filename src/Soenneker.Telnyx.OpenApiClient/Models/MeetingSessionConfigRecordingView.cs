@@ -11,6 +11,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         GalleryView,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gallery_view_v2")]
+        #pragma warning disable CS1591
+        GalleryViewV2,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "audio_only")]
+        #pragma warning disable CS1591
+        AudioOnly,
+        #pragma warning restore CS1591
         [EnumMember(Value = "speaker_view_no_sidebar")]
         #pragma warning disable CS1591
         SpeakerViewNoSidebar,

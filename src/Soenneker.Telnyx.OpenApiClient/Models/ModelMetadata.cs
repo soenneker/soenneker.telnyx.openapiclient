@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string BaseModel { get => _explicitNullValueBaseModel; set { _explicitNullValueBaseModel = value; AdditionalData?.Remove("base_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_model"); else _explicitNullProperties?.Remove("base_model"); } }
         private string _explicitNullValueBaseModel = default!;
 #endif
-        /// <summary>Whether the model is in beta. New Telnyx-hosted models launch with `beta: true`; the label is removed once the model is established.</summary>
+        /// <summary>Whether the model is in preview. New Telnyx-hosted models launch in preview; the label is removed once the model is established.</summary>
         public bool? Beta { get => _explicitNullValueBeta; set { _explicitNullValueBeta = value; AdditionalData?.Remove("beta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beta"); else _explicitNullProperties?.Remove("beta"); } }
         private bool? _explicitNullValueBeta = default!;
         /// <summary>Maximum total tokens (prompt + completion) supported by the model in a single request.</summary>

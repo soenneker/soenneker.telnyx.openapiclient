@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("sip_uri_calling_preference") is { } nullNodeSipUriCallingPreference && nullNodeSipUriCallingPreference.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipUriCallingPreference = null;
             if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
             else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("transfer_caller_id") is null) { _explicitNullValueTransferCallerId = default!; _explicitNullProperties?.Remove("transfer_caller_id"); }
+            else if (parseNode.GetChildNode("transfer_caller_id") is { } nullNodeTransferCallerId && nullNodeTransferCallerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferCallerId = null;
             if (parseNode.GetChildNode("user_name") is null) { _explicitNullValueUserName = default!; _explicitNullProperties?.Remove("user_name"); }
             else if (parseNode.GetChildNode("user_name") is { } nullNodeUserName && nullNodeUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserName = null;
             if (parseNode.GetChildNode("webhook_api_version") is null) { _explicitNullValueWebhookApiVersion = default!; _explicitNullProperties?.Remove("webhook_api_version"); }
@@ -213,6 +215,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
+        /// <summary>Selects the caller ID presented to the destination of a SIP REFER transfer: from-transferee uses the number of the party being transferred, from-transferor the number of the party initiating the transfer. Optional; defaults to from-transferee when omitted on creation. Only from-transferee and from-transferor are accepted; null and other values are rejected. This API provisions the preference; dialplan behavior is implemented separately.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestTransferCallerId? TransferCallerId { get => _explicitNullValueTransferCallerId; set { _explicitNullValueTransferCallerId = value; AdditionalData?.Remove("transfer_caller_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transfer_caller_id"); else _explicitNullProperties?.Remove("transfer_caller_id"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestTransferCallerId? _explicitNullValueTransferCallerId = default!;
         /// <summary>The user name to be used as part of the credentials. Must be 4-32 characters long and alphanumeric values only (no spaces or special characters).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -277,7 +282,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(26)
+            return new Dictionary<string, Action<IParseNode>>(27)
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnchorsiteOverride = default; _explicitNullProperties?.Remove("anchorsite_override"); AdditionalData["anchorsite_override"] = unknown; } else { AnchorsiteOverride = parsed; AdditionalData.Remove("anchorsite_override"); } } },
@@ -300,6 +305,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
                 { "sip_uri_calling_preference", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestSipUriCallingPreference>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSipUriCallingPreference = default; _explicitNullProperties?.Remove("sip_uri_calling_preference"); AdditionalData["sip_uri_calling_preference"] = unknown; } else { SipUriCallingPreference = parsed; AdditionalData.Remove("sip_uri_calling_preference"); } } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "transfer_caller_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestTransferCallerId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTransferCallerId = default; _explicitNullProperties?.Remove("transfer_caller_id"); AdditionalData["transfer_caller_id"] = unknown; } else { TransferCallerId = parsed; AdditionalData.Remove("transfer_caller_id"); } } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
                 { "webhook_api_version", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestWebhookApiVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWebhookApiVersion = default; _explicitNullProperties?.Remove("webhook_api_version"); AdditionalData["webhook_api_version"] = unknown; } else { WebhookApiVersion = parsed; AdditionalData.Remove("webhook_api_version"); } } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
@@ -335,6 +341,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestSipUriCallingPreference>("sip_uri_calling_preference", SipUriCallingPreference);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestTransferCallerId>("transfer_caller_id", TransferCallerId);
             writer.WriteStringValue("user_name", UserName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCredentialConnectionRequestWebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

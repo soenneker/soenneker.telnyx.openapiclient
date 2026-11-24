@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// (BETA) Lets the assistant look at recent image frames the client sent into the conversation (for example webcam or screen-share frames). Frames are sent with `conversation.item.create` and `item.buffer: true`; they never trigger a response on their own. The assistant decides when to look and which frames it needs. Requires a model that supports image input.
+    /// Lets the assistant look at recent image frames the client sent into the conversation (for example webcam or screen-share frames). Frames are sent with `conversation.item.create` and `item.buffer: true`; they never trigger a response on their own. The assistant decides when to look and which frames it needs. Requires a model that supports image input.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantToolsItemComposedVisionTool : global::Soenneker.Telnyx.OpenApiClient.Models.AssistantToolsItemComposed, IParsable

@@ -34,16 +34,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Launch
         {
         }
         /// <summary>
-        /// Adds the campaign and testing configuration, then starts asynchronous carrier launch. Agent basics must already be submitted. Repeating a launch that is already in progress returns the current agent without creating new work.
+        /// Adds the campaign and testing configuration, then starts asynchronous carrier launch. Agent basics must already be submitted. Submitting for launch charges the one-time launch fee and starts the monthly agent fee; a repeated launch does not charge them again. Carrier rejection or a technical failure does not refund the charges or stop the monthly fee automatically; contact support for billing adjustments. Repeating a launch that is already in progress returns the current agent without creating new work.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BillingErrorResponse">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeConflictResponseError">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeValidationErrorResponseError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeUnavailableResponseError">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AgentLaunchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,16 +60,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents.Item.Launch
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Telnyx.OpenApiClient.Models.BillingErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeConflictResponseError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeValidationErrorResponseError.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.AgentChargeUnavailableResponseError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Adds the campaign and testing configuration, then starts asynchronous carrier launch. Agent basics must already be submitted. Repeating a launch that is already in progress returns the current agent without creating new work.
+        /// Adds the campaign and testing configuration, then starts asynchronous carrier launch. Agent basics must already be submitted. Submitting for launch charges the one-time launch fee and starts the monthly agent fee; a repeated launch does not charge them again. Carrier rejection or a technical failure does not refund the charges or stop the monthly fee automatically; contact support for billing adjustments. Repeating a launch that is already in progress returns the current agent without creating new work.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

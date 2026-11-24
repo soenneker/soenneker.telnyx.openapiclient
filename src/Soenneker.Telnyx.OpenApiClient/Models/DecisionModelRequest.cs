@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Decision Models beta request. Choose a public model alias; omitted model defaults to telnyx/decision-flash. Telnyx manages the underlying models behind these aliases.
+    /// Decision Models request. Choose a public model alias; omitted model defaults to telnyx/decision-flash. Telnyx manages the underlying models behind these aliases.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DecisionModelRequest : IParsable

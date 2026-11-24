@@ -37,6 +37,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("Coaching") is { } nullNodeCoaching && nullNodeCoaching.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Coaching = null;
             if (parseNode.GetChildNode("ConferenceRecord") is null) { _explicitNullValueConferenceRecord = default!; _explicitNullProperties?.Remove("ConferenceRecord"); }
             else if (parseNode.GetChildNode("ConferenceRecord") is { } nullNodeConferenceRecord && nullNodeConferenceRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecord = null;
+            if (parseNode.GetChildNode("ConferenceRecordingRedaction") is null) { _explicitNullValueConferenceRecordingRedaction = default!; _explicitNullProperties?.Remove("ConferenceRecordingRedaction"); }
+            else if (parseNode.GetChildNode("ConferenceRecordingRedaction") is { } nullNodeConferenceRecordingRedaction && nullNodeConferenceRecordingRedaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecordingRedaction = null;
             if (parseNode.GetChildNode("ConferenceRecordingStatusCallback") is null) { _explicitNullValueConferenceRecordingStatusCallback = default!; _explicitNullProperties?.Remove("ConferenceRecordingStatusCallback"); }
             else if (parseNode.GetChildNode("ConferenceRecordingStatusCallback") is { } nullNodeConferenceRecordingStatusCallback && nullNodeConferenceRecordingStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceRecordingStatusCallback = null;
             if (parseNode.GetChildNode("ConferenceRecordingStatusCallbackEvent") is null) { _explicitNullValueConferenceRecordingStatusCallbackEvent = default!; _explicitNullProperties?.Remove("ConferenceRecordingStatusCallbackEvent"); }
@@ -191,6 +193,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether to record the conference the participant is joining. Defualts to `do-not-record`. The boolean values `true` and `false` are synonymous with `record-from-start` and `do-not-record` respectively.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord? ConferenceRecord { get => _explicitNullValueConferenceRecord; set { _explicitNullValueConferenceRecord = value; AdditionalData?.Remove("ConferenceRecord"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecord"); else _explicitNullProperties?.Remove("ConferenceRecord"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord? _explicitNullValueConferenceRecord = default!;
+        /// <summary>Silences spoken details of the given kinds in the recording: one or more of `pci` (card number, expiry date, security code), `pii` (personal details such as names, phone numbers, addresses and other identifying numbers) and `phi` (health details such as medications, doses and conditions), separated by commas, for example `pci,pii`. Redaction works on English speech only. Redacted recordings are charged at the Deepgram speech-to-text rate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConferenceRecordingRedaction { get => _explicitNullValueConferenceRecordingRedaction; set { _explicitNullValueConferenceRecordingRedaction = value; AdditionalData?.Remove("ConferenceRecordingRedaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingRedaction"); else _explicitNullProperties?.Remove("ConferenceRecordingRedaction"); } }
+        private string? _explicitNullValueConferenceRecordingRedaction = default!;
+#nullable restore
+#else
+        public string ConferenceRecordingRedaction { get => _explicitNullValueConferenceRecordingRedaction; set { _explicitNullValueConferenceRecordingRedaction = value; AdditionalData?.Remove("ConferenceRecordingRedaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ConferenceRecordingRedaction"); else _explicitNullProperties?.Remove("ConferenceRecordingRedaction"); } }
+        private string _explicitNullValueConferenceRecordingRedaction = default!;
+#endif
         /// <summary>The URL the conference recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -471,7 +483,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(56)
+            return new Dictionary<string, Action<IParseNode>>(57)
             {
                 { "AmdStatusCallback", n => { AmdStatusCallback = n.GetStringValue(); } },
                 { "AmdStatusCallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestAmdStatusCallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAmdStatusCallbackMethod = default; _explicitNullProperties?.Remove("AmdStatusCallbackMethod"); AdditionalData["AmdStatusCallbackMethod"] = unknown; } else { AmdStatusCallbackMethod = parsed; AdditionalData.Remove("AmdStatusCallbackMethod"); } } },
@@ -483,6 +495,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "CancelPlaybackOnMachineDetection", n => { CancelPlaybackOnMachineDetection = n.GetBoolValue(); } },
                 { "Coaching", n => { Coaching = n.GetBoolValue(); } },
                 { "ConferenceRecord", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConferenceRecord = default; _explicitNullProperties?.Remove("ConferenceRecord"); AdditionalData["ConferenceRecord"] = unknown; } else { ConferenceRecord = parsed; AdditionalData.Remove("ConferenceRecord"); } } },
+                { "ConferenceRecordingRedaction", n => { ConferenceRecordingRedaction = n.GetStringValue(); } },
                 { "ConferenceRecordingStatusCallback", n => { ConferenceRecordingStatusCallback = n.GetStringValue(); } },
                 { "ConferenceRecordingStatusCallbackEvent", n => { ConferenceRecordingStatusCallbackEvent = n.GetStringValue(); } },
                 { "ConferenceRecordingStatusCallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConferenceRecordingStatusCallbackMethod = default; _explicitNullProperties?.Remove("ConferenceRecordingStatusCallbackMethod"); AdditionalData["ConferenceRecordingStatusCallbackMethod"] = unknown; } else { ConferenceRecordingStatusCallbackMethod = parsed; AdditionalData.Remove("ConferenceRecordingStatusCallbackMethod"); } } },
@@ -548,6 +561,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("CancelPlaybackOnMachineDetection", CancelPlaybackOnMachineDetection);
             writer.WriteBoolValue("Coaching", Coaching);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecord>("ConferenceRecord", ConferenceRecord);
+            writer.WriteStringValue("ConferenceRecordingRedaction", ConferenceRecordingRedaction);
             writer.WriteStringValue("ConferenceRecordingStatusCallback", ConferenceRecordingStatusCallback);
             writer.WriteStringValue("ConferenceRecordingStatusCallbackEvent", ConferenceRecordingStatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequestConferenceRecordingStatusCallbackMethod>("ConferenceRecordingStatusCallbackMethod", ConferenceRecordingStatusCallbackMethod);

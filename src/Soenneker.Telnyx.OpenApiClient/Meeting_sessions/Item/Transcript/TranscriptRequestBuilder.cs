@@ -34,7 +34,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
         {
         }
         /// <summary>
-        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200.
+        /// Irreversibly deletes the transcript of a meeting session: every transcript segment, and the transcript.segment entries in the session&apos;s event history. The session must have reached a terminal status and its transcript must be finalized (transcript.completed emitted); otherwise the request returns 409 invalid_state. A session that ended before the bot joined returns 200 with nothing to delete. The call is idempotent: repeating it returns 200 with the original transcript_deleted_at and segments_deleted 0. Afterwards the session carries transcript_deleted_at, a transcript.deleted event is emitted, GET /meeting_sessions/{id}/transcript returns an empty list, and POST /meeting_sessions/{id}/artifacts returns 409 transcript_deleted. Artifacts generated before the deletion, webhook payloads already delivered, and recordings are not deleted. A missing or foreign session returns 404.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionTranscriptDeletionResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse">When receiving a 503 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionTranscriptDeletionResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionTranscriptDeletionResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionTranscriptDeletionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionTranscriptDeletionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200. After the transcript has been deleted, this operation returns 200 with an empty list.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptSegmentListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +112,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptSegmentListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptSegmentListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200.
+        /// Irreversibly deletes the transcript of a meeting session: every transcript segment, and the transcript.segment entries in the session&apos;s event history. The session must have reached a terminal status and its transcript must be finalized (transcript.completed emitted); otherwise the request returns 409 invalid_state. A session that ended before the bot joined returns 200 with nothing to delete. The call is idempotent: repeating it returns 200 with the original transcript_deleted_at and segments_deleted 0. Afterwards the session carries transcript_deleted_at, a transcript.deleted event is emitted, GET /meeting_sessions/{id}/transcript returns an empty list, and POST /meeting_sessions/{id}/artifacts returns 409 transcript_deleted. Artifacts generated before the deletion, webhook payloads already delivered, and recordings are not deleted. A missing or foreign session returns 404.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200. After the transcript has been deleted, this operation returns 200 with an empty list.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +159,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript
             return new global::Soenneker.Telnyx.OpenApiClient.Meeting_sessions.Item.Transcript.TranscriptRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200.
+        /// Returns transcript segments ordered by ascending seq. Default limit is 100, maximum 1000. Continue with after=meta.next_after. On an empty page, meta.next_after preserves a positive supplied after cursor, or is null when no positive cursor was supplied. wait_seconds holds an empty read for up to 25 seconds; a timeout still returns 200. After the transcript has been deleted, this operation returns 200 with an empty list.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptRequestBuilderGetQueryParameters 

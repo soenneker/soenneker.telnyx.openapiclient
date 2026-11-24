@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExternalVettingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/10dlc/brand/{brandId}/externalVetting", pathParameters)
+        public ExternalVettingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/10dlc/brand/{brandId}/externalVetting{?vettingStatus*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExternalVettingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/10dlc/brand/{brandId}/externalVetting", rawUrl)
+        public ExternalVettingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/10dlc/brand/{brandId}/externalVetting{?vettingStatus*}", rawUrl)
         {
         }
         /// <summary>
-        /// Get list of valid external vetting record for a given brand
+        /// Get list of external vetting records for a given brand. Only ACTIVE records are returned unless `vettingStatus` is set.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,11 +43,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting.ExternalVettingRequestBuilder.ExternalVettingRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting>> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting.ExternalVettingRequestBuilder.ExternalVettingRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         /// <summary>
         /// Order new external vetting for a brand.Duplicate orders for the same `evpId` and `vettingClass` return `400` with code `10012` if a successful vetting exists within the last 180 days, or one is currently being processed. Failed vettings can be retried immediately.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,11 +71,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OrderExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OrderExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OrderExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.OrderExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -86,12 +86,12 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This operation can be used to import an external vetting record from a TCR-approvedvetting provider. If the vetting provider confirms validity of the record, it will besaved with the brand and will be considered for future campaign qualification.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,11 +99,11 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting?> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting?> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ImportExternalVetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -114,20 +114,20 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Value10DlcExternalVetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get list of valid external vetting record for a given brand
+        /// Get list of external vetting records for a given brand. Only ACTIVE records are returned unless `vettingStatus` is set.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting.ExternalVettingRequestBuilder.ExternalVettingRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting.ExternalVettingRequestBuilder.ExternalVettingRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -187,6 +187,23 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
         public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting.ExternalVettingRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting.ExternalVettingRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Get list of external vetting records for a given brand. Only ACTIVE records are returned unless `vettingStatus` is set.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ExternalVettingRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Filter vetting records by status. Repeat the parameter to include multiple statuses, for example `?vettingStatus=ACTIVE&amp;vettingStatus=EXPIRED`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("vettingStatus")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListExternalVettingsVettingStatusParameterItem[]? VettingStatus { get; set; }
+#nullable restore
+#else
+            [QueryParameter("vettingStatus")]
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ListExternalVettingsVettingStatusParameterItem[] VettingStatus { get; set; }
+#endif
         }
     }
 }

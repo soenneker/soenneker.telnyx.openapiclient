@@ -26,12 +26,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings? _explicitNullValueData = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings _explicitNullValueData = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings _explicitNullValueData = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettings200Response"/> and sets the default values.
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithVoiceSettings>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumberWithVoiceSettings>("data", Data);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

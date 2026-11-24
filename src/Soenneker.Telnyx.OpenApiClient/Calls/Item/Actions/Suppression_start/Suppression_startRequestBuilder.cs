@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_start
         {
         }
         /// <summary>
-        /// Start noise suppression on an active call to reduce background noise. This feature is currently in beta.
+        /// Start noise suppression on an active call to reduce background noise.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_start
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart200Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start noise suppression on an active call to reduce background noise. This feature is currently in beta.
+        /// Start noise suppression on an active call to reduce background noise.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

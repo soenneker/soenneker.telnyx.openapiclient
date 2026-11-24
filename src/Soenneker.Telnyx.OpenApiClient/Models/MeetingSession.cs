@@ -66,6 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("status_detail") is null) { _explicitNullValueStatusDetail = default!; _explicitNullProperties?.Remove("status_detail"); }
             else if (parseNode.GetChildNode("status_detail") is { } nullNodeStatusDetail && nullNodeStatusDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusDetail = null;
+            if (parseNode.GetChildNode("transcript_deleted_at") is null) { _explicitNullValueTranscriptDeletedAt = default!; _explicitNullProperties?.Remove("transcript_deleted_at"); }
+            else if (parseNode.GetChildNode("transcript_deleted_at") is { } nullNodeTranscriptDeletedAt && nullNodeTranscriptDeletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptDeletedAt = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
             if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
@@ -235,6 +237,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StatusDetail { get => _explicitNullValueStatusDetail; set { _explicitNullValueStatusDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_detail"); else _explicitNullProperties?.Remove("status_detail"); } }
         private string _explicitNullValueStatusDetail = default!;
 #endif
+        /// <summary>When the transcript was deleted with DELETE /meeting_sessions/{id}/transcript. Present only after the transcript has been deleted.</summary>
+        public DateTimeOffset? TranscriptDeletedAt { get => _explicitNullValueTranscriptDeletedAt; set { _explicitNullValueTranscriptDeletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript_deleted_at"); else _explicitNullProperties?.Remove("transcript_deleted_at"); } }
+        private DateTimeOffset? _explicitNullValueTranscriptDeletedAt = default!;
         /// <summary>Timestamp of the last update to the session.</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
@@ -264,7 +269,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(26)
+            return new Dictionary<string, Action<IParseNode>>(27)
             {
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionAssistantComposed.CreateFromDiscriminatorValue); } },
@@ -290,6 +295,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "remote_state_observed_at", n => { RemoteStateObservedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatus>(); } },
                 { "status_detail", n => { StatusDetail = n.GetStringValue(); } },
+                { "transcript_deleted_at", n => { TranscriptDeletedAt = n.GetDateTimeOffsetValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -325,6 +331,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("remote_state_observed_at", RemoteStateObservedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionStatus>("status", Status);
             writer.WriteStringValue("status_detail", StatusDetail);
+            writer.WriteDateTimeOffsetValue("transcript_deleted_at", TranscriptDeletedAt);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("webhook_url", WebhookUrl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

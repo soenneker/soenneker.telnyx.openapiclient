@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("city") is { } nullNodeCity && nullNodeCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) City = null;
             if (parseNode.GetChildNode("country_code") is null) { _explicitNullValueCountryCode = default!; _explicitNullProperties?.Remove("country_code"); }
             else if (parseNode.GetChildNode("country_code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("delivery_point") is null) { _explicitNullValueDeliveryPoint = default!; _explicitNullProperties?.Remove("delivery_point"); }
+            else if (parseNode.GetChildNode("delivery_point") is { } nullNodeDeliveryPoint && nullNodeDeliveryPoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryPoint = null;
+            if (parseNode.GetChildNode("entity_linked_since") is null) { _explicitNullValueEntityLinkedSince = default!; _explicitNullProperties?.Remove("entity_linked_since"); }
+            else if (parseNode.GetChildNode("entity_linked_since") is { } nullNodeEntityLinkedSince && nullNodeEntityLinkedSince.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityLinkedSince = null;
+            if (parseNode.GetChildNode("is_active") is null) { _explicitNullValueIsActive = default!; _explicitNullProperties?.Remove("is_active"); }
+            else if (parseNode.GetChildNode("is_active") is { } nullNodeIsActive && nullNodeIsActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActive = null;
+            if (parseNode.GetChildNode("location_type") is null) { _explicitNullValueLocationType = default!; _explicitNullProperties?.Remove("location_type"); }
+            else if (parseNode.GetChildNode("location_type") is { } nullNodeLocationType && nullNodeLocationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationType = null;
             if (parseNode.GetChildNode("postal_code") is null) { _explicitNullValuePostalCode = default!; _explicitNullProperties?.Remove("postal_code"); }
             else if (parseNode.GetChildNode("postal_code") is { } nullNodePostalCode && nullNodePostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostalCode = null;
             if (parseNode.GetChildNode("state_code") is null) { _explicitNullValueStateCode = default!; _explicitNullProperties?.Remove("state_code"); }
@@ -55,6 +63,39 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; AdditionalData?.Remove("country_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
         private string _explicitNullValueCountryCode = default!;
+#endif
+        /// <summary>Delivery-point classification of the address, for example `SingleUnit`, `MultiUnit`, `POBox`, or `PartialAddress`. Null when not available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeliveryPoint { get => _explicitNullValueDeliveryPoint; set { _explicitNullValueDeliveryPoint = value; AdditionalData?.Remove("delivery_point"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_point"); else _explicitNullProperties?.Remove("delivery_point"); } }
+        private string? _explicitNullValueDeliveryPoint = default!;
+#nullable restore
+#else
+        public string DeliveryPoint { get => _explicitNullValueDeliveryPoint; set { _explicitNullValueDeliveryPoint = value; AdditionalData?.Remove("delivery_point"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_point"); else _explicitNullProperties?.Remove("delivery_point"); } }
+        private string _explicitNullValueDeliveryPoint = default!;
+#endif
+        /// <summary>Approximate date the owner was first associated with this address, if available. Null when not available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EntityLinkedSince { get => _explicitNullValueEntityLinkedSince; set { _explicitNullValueEntityLinkedSince = value; AdditionalData?.Remove("entity_linked_since"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity_linked_since"); else _explicitNullProperties?.Remove("entity_linked_since"); } }
+        private string? _explicitNullValueEntityLinkedSince = default!;
+#nullable restore
+#else
+        public string EntityLinkedSince { get => _explicitNullValueEntityLinkedSince; set { _explicitNullValueEntityLinkedSince = value; AdditionalData?.Remove("entity_linked_since"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity_linked_since"); else _explicitNullProperties?.Remove("entity_linked_since"); } }
+        private string _explicitNullValueEntityLinkedSince = default!;
+#endif
+        /// <summary>Whether the address is currently active for the owner. Null when not available.</summary>
+        public bool? IsActive { get => _explicitNullValueIsActive; set { _explicitNullValueIsActive = value; AdditionalData?.Remove("is_active"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_active"); else _explicitNullProperties?.Remove("is_active"); } }
+        private bool? _explicitNullValueIsActive = default!;
+        /// <summary>Classification of the address, for example `Address` or `ZipPlus4`. Null when not available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LocationType { get => _explicitNullValueLocationType; set { _explicitNullValueLocationType = value; AdditionalData?.Remove("location_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_type"); else _explicitNullProperties?.Remove("location_type"); } }
+        private string? _explicitNullValueLocationType = default!;
+#nullable restore
+#else
+        public string LocationType { get => _explicitNullValueLocationType; set { _explicitNullValueLocationType = value; AdditionalData?.Remove("location_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_type"); else _explicitNullProperties?.Remove("location_type"); } }
+        private string _explicitNullValueLocationType = default!;
 #endif
         /// <summary>Postal or ZIP code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -129,10 +170,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "city", n => { City = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
+                { "delivery_point", n => { DeliveryPoint = n.GetStringValue(); } },
+                { "entity_linked_since", n => { EntityLinkedSince = n.GetStringValue(); } },
+                { "is_active", n => { IsActive = n.GetBoolValue(); } },
+                { "location_type", n => { LocationType = n.GetStringValue(); } },
                 { "postal_code", n => { PostalCode = n.GetStringValue(); } },
                 { "state_code", n => { StateCode = n.GetStringValue(); } },
                 { "street_line_1", n => { StreetLine1 = n.GetStringValue(); } },
@@ -149,6 +194,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("country_code", CountryCode);
+            writer.WriteStringValue("delivery_point", DeliveryPoint);
+            writer.WriteStringValue("entity_linked_since", EntityLinkedSince);
+            writer.WriteBoolValue("is_active", IsActive);
+            writer.WriteStringValue("location_type", LocationType);
             writer.WriteStringValue("postal_code", PostalCode);
             writer.WriteStringValue("state_code", StateCode);
             writer.WriteStringValue("street_line_1", StreetLine1);

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// **Beta:** Replaces the assistant&apos;s avatar configuration. Omit this field to leave the current configuration unchanged, or set it to `null` to remove the configuration.
+    /// Replaces the assistant&apos;s avatar configuration. Omit this field to leave the current configuration unchanged, or set it to `null` to remove the configuration.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateAssistantRequestAvatarSettings : IParsable

@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SignupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/signup{?filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bcustomer_id%5D*,filter%5Bwaba_id%5D*,page*}", pathParameters)
+        public SignupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/signup{?filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bcustomer_id%5D*,filter%5Bhosted_signup_id%5D*,filter%5Bwaba_id%5D*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SignupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/signup{?filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bcustomer_id%5D*,filter%5Bwaba_id%5D*,page*}", rawUrl)
+        public SignupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/whatsapp/signup{?filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bcustomer_id%5D*,filter%5Bhosted_signup_id%5D*,filter%5Bwaba_id%5D*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -119,6 +119,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Whatsapp.Signup
 #else
             [QueryParameter("filter%5Bcustomer_id%5D")]
             public string FiltercustomerId { get; set; }
+#endif
+            /// <summary>Filter by the hosted signup ID that produced the session</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bhosted_signup_id%5D")]
+            public string? FilterhostedSignupId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bhosted_signup_id%5D")]
+            public string FilterhostedSignupId { get; set; }
 #endif
             /// <summary>Filter by Meta WABA ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

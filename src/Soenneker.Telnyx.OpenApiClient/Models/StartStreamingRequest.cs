@@ -27,6 +27,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("dialogflow_config") is { } nullNodeDialogflowConfig && nullNodeDialogflowConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialogflowConfig = null;
             if (parseNode.GetChildNode("enable_dialogflow") is null) { _explicitNullValueEnableDialogflow = default!; _explicitNullProperties?.Remove("enable_dialogflow"); }
             else if (parseNode.GetChildNode("enable_dialogflow") is { } nullNodeEnableDialogflow && nullNodeEnableDialogflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDialogflow = null;
+            if (parseNode.GetChildNode("enable_reconnect") is null) { _explicitNullValueEnableReconnect = default!; _explicitNullProperties?.Remove("enable_reconnect"); }
+            else if (parseNode.GetChildNode("enable_reconnect") is { } nullNodeEnableReconnect && nullNodeEnableReconnect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableReconnect = null;
             if (parseNode.GetChildNode("stream_auth_token") is null) { _explicitNullValueStreamAuthToken = default!; _explicitNullProperties?.Remove("stream_auth_token"); }
             else if (parseNode.GetChildNode("stream_auth_token") is { } nullNodeStreamAuthToken && nullNodeStreamAuthToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamAuthToken = null;
             if (parseNode.GetChildNode("stream_bidirectional_codec") is null) { _explicitNullValueStreamBidirectionalCodec = default!; _explicitNullProperties?.Remove("stream_bidirectional_codec"); }
@@ -90,6 +92,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables Dialogflow for the current call. The default value is false.</summary>
         public bool? EnableDialogflow { get => _explicitNullValueEnableDialogflow; set { _explicitNullValueEnableDialogflow = value; AdditionalData?.Remove("enable_dialogflow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_dialogflow"); else _explicitNullProperties?.Remove("enable_dialogflow"); } }
         private bool? _explicitNullValueEnableDialogflow = default!;
+        /// <summary>Whether Telnyx reconnects to `stream_url` when the WebSocket connection drops unexpectedly. A reconnect uses the same `stream_url`, including its query string, and the same authentication token. Telnyx currently makes up to 4 connection attempts per disconnect, over several seconds. If the connection can&apos;t be restored, Telnyx sends a `streaming.failed` webhook and the call continues. When `false`, a disconnect ends the stream; if streaming had already started, Telnyx sends `streaming.stopped` instead of `streaming.failed`. See [Reconnects](https://developers.telnyx.com/docs/voice/programmable-voice/media-streaming#reconnects).</summary>
+        public bool? EnableReconnect { get => _explicitNullValueEnableReconnect; set { _explicitNullValueEnableReconnect = value; AdditionalData?.Remove("enable_reconnect"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_reconnect"); else _explicitNullProperties?.Remove("enable_reconnect"); } }
+        private bool? _explicitNullValueEnableReconnect = default!;
         /// <summary>An authentication token to be sent as part of the WebSocket connection. Maximum length is 4000 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,6 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             EnableDialogflow = false;
+            EnableReconnect = true;
             StreamBidirectionalSamplingRate = 8000;
         }
         /// <summary>
@@ -153,13 +159,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(13)
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_parameters", n => { CustomParameters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem>(global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "dialogflow_config", n => { DialogflowConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig.CreateFromDiscriminatorValue); } },
                 { "enable_dialogflow", n => { EnableDialogflow = n.GetBoolValue(); } },
+                { "enable_reconnect", n => { EnableReconnect = n.GetBoolValue(); } },
                 { "stream_auth_token", n => { StreamAuthToken = n.GetStringValue(); } },
                 { "stream_bidirectional_codec", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamBidirectionalCodec = default; _explicitNullProperties?.Remove("stream_bidirectional_codec"); AdditionalData["stream_bidirectional_codec"] = unknown; } else { StreamBidirectionalCodec = parsed; AdditionalData.Remove("stream_bidirectional_codec"); } } },
                 { "stream_bidirectional_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStreamBidirectionalMode = default; _explicitNullProperties?.Remove("stream_bidirectional_mode"); AdditionalData["stream_bidirectional_mode"] = unknown; } else { StreamBidirectionalMode = parsed; AdditionalData.Remove("stream_bidirectional_mode"); } } },
@@ -182,6 +189,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequestCustomParametersItem>("custom_parameters", CustomParameters);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>("dialogflow_config", DialogflowConfig);
             writer.WriteBoolValue("enable_dialogflow", EnableDialogflow);
+            writer.WriteBoolValue("enable_reconnect", EnableReconnect);
             writer.WriteStringValue("stream_auth_token", StreamAuthToken);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec>("stream_bidirectional_codec", StreamBidirectionalCodec);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>("stream_bidirectional_mode", StreamBidirectionalMode);

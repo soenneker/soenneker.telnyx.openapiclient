@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call. Beta feature.
+    /// Streams conversation and telephony events to a WebSocket server you host, and accepts messages injected back into the conversation. Telnyx opens the connection as a client, once per conversation. Delivery is best effort throughout: while the connection is down events are dropped rather than queued, and no socket failure is ever allowed to affect the call.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebsocketSettings : IAdditionalDataHolder, IParsable

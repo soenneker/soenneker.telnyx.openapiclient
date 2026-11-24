@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Identity information for the phone number&apos;s owner, including name and postal address. Populated when `type=caller-identity` is requested.</summary>
+        /// <summary>Identity information for the phone number&apos;s owner — name and postal address plus additional identity, line, and demographic detail. Populated when `type=caller-identity` is requested. Person-only fields (name parts, demographics) are null for a business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallerIdentity? CallerIdentity { get => _explicitNullValueCallerIdentity; set { _explicitNullValueCallerIdentity = value; AdditionalData?.Remove("caller_identity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_identity"); else _explicitNullProperties?.Remove("caller_identity"); } }

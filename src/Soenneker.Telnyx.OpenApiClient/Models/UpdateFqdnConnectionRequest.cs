@@ -57,6 +57,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("rtcp_settings") is { } nullNodeRtcpSettings && nullNodeRtcpSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RtcpSettings = null;
             if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
             else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("transfer_caller_id") is null) { _explicitNullValueTransferCallerId = default!; _explicitNullProperties?.Remove("transfer_caller_id"); }
+            else if (parseNode.GetChildNode("transfer_caller_id") is { } nullNodeTransferCallerId && nullNodeTransferCallerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferCallerId = null;
             if (parseNode.GetChildNode("transport_protocol") is null) { _explicitNullValueTransportProtocol = default!; _explicitNullProperties?.Remove("transport_protocol"); }
             else if (parseNode.GetChildNode("transport_protocol") is { } nullNodeTransportProtocol && nullNodeTransportProtocol.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransportProtocol = null;
             if (parseNode.GetChildNode("webhook_api_version") is null) { _explicitNullValueWebhookApiVersion = default!; _explicitNullProperties?.Remove("webhook_api_version"); }
@@ -201,6 +203,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
+        /// <summary>Selects the caller ID presented to the destination of a SIP REFER transfer: from-transferee uses the number of the party being transferred, from-transferor the number of the party initiating the transfer. Optional; omitting this field preserves the saved value. Only from-transferee and from-transferor are accepted; null and other values are rejected. This API provisions the preference; dialplan behavior is implemented separately.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdnConnectionRequestTransferCallerId? TransferCallerId { get => _explicitNullValueTransferCallerId; set { _explicitNullValueTransferCallerId = value; AdditionalData?.Remove("transfer_caller_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transfer_caller_id"); else _explicitNullProperties?.Remove("transfer_caller_id"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdnConnectionRequestTransferCallerId? _explicitNullValueTransferCallerId = default!;
         /// <summary>One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol? TransportProtocol { get => _explicitNullValueTransportProtocol; set { _explicitNullValueTransportProtocol = value; AdditionalData?.Remove("transport_protocol"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport_protocol"); else _explicitNullProperties?.Remove("transport_protocol"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol? _explicitNullValueTransportProtocol = default!;
@@ -258,7 +263,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(25)
+            return new Dictionary<string, Action<IParseNode>>(26)
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnchorsiteOverride = default; _explicitNullProperties?.Remove("anchorsite_override"); AdditionalData["anchorsite_override"] = unknown; } else { AnchorsiteOverride = parsed; AdditionalData.Remove("anchorsite_override"); } } },
@@ -280,6 +285,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn.CreateFromDiscriminatorValue); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "transfer_caller_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdnConnectionRequestTransferCallerId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTransferCallerId = default; _explicitNullProperties?.Remove("transfer_caller_id"); AdditionalData["transfer_caller_id"] = unknown; } else { TransferCallerId = parsed; AdditionalData.Remove("transfer_caller_id"); } } },
                 { "transport_protocol", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTransportProtocol = default; _explicitNullProperties?.Remove("transport_protocol"); AdditionalData["transport_protocol"] = unknown; } else { TransportProtocol = parsed; AdditionalData.Remove("transport_protocol"); } } },
                 { "webhook_api_version", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWebhookApiVersion = default; _explicitNullProperties?.Remove("webhook_api_version"); AdditionalData["webhook_api_version"] = unknown; } else { WebhookApiVersion = parsed; AdditionalData.Remove("webhook_api_version"); } } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
@@ -314,6 +320,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn>("outbound", Outbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdnConnectionRequestTransferCallerId>("transfer_caller_id", TransferCallerId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol>("transport_protocol", TransportProtocol);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

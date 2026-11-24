@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Recording layout for Google Meet and Teams. Defaults to speaker_view. Accepted at creation only; does not enable recording by itself.</summary>
+    /// <summary>Recording layout while nobody is sharing a screen. Defaults to speaker_view. gallery_view_v2 is a Zoom grid that also draws a named tile for participants whose camera is off; Google Meet and Teams treat it as gallery_view and return it as gallery_view. audio_only records a Zoom meeting without video; Google Meet and Teams reject it with 422 unsupported_capability. speaker_view_no_sidebar applies to Google Meet and Teams and is ignored for Zoom. Accepted at creation only; does not enable recording by itself.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateMeetingSessionRequestRecordingView
     {
@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "gallery_view")]
         #pragma warning disable CS1591
         GalleryView,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gallery_view_v2")]
+        #pragma warning disable CS1591
+        GalleryViewV2,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "audio_only")]
+        #pragma warning disable CS1591
+        AudioOnly,
         #pragma warning restore CS1591
         [EnumMember(Value = "speaker_view_no_sidebar")]
         #pragma warning disable CS1591

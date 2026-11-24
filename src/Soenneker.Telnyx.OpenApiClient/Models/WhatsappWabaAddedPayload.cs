@@ -21,6 +21,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
             if (parseNode.GetChildNode("event_id") is null) { _explicitNullValueEventId = default!; _explicitNullProperties?.Remove("event_id"); }
             else if (parseNode.GetChildNode("event_id") is { } nullNodeEventId && nullNodeEventId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventId = null;
+            if (parseNode.GetChildNode("hosted_signup_id") is null) { _explicitNullValueHostedSignupId = default!; _explicitNullProperties?.Remove("hosted_signup_id"); }
+            else if (parseNode.GetChildNode("hosted_signup_id") is { } nullNodeHostedSignupId && nullNodeHostedSignupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostedSignupId = null;
             if (parseNode.GetChildNode("phone_numbers") is null) { _explicitNullValuePhoneNumbers = default!; _explicitNullProperties?.Remove("phone_numbers"); }
             else if (parseNode.GetChildNode("phone_numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
             if (parseNode.GetChildNode("record_type") is null) { _explicitNullValueRecordType = default!; _explicitNullProperties?.Remove("record_type"); }
@@ -52,6 +54,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string EventId { get => _explicitNullValueEventId; set { _explicitNullValueEventId = value; AdditionalData?.Remove("event_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_id"); else _explicitNullProperties?.Remove("event_id"); } }
         private string _explicitNullValueEventId = default!;
+#endif
+        /// <summary>ID of the hosted signup URL that produced the session. Omitted for sessions not started from a hosted signup URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HostedSignupId { get => _explicitNullValueHostedSignupId; set { _explicitNullValueHostedSignupId = value; AdditionalData?.Remove("hosted_signup_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosted_signup_id"); else _explicitNullProperties?.Remove("hosted_signup_id"); } }
+        private string? _explicitNullValueHostedSignupId = default!;
+#nullable restore
+#else
+        public string HostedSignupId { get => _explicitNullValueHostedSignupId; set { _explicitNullValueHostedSignupId = value; AdditionalData?.Remove("hosted_signup_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosted_signup_id"); else _explicitNullProperties?.Remove("hosted_signup_id"); } }
+        private string _explicitNullValueHostedSignupId = default!;
 #endif
         /// <summary>Phone numbers found on the WABA. Omitted for standard sessions started with a phone_number_id, and for sessions that fail before Telnyx fetches the numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,10 +114,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(6)
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "event_id", n => { EventId = n.GetStringValue(); } },
+                { "hosted_signup_id", n => { HostedSignupId = n.GetStringValue(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "record_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WabaAccountAddedRecordType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordType = default; _explicitNullProperties?.Remove("record_type"); AdditionalData["record_type"] = unknown; } else { RecordType = parsed; AdditionalData.Remove("record_type"); } } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappWabaAddedPayloadStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
@@ -121,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
             writer.WriteStringValue("event_id", EventId);
+            writer.WriteStringValue("hosted_signup_id", HostedSignupId);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WabaAccountAddedRecordType>("record_type", RecordType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappWabaAddedPayloadStatus>("status", Status);

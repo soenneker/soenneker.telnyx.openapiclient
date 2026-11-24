@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Creates an editable RCS agent draft under a brand. The `Idempotency-Key` is scoped to the authenticated organization. Reusing the key with the same request returns the original agent, while reusing it with a different request returns a conflict.
+        /// Creates an editable RCS agent draft under a brand. The brand does not need to be submitted. When the brand status is no longer `CREATED`, Telnyx also creates the agent with the provider so test devices can be added before the agent is submitted. The `Idempotency-Key` is scoped to the authenticated organization. Reusing the key with the same request returns the original agent, while reusing it with a different request returns a conflict.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -87,7 +87,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.AgentImageValidationErrorResponseError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImageUnavailableErrorResponse">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,7 +107,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ValidationErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.AgentImageValidationErrorResponseError.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Telnyx.OpenApiClient.Models.ImageUnavailableErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Telnyx.OpenApiClient.Models.RcsRegistrationErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -133,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rcs.Agents
             return requestInfo;
         }
         /// <summary>
-        /// Creates an editable RCS agent draft under a brand. The `Idempotency-Key` is scoped to the authenticated organization. Reusing the key with the same request returns the original agent, while reusing it with a different request returns a conflict.
+        /// Creates an editable RCS agent draft under a brand. The brand does not need to be submitted. When the brand status is no longer `CREATED`, Telnyx also creates the agent with the provider so test devices can be added before the agent is submitted. The `Idempotency-Key` is scoped to the authenticated organization. Reusing the key with the same request returns the original agent, while reusing it with a different request returns a conflict.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -59,6 +59,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("valid_card_types") is { } nullNodeValidCardTypes && nullNodeValidCardTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidCardTypes = null;
             if (parseNode.GetChildNode("voice") is null) { _explicitNullValueVoice = default!; _explicitNullProperties?.Remove("voice"); }
             else if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("voice_settings") is null) { _explicitNullValueVoiceSettings = default!; _explicitNullProperties?.Remove("voice_settings"); }
+            else if (parseNode.GetChildNode("voice_settings") is { } nullNodeVoiceSettings && nullNodeVoiceSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VoiceSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -209,7 +211,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem?> ValidCardTypes { get => _explicitNullValueValidCardTypes; set { _explicitNullValueValidCardTypes = value; AdditionalData?.Remove("valid_card_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_card_types"); else _explicitNullProperties?.Remove("valid_card_types"); } }
         private List<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem?> _explicitNullValueValidCardTypes = default!;
 #endif
-        /// <summary>Voice used for payment prompts. Accepts `male`, `female`, or a provider voice in `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;` format, for example `AWS.Polly.Joanna` or `Telnyx.KokoroTTS.af`.</summary>
+        /// <summary>Voice used for payment prompts. Accepts `male`, `female`, or a provider voice in `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;` format, for example `AWS.Polly.Joanna`, `Telnyx.KokoroTTS.af`, or `ElevenLabs.eleven_flash_v2_5.&lt;voice_id&gt;`. ElevenLabs voices, including cloned and library voices referenced by their ElevenLabs voice ID, require `voice_settings.api_key_ref`. The voice is used for every prompt in the Pay session, including custom `prompts`. Community TTS voices are not supported for Pay prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
@@ -218,6 +220,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
         private string _explicitNullValueVoice = default!;
+#endif
+        /// <summary>Provider credentials for the prompt `voice`. Pay uses only `api_key_ref` and ignores every other key. Required for ElevenLabs voices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings? VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; AdditionalData?.Remove("voice_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings? _explicitNullValueVoiceSettings = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings VoiceSettings { get => _explicitNullValueVoiceSettings; set { _explicitNullValueVoiceSettings = value; AdditionalData?.Remove("voice_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice_settings"); else _explicitNullProperties?.Remove("voice_settings"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings _explicitNullValueVoiceSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PayRequest"/> and sets the default values.
@@ -250,7 +262,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(21)
+            return new Dictionary<string, Action<IParseNode>>(22)
             {
                 { "amount", n => { Amount = n.GetDoubleValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
@@ -273,6 +285,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "transaction_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestTransactionType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTransactionType = default; _explicitNullProperties?.Remove("transaction_type"); AdditionalData["transaction_type"] = unknown; } else { TransactionType = parsed; AdditionalData.Remove("transaction_type"); } } },
                 { "valid_card_types", n => { ValidCardTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem>()?.AsList(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -303,6 +316,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestTransactionType>("transaction_type", TransactionType);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestValidCardTypesItem>("valid_card_types", ValidCardTypes);
             writer.WriteStringValue("voice", Voice);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PayRequestVoiceSettings>("voice_settings", VoiceSettings);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

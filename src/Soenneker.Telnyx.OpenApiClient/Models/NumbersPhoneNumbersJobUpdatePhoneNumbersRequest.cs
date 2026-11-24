@@ -108,12 +108,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The voice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest? _explicitNullValueVoice = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
-        private global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest _explicitNullValueVoice = default!;
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest _explicitNullValueVoice = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumbersPhoneNumbersJobUpdatePhoneNumbersRequest"/> and sets the default values.
@@ -148,7 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest.CreateFromDiscriminatorValue); } },
+                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("hd_voice_enabled", HdVoiceEnabled);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePhoneNumberVoiceSettingsRequest>("voice", Voice);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumbersUpdatePhoneNumberVoiceSettingsRequest>("voice", Voice);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

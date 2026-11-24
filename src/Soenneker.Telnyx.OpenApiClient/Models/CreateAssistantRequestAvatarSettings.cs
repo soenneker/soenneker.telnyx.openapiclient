@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// **Beta:** Optional avatar configuration for supported realtime browser conversations. Omit or set to `null` to create the assistant without an avatar.
+    /// Optional avatar configuration for supported realtime browser conversations. Omit or set to `null` to create the assistant without an avatar.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAssistantRequestAvatarSettings : IParsable

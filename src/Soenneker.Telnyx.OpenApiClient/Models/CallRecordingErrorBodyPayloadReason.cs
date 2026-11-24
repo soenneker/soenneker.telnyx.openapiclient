@@ -23,5 +23,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         InternalServerError,
         #pragma warning restore CS1591
+        [EnumMember(Value = "Recording redaction failed, so the recording was not saved.")]
+        #pragma warning disable CS1591
+        RecordingRedactionFailedCommaSoTheRecordingWasNotSavedDot,
+        #pragma warning restore CS1591
     }
 }

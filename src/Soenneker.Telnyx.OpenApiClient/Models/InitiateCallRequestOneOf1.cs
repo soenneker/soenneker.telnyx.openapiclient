@@ -81,6 +81,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("Record") is { } nullNodeRecord && nullNodeRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Record = null;
             if (parseNode.GetChildNode("RecordingChannels") is null) { _explicitNullValueRecordingChannels = default!; _explicitNullProperties?.Remove("RecordingChannels"); }
             else if (parseNode.GetChildNode("RecordingChannels") is { } nullNodeRecordingChannels && nullNodeRecordingChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingChannels = null;
+            if (parseNode.GetChildNode("RecordingRedaction") is null) { _explicitNullValueRecordingRedaction = default!; _explicitNullProperties?.Remove("RecordingRedaction"); }
+            else if (parseNode.GetChildNode("RecordingRedaction") is { } nullNodeRecordingRedaction && nullNodeRecordingRedaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingRedaction = null;
             if (parseNode.GetChildNode("RecordingStatusCallback") is null) { _explicitNullValueRecordingStatusCallback = default!; _explicitNullProperties?.Remove("RecordingStatusCallback"); }
             else if (parseNode.GetChildNode("RecordingStatusCallback") is { } nullNodeRecordingStatusCallback && nullNodeRecordingStatusCallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingStatusCallback = null;
             if (parseNode.GetChildNode("RecordingStatusCallbackEvent") is null) { _explicitNullValueRecordingStatusCallbackEvent = default!; _explicitNullProperties?.Remove("RecordingStatusCallbackEvent"); }
@@ -295,6 +297,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The number of channels in the final recording. Defaults to `mono`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestRecordingChannels? RecordingChannels { get => _explicitNullValueRecordingChannels; set { _explicitNullValueRecordingChannels = value; AdditionalData?.Remove("RecordingChannels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingChannels"); else _explicitNullProperties?.Remove("RecordingChannels"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestRecordingChannels? _explicitNullValueRecordingChannels = default!;
+        /// <summary>Silences spoken details of the given kinds in the recording: one or more of `pci` (card number, expiry date, security code), `pii` (personal details such as names, phone numbers, addresses and other identifying numbers) and `phi` (health details such as medications, doses and conditions), separated by commas, for example `pci,pii`. Redaction works on English speech only. Redacted recordings are charged at the Deepgram speech-to-text rate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecordingRedaction { get => _explicitNullValueRecordingRedaction; set { _explicitNullValueRecordingRedaction = value; AdditionalData?.Remove("RecordingRedaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingRedaction"); else _explicitNullProperties?.Remove("RecordingRedaction"); } }
+        private string? _explicitNullValueRecordingRedaction = default!;
+#nullable restore
+#else
+        public string RecordingRedaction { get => _explicitNullValueRecordingRedaction; set { _explicitNullValueRecordingRedaction = value; AdditionalData?.Remove("RecordingRedaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RecordingRedaction"); else _explicitNullProperties?.Remove("RecordingRedaction"); } }
+        private string _explicitNullValueRecordingRedaction = default!;
+#endif
         /// <summary>The URL the recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -503,7 +515,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(61)
+            return new Dictionary<string, Action<IParseNode>>(62)
             {
                 { "ApplicationSid", n => { ApplicationSid = n.GetStringValue(); } },
                 { "AsyncAmd", n => { AsyncAmd = n.GetBoolValue(); } },
@@ -537,6 +549,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "PreferredCodecs", n => { PreferredCodecs = n.GetStringValue(); } },
                 { "Record", n => { Record = n.GetBoolValue(); } },
                 { "RecordingChannels", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestRecordingChannels>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordingChannels = default; _explicitNullProperties?.Remove("RecordingChannels"); AdditionalData["RecordingChannels"] = unknown; } else { RecordingChannels = parsed; AdditionalData.Remove("RecordingChannels"); } } },
+                { "RecordingRedaction", n => { RecordingRedaction = n.GetStringValue(); } },
                 { "RecordingStatusCallback", n => { RecordingStatusCallback = n.GetStringValue(); } },
                 { "RecordingStatusCallbackEvent", n => { RecordingStatusCallbackEvent = n.GetStringValue(); } },
                 { "RecordingStatusCallbackMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestRecordingStatusCallbackMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecordingStatusCallbackMethod = default; _explicitNullProperties?.Remove("RecordingStatusCallbackMethod"); AdditionalData["RecordingStatusCallbackMethod"] = unknown; } else { RecordingStatusCallbackMethod = parsed; AdditionalData.Remove("RecordingStatusCallbackMethod"); } } },
@@ -607,6 +620,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("PreferredCodecs", PreferredCodecs);
             writer.WriteBoolValue("Record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestRecordingChannels>("RecordingChannels", RecordingChannels);
+            writer.WriteStringValue("RecordingRedaction", RecordingRedaction);
             writer.WriteStringValue("RecordingStatusCallback", RecordingStatusCallback);
             writer.WriteStringValue("RecordingStatusCallbackEvent", RecordingStatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequestRecordingStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);

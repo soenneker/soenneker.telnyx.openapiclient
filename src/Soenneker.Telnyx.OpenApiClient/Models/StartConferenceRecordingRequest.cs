@@ -27,6 +27,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
             if (parseNode.GetChildNode("play_beep") is null) { _explicitNullValuePlayBeep = default!; _explicitNullProperties?.Remove("play_beep"); }
             else if (parseNode.GetChildNode("play_beep") is { } nullNodePlayBeep && nullNodePlayBeep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlayBeep = null;
+            if (parseNode.GetChildNode("redaction") is null) { _explicitNullValueRedaction = default!; _explicitNullProperties?.Remove("redaction"); }
+            else if (parseNode.GetChildNode("redaction") is { } nullNodeRedaction && nullNodeRedaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Redaction = null;
             if (parseNode.GetChildNode("region") is null) { _explicitNullValueRegion = default!; _explicitNullProperties?.Remove("region"); }
             else if (parseNode.GetChildNode("region") is { } nullNodeRegion && nullNodeRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Region = null;
             if (parseNode.GetChildNode("trim") is null) { _explicitNullValueTrim = default!; _explicitNullProperties?.Remove("trim"); }
@@ -64,6 +66,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>If enabled, a beep sound will be played at the start of a recording.</summary>
         public bool? PlayBeep { get => _explicitNullValuePlayBeep; set { _explicitNullValuePlayBeep = value; AdditionalData?.Remove("play_beep"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("play_beep"); else _explicitNullProperties?.Remove("play_beep"); } }
         private bool? _explicitNullValuePlayBeep = default!;
+        /// <summary>Silences spoken details of the given kinds in the recording: `pci` (card number, expiry date, security code), `pii` (personal details such as names, phone numbers, addresses and other identifying numbers) and `phi` (health details such as medications, doses and conditions). Redaction works on English speech only. Redacted recordings are charged at the Deepgram speech-to-text rate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestRedactionItem?>? Redaction { get => _explicitNullValueRedaction; set { _explicitNullValueRedaction = value; AdditionalData?.Remove("redaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction"); else _explicitNullProperties?.Remove("redaction"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestRedactionItem?>? _explicitNullValueRedaction = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestRedactionItem?> Redaction { get => _explicitNullValueRedaction; set { _explicitNullValueRedaction = value; AdditionalData?.Remove("redaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction"); else _explicitNullProperties?.Remove("redaction"); } }
+        private List<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestRedactionItem?> _explicitNullValueRedaction = default!;
+#endif
         /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get => _explicitNullValueRegion; set { _explicitNullValueRegion = value; AdditionalData?.Remove("region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region"); else _explicitNullProperties?.Remove("region"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? _explicitNullValueRegion = default!;
@@ -93,13 +105,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "channels", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestChannels>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueChannels = default; _explicitNullProperties?.Remove("channels"); AdditionalData["channels"] = unknown; } else { Channels = parsed; AdditionalData.Remove("channels"); } } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_file_name", n => { CustomFileName = n.GetStringValue(); } },
                 { "format", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestFormat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFormat = default; _explicitNullProperties?.Remove("format"); AdditionalData["format"] = unknown; } else { Format = parsed; AdditionalData.Remove("format"); } } },
                 { "play_beep", n => { PlayBeep = n.GetBoolValue(); } },
+                { "redaction", n => { Redaction = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestRedactionItem>()?.AsList(); } },
                 { "region", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegion = default; _explicitNullProperties?.Remove("region"); AdditionalData["region"] = unknown; } else { Region = parsed; AdditionalData.Remove("region"); } } },
                 { "trim", n => { var parsed = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTrim = default; _explicitNullProperties?.Remove("trim"); AdditionalData["trim"] = unknown; } else { Trim = parsed; AdditionalData.Remove("trim"); } } },
             };
@@ -116,6 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("custom_file_name", CustomFileName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestFormat>("format", Format);
             writer.WriteBoolValue("play_beep", PlayBeep);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequestRedactionItem>("redaction", Redaction);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrimSilenceTrim>("trim", Trim);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

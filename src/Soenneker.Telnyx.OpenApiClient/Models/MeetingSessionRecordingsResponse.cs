@@ -21,6 +21,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             else if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
             if (parseNode.GetChildNode("recording_export") is null) { _explicitNullValueRecordingExport = default!; _explicitNullProperties?.Remove("recording_export"); }
             else if (parseNode.GetChildNode("recording_export") is { } nullNodeRecordingExport && nullNodeRecordingExport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordingExport = null;
+            if (parseNode.GetChildNode("retention") is null) { _explicitNullValueRetention = default!; _explicitNullProperties?.Remove("retention"); }
+            else if (parseNode.GetChildNode("retention") is { } nullNodeRetention && nullNodeRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retention = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,6 +46,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseRecordingExport RecordingExport { get => _explicitNullValueRecordingExport; set { _explicitNullValueRecordingExport = value; AdditionalData?.Remove("recording_export"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recording_export"); else _explicitNullProperties?.Remove("recording_export"); } }
         private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseRecordingExport _explicitNullValueRecordingExport = default!;
+#endif
+        /// <summary>Automatic deletion state. Present only for sessions created with recording_retention.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus? Retention { get => _explicitNullValueRetention; set { _explicitNullValueRetention = value; AdditionalData?.Remove("retention"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention"); else _explicitNullProperties?.Remove("retention"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus? _explicitNullValueRetention = default!;
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus Retention { get => _explicitNullValueRetention; set { _explicitNullValueRetention = value; AdditionalData?.Remove("retention"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention"); else _explicitNullProperties?.Remove("retention"); } }
+        private global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus _explicitNullValueRetention = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponse"/> and sets the default values.
@@ -72,6 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseDataItem>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "recording_export", n => { RecordingExport = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseRecordingExport>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseRecordingExport.CreateFromDiscriminatorValue); } },
+                { "retention", n => { Retention = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -83,6 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseDataItem>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingsResponseRecordingExport>("recording_export", RecordingExport);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MeetingSessionRecordingRetentionStatus>("retention", Retention);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
